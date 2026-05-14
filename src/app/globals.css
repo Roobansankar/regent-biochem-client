@@ -1,26 +1,142 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-green: #3ab75b;
+  --color-green-dark: #2a8f45;
+  --color-green-light: #edf7f0;
+  --color-green-mid: #c8ead2;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-green-50: #f0fbf2;
+  --color-green-100: #d4f5db;
+  --color-green-200: #8fe0a0;
+  --color-green-300: #4dcc68;
+  --color-green-400: #22b83f;
+  --color-green-500: #1a9934;
+  --color-green-600: #147a2a;
+  --color-green-700: #0e5c1f;
+  --color-green-800: #0a4517;
+  --color-green-900: #062b0e;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-gray-50: #f5f7f4;
+  --color-gray-100: #e8ede7;
+  --color-gray-200: #cdd8cb;
+  --color-gray-300: #a8bca4;
+  --color-gray-400: #7d9478;
+  --color-gray-500: #5a6e55;
+  --color-gray-600: #3e4e3a;
+  --color-gray-700: #2a3328;
+  --color-gray-800: #1a2118;
+  --color-gray-900: #0f1511;
+
+  --color-brand-black: #111111;
+  --color-brand-body: #444444;
+  --color-brand-muted: #888888;
+  --color-brand-border: #e2e2e2;
+  --color-brand-bg2: #f6f8f6;
+  --color-brand-bg3: #f0f4f1;
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 8px 32px rgba(10, 69, 23, 0.10);
+  --shadow-float: 0 20px 60px rgba(10, 69, 23, 0.16);
+
+  --animate-fade-up: fadeUp 0.7s ease both;
+
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(28px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 }
 
-body {
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { 
+  font-family: var(--font-manrope), sans-serif; 
+  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Nav links */
+.nav-link { 
+  transition: all 0.3s ease; 
+}
+.nav-link:hover { color: #fff; }
+
+/* Scroll-reveal */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Timeline line */
+.tl-line::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #22b83f, #147a2a, #22b83f);
+  transform: translateX(-50%);
+}
+@media (max-width: 768px) {
+  .tl-line::before { left: 20px; }
+}
+
+/* Mission card top bar */
+.mission-bar::before { 
+  content:''; position:absolute; top:0; left:0; right:0; height:4px; 
+  background:linear-gradient(90deg,#22b83f,#147a2a); border-radius:14px 14px 0 0; 
+}
+.vision-bar::before { 
+  content:''; position:absolute; top:0; left:0; right:0; height:4px; 
+  background:linear-gradient(90deg,#1976d2,#42a5f5); border-radius:14px 14px 0 0; 
+}
+
+/* Hero patterns */
+.hero-pattern {
+  background-image: radial-gradient(circle, rgba(58,183,91,0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+@utility form-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 14px;
+  transition: all 0.3s;
+  outline: none;
+  &:focus {
+    border-color: #3ab75b;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(58, 183, 91, 0.1);
+  }
+}
+
+/* Product dot bg (kept from previous turn) */
+.dot-bg {
+  background-image: radial-gradient(circle, rgba(58,183,91,0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Scrollbar hide for tabs */
+.tabs-scroll::-webkit-scrollbar { display: none; }
+.tabs-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Hero gradient overlay (from Home page) */
+.hero-overlay {
+  background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.75) 40%, transparent 100%);
+}
+
+/* Card bottom line reveal (from Home page) */
+.why-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: #3ab75b; transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left;
+  border-radius: 0 0 12px 12px;
+}
+.why-card:hover::after { transform: scaleX(1); }
