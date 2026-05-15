@@ -9,7 +9,7 @@ const navData = [
   { name: "About Us", href: "/about" },
   {
     name: "Industries",
-    href: "#",
+    href: "/industries",
     mega: true,
     columns: [
       {

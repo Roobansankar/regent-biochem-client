@@ -135,6 +135,61 @@ export default async function IndustryPage({ params }) {
         </div>
       </section>
 
+      {/* Application Areas */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+            <div className="lg:w-1/2">
+              <p className="text-xs font-bold tracking-widest uppercase text-green mb-2">Operations Map</p>
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-black mb-6">Where We Apply Our Technology</h2>
+              <div className="space-y-6">
+                {industry.applicationAreas.map((item, index) => (
+                  <div key={index} className="group flex gap-5 items-start p-5 rounded-2xl hover:bg-brand-bg2 transition-colors border border-transparent hover:border-brand-border">
+                    <div className="w-10 h-10 rounded-xl bg-green-light flex items-center justify-center text-green font-bold shrink-0">
+                      0{index + 1}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-brand-black mb-1">{item.area}</h4>
+                      <p className="text-sm text-brand-body leading-relaxed">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="lg:w-1/2 relative">
+              <div className="absolute inset-0 bg-green-light rounded-[2.5rem] rotate-3 scale-105 opacity-50"></div>
+              <img 
+                src={industry.heroImage} 
+                alt="Application context" 
+                className="relative z-10 rounded-[2.5rem] shadow-2xl w-full h-[500px] object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Compliance & Standards */}
+      <section className="py-16 bg-brand-bg2">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-[2.5rem] p-8 sm:p-12 border border-brand-border shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+              <div>
+                <p className="text-xs font-bold tracking-widest uppercase text-green mb-2">Quality Assurance</p>
+                <h2 className="text-3xl font-extrabold tracking-tight text-brand-black">Regulatory & Safety Standards</h2>
+                <p className="text-brand-body mt-2 max-w-xl">Our solutions for the {industry.title} are fully compliant with relevant international and regional safety and environmental benchmarks.</p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                {industry.standards.map((standard, index) => (
+                  <span key={index} className="px-5 py-2.5 bg-brand-bg2 border border-brand-border rounded-full text-xs font-bold text-brand-black whitespace-nowrap">
+                    <i className="fas fa-certificate text-green mr-2"></i> {standard}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Strategic Benefits */}
       <section className="py-16">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -156,6 +211,37 @@ export default async function IndustryPage({ params }) {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recommended Solutions */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-xs font-bold tracking-widest uppercase text-green mb-2">Technical Alignment</p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-black">Recommended Solutions</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {industry.featuredProducts.map((product, index) => (
+              <div key={index} className="bg-brand-bg2 border border-brand-border rounded-[2rem] p-8 flex flex-col sm:flex-row items-center gap-8 hover:shadow-xl transition-all duration-500">
+                <div className="w-full sm:w-40 aspect-square bg-white rounded-2xl flex items-center justify-center p-4 shadow-sm shrink-0">
+                  {product.img ? (
+                    <img src={product.img} alt={product.title} className="max-w-full max-h-full object-contain" />
+                  ) : (
+                    <i className={`fas ${product.icon} text-4xl text-green`}></i>
+                  )}
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-xl font-bold text-brand-black mb-2">{product.title}</h4>
+                  <p className="text-sm text-brand-body leading-relaxed mb-6">{product.desc}</p>
+                  <Link href="#" className="text-xs font-bold uppercase tracking-widest text-green hover:text-green-dark inline-flex items-center gap-2">
+                    Product Details <i className="fas fa-arrow-right"></i>
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

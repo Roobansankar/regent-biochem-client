@@ -23,6 +23,17 @@ export const industries = [
       "Zero VOC options for environmental compliance",
       "Increased tool life in machining operations",
       "Consistent surface quality for coating adhesion"
+    ],
+    applicationAreas: [
+      { area: "Engine & Powertrain", description: "Precision degreasing of cylinder heads, blocks, and transmission gears." },
+      { area: "Chassis & Body", description: "Anti-spatter protection and surface prep for welding and assembly." },
+      { area: "Paint Shop", description: "Final stage cleaning and passivation for perfect paint adhesion." },
+      { area: "MRO / Tooling", description: "Eco-friendly cleaning of jigs, fixtures, and maintenance equipment." }
+    ],
+    standards: ["VDA 19 Part 1 & 2", "ISO 16232", "IATF 16949 Compliance", "REACH & RoHS"],
+    featuredProducts: [
+      { title: "HTW II Bio", desc: "Automated spray washer for engine components.", img: "/HTW-1200-Max-Eco-1200x1200.jpg" },
+      { title: "SafeWeld System", desc: "Anti-spatter for robotic welding cells.", img: "/SafeWeld.jpg" }
     ]
   },
   {
@@ -49,6 +60,17 @@ export const industries = [
       "Improved dimensional accuracy of parts",
       "Healthier workshop environment (low odor/mist)",
       "Minimized downtime for machine cleaning"
+    ],
+    applicationAreas: [
+      { area: "Milling & Turning", description: "In-process cleaning and cooling for high-speed machining centers." },
+      { area: "Inspection Prep", description: "Removing all oily residues for accurate CMM measurement." },
+      { area: "Sump Management", description: "Bio-stabilization and filtration of machine tool fluids." },
+      { area: "Chip Processing", description: "Cleaning and degreasing of metal swarf for recycling." }
+    ],
+    standards: ["ISO 9001:2015", "OSHA HCS 2012", "Environmental ISO 14001", "TRGS 611 Compliance"],
+    featuredProducts: [
+      { title: "GT Parts Washer", desc: "Bench-top cleaning for machined parts.", img: "/GT Parts Washer.webp" },
+      { title: "BioClean Concentrate", desc: "High-performance CNC degreaser.", icon: "fa-flask" }
     ]
   },
   {
@@ -75,6 +97,17 @@ export const industries = [
       "Extended life for casting moulds and patterns",
       "Improved workplace safety and hygiene",
       "Regulatory compliance for waste discharge"
+    ],
+    applicationAreas: [
+      { area: "Mould Cleaning", description: "Removing release agents and resin buildup from complex patterns." },
+      { area: "Core Shop", description: "Sanitizing core boxes and preventing material sticking." },
+      { area: "Finishing / Fettling", description: "Heavy degreasing of large castings before machining." },
+      { area: "Die Casting", description: "Thermal-stable lubricants and cleaning for high-pressure dies." }
+    ],
+    standards: ["ISO 9001:2015", "Emissions Standard 42. BImSchV", "Hazardous Waste Directive", "OHSAS 18001"],
+    featuredProducts: [
+      { title: "HTW II Bio", desc: "Heavy-duty immersion & spray cleaning.", img: "/HTW-1200-Max-Eco-1200x1200.jpg" },
+      { title: "CorroShield Coating", desc: "Heat-stable surface protection.", icon: "fa-shield-alt" }
     ]
   },
   {
@@ -100,7 +133,18 @@ export const industries = [
       "Superior surface finish of forged parts",
       "Reduced labor for manual descaling",
       "Enhanced corrosion protection after forming",
-      "Lower operational costs through chemical efficiency"
+      "Lowered operational costs through chemical efficiency"
+    ],
+    applicationAreas: [
+      { area: "Hot Forging", description: "Removing carbonized lubricants and thermal oxides." },
+      { area: "Cold Forming", description: "Removing heavy forming soaps and phosphate coatings." },
+      { area: "Die Maintenance", description: "Cleaning of forging dies to maintain dimensional accuracy." },
+      { area: "Heat Treatment Prep", description: "Degreasing parts before quenching or tempering." }
+    ],
+    standards: ["ISO 9001:2015", "Heat Treatment CQI-9", "Surface Quality DIN EN 10228", "REACH Compliance"],
+    featuredProducts: [
+      { title: "BioClean Concentrate", desc: "Graphite-removal formulation.", icon: "fa-flask" },
+      { title: "AutoPurge System", desc: "Automated die cleaning cycles.", icon: "fa-wind" }
     ]
   },
   {
@@ -127,6 +171,17 @@ export const industries = [
       "Safer working conditions for technicians",
       "Faster turnaround for equipment maintenance",
       "Compliance with internal sustainability goals"
+    ],
+    applicationAreas: [
+      { area: "Facility Maintenance", description: "General cleaning of production floors and stationary assets." },
+      { area: "Component Overhaul", description: "Deep cleaning of motors, gearboxes, and pumps for repair." },
+      { area: "Inspection / NDT", description: "Surface prep for Non-Destructive Testing and crack detection." },
+      { area: "Fleet Maintenance", description: "Cleaning and protecting mobile industrial assets." }
+    ],
+    standards: ["OSHA 29 CFR", "EPA Safer Choice", "ISO 45001 (Safety)", "VOC Directive 2004/42/EC"],
+    featuredProducts: [
+      { title: "GT Parts Washer", desc: "Bio-remediating manual unit.", img: "/GT Parts Washer.webp" },
+      { title: "SafeWeld System", desc: "Weld repair and passivation.", img: "/SafeWeld.jpg" }
     ]
   },
   {
@@ -153,6 +208,17 @@ export const industries = [
       "Extended life for subsea and surface assets",
       "Zero-spill chemical delivery systems",
       "Reduced maintenance costs in remote locations"
+    ],
+    applicationAreas: [
+      { area: "Drilling Operations", description: "Cleaning of drill strings, bits, and mud handling systems." },
+      { area: "Pipeline Maintenance", description: "Internal pigging chemicals and external corrosion wraps." },
+      { area: "Refinery Services", description: "Heat exchanger cleaning and storage tank degreasing." },
+      { area: "Offshore Platforms", description: "Salt-spray protection and heavy-duty deck cleaning." }
+    ],
+    standards: ["NACE / AMPP Standards", "API RP Series", "ATEX / IECEx", "OCNS / CEFAS Category E"],
+    featuredProducts: [
+      { title: "AutoPurge System", desc: "Pipeline residue management.", icon: "fa-wind" },
+      { title: "CorroShield Coating", desc: "Marine-grade rust prevention.", icon: "fa-shield-alt" }
     ]
   },
   {
@@ -179,6 +245,17 @@ export const industries = [
       "Reduced water and chemical usage in CIP",
       "Extended shelf life for food products",
       "Protection of brand reputation through hygiene"
+    ],
+    applicationAreas: [
+      { area: "Processing Lines", description: "Sanitizing conveyors, mixers, and filling machinery." },
+      { area: "Bottling / Canning", description: "Cleaning of sensitive nozzles and capping equipment." },
+      { area: "Cold Storage", description: "Cleaning and mold prevention in refrigerated environments." },
+      { area: "Wastewater / Grease Traps", description: "Bio-active treatment of high-BOD effluent." }
+    ],
+    standards: ["NSF H1 & A1", "FDA 21 CFR", "HACCP Principles", "ISO 22000 (FSMS)"],
+    featuredProducts: [
+      { title: "BioClean Concentrate", desc: "NSF certified degreaser.", icon: "fa-flask" },
+      { title: "GT Parts Washer", desc: "Stainless steel food-grade unit.", img: "/GT Parts Washer.webp" }
     ]
   },
   {
@@ -205,6 +282,17 @@ export const industries = [
       "Lowered rate of fabric rejects and staining",
       "Increased lifespan of weaving equipment",
       "Reduced downtime for scheduled maintenance"
+    ],
+    applicationAreas: [
+      { area: "Spinning & Weaving", description: "Removing lint and wax from high-speed spindles and looms." },
+      { area: "Dyeing / Finishing", description: "Cleaning of rollers and tanks between color changes." },
+      { area: "Knitting Machines", description: "Precision cleaning of fine-gauge needles and cams." },
+      { area: "Sewing / Assembly", description: "Dry lubrication and cleaning of industrial sewing heads." }
+    ],
+    standards: ["OEKO-TEX Standard 100", "ZDHC Compliance", "ISO 9001:2015", "Bluesign Criteria"],
+    featuredProducts: [
+      { title: "AutoPurge System", desc: "Dye tank residue removal.", icon: "fa-wind" },
+      { title: "HTW II Bio", desc: "Automated loom component washer.", img: "/HTW-1200-Max-Eco-1200x1200.jpg" }
     ]
   }
 ];
