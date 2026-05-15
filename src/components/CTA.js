@@ -1,6 +1,6 @@
 export default function CTA() {
   return (
-    <section className="bg-green py-16 px-4 sm:px-6 lg:px-8">
+    <section className="bg-green py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-3">

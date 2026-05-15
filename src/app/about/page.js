@@ -29,7 +29,7 @@ export default function About() {
 
       {/* ─── PAGE HERO (Landscape Card - Light Theme) ─── */}
       <div className="px-4 sm:px-6 lg:px-10 pt-8 pb-4">
-        <section className="bg-brand-bg3 py-16 md:py-24 relative overflow-hidden rounded-[2.5rem] shadow-sm border border-brand-border hero-pattern">
+        <section className="bg-brand-bg3 py-12 md:py-16 relative overflow-hidden rounded-[2.5rem] shadow-sm border border-brand-border hero-pattern">
           {/* Decorative background effects */}
           <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none">
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-green-light rounded-full blur-[100px]"></div>
@@ -56,7 +56,7 @@ export default function About() {
       </div>
 
       {/* ─── COMPANY OVERVIEW ─── */}
-      <section id="our-story" className="pt-20 pb-10 sm:pt-24 sm:pb-12 px-4 sm:px-6 lg:px-8">
+      <section id="our-story" className="pt-12 pb-8 sm:pt-16 sm:pb-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           {/* Image block */}
           <div className="reveal relative">
@@ -96,9 +96,9 @@ export default function About() {
       </section>
 
       {/* ─── MISSION & VISION ─── */}
-      <section className="bg-gray-50 pt-10 pb-20 sm:pt-12 sm:pb-24 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gray-50 pt-8 pb-12 sm:pt-10 sm:pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1600px] mx-auto">
-          <div className="text-center mb-12 reveal">
+          <div className="text-center mb-8 reveal">
             <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
               <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Mission &amp; Vision
             </div>
@@ -125,9 +125,9 @@ export default function About() {
       </section>
 
       {/* ─── CORE VALUES ─── */}
-      <section id="quality" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8">
+      <section id="quality" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1600px] mx-auto">
-          <div className="text-center mb-12 reveal">
+          <div className="text-center mb-10 reveal">
             <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
               <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Core Values
             </div>
@@ -151,9 +151,9 @@ export default function About() {
       </section>
 
       {/* ─── TIMELINE ─── */}
-      <section id="commitment" className="bg-gray-50 py-20 sm:py-24 px-4 sm:px-6 lg:px-8">
+      <section id="commitment" className="bg-gray-50 py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-14 reveal">
+          <div className="text-center mb-10 reveal">
             <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
               <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Company History
             </div>

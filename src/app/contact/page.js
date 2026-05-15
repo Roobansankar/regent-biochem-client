@@ -11,7 +11,7 @@ export default function Contact() {
 
       {/* ─── PAGE HERO ─── */}
       <div className="px-4 sm:px-6 lg:px-10 pt-8 pb-4">
-        <section className="bg-brand-bg3 py-16 md:py-24 relative overflow-hidden rounded-[2.5rem] shadow-sm border border-brand-border hero-pattern">
+        <section className="bg-brand-bg3 py-12 md:py-16 relative overflow-hidden rounded-[2.5rem] shadow-sm border border-brand-border hero-pattern">
           <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none">
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-green-light rounded-full blur-[100px]"></div>
             <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-green-mid rounded-full blur-[100px]"></div>
@@ -35,7 +35,7 @@ export default function Contact() {
         </section>
       </div>
 
-      <main className="py-20 px-4 sm:px-6 lg:px-8">
+      <main className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1600px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
             
@@ -151,7 +151,7 @@ export default function Contact() {
           </div>
 
           {/* Map Placeholder */}
-          <div className="mt-20 rounded-[2.5rem] overflow-hidden h-96 border border-gray-100 reveal grayscale hover:grayscale-0 transition-all duration-700 shadow-sm">
+          <div className="mt-12 rounded-[2.5rem] overflow-hidden h-96 border border-gray-100 reveal grayscale hover:grayscale-0 transition-all duration-700 shadow-sm">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.282998344485!2d76.95886!3d11.012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859af2f973067%3A0x1036365f5a894a8f!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy"></iframe>
           </div>
         </div>

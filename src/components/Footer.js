@@ -65,6 +65,32 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+          {/* Industries */}
+          <div>
+            <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-4">Industries</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/industries/automotive" className="text-sm text-brand-muted hover:text-green transition-colors">
+                  Automotive
+                </Link>
+              </li>
+              <li>
+                <Link href="/industries/cnc-machining" className="text-sm text-brand-muted hover:text-green transition-colors">
+                  CNC Machining
+                </Link>
+              </li>
+              <li>
+                <Link href="/industries/oil-gas" className="text-sm text-brand-muted hover:text-green transition-colors">
+                  Oil & Gas
+                </Link>
+              </li>
+              <li>
+                <Link href="/industries/food-beverage" className="text-sm text-brand-muted hover:text-green transition-colors">
+                  Food & Beverage
+                </Link>
+              </li>
+            </ul>
+          </div>
           {/* Company */}
           <div>
             <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-4">Company</h4>

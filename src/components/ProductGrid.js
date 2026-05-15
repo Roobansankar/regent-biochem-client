@@ -47,9 +47,9 @@ export default function ProductGrid() {
   ];
 
   return (
-    <section className="bg-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-12 sm:py-14 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
             <p className="text-xs font-bold tracking-widest uppercase text-green mb-2">Our Range</p>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-black">All Products</h2>

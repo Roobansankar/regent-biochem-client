@@ -7,7 +7,7 @@ export default function Hero() {
       style={{ backgroundImage: "url('/hero.png')" }}
     >
       <div className="hero-overlay absolute inset-0 z-10"></div>
-      <div className="relative z-20 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <div className="relative z-20 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-14">
         <div className="max-w-xl">
           <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-green mb-6 animate-fade-up-1">
             <span>—</span> Green Way to Growth

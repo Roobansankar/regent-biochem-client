@@ -5,7 +5,7 @@ export const services = [
     subtitle: "Advanced Internal Maintenance",
     description: "Specialized cleaning systems for industrial pipelines, ensuring optimal flow and preventing blockages through innovative chemical and mechanical processes.",
     icon: "fa-faucet",
-    heroImage: "https://contenthub.rosen-group.com/api/public/content/0115084480524cf29183ca94f68056e1?v=0970cdbe&t=rw3456",
+    heroImage: "https://images.squarespace-cdn.com/content/v1/6495ace4409a2a506cc4b8a8/dcc34794-6990-4caf-b018-0a6cd1bdb4d2/pipeline%2Bcleaning%2Bservices.jpg",
     features: [
       {
         title: "Scale & Deposit Removal",

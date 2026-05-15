@@ -1,7 +1,7 @@
 export default function Stats() {
   return (
     <section className="bg-white border-b border-brand-border">
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Text */}
         <div>
           <p className="text-xs font-bold tracking-widest uppercase text-green mb-3">Established 1984</p>

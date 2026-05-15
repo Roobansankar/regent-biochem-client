@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function Offerings() {
   return (
-    <section id="offerings" className="bg-brand-bg2 py-20 px-4 sm:px-6 lg:px-8">
+    <section id="offerings" className="bg-brand-bg2 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <p className="text-xs font-bold tracking-widest uppercase text-green mb-3">What We Offer</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-black mb-4">
             Precision Offerings

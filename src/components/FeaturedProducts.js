@@ -41,7 +41,7 @@ export default function FeaturedProducts() {
 
   return (
     <section className="bg-brand-bg2">
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-8 sm:pb-20">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-8 sm:pb-12">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
             <p className="text-xs font-bold tracking-widest uppercase text-green mb-2">Featured Products</p>

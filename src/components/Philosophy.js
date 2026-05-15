@@ -4,7 +4,7 @@ export default function Philosophy() {
   return (
     <section className="border-t border-b border-brand-border bg-white">
       {/* Mobile Header (hidden on lg) */}
-      <div className="lg:hidden px-6 pt-12 pb-2">
+      <div className="lg:hidden px-6 pt-8 pb-2">
         <p className="text-xs font-bold tracking-widest uppercase text-green mb-3">Our Philosophy</p>
         <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-black leading-tight">
           Green Way
@@ -23,7 +23,7 @@ export default function Philosophy() {
           />
         </div>
         {/* Text Content */}
-        <div className="order-2 lg:order-1 flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-10 lg:py-20">
+        <div className="order-2 lg:order-1 flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-8 lg:py-12">
           {/* Laptop Header (hidden on mobile/tab) */}
           <div className="hidden lg:block">
             <p className="text-xs font-bold tracking-widest uppercase text-green mb-3">Our Philosophy</p>

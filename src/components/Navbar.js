@@ -15,19 +15,19 @@ const navData = [
       {
         label: "Manufacturing Industries",
         items: [
-          { name: "Automotive", href: "#" },
-          { name: "CNC", href: "#" },
-          { name: "Foundry", href: "#" },
-          { name: "Forging", href: "#" },
+          { name: "Automotive", href: "/industries/automotive" },
+          { name: "CNC Machining", href: "/industries/cnc-machining" },
+          { name: "Foundry", href: "/industries/foundry" },
+          { name: "Forging", href: "/industries/forging" },
         ],
       },
       {
         label: "Process Industries",
         items: [
-          { name: "MRO", href: "#" },
-          { name: "Oil & Gas", href: "#" },
-          { name: "Food", href: "#" },
-          { name: "Textile", href: "#" },
+          { name: "MRO & Maintenance", href: "/industries/mro-maintenance" },
+          { name: "Oil & Gas", href: "/industries/oil-gas" },
+          { name: "Food & Beverage", href: "/industries/food-beverage" },
+          { name: "Textile Industry", href: "/industries/textile-industry" },
         ],
       },
     ],
