@@ -39,23 +39,28 @@ export default function Footer() {
             <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-4">Solutions</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/services/automatic-cleaning-systems" className="text-sm text-brand-muted hover:text-green transition-colors">
-                  Automatic Cleaning
+                <Link href="/services/pipeline-cleaning-solutions" className="text-sm text-brand-muted hover:text-green transition-colors">
+                  Pipeline Cleaning
                 </Link>
               </li>
               <li>
-                <Link href="/services/manual-parts-washers" className="text-sm text-brand-muted hover:text-green transition-colors">
-                  Manual Washers
+                <Link href="/services/cooling-tower-cleaning" className="text-sm text-brand-muted hover:text-green transition-colors">
+                  Cooling Towers
                 </Link>
               </li>
               <li>
-                <Link href="/services/welding-surface-protection" className="text-sm text-brand-muted hover:text-green transition-colors">
-                  Welding Protection
+                <Link href="/services/mould-injection-cleaning" className="text-sm text-brand-muted hover:text-green transition-colors">
+                  Mould & Injection
                 </Link>
               </li>
               <li>
-                <Link href="/services/custom-chemical-formulations" className="text-sm text-brand-muted hover:text-green transition-colors">
-                  Custom Formulations
+                <Link href="/services/heat-exchanger-cleaning" className="text-sm text-brand-muted hover:text-green transition-colors">
+                  Heat Exchangers
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/operational-impact-assessment" className="text-sm text-brand-muted hover:text-green transition-colors">
+                  Impact Assessment
                 </Link>
               </li>
             </ul>

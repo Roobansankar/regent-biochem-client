@@ -70,10 +70,11 @@ const navData = [
     name: "Services",
     href: "#",
     children: [
-      { name: "Automatic Cleaning Systems", href: "/services/automatic-cleaning-systems" },
-      { name: "Manual Parts Washers", href: "/services/manual-parts-washers" },
-      { name: "Welding Surface Protection", href: "/services/welding-surface-protection" },
-      { name: "Custom Chemical Formulations", href: "/services/custom-chemical-formulations" },
+      { name: "Pipeline Cleaning Solutions", href: "/services/pipeline-cleaning-solutions" },
+      { name: "Cooling Tower Cleaning", href: "/services/cooling-tower-cleaning" },
+      { name: "Mould & Injection Cleaning", href: "/services/mould-injection-cleaning" },
+      { name: "Heat Exchanger Cleaning", href: "/services/heat-exchanger-cleaning" },
+      { name: "Operational Impact Assessment", href: "/services/operational-impact-assessment" },
     ],
   },
   {
