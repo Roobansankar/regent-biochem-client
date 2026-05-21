@@ -9,52 +9,73 @@ export default function IndustriesIndex() {
     <main className="flex flex-col min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="bg-brand-bg3 py-16 md:py-20 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-green-light rounded-full blur-[100px]"></div>
-        </div>
+      {/* Hero Section - Clean, Airy, and Professional */}
+      <section className="relative pt-20 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
+        {/* Soft Background Elements */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-green-50 to-transparent -z-10"></div>
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-green-50 rounded-full blur-[100px] -z-10"></div>
         
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <p className="text-xs font-bold tracking-widest uppercase text-green mb-4">Market Expertise</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-brand-black leading-tight tracking-tight mb-6">
-            Industries We <span className="text-green">Serve</span>
-          </h1>
-          <p className="text-base sm:text-lg text-brand-body leading-relaxed max-w-2xl mx-auto">
-            From precision medical components to heavy offshore infrastructure, we provide the specialized chemistry and machinery that drives modern industry.
-          </p>
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-light border border-green-mid mb-6">
+              <span className="w-2 h-2 rounded-full bg-green animate-pulse"></span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-green">Market Sectors</span>
+            </div>
+            <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-brand-black leading-[1.05] tracking-tight mb-8">
+              Industries We <br/> <span className="text-green">Serve</span>
+            </h1>
+            <p className="text-lg sm:text-xl text-brand-body leading-relaxed border-l-4 border-green-mid pl-8">
+              From high-precision medical engineering to heavy industrial manufacturing, we provide the specialized chemistry and machinery that drives modern industry forward.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Industries Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      {/* Industries Showcase - Staggered Unique Layout */}
+      <section className="pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1600px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
             {industries.map((industry, index) => (
               <Link 
                 key={index} 
                 href={`/industries/${industry.slug}`}
-                className="group relative bg-white border border-brand-border rounded-[2rem] overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                className={`group relative flex flex-col bg-white rounded-[2.5rem] border border-brand-border overflow-hidden transition-all duration-700 hover:shadow-2xl hover:border-green-mid ${index % 2 !== 0 ? 'md:mt-16' : ''}`}
               >
-                <div className="aspect-[4/3] overflow-hidden">
+                {/* Image Container with unique aspect ratio */}
+                <div className="aspect-[16/10] overflow-hidden relative">
                   <img 
                     src={industry.heroImage} 
                     alt={industry.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-brand-black/20 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-60"></div>
+                  
+                  {/* Floating Icon Box */}
+                  <div className="absolute top-8 left-8 w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-green shadow-xl border border-brand-border group-hover:bg-green group-hover:text-white transition-all duration-500">
+                    <i className={`fas ${industry.icon} text-2xl`}></i>
+                  </div>
                 </div>
                 
-                <div className="absolute bottom-0 left-0 w-full p-8">
-                  <div className="w-12 h-12 bg-green rounded-xl flex items-center justify-center text-white mb-4 shadow-lg transform group-hover:rotate-12 transition-transform">
-                    <i className={`fas ${industry.icon} text-xl`}></i>
-                  </div>
-                  <h3 className="text-xl font-extrabold text-white mb-2">{industry.title}</h3>
-                  <p className="text-white/70 text-sm line-clamp-2 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="p-10 lg:p-12">
+                  <h3 className="text-3xl font-black text-brand-black mb-6 group-hover:text-green transition-colors">{industry.title}</h3>
+                  <p className="text-brand-body leading-relaxed mb-10 line-clamp-3">
                     {industry.description}
                   </p>
-                  <div className="mt-4 flex items-center gap-2 text-green font-bold text-xs uppercase tracking-widest translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                    Explore Solutions <i className="fas fa-arrow-right"></i>
+                  
+                  {/* Tags Preview */}
+                  <div className="flex flex-wrap gap-2 mb-10">
+                    {industry.handles.slice(0, 3).map((tag, i) => (
+                      <span key={i} className="px-4 py-2 bg-brand-bg2 rounded-xl text-[10px] font-bold text-brand-muted uppercase tracking-wider">
+                        {tag}
+                      </span>
+                    ))}
+                    <span className="px-4 py-2 bg-green-light rounded-xl text-[10px] font-bold text-green uppercase tracking-wider">
+                      +{industry.handles.length - 3} More
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-3 text-sm font-black text-brand-black uppercase tracking-widest group-hover:gap-5 transition-all">
+                    Explore Solutions <i className="fas fa-arrow-right text-green"></i>
                   </div>
                 </div>
               </Link>
@@ -63,27 +84,30 @@ export default function IndustriesIndex() {
         </div>
       </section>
 
-      {/* Capabilities Overview */}
-      <section className="py-16 bg-brand-bg2 border-t border-b border-brand-border">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 text-center">
-            <div>
-              <div className="text-4xl text-green mb-4"><i className="fas fa-microscope"></i></div>
-              <h4 className="text-lg font-bold text-brand-black mb-3">Custom Formulation</h4>
-              <p className="text-sm text-brand-body leading-relaxed">Our R&D labs develop bespoke chemical solutions tailored to the unique metallurgy and contaminants of your specific sector.</p>
+      {/* Expertise Section - Minimal Light Design */}
+      <section className="py-24 bg-brand-bg2 border-t border-b border-brand-border">
+         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-20">
+               <h2 className="text-4xl font-black text-brand-black mb-4">Precision Engineering</h2>
+               <p className="text-brand-body max-w-2xl mx-auto">Our multi-disciplinary approach combines chemical innovation with mechanical excellence.</p>
             </div>
-            <div>
-              <div className="text-4xl text-green mb-4"><i className="fas fa-cogs"></i></div>
-              <h4 className="text-lg font-bold text-brand-black mb-3">Modular Machinery</h4>
-              <p className="text-sm text-brand-body leading-relaxed">We engineer cleaning systems that integrate seamlessly into existing production lines, regardless of industry scale.</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+               {[
+                 { title: "Custom Formulation", desc: "Bespoke chemistry for unique metallurgy.", icon: "fa-flask" },
+                 { title: "Scaleable Systems", desc: "Machinery that grows with your production.", icon: "fa-cogs" },
+                 { title: "Pure Compliance", desc: "Exceeding global environmental standards.", icon: "fa-leaf" }
+               ].map((item, i) => (
+                 <div key={i} className="bg-white p-10 rounded-[2rem] border border-brand-border shadow-sm hover:shadow-lg transition-all">
+                    <div className="w-14 h-14 bg-green-light rounded-2xl flex items-center justify-center text-green mb-8">
+                       <i className={`fas ${item.icon} text-xl`}></i>
+                    </div>
+                    <h4 className="text-xl font-black text-brand-black mb-4">{item.title}</h4>
+                    <p className="text-sm text-brand-body leading-relaxed">{item.desc}</p>
+                 </div>
+               ))}
             </div>
-            <div>
-              <div className="text-4xl text-green mb-4"><i className="fas fa-leaf"></i></div>
-              <h4 className="text-lg font-bold text-brand-black mb-3">Global Compliance</h4>
-              <p className="text-sm text-brand-body leading-relaxed">Every solution is designed to meet or exceed the world's strictest environmental and safety standards (ISO, NSF, REACH).</p>
-            </div>
-          </div>
-        </div>
+         </div>
       </section>
 
       <CTA />

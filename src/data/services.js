@@ -3,170 +3,134 @@ export const services = [
     slug: "pipeline-cleaning-solutions",
     title: "Pipeline Cleaning Solutions",
     subtitle: "Advanced Internal Maintenance",
-    description: "Specialized cleaning systems for industrial pipelines, ensuring optimal flow and preventing blockages through innovative chemical and mechanical processes.",
+    shortDescription: "Effective cleaning of internal circulation systems like pipelines and heat exchangers without dismantling.",
+    description: "RWR System is designed for effective cleaning of internal circulation systems such as pipelines, heat exchangers, and temperature control units without the need for dismantling. Through heated circulation cleaning and controlled fluid movement, the system helps remove scale, rust, corrosion deposits, oil residues, and other internal build-ups. It supports better flow, improved heat transfer, reduced maintenance interruptions, and reliable system performance. The system is suitable for industries that face reduced flow, pressure drop, poor heating or cooling efficiency, frequent blockages, or contamination inside closed-loop systems. By selecting the right cleaning solution based on the system material and type of deposit, the RWR System helps restore cleanliness while reducing unnecessary downtime.",
     icon: "fa-faucet",
     heroImage: "https://images.squarespace-cdn.com/content/v1/6495ace4409a2a506cc4b8a8/dcc34794-6990-4caf-b018-0a6cd1bdb4d2/pipeline%2Bcleaning%2Bservices.jpg",
-    features: [
-      {
-        title: "Scale & Deposit Removal",
-        description: "Powerful formulations that dissolve mineral scale and organic deposits without damaging pipe walls."
-      },
-      {
-        title: "Flow Optimization",
-        description: "Restores original pipeline capacity and reduces pumping energy requirements."
-      },
-      {
-        title: "Corrosion Inhibition",
-        description: "Integrated inhibitors that protect internal surfaces after cleaning for long-term integrity."
-      }
+    problems: [
+      "Limescale deposits", "Corrosion & Rust", "Mineral build-up", "Oil cracking", 
+      "Blocked systems", "Reduced heat transfer", "Poor cooling efficiency", "Maintenance delays"
     ],
-    benefits: [
-      "Significant reduction in energy costs",
-      "Prevention of costly emergency repairs",
-      "Extended service life of infrastructure",
-      "Improved product quality through cleaner systems"
+    contaminants: [
+      "Limescale", "Rust", "Corrosion deposits", "Mineral deposits", "Oil cracking", "Grease", "Oils", "Oil carbon"
     ],
     process: [
-      { step: "01", title: "Diagnostic Audit", description: "Evaluating pipeline condition and contaminant types." },
-      { step: "02", title: "Method Selection", description: "Choosing the optimal chemical or mechanical cleaning approach." },
-      { step: "03", title: "Execution", description: "Controlled cleaning process with real-time monitoring." },
-      { step: "04", title: "Verification", description: "Post-cleaning inspection and flow rate testing." }
-    ]
+      { step: "01", title: "Consultation", description: "Initial discussion to understand the system and issues." },
+      { step: "02", title: "System Assessment", description: "Detailed evaluation of pipe size, material, and contamination." },
+      { step: "03", title: "Solution Selection", description: "Choosing the right cleaning chemistry based on system material." },
+      { step: "04", title: "Execution", description: "Heated circulation cleaning without dismantling." },
+      { step: "05", title: "Performance Review", description: "Verifying flow restoration and system cleanliness." },
+      { step: "06", title: "Follow-up", description: "Providing ongoing maintenance support and documentation." }
+    ],
+    infoNeeded: [
+      "Type of system to be cleaned", "Pipe/Heat exchanger size", "Material of the system", 
+      "Type of contamination", "Current cleaning method", "Photos if available", 
+      "Downtime availability", "Required cleaning frequency", "Site location", "Contact details"
+    ],
+    industries: ["Automotive", "CNC", "Fabrication", "MRO", "Oil and Gas", "Food", "Textile"]
   },
   {
     slug: "cooling-tower-cleaning",
     title: "Cooling Tower Cleaning",
     subtitle: "Thermal Efficiency & Safety",
-    description: "Professional maintenance and cleaning for cooling towers to maintain thermal efficiency, prevent Legionella, and ensure regulatory compliance.",
+    shortDescription: "Professional maintenance to restore heat transfer and ensure regulatory compliance.",
+    description: "Comprehensive cleaning and disinfection services for cooling towers. We remove biological growth, scale, and debris from fill media and basins to restore thermal performance and mitigate Legionella risks.",
     icon: "fa-wind",
     heroImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600",
-    features: [
-      {
-        title: "Biofilm Control",
-        description: "Targeted biocides and cleaning agents that eliminate hazardous biofilms and pathogens."
-      },
-      {
-        title: "Fill Media Cleaning",
-        description: "Deep-cleaning solutions for tower fill to restore heat transfer surfaces."
-      },
-      {
-        title: "Basin & Sump Sanitation",
-        description: "Thorough removal of sludge and debris from cooling water collection points."
-      }
+    problems: [
+      "Biofilm accumulation", "Legionella risks", "Fill media clogging", 
+      "Reduced cooling capacity", "Regulatory non-compliance", "Sludge buildup"
     ],
-    benefits: [
-      "Guaranteed regulatory compliance",
-      "Enhanced heat transfer efficiency",
-      "Reduced water and chemical consumption",
-      "Mitigation of Legionella risks"
+    contaminants: [
+      "Algae & Biofilm", "Scale deposits", "Sediment & Sludge", "Airborne debris", "Corrosion byproducts"
     ],
     process: [
-      { step: "01", title: "Site Assessment", description: "Detailed inspection of tower components and water quality." },
-      { step: "02", title: "Safety Planning", description: "Developing strict protocols for chemical handling and site access." },
-      { step: "03", title: "Sanitization", description: "Systematic cleaning of all internal and external surfaces." },
-      { step: "04", title: "Certification", description: "Issuing formal compliance and hygiene reports." }
-    ]
+      { step: "01", title: "Inspection", description: "Visual and thermal audit of tower performance." },
+      { step: "02", title: "Water Treatment", description: "Pre-cleaning biocide treatment for safety." },
+      { step: "03", title: "Mechanical Cleaning", description: "Pressure washing of fill and basin sanitation." },
+      { step: "04", title: "Certification", description: "Providing hygiene and performance reports." }
+    ],
+    infoNeeded: [
+      "Tower model/capacity", "Fill type", "Last cleaning date", "Water quality reports", "Site access requirements"
+    ],
+    industries: ["HVAC", "Power Generation", "Data Centers", "Manufacturing", "Hospitals"]
   },
   {
     slug: "mould-injection-cleaning",
     title: "Mould & Injection Cleaning",
     subtitle: "Precision Tooling Maintenance",
-    description: "Precision cleaning for moulds and injection systems to ensure product quality, minimize scrap rates, and extend equipment longevity.",
+    shortDescription: "Non-abrasive cleaning to remove plastic residues and protect high-polish mould finishes.",
+    description: "Specialized cleaning for injection moulds and hot runner systems. Our solutions remove burnt-on polymers and release agents without damaging delicate surfaces or complex geometries.",
     icon: "fa-industry",
     heroImage: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1600",
-    features: [
-      {
-        title: "Residue Removal",
-        description: "Non-abrasive cleaning agents that remove burnt-on plastics and release agent buildup."
-      },
-      {
-        title: "Complex Geometry Care",
-        description: "Penetrating solutions that reach into intricate mould details and cooling channels."
-      },
-      {
-        title: "Surface Preservation",
-        description: "Formulations designed to clean without affecting the high-polish finish of moulds."
-      }
+    problems: [
+      "Polymer degradation", "Clogged vent lines", "High scrap rates", 
+      "Surface finish issues", "Frequent downtime", "Expensive tooling damage"
     ],
-    benefits: [
-      "Reduced cycle times and scrap rates",
-      "Minimized downtime for mould swaps",
-      "Protected capital investment in tooling",
-      "Improved aesthetic finish of parts"
+    contaminants: [
+      "Burnt plastics", "Release agents", "Rust in cooling channels", "Carbonized additives", "Grease"
     ],
     process: [
-      { step: "01", title: "Consultation", description: "Analyzing material residue and mould sensitivity." },
-      { step: "02", title: "Recipe Customization", description: "Adjusting cleaning parameters for specific polymers." },
-      { step: "03", title: "In-Situ/Ex-Situ Cleaning", description: "Executing the cleaning process on or off the machine." },
-      { step: "04", title: "Quality Check", description: "Inspecting surface integrity and release performance." }
-    ]
+      { step: "01", title: "Residue Analysis", description: "Identifying the specific polymer and additive buildup." },
+      { step: "02", title: "Cleaning Selection", description: "Choosing between ultrasonic or chemical immersion." },
+      { step: "03", title: "Precision Wash", description: "Targeted removal of residues from cavities and vents." },
+      { step: "04", title: "Protection", description: "Applying rust preventive for storage or immediate use." }
+    ],
+    infoNeeded: [
+      "Mould material", "Type of polymer used", "Mould dimensions", "Cavity complexity", "Available downtime"
+    ],
+    industries: ["Plastic Injection", "Packaging", "Automotive", "Medical Device Mfg", "Electronics"]
   },
   {
     slug: "heat-exchanger-cleaning",
     title: "Heat Exchanger Cleaning",
     subtitle: "Restoring Thermal Performance",
-    description: "Advanced cleaning solutions for all types of heat exchangers to restore thermal efficiency and reduce energy consumption across industrial processes.",
+    shortDescription: "Chemical descaling and cleaning for all types of heat exchangers to reduce energy costs.",
+    description: "Advanced descaling and cleaning for shell-and-tube or plate heat exchangers. We restore optimal Delta-T and flow rates by removing calcium, silica, and organic fouling.",
     icon: "fa-temperature-high",
     heroImage: "https://images.unsplash.com/photo-1532187875605-2fe358a3d46a?auto=format&fit=crop&q=80&w=1600",
-    features: [
-      {
-        title: "Chemical Descaling",
-        description: "Efficient removal of calcium, silica, and other mineral scales from plate and shell units."
-      },
-      {
-        title: "Hydro-Jetting Integration",
-        description: "Coordinated chemical and high-pressure water cleaning for severe blockages."
-      },
-      {
-        title: "Performance Monitoring",
-        description: "Pre- and post-cleaning Delta-T analysis to verify efficiency gains."
-      }
+    problems: [
+      "Thermal efficiency loss", "High pressure drop", "Calcium scaling", 
+      "Silica buildup", "Increased energy consumption", "Flow restrictions"
     ],
-    benefits: [
-      "Immediate reduction in fuel consumption",
-      "Prevention of thermal stress damage",
-      "Maximized process throughput",
-      "Lowered carbon footprint"
+    contaminants: [
+      "Calcium scale", "Silica", "Biofouling", "Corrosion products", "Oil films", "Process residues"
     ],
     process: [
-      { step: "01", title: "Performance Audit", description: "Measuring current thermal efficiency vs. design specs." },
-      { step: "02", title: "Isolation & Setup", description: "Safe bypass and connection of cleaning equipment." },
-      { step: "03", title: "Chemical Circulation", description: "Controlled loop cleaning with pH and concentration monitoring." },
-      { step: "04", title: "Efficiency Validation", description: "Final testing to confirm thermal recovery." }
-    ]
+      { step: "01", title: "Efficiency Audit", description: "Measuring current vs. design heat transfer rates." },
+      { step: "02", title: "Isolation", description: "Safe bypass and connection of circulation equipment." },
+      { step: "03", title: "Chemical Loop", description: "Circulating specialized descalers with pH monitoring." },
+      { step: "04", title: "Verification", description: "Post-cleaning pressure and temperature testing." }
+    ],
+    infoNeeded: [
+      "Heat exchanger type", "Exchanger size/capacity", "Material of construction", "Fouling type", "Flow rate data"
+    ],
+    industries: ["Refineries", "Chemical Plants", "HVAC", "Food Processing", "Marine"]
   },
   {
     slug: "operational-impact-assessment",
     title: "Operational Impact Assessment",
-    subtitle: "Sustainability & Efficiency Analytics",
-    description: "Comprehensive assessment of the operational efficiency, cost-effectiveness, and environmental impact of your industrial cleaning processes.",
+    subtitle: "Efficiency & Sustainability Analytics",
+    shortDescription: "Data-driven analysis of your cleaning processes to identify cost and energy savings.",
+    description: "Comprehensive evaluation of your current industrial cleaning operations. we analyze chemical usage, waste generation, energy consumption, and labor to provide a roadmap for optimization and cost reduction.",
     icon: "fa-chart-pie",
     heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600",
-    features: [
-      {
-        title: "TCO Analysis",
-        description: "Calculating the Total Cost of Ownership including energy, waste, and labor."
-      },
-      {
-        title: "Environmental Footprint",
-        description: "Quantifying VOC emissions, water usage, and chemical waste impact."
-      },
-      {
-        title: "Process Optimization",
-        description: "Identifying bottlenecks and recommending high-ROI technology upgrades."
-      }
+    problems: [
+      "High operational costs", "Excessive chemical waste", "Energy inefficiency", 
+      "Poor ESG reporting", "Process bottlenecks", "Regulatory compliance risk"
     ],
-    benefits: [
-      "Data-driven investment decisions",
-      "Enhanced ESG reporting capabilities",
-      "Identified cost savings opportunities",
-      "Alignment with future environmental regs"
+    contaminants: [
+      "Chemical waste", "Wasted energy", "Inefficient labor hours", "Excessive water usage"
     ],
     process: [
-      { step: "01", title: "Data Collection", description: "Gathering utility, chemical usage, and waste data." },
-      { step: "02", title: "Benchmark Comparison", description: "Evaluating performance against industry standards." },
-      { step: "03", title: "Impact Modeling", description: "Simulating improvements from new technologies." },
-      { step: "04", title: "Strategic Roadmap", description: "Providing a phased plan for efficiency gains." }
-    ]
+      { step: "01", title: "Data Gathering", description: "Reviewing utility bills, chemical orders, and waste logs." },
+      { step: "02", title: "Benchmarking", description: "Comparing current performance against industry best practices." },
+      { step: "03", title: "Gap Analysis", description: "Identifying specific areas for efficiency improvement." },
+      { step: "04", title: "Strategic Roadmap", description: "Presenting a phased ROI-based improvement plan." }
+    ],
+    infoNeeded: [
+      "Current chemical usage data", "Waste disposal costs", "Energy logs", "Labor allocation", "Production goals"
+    ],
+    industries: ["Corporate", "Manufacturing Facilities", "Plant Management", "Sustainability Teams"]
   }
 ];

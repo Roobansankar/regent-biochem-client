@@ -44,7 +44,7 @@ export default function FeaturedProducts() {
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-8 sm:pb-12">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
-            <p className="text-xs font-bold tracking-widest uppercase text-green mb-2">Featured Products</p>
+            <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-2">Featured Products</p>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-black">
               Flagship products, <em className="text-green">field-proven globally.</em>
             </h2>

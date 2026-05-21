@@ -6,7 +6,7 @@ export default function Offerings() {
     <section id="offerings" className="bg-brand-bg2 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto">
         <div className="text-center mb-10">
-          <p className="text-xs font-bold tracking-widest uppercase text-green mb-3">What We Offer</p>
+          <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">What We Offer</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-black mb-4">
             Precision Offerings
           </h2>
@@ -26,7 +26,7 @@ export default function Offerings() {
               </div>
               <h3 className="text-xl font-extrabold text-brand-black mb-3 tracking-tight">{service.title}</h3>
               <p className="text-sm text-brand-body leading-relaxed mb-6">
-                {service.description}
+                {service.shortDescription}
               </p>
               <span className="mt-auto text-xs font-bold uppercase tracking-widest text-green group-hover:text-green-dark inline-flex items-center gap-2">
                 Learn More <i className="fas fa-arrow-right"></i>

@@ -51,7 +51,7 @@ export default function ProductGrid() {
       <div className="max-w-[1600px] mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
-            <p className="text-xs font-bold tracking-widest uppercase text-green mb-2">Our Range</p>
+            <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-2">Our Range</p>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-black">All Products</h2>
           </div>
           <Link

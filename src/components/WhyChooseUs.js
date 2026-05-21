@@ -36,7 +36,7 @@ export default function WhyChooseUs() {
     <section className="bg-brand-bg2 pt-10 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto">
         <div className="text-center mb-8">
-          <p className="text-xs font-bold tracking-widest uppercase text-green mb-3">Why Choose Us</p>
+          <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">Why Choose Us</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-black mb-4">
             The Regent Biochem <em className="text-green">Advantage</em>
           </h2>

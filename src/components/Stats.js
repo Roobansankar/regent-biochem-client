@@ -4,7 +4,7 @@ export default function Stats() {
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Text */}
         <div>
-          <p className="text-xs font-bold tracking-widest uppercase text-green mb-3">Established 1984</p>
+          <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">Established 1984</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-brand-black mb-4">
             40+ Years of
             <br />
