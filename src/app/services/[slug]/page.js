@@ -85,8 +85,12 @@ export default async function ServicePage({ params }) {
 
       {/* Key Features Section */}
       {service.keyFeatures && (
-        <section className="py-16 bg-brand-bg2/50 border-y border-brand-border">
+        <section className="py-20 bg-brand-bg2/50 border-y border-brand-border">
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-black mb-4 uppercase tracking-tight">Technical Advantages & Capabilities</h2>
+              <p className="text-brand-body text-lg">Our proprietary RWR technology delivers superior results through advanced engineering and specialized chemistry.</p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {service.keyFeatures.map((feature, index) => (
                 <div key={index} className="bg-white p-8 rounded-[2rem] border border-brand-border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
