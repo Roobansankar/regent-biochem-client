@@ -34,34 +34,34 @@ const navData = [
   },
   {
     name: "Products",
-    href: "#",
+    href: "/products",
     mega: true,
     columns: [
       {
         label: "Cleaning Systems",
         items: [
-          { name: "Industry Part Washers", href: "#" },
-          { name: "Automatic Systems", href: "#" },
-          { name: "Manual Systems", href: "#" },
-          { name: "Semi Automatic Systems", href: "#" },
+          { name: "Industry Part Washers", href: "/products?category=cleaning-systems" },
+          { name: "Automatic Systems", href: "/products" },
+          { name: "Manual Systems", href: "/products" },
+          { name: "Semi Automatic Systems", href: "/products" },
         ],
       },
       {
         label: "Paint Removal Systems",
         items: [
-          { name: "Pipe Cleaning Systems", href: "#" },
-          { name: "RWR", href: "#" },
-          { name: "RWR KST", href: "#" },
+          { name: "Pipe Cleaning Systems", href: "/products" },
+          { name: "RWR", href: "/products" },
+          { name: "RWR KST", href: "/products" },
         ],
       },
       {
         label: "Product Range",
         items: [
-          { name: "Anti-Spatter", href: "#" },
-          { name: "Weld Cleaning", href: "#" },
-          { name: "Surface Protection", href: "#" },
-          { name: "General Cleaners", href: "#" },
-          { name: "Finishing Chemicals", href: "#" },
+          { name: "Anti-Spatter", href: "/products" },
+          { name: "Weld Cleaning", href: "/products" },
+          { name: "Surface Protection", href: "/products" },
+          { name: "General Cleaners", href: "/products" },
+          { name: "Finishing Chemicals", href: "/products" },
         ],
       },
     ],

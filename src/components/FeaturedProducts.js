@@ -49,6 +49,12 @@ export default function FeaturedProducts() {
               Flagship products, <em className="text-green">field-proven globally.</em>
             </h2>
           </div>
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-2 text-sm font-bold text-green border border-green rounded px-5 py-2.5 hover:bg-green hover:text-white transition-colors whitespace-nowrap self-start sm:self-auto"
+          >
+            View All Products <i className="fas fa-arrow-right text-xs"></i>
+          </Link>
         </div>
         {/* Tabs */}
         <div className="flex tabs-scroll overflow-x-auto border border-brand-border rounded-lg bg-white w-fit mb-8 max-w-full">

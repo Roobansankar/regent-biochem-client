@@ -1,50 +1,8 @@
 import Link from "next/link";
+import { products } from "@/data/products";
 
 export default function ProductGrid() {
-  const products = [
-    {
-      category: "Cleaning Systems",
-      title: "HTW II Bio Washer",
-      desc: "Hot-water spray cleaning with bio-active chemical compatibility.",
-      icon: "fa-spray-can",
-    },
-    {
-      category: "Parts Washers",
-      title: "GT Parts Washer Pro",
-      desc: "Bench-top aqueous cleaning for precision machined components.",
-      icon: "fa-industry",
-    },
-    {
-      category: "Welding",
-      title: "SafeWeld Anti-Spatter",
-      desc: "Water-based anti-spatter fluid that protects surfaces and tooling.",
-      icon: "fa-fire-alt",
-    },
-    {
-      category: "Chemicals",
-      title: "BioClean Concentrate",
-      desc: "Eco-certified industrial degreaser for ferrous and non-ferrous metals.",
-      icon: "fa-flask",
-    },
-    {
-      category: "Automation",
-      title: "AutoPurge System",
-      desc: "Automated pipeline purging for zero-residue chemical changeovers.",
-      icon: "fa-wind",
-    },
-    {
-      category: "Protection",
-      title: "CorroShield Coating",
-      desc: "Temporary rust-preventive film for storage and inter-process protection.",
-      icon: "fa-shield-alt",
-    },
-    {
-      category: "Fluids",
-      title: "CoolTech Cutting Fluid",
-      desc: "Semi-synthetic metalworking fluid for high-speed CNC machining.",
-      icon: "fa-tint",
-    },
-  ];
+  const displayProducts = products.slice(0, 7);
 
   return (
     <section className="bg-white py-12 sm:py-14 px-4 sm:px-6 lg:px-8">
@@ -55,14 +13,14 @@ export default function ProductGrid() {
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-black">All Products</h2>
           </div>
           <Link
-            href="#"
+            href="/products"
             className="inline-flex items-center gap-2 text-sm font-bold text-green border border-green rounded px-5 py-2.5 hover:bg-green hover:text-white transition-colors whitespace-nowrap self-start sm:self-auto"
           >
             View All Products <i className="fas fa-arrow-right text-xs"></i>
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {products.map((product, i) => (
+          {displayProducts.map((product, i) => (
             <div
               key={i}
               className="group border border-brand-border rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 bg-white cursor-pointer"
@@ -77,7 +35,7 @@ export default function ProductGrid() {
                 <h3 className="text-base font-bold text-brand-black mt-1 mb-2 leading-snug">{product.title}</h3>
                 <p className="text-xs text-brand-body leading-relaxed mb-4">{product.desc}</p>
                 <Link
-                  href="#"
+                  href={`/products/${product.slug}`}
                   className="inline-flex items-center justify-center w-full bg-green text-white text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-lg hover:bg-green-dark transition-all shadow-sm"
                 >
                   View Product
@@ -93,9 +51,9 @@ export default function ProductGrid() {
                 <i className="fas fa-th-large text-green group-hover:text-white transition-colors text-xl"></i>
               </div>
               <p className="text-sm font-bold text-green mb-1">Explore More</p>
-              <p className="text-xs text-brand-muted mb-4">50+ products across all categories</p>
+              <p className="text-xs text-brand-muted mb-4">{products.length}+ products across all categories</p>
               <Link
-                href="#"
+                href="/products"
                 className="inline-block bg-green text-white font-bold text-xs px-5 py-2.5 rounded-lg hover:bg-green-dark transition-colors"
               >
                 View All Products
