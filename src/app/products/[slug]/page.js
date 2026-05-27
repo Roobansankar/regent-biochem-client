@@ -347,21 +347,48 @@ export default async function ProductDetailPage({ params }) {
               {/* Similar Products */}
               {product.similarProducts && product.similarProducts.length > 0 && (
                 <div>
-                  <div className="flex items-center gap-3 mb-6">
+                  <div className="flex items-center gap-3 mb-10">
                     <span className="w-10 h-px bg-green/30"></span>
                     <span className="text-[10px] font-black uppercase tracking-[0.3em] text-green">
-                      Similar Products
+                      Similar Solutions
                     </span>
                   </div>
-                  <div className="flex flex-wrap gap-3">
-                    {product.similarProducts.map((name, i) => (
-                      <span
-                        key={i}
-                        className="px-5 py-2.5 rounded-2xl bg-brand-bg2 border border-brand-border text-sm font-bold text-brand-black hover:border-green hover:text-green hover:bg-green-light transition-all cursor-pointer"
-                      >
-                        {name}
-                      </span>
-                    ))}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {product.similarProducts.map((ref, i) => {
+                      // Find the actual product object by title or slug
+                      const similarProd = products.find(p => p.title === ref || p.slug === ref || p.id === ref);
+                      
+                      // If not found, skip or show placeholder (here we skip if not found in real data to keep it clean)
+                      if (!similarProd) return null;
+
+                      return (
+                        <div
+                          key={i}
+                          className="group border border-brand-border rounded-[2rem] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-500 bg-white"
+                        >
+                          <div className="dot-bg bg-brand-bg3 aspect-[4/3] flex items-center justify-center p-6 relative">
+                             {similarProd.img ? (
+                               <img src={similarProd.img} alt={similarProd.title} className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110" />
+                             ) : (
+                               <div className="w-16 h-16 bg-green-light rounded-2xl flex items-center justify-center text-green group-hover:bg-green group-hover:text-white transition-all">
+                                 <i className={`fas ${similarProd.icon} text-2xl`}></i>
+                               </div>
+                             )}
+                          </div>
+                          <div className="p-6">
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-green">{similarProd.category}</span>
+                            <h4 className="text-base font-black text-brand-black mt-1 mb-2 leading-snug uppercase tracking-tight line-clamp-1">{similarProd.title}</h4>
+                            <p className="text-[11px] text-brand-body leading-relaxed mb-4 line-clamp-2 h-8">{similarProd.desc}</p>
+                            <Link
+                              href={`/products/${similarProd.slug}`}
+                              className="inline-flex items-center justify-center w-full bg-brand-black text-white text-[10px] font-black uppercase tracking-widest py-3 rounded-xl hover:bg-green transition-all shadow-sm"
+                            >
+                              View Details
+                            </Link>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               )}
