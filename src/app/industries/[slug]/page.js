@@ -42,7 +42,7 @@ export default async function IndustryPage({ params }) {
                 {industry.title}
               </h1>
               
-              <p className="text-lg sm:text-xl text-brand-body leading-relaxed mb-12 border-l-4 border-green pl-8 max-w-2xl italic">
+              <p className="text-lg sm:text-xl text-brand-body leading-relaxed mb-12 border-l-4 border-green pl-8 max-w-2xl justify-content">
                 {industry.description}
               </p>
               
@@ -90,105 +90,206 @@ export default async function IndustryPage({ params }) {
         </div>
       </section>
 
-      {/* Materials Bar - Distinct from services */}
+      {/* Materials Overview Bar */}
       <section id="overview" className="py-16 bg-white border-t border-brand-border">
          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-brand-bg2 rounded-[3rem] p-10 lg:p-16">
                <div className="flex flex-col lg:flex-row items-center gap-12">
                   <div className="lg:w-1/4 text-center lg:text-left">
-                     <h3 className="text-2xl font-black text-brand-black mb-2">Core Materials</h3>
-                     <p className="text-sm text-brand-muted">Precision handling of critical components.</p>
+                     <h3 className="text-2xl font-black text-brand-black mb-2 uppercase tracking-tight">Core Materials</h3>
+                     <p className="text-sm text-brand-muted">Technical handling overview.</p>
                   </div>
-                  <div className="lg:w-3/4 flex flex-wrap justify-center lg:justify-start gap-3">
-                     {industry.handles.map((item, index) => (
-                       <div key={index} className="px-6 py-3 bg-white border border-brand-border rounded-2xl text-xs font-bold text-brand-black shadow-sm flex items-center gap-3">
-                          <i className="fas fa-microchip text-[10px] text-green"></i>
-                          {item}
-                       </div>
-                     ))}
+                  <div className="lg:w-3/4 flex flex-wrap justify-center lg:justify-start gap-4">
+                     {industry.handles.map((item, index) => {
+                       const isObject = typeof item === 'object';
+                       const title = isObject ? item.title : item;
+                       const description = isObject ? item.description : null;
+
+                       return (
+                        <div key={index} className="px-6 py-4 bg-white border border-brand-border rounded-2xl shadow-sm flex flex-col gap-2 hover:border-green-mid transition-all group/mat max-w-[320px]">
+                           <div className="flex items-center gap-3">
+                              <i className="fas fa-microchip text-xs text-green group-hover/mat:scale-110 transition-transform"></i>
+                              <span className="text-xs font-black text-brand-black uppercase tracking-wider">
+                                {title}
+                              </span>
+                           </div>
+                           {description && (
+                             <p className="text-xs text-brand-muted leading-tight line-clamp-1 pl-6 font-medium italic">
+                               {description}
+                             </p>
+                           )}
+                        </div>
+                       );
+                     })}
                   </div>
                </div>
             </div>
          </div>
       </section>
 
-      {/* Challenges & Applications - Distinct Layout */}
-      <section className="py-24 bg-white">
+      {/* Narrative Technical Content */}
+      <section className="py-20 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-             
-             {/* Challenges */}
-             <div>
-                <div className="inline-flex items-center gap-2 text-green font-black uppercase tracking-[0.3em] text-xs mb-6">
-                   <span className="w-8 h-px bg-green"></span> Market Painpoints
-                </div>
-                <h2 className="text-4xl font-black text-brand-black mb-12">Critical Challenges</h2>
+          
+          {/* Top Row: Challenges & Applications */}
+          <div className="mb-24">
+            {/* Challenges Section */}
+            <div className="mb-24">
+              <div className="flex items-center gap-3 mb-8">
+                <span className="w-10 h-px bg-green/30"></span>
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-green">Engineering Challenges</span>
+              </div>
+              <h2 className="text-3xl font-black text-brand-black mb-12 uppercase tracking-tight">Critical Market Painpoints</h2>
 
-                <div className="space-y-6">
-                   {industry.commonChallenges.map((item, index) => (
-                     <div key={index} className="p-8 bg-white border border-brand-border rounded-[2.5rem] hover:shadow-xl transition-all">
-                        <h3 className="text-xl font-black text-brand-black mb-6 uppercase tracking-tight flex items-center gap-4">
-                           <div className="w-10 h-10 bg-green-light rounded-xl flex items-center justify-center text-green">
-                              <i className={`fas ${item.icon}`}></i>
-                           </div>
-                           {item.category}
-                        </h3>
-                        <div className="grid grid-cols-1 gap-4">
+              <div className="space-y-12">
+                {industry.commonChallenges.map((item, index) => (
+                  <div key={index} className="grid grid-cols-1 lg:grid-cols-12 gap-6 group">
+                    <div className="lg:col-span-4">
+                      <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-xl bg-brand-bg2 flex items-center justify-center text-green group-hover:bg-green group-hover:text-white transition-all duration-500 shrink-0">
+                          <i className={`fas ${item.icon} text-sm`}></i>
+                        </div>
+                        <h3 className="text-lg font-black text-brand-black uppercase tracking-tight">{item.category}</h3>
+                      </div>
+                    </div>
+                    <div className="lg:col-span-8">
+                      {item.description ? (
+                        <p className="text-base text-brand-body leading-relaxed text-justify border-l-2 border-brand-bg2 pl-6 group-hover:border-green transition-colors duration-500">
+                          {item.description}
+                        </p>
+                      ) : (
+                        <div className="grid grid-cols-1 gap-3 border-l-2 border-brand-bg2 pl-6">
                           {item.challenges.map((challenge, cIndex) => (
-                            <div key={cIndex} className="flex gap-4 items-start p-4 bg-brand-bg2 rounded-2xl group/item hover:bg-white hover:shadow-sm transition-all">
-                              <div className="w-5 h-5 rounded-md bg-green-light flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-green group-hover/item:text-white transition-colors">
-                                <i className="fas fa-diamond text-[6px]"></i>
-                              </div>
-                              <p className="text-brand-body text-sm font-medium">{challenge}</p>
+                            <div key={cIndex} className="flex gap-3 items-center text-sm font-bold text-brand-body uppercase tracking-wide">
+                              <span className="w-1.5 h-1.5 rounded-full bg-green/40"></span>
+                              {challenge}
                             </div>
                           ))}
                         </div>
-                     </div>
-                   ))}
-                </div>
-             </div>
-
-             {/* Applications - One by One with Hover Effect */}
-             <div>
-                <div className="inline-flex items-center gap-2 text-green font-black uppercase tracking-[0.3em] text-xs mb-6">
-                   <span className="w-8 h-px bg-green"></span> Our Response
-                </div>
-                <h2 className="text-4xl font-black text-brand-black mb-12">Key Applications</h2>
-
-                <div className="space-y-4">
-                  {industry.applications.map((app, index) => (
-                    <div key={index} className="group flex items-center justify-between p-6 bg-brand-bg2 rounded-[2rem] border border-brand-border hover:border-green hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                      <div className="flex items-center gap-6">
-                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-green shadow-sm group-hover:bg-green group-hover:text-white transition-colors">
-                          <i className="fas fa-check text-sm"></i>
-                        </div>
-                        <span className="text-lg font-black text-brand-black transition-colors group-hover:text-green">{app}</span>
-                      </div>
-                      <div className="w-10 h-10 rounded-full flex items-center justify-center text-brand-border group-hover:text-green group-hover:bg-green-light transition-all">
-                        <i className="fas fa-arrow-right text-xs transform group-hover:translate-x-1 transition-transform"></i>
-                      </div>
+                      )}
                     </div>
-                  ))}
-                </div>
-             </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Applications Section */}
+            <div className="mb-24">
+              <div className="flex items-center gap-3 mb-8">
+                <span className="w-10 h-px bg-green/30"></span>
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-green">Technical Response</span>
+              </div>
+              <h2 className="text-3xl font-black text-brand-black mb-12 uppercase tracking-tight">Key Applications & Outcomes</h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {industry.applications.map((app, index) => {
+                  const isObject = typeof app === 'object';
+                  const title = isObject ? app.title : app;
+                  const description = isObject ? app.description : null;
+
+                  return (
+                    <div key={index} className="p-8 bg-brand-bg2 rounded-[2rem] border border-brand-border hover:bg-white hover:shadow-xl transition-all duration-500 group">
+                      <div className="flex items-center gap-4 mb-4">
+                        <span className="text-2xl font-black text-green/20 group-hover:text-green transition-colors">0{index + 1}</span>
+                        <h4 className="text-sm font-black text-brand-black uppercase tracking-widest">{title}</h4>
+                      </div>
+                      {description && (
+                        <p className="text-sm text-brand-body leading-relaxed text-justify line-clamp-4 group-hover:line-clamp-none transition-all">
+                          {description}
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
+
+          {/* Bottom Section: Material Specialization (Full Width) */}
+          <div className="bg-brand-bg2 rounded-[3rem] p-10 lg:p-16 border border-brand-border relative overflow-hidden group">
+            {/* Decorative accent */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-green/5 rounded-full blur-3xl -mr-32 -mt-32 group-hover:bg-green/10 transition-all duration-700"></div>
+            
+            <div className="relative z-10">
+              <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-green font-black uppercase tracking-[0.3em] text-[10px] mb-4">
+                    <span className="w-8 h-px bg-green"></span> Engineering Focus
+                  </div>
+                  <h2 className="text-4xl font-black text-brand-black uppercase tracking-tight">Material Specialization</h2>
+                </div>
+                <Link 
+                  href="/contact"
+                  className="px-10 py-4 bg-green text-white font-black rounded-2xl hover:bg-green-dark transition-all block text-xs uppercase tracking-widest shadow-lg shadow-green/20 w-fit"
+                >
+                  Request Technical Data Sheet
+                </Link>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+                {industry.handles.map((item, index) => {
+                  const isObject = typeof item === 'object';
+                  const title = isObject ? item.title : item;
+                  const description = isObject ? item.description : null;
+
+                  return (
+                    <div key={index} className="bg-white p-8 rounded-[2rem] border border-brand-border hover:shadow-xl transition-all duration-500 group/item">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-lg bg-green-light flex items-center justify-center text-green shrink-0">
+                          <i className="fas fa-microchip text-xs"></i>
+                        </div>
+                        <h4 className="text-sm font-black uppercase tracking-widest text-brand-black group-hover/item:text-green transition-colors">{title}</h4>
+                      </div>
+                      {description && (
+                        <p className="text-xs text-brand-body leading-relaxed text-justify">
+                          {description}
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* Methodology Section - Light & Clean */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="text-center mb-16">
-              <h2 className="text-4xl font-black text-brand-black">Our Methodology</h2>
+      {/* Methodology Section - Vertical Narrative Timeline */}
+      <section className="py-24 bg-brand-bg2 border-t border-brand-border">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="mb-20">
+              <div className="inline-flex items-center gap-2 text-green font-black uppercase tracking-[0.3em] text-[10px] mb-4">
+                <span className="w-8 h-px bg-green"></span> Strategic Process
+              </div>
+              <h2 className="text-4xl font-black text-brand-black uppercase tracking-tight">Our Service Approach</h2>
            </div>
            
-           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+           <div className="relative space-y-12">
+              {/* Vertical Connecting Line */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-brand-border z-0"></div>
+              
               {industry.howWeWork.map((step, index) => (
-                <div key={index} className="p-8 bg-brand-bg2 rounded-[2rem] border border-brand-border flex flex-col items-center text-center group hover:bg-white hover:border-green-mid hover:shadow-xl transition-all">
-                   <div className="w-10 h-10 rounded-full bg-white border border-brand-border flex items-center justify-center text-xs font-black text-brand-muted mb-6 group-hover:bg-green group-hover:text-white group-hover:border-green transition-all">
-                      {index + 1}
-                   </div>
-                   <span className="text-xs font-black text-brand-black uppercase tracking-tight">{step}</span>
+                <div key={index} className="relative flex items-center group">
+                  {/* Number Badge */}
+                  <div className="w-16 h-16 rounded-2xl bg-white border-4 border-brand-bg2 shadow-sm flex items-center justify-center text-xl font-black text-brand-muted group-hover:bg-green group-hover:text-white group-hover:scale-110 transition-all duration-500 relative z-10">
+                    {index + 1}
+                  </div>
+                  
+                  {/* Content Module */}
+                  <div className="ml-12 flex-grow p-8 bg-white rounded-[2.5rem] border border-brand-border hover:border-green-mid hover:shadow-xl transition-all duration-500 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div>
+                      <h4 className="text-xl font-black text-brand-black uppercase tracking-tight group-hover:text-green transition-colors">
+                        {step}
+                      </h4>
+                      <p className="text-sm text-brand-muted mt-2 font-medium">Phase {index + 1} of our specialized industrial implementation.</p>
+                    </div>
+                    
+                    <div className="flex gap-2">
+                      <div className="w-10 h-1 bg-green-light rounded-full group-hover:bg-green transition-colors duration-500"></div>
+                      <div className="w-2 h-1 bg-brand-border rounded-full group-hover:bg-green/40 transition-colors duration-500"></div>
+                    </div>
+                  </div>
                 </div>
               ))}
            </div>

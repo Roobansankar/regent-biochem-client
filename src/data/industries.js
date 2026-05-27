@@ -6,30 +6,53 @@ export const industries = [
     icon: "fa-car",
     heroImage: "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&q=80&w=1600",
     handles: [
-      "Vehicle parts", "Automotive components", "Engines & Motor parts", "Cylinder heads", 
-      "Spindles", "Tools & Moulds", "Fixtures", "Trays & Carrier racks", "Welding fixtures"
+      {
+        title: "Vehicle Parts",
+        description: "From chassis components to body panels, we ensure every part is free from industrial oils and ready for the next stage of assembly or coating."
+      },
+      {
+        title: "Engines & Motor Parts",
+        description: "Critical internal components require precision cleaning to remove carbon deposits and residues without affecting strict tolerances."
+      },
+      {
+        title: "Tools & Moulds",
+        description: "Maintaining the integrity of expensive moulds and dies by removing release agents and polymer buildup, extending their operational life."
+      },
+      {
+        title: "Welding Fixtures",
+        description: "Protecting fixtures from weld spatter and oxidation ensures consistent alignment and reduces maintenance frequency."
+      }
     ],
     commonChallenges: [
       {
-        category: "Cleaning",
-        icon: "fa-broom",
-        challenges: [
-          "Oil and grease contamination", "Lubricant residues", "Dust & Fingerprints", 
-          "Abrasion & Grinding dust", "Release agents", "Hardened deposits", "Machining residues"
-        ]
+        category: "Contaminant Management",
+        icon: "fa-vials",
+        description: "Managing the diverse range of contaminants such as heavy greases, coolant residues, and metallic dust requires specialized chemistry that can emulsify oils while being safe for various alloys used in modern vehicle manufacturing."
       },
       {
-        category: "Welding",
-        icon: "fa-bolt",
-        challenges: [
-          "Welding release agent residues", "Burnt marks", "Heat marks", "Welding-related deposits"
-        ]
+        category: "Surface Preparation",
+        icon: "fa-layer-group",
+        description: "Achieving the ideal surface tension for painting or bonding is a critical challenge. Residual fingerprints or invisible release agents can lead to coating failures, necessitating a deep, molecular-level cleaning process."
+      },
+      {
+        category: "Corrosion During Transit",
+        icon: "fa-cloud-sun",
+        description: "Components often travel long distances before final assembly. Protecting these parts from oxidation without leaving a gummy residue that interferes with later processes is a significant technical hurdle we resolve."
       }
     ],
     applications: [
-      "Cleaning of tools and components", "Maintenance cleaning", "Pre-cleaning before quality inspection", 
-      "Degreasing before painting/coating/bonding", "Cleaning of engine and motor parts", 
-      "Cleaning of cylinder heads", "Cleaning of spindles", "Cleaning of trays & carrier racks"
+      {
+        title: "Pre-Assembly Degreasing",
+        description: "Ensuring that all mechanical components are stripped of temporary rust preventives and machining oils to allow for perfect fitment and friction performance."
+      },
+      {
+        title: "Mould Release Agent Removal",
+        description: "Using non-abrasive cleaners to strip residual agents from precision moulds, maintaining the class-A surface finish required for exterior plastic parts."
+      },
+      {
+        title: "In-Process Maintenance",
+        description: "Automated cleaning systems integrated into the production line to remove swarf and coolant, reducing manual intervention and preventing cross-contamination."
+      }
     ],
     howWeWork: [
       "Consultation", "Assessment", "Solution Planning", "Trial & Evaluation", "Performance Review", "Follow-up Support"
