@@ -61,9 +61,9 @@ export default function IndustriesIndex() {
                   
                   {/* Tags Preview */}
                   <div className="flex flex-wrap gap-2 mb-10">
-                    {industry.handles.slice(0, 3).map((tag, i) => (
+                    {industry.handles.slice(0, 3).map((item, i) => (
                       <span key={i} className="px-4 py-2 bg-brand-bg2 rounded-xl text-[10px] font-bold text-brand-muted uppercase tracking-wider">
-                        {tag}
+                        {typeof item === 'object' ? item.title : item}
                       </span>
                     ))}
                     <span className="px-4 py-2 bg-green-light rounded-xl text-[10px] font-bold text-green uppercase tracking-wider">

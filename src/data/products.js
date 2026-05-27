@@ -1,42 +1,61 @@
 export const products = [
   {
-    id: "htw-ii-bio",
-    category: "Cleaning Systems",
-    title: "HTW II Bio Washer",
-    subtitle: "High-Performance Bio-Active Cleaning",
-    desc: "The HTW II Bio is a high-performance, single-stage spray cleaning system designed for the most demanding industrial environments. Utilizing advanced bio-remediation technology, it effectively removes oils, greases, and heavy industrial contaminants from precision-engineered components.",
-    fullDescription: `
-      <p class="text-lg text-brand-body leading-relaxed mb-6">
-        The HTW II Bio Washer represents the pinnacle of sustainable industrial cleaning. Developed for high-throughput production lines, this system eliminates the need for hazardous solvent-based cleaning, replacing it with a safe, aqueous-based process enhanced by bio-active microorganisms.
-      </p>
-      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">The Science of Bio-Remediation</h2>
-      <p class="text-brand-body leading-relaxed mb-6">
-        At the heart of the HTW II Bio is our proprietary bio-remediation process. As the system cleans parts, the resulting oil and grease are washed into the main tank. Here, specialized microorganisms 'eat' these hydrocarbons, breaking them down into harmless water and CO2. This self-cleaning capability allows the cleaning fluid to remain effective for months, significantly reducing waste disposal costs and environmental impact.
-      </p>
-      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Precision Engineering</h2>
-      <p class="text-brand-body leading-relaxed mb-6">
-        Equipped with a heavy-duty rotating basket and a high-pressure pump system, the HTW II Bio delivers consistent, repeatable results. The system is constructed from high-grade stainless steel to ensure longevity in corrosive environments. The intuitive control interface allows operators to precisely manage temperature and wash cycles, ensuring optimal performance for every component type.
-      </p>
-    `,
-    features: [
-      "Oxygen membrane compressor for fluid aeration",
-      "Bio-active cleaner compatibility for self-cleaning fluid",
-      "Continuous duty rated for 24/7 operations",
-      "Single-stage precision spray with rotating basket",
-      "High-grade stainless steel construction",
-      "Integrated filtration for large particulate removal"
-    ],
-    technicalSpecs: [
-      { label: "Basket Diameter", value: "800 mm - 1200 mm" },
-      { label: "Load Capacity", value: "Up to 500 kg" },
-      { label: "Spray Pressure", value: "4.5 Bar" },
-      { label: "Heater Power", value: "9 kW - 18 kW" },
-      { label: "Tank Volume", value: "250 Litres" }
-    ],
-    icon: "fa-spray-can",
-    img: "/HTW-1200-Max-Eco-1200x1200.jpg",
-    slug: "htw-ii-bio",
-  },
+  id: "cb-100",
+  category: "Industrial Cleaner",
+  title: "CB 100",
+  subtitle: "Cold Cleaner Alternative for Heavy Industrial Soiling",
+  desc: "CB 100 is a powerful cold cleaner alternative designed to remove heavy soiling from industrial surfaces. Suitable for cleaning stainless steel, steel, and non-ferrous metals while supporting safer and more sustainable cleaning operations.",
+  fullDescription: `
+    <p class="text-lg text-brand-body leading-relaxed mb-6">
+      CB 100 is engineered for the most demanding industrial cleaning challenges. As a next-generation cold cleaner alternative, it removes the heaviest soiling — including burnt-on grease, oil, smoke, soot, rubber residues, bitumen, and wax residues — without relying on hazardous solvent-based chemistry.
+    </p>
+
+    <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Is This Product Right for You?</h2>
+    <p class="text-brand-body leading-relaxed mb-6">
+      CB 100 is the ideal choice if your operations require regular maintenance cleaning, removal of oil and grease, cleaning of heavy contamination, manual cleaning, machine cleaning, or pre-cleaning support. Its versatility across cleaning methods makes it a go-to solution for a wide range of industrial applications.
+    </p>
+
+    <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Application</h2>
+    <p class="text-brand-body leading-relaxed mb-6">
+      CB 100 is suited for manual cleaning, machine cleaning, and pre-cleaning in CLEAN BOX systems, parts washing, degreasing, and removal of burnt-on grease, oil, soot, smoke residues, rubber residues, bitumen, wax residues, and pastes.
+    </p>
+
+    <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Sustainable by Design</h2>
+    <p class="text-brand-body leading-relaxed mb-6">
+      Formulated from renewable raw materials, CB 100 is VOC-free and label-free in accordance with CLP regulations. Its long service life is made possible by recyclable and demulsifying properties, reducing total consumption and waste. It actively increases occupational safety and protects the environment without compromising cleaning performance.
+    </p>
+  `,
+  features: [
+    "Removes burnt-on grease, oil, smoke, soot, rubber residues, bitumen & wax residues",
+    "Cleans stainless steel, steel, and non-ferrous metals",
+    "Long service life via recyclable and demulsifying properties",
+    "Compatible with conventional parts washers — no process changes needed",
+    "VOC- and label-free per CLP regulation for occupational safety",
+    "Suitable for manual and machine use across diverse industrial settings"
+  ],
+  technicalSpecs: [
+    { label: "Product Type", value: "Cold Cleaner Alternative" },
+    { label: "VOC Content", value: "VOC-Free" },
+    { label: "Base Materials", value: "Renewable Raw Materials" },
+    { label: "Foam Profile", value: "Low-Foaming" },
+    { label: "Residue", value: "Residue-Free & Water-Rinsable" },
+    { label: "Metal Compatibility", value: "Stainless Steel, Steel, Non-Ferrous" },
+    { label: "Use Modes", value: "Manual & Machine Use" },
+    { label: "Special Approvals", value: "Suitable for Food Industry Areas" }
+  ],
+  recommendedWith: "MAX ECO",
+  similarProducts: [
+    "UNO S",
+    "Biochem Power Star L",
+    "Biochem Bio Neutral Cleaner",
+    "Biochem Bio Circle L liquid",
+    "Biochem Power Cleaner DB"
+  ],
+  labels: ["VOC Free", "Bio-Based", "Clean Blue"],
+  icon: "fa-flask",
+  img: "/cb-100.jpg",
+  slug: "cb-100",
+},
   {
     id: "gt-parts-washer",
     category: "Parts Washers",
