@@ -5,6 +5,7 @@ import Link from "next/link";
 
 const products = {
   htw: {
+    slug: "htw-ii-bio",
     title: "HTW II Bio",
     desc: "Hot-water, single-stage spray cleaning with rotating basket and oxygen membrane compressor — engineered for continuous duty in production lines.",
     features: [
@@ -16,12 +17,14 @@ const products = {
     img: "/HTW-1200-Max-Eco-1200x1200.jpg",
   },
   gt: {
+    slug: "gt-parts-washer",
     title: "GT Parts Washer",
     desc: "Compact yet powerful bench-top aqueous washer designed for precision machined components. Adjustable spray pressure and temperature control.",
     features: ["Adjustable spray pressure", "Stainless steel tank", "Low water consumption", "Ergonomic lid design"],
     img: "/GT Parts Washer.webp",
   },
   safe: {
+    slug: "safeweld-system",
     title: "SafeWeld System",
     desc: "Anti-spatter, weld cleaning and passivation system that extends tool life and consistently elevates weld quality across production.",
     features: [
@@ -88,18 +91,23 @@ export default function FeaturedProducts() {
         <div className="bg-white border border-brand-border rounded-2xl p-6 sm:p-8 lg:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
             {/* Image */}
-            <div className="dot-bg bg-brand-bg3 rounded-xl aspect-[4/3] flex items-center justify-center relative overflow-hidden p-6">
+            <Link 
+              href={`/products/${product.slug}`}
+              className="dot-bg bg-brand-bg3 rounded-xl aspect-[4/3] flex items-center justify-center relative overflow-hidden p-6 group/img"
+            >
               <img
                 src={product.img}
                 alt={product.title}
-                className="max-w-full max-h-full object-contain relative z-10 drop-shadow-2xl transition-all duration-500"
+                className="max-w-full max-h-full object-contain relative z-10 drop-shadow-2xl transition-all duration-500 group-hover/img:scale-105"
               />
-            </div>
+            </Link>
             {/* Info */}
             <div>
-              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-brand-black mb-4 leading-tight">
-                {product.title}
-              </h3>
+              <Link href={`/products/${product.slug}`} className="block group/title">
+                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-brand-black mb-4 leading-tight group-hover/title:text-green transition-colors">
+                  {product.title}
+                </h3>
+              </Link>
               <p className="text-base text-brand-body leading-relaxed mb-6">{product.desc}</p>
               <ul className="flex flex-col gap-2.5 mb-8">
                 {product.features.map((feature, i) => (
@@ -110,16 +118,16 @@ export default function FeaturedProducts() {
               </ul>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="#"
-                  className="text-center bg-green text-white font-bold text-sm px-6 py-3 rounded hover:bg-green-dark transition-colors"
+                  href={`/products/${product.slug}`}
+                  className="text-center bg-green text-white font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-green-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-green/20"
                 >
-                  Request Inquiry
+                  View Product Details
                 </Link>
                 <Link
-                  href="#"
-                  className="text-center border border-gray-300 text-brand-black font-medium text-sm px-6 py-3 rounded hover:border-green hover:text-green transition-colors"
+                  href="/contact"
+                  className="text-center border-2 border-brand-border text-brand-black font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-brand-bg2 transition-all"
                 >
-                  Download Spec Sheet
+                  Request Technical Quote
                 </Link>
               </div>
             </div>

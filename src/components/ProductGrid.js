@@ -33,7 +33,7 @@ export default function ProductGrid() {
               <div className="p-5">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-green">{product.category}</span>
                 <h3 className="text-base font-bold text-brand-black mt-1 mb-2 leading-snug">{product.title}</h3>
-                <p className="text-xs text-brand-body leading-relaxed mb-4">{product.desc}</p>
+                <p className="text-[11px] text-brand-body leading-relaxed mb-4 line-clamp-2 h-8">{product.desc}</p>
                 <Link
                   href={`/products/${product.slug}`}
                   className="inline-flex items-center justify-center w-full bg-green text-white text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-lg hover:bg-green-dark transition-all shadow-sm"
