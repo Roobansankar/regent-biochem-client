@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 import { timeline, values } from "@/data/about";
@@ -10,7 +8,6 @@ export const revalidate = false;
 export default function About() {
   return (
     <main className="flex flex-col min-h-screen">
-      <Navbar />
       <ScrollReveal />
 
       {/* ─── PAGE HERO (Landscape Card - Light Theme) ─── */}
@@ -64,7 +61,7 @@ export default function About() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-5">
               Built on Chemistry.<br/><span className="text-green-600">Driven by Innovation.</span>
             </h2>
-            <p className="text-base text-gray-500 leading-relaxed mb-4">Founded in 1999, Regent Biochem has grown from a regional supplier into one of India's most respected manufacturers of machine cleaning liquids and industrial chemicals.</p>
+            <p className="text-base text-gray-500 leading-relaxed mb-4">Founded in 1999, Regent Biochem has grown from a regional supplier into one of India&apos;s most respected manufacturers of machine cleaning liquids and industrial chemicals.</p>
             <p className="text-sm text-gray-500 leading-relaxed mb-8">Our state-of-the-art manufacturing facility in Coimbatore houses advanced blending equipment and a dedicated R&D laboratory, where our team of expert chemists continuously develop and refine formulations that set industry benchmarks.</p>
 
             <div className="grid grid-cols-2 gap-4">
@@ -104,7 +101,7 @@ export default function About() {
             <div className="vision-bar relative bg-white border border-gray-100 rounded-2xl p-8 sm:p-10 hover:-translate-y-1 hover:shadow-card transition-all duration-300 reveal">
               <div className="text-4xl mb-5">🔭</div>
               <h3 className="text-xl font-extrabold text-gray-900 mb-3">Our Vision</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">To be the most trusted industrial chemical company in South Asia — recognized for uncompromising quality, continuous innovation, and a deep commitment to building long-term partnerships with every manufacturer we support.</p>
+              <p className="text-sm text-gray-500 leading-relaxed">To be the most trusted industrial chemical company in South Asia &mdash; recognized for uncompromising quality, continuous innovation, and a deep commitment to building long-term partnerships with every manufacturer we support.</p>
             </div>
           </div>
         </div>
@@ -180,8 +177,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

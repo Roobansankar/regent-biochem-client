@@ -1,5 +1,4 @@
 import { industries } from "@/data/industries";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import { notFound } from "next/navigation";
@@ -21,8 +20,6 @@ export default async function IndustryPage({ params }) {
 
   return (
     <main className="flex flex-col min-h-screen bg-white">
-      <Navbar />
-
       {/* Elegant Light Hero Section */}
       <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
         {/* Background Elements */}
@@ -199,7 +196,6 @@ export default async function IndustryPage({ params }) {
       </section>
 
       <CTA />
-      <Footer />
     </main>
   );
 }

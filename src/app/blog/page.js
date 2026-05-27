@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
@@ -57,7 +56,6 @@ export default function BlogPage() {
 
   return (
     <main className="flex flex-col min-h-screen bg-white">
-      <Navbar />
       <ScrollReveal />
 
       {/* ─── BLOG HERO ─── */}
@@ -173,7 +171,6 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

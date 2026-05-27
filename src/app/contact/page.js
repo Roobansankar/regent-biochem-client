@@ -1,12 +1,16 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+"use client";
+
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Contact() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="flex flex-col min-h-screen">
-      <Navbar />
       <ScrollReveal />
 
       {/* ─── PAGE HERO ─── */}
@@ -49,7 +53,7 @@ export default function Contact() {
                   How can we <span className="text-green-600">help you?</span>
                 </h2>
                 <p className="text-gray-500 leading-relaxed mb-10">
-                  Whether you're looking for a specific chemical formulation or need technical support for our cleaning systems, we're here to provide the expertise you need.
+                  Whether you&apos;re looking for a specific chemical formulation or need technical support for our cleaning systems, we&apos;re here to provide the expertise you need.
                 </p>
               </div>
 
@@ -156,8 +160,6 @@ export default function Contact() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </main>
   );
 }

@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Link from "next/link";
 
@@ -74,8 +72,6 @@ export default function FAQPage() {
 
   return (
     <main className="flex flex-col min-h-screen">
-      <Navbar />
-      
       {/* Hero Section */}
       <section className="relative pt-10 pb-8 lg:pt-16 lg:pb-12 bg-green overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-10"></div>
@@ -104,7 +100,7 @@ export default function FAQPage() {
                 <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-6">Knowledge Base</h2>
                 <div className="w-20 h-1.5 bg-green rounded-full mb-8"></div>
                 <p className="text-brand-body text-base leading-relaxed mb-8">
-                  Browse our categorized help articles to find answers quickly. If you can't find what you're looking for, our technical team is ready to assist.
+                  Browse our categorized help articles to find answers quickly. If you can&apos;t find what you&apos;re looking for, our technical team is ready to assist.
                 </p>
                 <div className="hidden lg:flex flex-col gap-3">
                   {faqs.map((cat, i) => (
@@ -171,7 +167,7 @@ export default function FAQPage() {
               
               <h2 className="text-3xl font-bold text-brand-black mb-6 relative z-10">Still have questions?</h2>
               <p className="text-brand-body mb-8 relative z-10">
-                Can't find the answer you're looking for? Please chat to our friendly team for personalized assistance.
+                Can&apos;t find the answer you&apos;re looking for? Please chat to our friendly team for personalized assistance.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
                 <Link 
@@ -193,7 +189,6 @@ export default function FAQPage() {
       </section>
 
       <CTA />
-      <Footer />
     </main>
   );
 }

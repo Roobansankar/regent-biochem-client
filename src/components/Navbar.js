@@ -170,6 +170,8 @@ export default function Navbar() {
             <ul className="hidden lg:flex items-center justify-between w-full h-full">
               {navData.map((link) => {
                 const hasChildren = link.children || link.mega;
+                const NavItem = hasChildren && link.href === "#" ? "button" : Link;
+                
                 return (
                   <li 
                     key={link.name} 
@@ -177,9 +179,9 @@ export default function Navbar() {
                     onMouseEnter={() => hasChildren && handleMouseEnter(link.name)}
                     onMouseLeave={() => hasChildren && handleMouseLeave()}
                   >
-                    <Link
-                      href={link.href}
-                      className={`nav-link flex items-center h-full text-[15px] font-bold uppercase tracking-wider px-2 xl:px-3 transition-all duration-200 ${
+                    <NavItem
+                      href={link.href !== "#" ? link.href : undefined}
+                      className={`nav-link flex items-center h-full text-[15px] font-bold uppercase tracking-wider px-2 xl:px-3 transition-all duration-200 cursor-pointer ${
                         pathname === link.href || activeMenu === link.name
                           ? "text-white"
                           : "text-white/90 hover:text-white"
@@ -187,7 +189,7 @@ export default function Navbar() {
                     >
                       {link.name}
                       {hasChildren && <i className={`fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 ${activeMenu === link.name ? 'rotate-180' : ''}`}></i>}
-                    </Link>
+                    </NavItem>
 
                     {/* Standard Dropdown */}
                     {link.children && activeMenu === link.name && (
@@ -196,6 +198,7 @@ export default function Navbar() {
                           <Link
                             key={child.name}
                             href={child.href}
+                            onClick={closeMenu}
                             className="block px-6 py-2.5 text-sm font-semibold text-brand-black hover:text-green hover:bg-green-light transition-colors"
                           >
                             {child.name}
@@ -220,6 +223,7 @@ export default function Navbar() {
                                   <Link
                                     key={item.name}
                                     href={item.href}
+                                    onClick={closeMenu}
                                     className="text-sm font-medium text-brand-muted hover:text-green hover:translate-x-1 transition-all"
                                   >
                                     {item.name}
@@ -233,7 +237,7 @@ export default function Navbar() {
                             <span className="text-[10px] font-bold uppercase tracking-widest text-green mb-2">Featured Solution</span>
                             <h5 className="text-lg font-bold text-brand-black mb-3">Eco-Friendly Cleaning Systems</h5>
                             <p className="text-xs text-brand-body leading-relaxed mb-4">Discover our range of bio-active part washers designed for sustainability.</p>
-                            <Link href="#" className="text-xs font-bold text-green underline decoration-2 underline-offset-4">Explore Products</Link>
+                            <Link href="#" onClick={closeMenu} className="text-xs font-bold text-green underline decoration-2 underline-offset-4">Explore Products</Link>
                           </div>
                         </div>
                       </div>
@@ -247,7 +251,8 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-4 ml-8">
               <Link
                 href="/contact"
-                className="text-[13px] font-black uppercase tracking-widest bg-white text-green rounded-lg px-6 py-2.5 hover:bg-brand-bg2 transition-all shadow-sm whitespace-nowrap"
+                onClick={closeMenu}
+                className="text-[13px] font-black uppercase tracking-widest bg-white text-green rounded-lg px-6 py-3 hover:bg-brand-bg2 transition-all shadow-sm whitespace-nowrap"
               >
                 Request Quote
               </Link>

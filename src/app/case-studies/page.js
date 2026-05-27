@@ -55,7 +55,6 @@ const caseStudies = [
 export default function CaseStudiesPage() {
   return (
     <main className="flex flex-col min-h-screen bg-white">
-      <Navbar />
       <ScrollReveal />
 
       {/* ─── PAGE HERO (Contact Style) ─── */}

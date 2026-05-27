@@ -1,5 +1,4 @@
 import { industries } from "@/data/industries";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Link from "next/link";
@@ -7,8 +6,6 @@ import Link from "next/link";
 export default function IndustriesIndex() {
   return (
     <main className="flex flex-col min-h-screen bg-white">
-      <Navbar />
-
       {/* Hero Section - Clean, Airy, and Professional */}
       <section className="relative pt-20 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
         {/* Soft Background Elements */}
@@ -111,7 +108,6 @@ export default function IndustriesIndex() {
       </section>
 
       <CTA />
-      <Footer />
     </main>
   );
 }

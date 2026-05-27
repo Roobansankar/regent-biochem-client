@@ -1,6 +1,5 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
@@ -11,7 +10,7 @@ export default function BlogPost() {
 
   // Mock data fetching based on slug
   const post = {
-    title: slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+    title: slug ? slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : "Technical Insight",
     category: "Technical Insight",
     date: "May 10, 2026",
     author: "Dr. Elena Schmidt",
@@ -52,7 +51,6 @@ export default function BlogPost() {
 
   return (
     <main className="flex flex-col min-h-screen bg-white">
-      <Navbar />
       <ScrollReveal />
 
       {/* ─── ARTICLE HERO ─── */}
@@ -186,7 +184,6 @@ export default function BlogPost() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

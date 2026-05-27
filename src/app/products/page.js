@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Link from "next/link";
 import { products } from "@/data/products";
@@ -18,7 +16,6 @@ export default function ProductsPage() {
 
   return (
     <main className="flex flex-col min-h-screen">
-      <Navbar />
       
       {/* Header Section */}
       <section className="bg-brand-bg2 py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b border-brand-border">
@@ -93,7 +90,7 @@ export default function ProductsPage() {
               </div>
               <h3 className="text-2xl font-bold text-brand-black mb-2">No products found</h3>
               <p className="text-brand-body">
-                We couldn't find any products matching "{searchQuery}". Try a different search term.
+                We couldn&apos;t find any products matching &quot;{searchQuery}&quot;. Try a different search term.
               </p>
               <button
                 onClick={() => setSearchQuery("")}
@@ -107,7 +104,6 @@ export default function ProductsPage() {
       </section>
 
       <CTA />
-      <Footer />
     </main>
   );
 }

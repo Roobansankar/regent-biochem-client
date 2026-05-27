@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export default function CareersPage() {
@@ -37,7 +35,6 @@ export default function CareersPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
       <ScrollReveal />
 
       {/* Hero Section */}
@@ -147,9 +144,9 @@ export default function CareersPage() {
             <div className="absolute top-0 right-0 w-32 h-32 bg-green/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-green/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
             
-            <h2 className="text-3xl font-bold text-brand-black mb-6 relative z-10">Don't see a perfect match?</h2>
+            <h2 className="text-3xl font-bold text-brand-black mb-6 relative z-10">Don&apos;t see a perfect match?</h2>
             <p className="text-brand-body mb-8 relative z-10">
-              We're always looking for talented individuals who are passionate about chemicals, engineering, and sustainability. Send us your CV and we'll keep you in mind for future openings.
+              We&apos;re always looking for talented individuals who are passionate about chemicals, engineering, and sustainability. Send us your CV and we&apos;ll keep you in mind for future openings.
             </p>
             <a 
               href="mailto:careers@regentbiochem.com" 
@@ -161,8 +158,6 @@ export default function CareersPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }
