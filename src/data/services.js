@@ -1,6 +1,6 @@
 export const services = [
   {
-    slug: "pipeline-cleaning-solutions",
+    slug: "pipeline",
     title: "Pipeline Cleaning Solutions",
     subtitle: "Advanced Internal Maintenance",
     shortDescription: "Effective cleaning of internal circulation systems like pipelines and heat exchangers without dismantling.",
@@ -89,7 +89,7 @@ export const services = [
     ]
   },
   {
-    slug: "cooling-tower-cleaning",
+    slug: "cooling-tower",
     title: "Cooling Tower Cleaning",
     subtitle: "Thermal Efficiency & Safety",
     shortDescription: "Professional maintenance to restore heat transfer and ensure regulatory compliance.",
@@ -115,7 +115,7 @@ export const services = [
     industries: ["HVAC", "Power Generation", "Data Centers", "Manufacturing", "Hospitals"]
   },
   {
-    slug: "mould-injection-cleaning",
+    slug: "mould-injection",
     title: "Mould & Injection Cleaning",
     subtitle: "Precision Tooling Maintenance",
     shortDescription: "Non-abrasive cleaning to remove plastic residues and protect high-polish mould finishes.",
@@ -141,7 +141,7 @@ export const services = [
     industries: ["Plastic Injection", "Packaging", "Automotive", "Medical Device Mfg", "Electronics"]
   },
   {
-    slug: "heat-exchanger-cleaning",
+    slug: "heat-exchanger",
     title: "Heat Exchanger Cleaning",
     subtitle: "Restoring Thermal Performance",
     shortDescription: "Chemical descaling and cleaning for all types of heat exchangers to reduce energy costs.",
@@ -167,7 +167,7 @@ export const services = [
     industries: ["Refineries", "Chemical Plants", "HVAC", "Food Processing", "Marine"]
   },
   {
-    slug: "operational-impact-assessment",
+    slug: "impact-assessment",
     title: "Operational Impact Assessment",
     subtitle: "Efficiency & Sustainability Analytics",
     shortDescription: "Data-driven analysis of your cleaning processes to identify cost and energy savings.",

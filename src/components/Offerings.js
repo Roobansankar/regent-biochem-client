@@ -6,7 +6,7 @@ export default function Offerings() {
     <section id="offerings" className="bg-brand-bg2 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto">
         <div className="text-center mb-10">
-          <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">What We Offer</p>
+          <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">GREEN WAY TO GROWTH</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-black mb-4">
             Precision Offerings
           </h2>
@@ -18,7 +18,7 @@ export default function Offerings() {
           {services.map((service, index) => (
             <Link 
               key={index} 
-              href={`/services/${service.slug}`}
+              href={`/services/freeflow/${service.slug}`}
               className="group bg-white rounded-2xl p-10 text-center shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col items-center"
             >
               <div className="w-16 h-16 bg-green-light group-hover:bg-green transition-colors rounded-2xl flex items-center justify-center mb-6">

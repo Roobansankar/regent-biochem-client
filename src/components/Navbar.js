@@ -69,12 +69,18 @@ const navData = [
   {
     name: "Services",
     href: "#",
-    children: [
-      { name: "Pipeline Cleaning Solutions", href: "/services/pipeline-cleaning-solutions" },
-      { name: "Cooling Tower Cleaning", href: "/services/cooling-tower-cleaning" },
-      { name: "Mould & Injection Cleaning", href: "/services/mould-injection-cleaning" },
-      { name: "Heat Exchanger Cleaning", href: "/services/heat-exchanger-cleaning" },
-      { name: "Operational Impact Assessment", href: "/services/operational-impact-assessment" },
+    mega: true,
+    columns: [
+      {
+        label: "Free Flow",
+        items: [
+          { name: "Pipeline Cleaning Solutions", href: "/services/freeflow/pipeline" },
+          { name: "Cooling Tower Cleaning", href: "/services/freeflow/cooling-tower" },
+          { name: "Mould & Injection Cleaning", href: "/services/freeflow/mould-injection" },
+          { name: "Heat Exchanger Cleaning", href: "/services/freeflow/heat-exchanger" },
+          { name: "Operational Impact Assessment", href: "/services/freeflow/impact-assessment" },
+        ],
+      },
     ],
   },
   {

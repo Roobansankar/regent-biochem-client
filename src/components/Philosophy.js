@@ -6,10 +6,10 @@ export default function Philosophy() {
       {/* Mobile Header (hidden on lg) */}
       <div className="lg:hidden px-6 pt-8 pb-2">
         <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">Our Philosophy</p>
-        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-black leading-tight">
-          Green Way
+        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-black leading-tight uppercase">
+          GREEN WAY
           <br />
-          to Growth
+          TO GROWTH
         </h2>
       </div>
 
@@ -27,10 +27,10 @@ export default function Philosophy() {
           {/* Laptop Header (hidden on mobile/tab) */}
           <div className="hidden lg:block">
             <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">Our Philosophy</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-black leading-tight mb-4">
-              Green Way
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-black leading-tight mb-4 uppercase">
+              GREEN WAY
               <br />
-              to Growth
+              TO GROWTH
             </h2>
           </div>
           <p className="text-base text-brand-body leading-relaxed max-w-md mb-6">

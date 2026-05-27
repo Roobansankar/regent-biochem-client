@@ -10,8 +10,8 @@ export default function Footer() {
             <Link href="/">
               <img src="/logo.png" alt="Bio-Chem Logo" className="h-14 w-auto mb-4" />
             </Link>
-            <p className="text-sm text-brand-muted leading-relaxed max-w-xs">
-              Precision engineering for a sustainable industrial future. Made in Germany, deployed globally.
+            <p className="text-sm font-bold uppercase tracking-wider text-brand-black leading-relaxed max-w-xs">
+              GREEN WAY TO GROWTH
             </p>
             <div className="flex gap-3 mt-5">
               <Link
@@ -37,29 +37,29 @@ export default function Footer() {
           {/* Solutions */}
           <div>
             <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-4">Solutions</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               <li>
-                <Link href="/services/pipeline-cleaning-solutions" className="text-sm text-brand-muted hover:text-green transition-colors">
+                <Link href="/services/freeflow/pipeline" className="text-sm text-brand-muted hover:text-green transition-colors">
                   Pipeline Cleaning
                 </Link>
               </li>
               <li>
-                <Link href="/services/cooling-tower-cleaning" className="text-sm text-brand-muted hover:text-green transition-colors">
-                  Cooling Towers
+                <Link href="/services/freeflow/cooling-tower" className="text-sm text-brand-muted hover:text-green transition-colors">
+                  Cooling Tower Cleaning
                 </Link>
               </li>
               <li>
-                <Link href="/services/mould-injection-cleaning" className="text-sm text-brand-muted hover:text-green transition-colors">
-                  Mould & Injection
+                <Link href="/services/freeflow/mould-injection" className="text-sm text-brand-muted hover:text-green transition-colors">
+                  Mould & Injection Cleaning
                 </Link>
               </li>
               <li>
-                <Link href="/services/heat-exchanger-cleaning" className="text-sm text-brand-muted hover:text-green transition-colors">
-                  Heat Exchangers
+                <Link href="/services/freeflow/heat-exchanger" className="text-sm text-brand-muted hover:text-green transition-colors">
+                  Heat Exchanger Cleaning
                 </Link>
               </li>
               <li>
-                <Link href="/services/operational-impact-assessment" className="text-sm text-brand-muted hover:text-green transition-colors">
+                <Link href="/services/freeflow/impact-assessment" className="text-sm text-brand-muted hover:text-green transition-colors">
                   Impact Assessment
                 </Link>
               </li>
@@ -127,13 +127,13 @@ export default function Footer() {
             <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-4">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-brand-muted">
-                <i className="fas fa-map-marker-alt text-green mt-0.5 flex-shrink-0"></i> 123 Industrial Zone, Germany
+                <i className="fas fa-map-marker-alt text-green mt-0.5 flex-shrink-0"></i> Coimbatore, India
               </li>
               <li className="flex items-center gap-2 text-sm text-brand-muted">
-                <i className="fas fa-phone text-green flex-shrink-0"></i> +49 123 456 7890
+                <i className="fas fa-phone text-green flex-shrink-0"></i> +91 98434 06642
               </li>
               <li className="flex items-center gap-2 text-sm text-brand-muted">
-                <i className="fas fa-envelope text-green flex-shrink-0"></i> info@bio-chem.de
+                <i className="fas fa-envelope text-green flex-shrink-0"></i> info@bio-chem.in
               </li>
             </ul>
           </div>
