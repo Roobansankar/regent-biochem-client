@@ -51,7 +51,7 @@ export const products = [
   ],
   labels: ["VOC Free", "Bio-Based", "Clean Blue"],
   icon: "fa-flask",
-  img: "/cb-100.jpg",
+  img: "https://www.bio-circle.com/lib/uploads/sites/2/2024/09/CB_100_500ml-600x600.jpg",
   slug: "cb-100",
 },
   {
