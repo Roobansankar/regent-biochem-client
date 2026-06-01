@@ -35,6 +35,14 @@ export const products = [
       { label: "Heater Power", value: "9 kW - 18 kW" },
       { label: "Tank Volume", value: "250 Litres" }
     ],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        The HTW-II Bio is engineered for long-term industrial use with a robust stainless steel construction and integrated bio-remediation technology. Each unit is delivered fully assembled, pre-tested, and ready for immediate integration into your production line.
+      </p>
+      <p class="text-brand-body leading-relaxed mb-6">
+        The system is designed for minimal maintenance and includes the patented Biocircle Liquid L recirculation system, ensuring consistent cleaning performance across all operating conditions. Custom configuration and installation support are available upon request.
+      </p>
+    `,
     recommendedCleaner: { name: "Bio-Circle L Liquid", slug: "biochem-bio-circle-l", desc: "A low-foaming, microorganism-based cleaner for manual and automatic parts cleaning." },
     similarProducts: ["gt-parts-washer", "cb-100", "autopurge-system"],
     icon: "fa-spray-can",
@@ -235,6 +243,21 @@ export const products = [
     ],
     recommendedWith: "MAX ECO",
     similarProducts: ["uno-s", "biochem-power-star-l", "biochem-bio-neutral-cleaner"],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        CB 100 is available in multiple packaging sizes to suit both manual and industrial machine applications:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">500 ml Spray Can</strong> — Convenient for targeted spot cleaning and small-area applications.</li>
+        <li><strong class="text-green">1 Litre Bottle</strong> — Ideal for manual use in maintenance and workshop environments.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — Suitable for medium-volume machine cleaning operations.</li>
+        <li><strong class="text-green">20 Litre Drum</strong> — Designed for high-volume industrial parts washers.</li>
+        <li><strong class="text-green">200 Litre Barrel</strong> — Bulk supply for dedicated cleaning systems and continuous production lines.</li>
+      </ul>
+      <p class="text-brand-body leading-relaxed">
+        All packaging is recyclable. Larger bulk quantities and custom filling options are available on request.
+      </p>
+    `,
     labels: ["VOC Free", "Bio-Based", "Clean Blue"],
     icon: "fa-flask",
     img: "https://www.bio-circle.com/lib/uploads/sites/2/2024/09/CB_100_500ml-600x600.jpg",
@@ -334,6 +357,18 @@ export const products = [
       { label: "Use Modes", value: "Manual & Machine Use" }
     ],
     similarProducts: ["cb-100", "biochem-power-star-l", "biochem-bio-neutral-cleaner"],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        UNO S is supplied in a range of packaging formats for flexible use across industrial settings:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">500 ml Spray Can</strong> — Quick and easy application for precision cleaning tasks.</li>
+        <li><strong class="text-green">1 Litre Bottle</strong> — Standard format for manual cleaning stations.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — Economical choice for medium-volume usage.</li>
+        <li><strong class="text-green">20 Litre Drum</strong> — For high-consumption cleaning operations.</li>
+        <li><strong class="text-green">200 Litre Barrel</strong> — Bulk supply for automated cleaning systems.</li>
+      </ul>
+    `,
     labels: ["VOC Free", "Bio-Based"],
     icon: "fa-flask",
     img: "/uno-s.jpg",
@@ -370,6 +405,18 @@ export const products = [
       { label: "Use Modes", value: "Machine Use" }
     ],
     similarProducts: ["cb-100", "uno-s", "biochem-bio-circle-l"],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        Biochem Power Star L is available in the following packaging sizes:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">1 Litre Bottle</strong> — For low-volume or trial use.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — Standard size for regular cleaning operations.</li>
+        <li><strong class="text-green">20 Litre Drum</strong> — Suitable for medium to high-volume applications.</li>
+        <li><strong class="text-green">200 Litre Barrel</strong> — Bulk supply for continuous production.</li>
+        <li><strong class="text-green">1000 Litre IBC</strong> — Large-volume intermediate bulk container for automated dosing systems.</li>
+      </ul>
+    `,
     labels: ["Concentrate", "Efficient"],
     icon: "fa-flask",
     img: "/biochem-power-star-l.jpg",
@@ -407,6 +454,17 @@ export const products = [
     ],
     similarProducts: ["cb-100", "uno-s", "biochem-bio-circle-l"],
     labels: ["Neutral pH", "Bio-Based"],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        Biochem Bio Neutral Cleaner is supplied in the following formats:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">1 Litre Bottle</strong> — Convenient for manual cleaning stations.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — Ideal for regular maintenance operations.</li>
+        <li><strong class="text-green">20 Litre Drum</strong> — Designed for high-volume usage.</li>
+        <li><strong class="text-green">200 Litre Barrel</strong> — Bulk supply for centralized cleaning systems.</li>
+      </ul>
+    `,
     icon: "fa-flask",
     img: "/biochem-bio-neutral-cleaner.jpg",
     slug: "biochem-bio-neutral-cleaner",
@@ -442,6 +500,17 @@ export const products = [
       { label: "Application", value: "Immersion Systems" }
     ],
     similarProducts: ["cb-100", "biochem-power-star-l", "biochem-bio-neutral-cleaner"],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        Biochem Bio Circle L is available in the following sizes:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">1 Litre Bottle</strong> — Suitable for low-volume and trial applications.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — Standard size for regular use.</li>
+        <li><strong class="text-green">20 Litre Drum</strong> — For medium to high-volume cleaning systems.</li>
+        <li><strong class="text-green">200 Litre Barrel</strong> — Bulk supply for continuous operation.</li>
+      </ul>
+    `,
     labels: ["Recyclable", "Sustainable"],
     icon: "fa-flask",
     img: "/biochem-bio-circle-l.jpg",
@@ -479,6 +548,17 @@ export const products = [
     ],
     similarProducts: ["cb-100", "biochem-power-star-l", "uno-s"],
     labels: ["Dual Function", "Efficient"],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        Biochem Power Cleaner DB is offered in the following packaging options:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">1 Litre Bottle</strong> — For manual application and small-scale use.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — Standard option for regular cleaning tasks.</li>
+        <li><strong class="text-green">20 Litre Drum</strong> — Designed for high-demand cleaning operations.</li>
+        <li><strong class="text-green">200 Litre Barrel</strong> — Bulk supply for automated systems and production lines.</li>
+      </ul>
+    `,
     icon: "fa-flask",
     img: "/biochem-power-cleaner-db.jpg",
     slug: "biochem-power-cleaner-db",

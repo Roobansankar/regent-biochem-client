@@ -276,6 +276,22 @@ export default async function ProductDetailPage({ params }) {
                 </div>
               )}
 
+              {/* Packaging Details */}
+              {product.packaging && (
+                <div>
+                  <div className="flex items-center gap-3 mb-8">
+                    <span className="w-10 h-px bg-green/30"></span>
+                    <span className="text-sm font-black uppercase tracking-[0.3em] text-green">
+                      Packaging Details
+                    </span>
+                  </div>
+                  <div
+                    className="prose prose-lg max-w-none prose-headings:text-brand-black prose-p:text-brand-body prose-strong:text-green"
+                    dangerouslySetInnerHTML={{ __html: product.packaging }}
+                  />
+                </div>
+              )}
+
               {/* Similar Products */}
               {product.similarProducts && product.similarProducts.length > 0 && (
                 <div>
@@ -299,13 +315,9 @@ export default async function ProductDetailPage({ params }) {
                           className="group border border-brand-border rounded-[2rem] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-500 bg-white"
                         >
                           <div className="dot-bg bg-brand-bg3 aspect-[4/3] flex items-center justify-center p-6 relative">
-                             {similarProd.img ? (
-                               <img src={similarProd.img} alt={similarProd.title} className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110" />
-                             ) : (
-                               <div className="w-16 h-16 bg-green-light rounded-2xl flex items-center justify-center text-green group-hover:bg-green group-hover:text-white transition-all">
-                                 <i className={`fas ${similarProd.icon} text-2xl`}></i>
-                               </div>
-                             )}
+                             <div className="w-full h-full flex items-center justify-center text-green group-hover:scale-110 transition-transform duration-500">
+                                <i className={`fas ${similarProd.icon || "fa-box"} text-6xl`}></i>
+                              </div>
                           </div>
                           <div className="p-6">
                             <span className="text-[10px] font-bold uppercase tracking-widest text-green">{similarProd.category}</span>
@@ -403,11 +415,7 @@ export default async function ProductDetailPage({ params }) {
                     </p>
                     <div className="flex flex-col items-center text-center">
                       <div className="w-24 h-24 rounded-2xl bg-white flex items-center justify-center p-3 mb-4 shadow-sm border border-green-mid">
-                        <img
-                          src={products.find(p => p.slug === product.recommendedCleaner.slug)?.img || "/placeholder.jpg"}
-                          alt={product.recommendedCleaner.name}
-                          className="w-full h-full object-contain"
-                        />
+                        <i className={`fas ${products.find(p => p.slug === product.recommendedCleaner.slug)?.icon || "fa-flask"} text-3xl text-green`}></i>
                       </div>
                       <h5 className="text-base font-black text-brand-black mb-2 uppercase tracking-tight">
                         {product.recommendedCleaner.name}
