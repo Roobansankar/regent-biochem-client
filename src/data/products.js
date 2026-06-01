@@ -45,7 +45,7 @@ export const products = [
     id: "htw-ii-max-eco",
     category: "Cleaning Systems",
     title: "HTW - II - Max ECO",
-    desc: "Energy-efficient automatic spray cleaning system designed for maximum cleaning performance with minimum resource consumption.",
+    desc: "Powerful and easy to operate, these hot-water parts washers are designed for efficient single-stage cleaning and degreasing. A rotating basket and high spray pressure ensure optimal cleaning performance with Bio-Chem cleaners. Field of Use: Ideal for maintaining components, workpieces, and motors across automotive and metalworking/CNC industries, suitable for both production and maintenance setups.",
     icon: "fa-leaf",
     img: "/htw-ii-max-eco.jpg",
     slug: "htw-ii-max-eco",
