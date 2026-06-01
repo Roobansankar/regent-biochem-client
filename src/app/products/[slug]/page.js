@@ -33,35 +33,47 @@ export default async function ProductDetailPage({ params }) {
           <div className="absolute top-0 right-0 w-1/2 h-full bg-green-50/20 blur-[120px] -z-10"></div>
 
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-light border border-green-mid mb-4">
-                <span className="text-[10px] font-black uppercase tracking-widest text-green">
-                  {product.category}
-                </span>
-              </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-light border border-green-mid mb-4">
+                  <span className="text-sm font-black uppercase tracking-widest text-green">
+                    {product.category}
+                  </span>
+                </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-brand-black mb-4 leading-[1.1]">
-                {product.title}
-              </h1>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-brand-black mb-4 leading-[1.1]">
+                  {product.title}
+                </h1>
 
-              <p className="text-base text-brand-body leading-relaxed border-l-4 border-green pl-6 max-w-2xl text-justify mb-4">
-                {product.desc}
-              </p>
-
-              {product.extraDesc && (
-                <p className="text-base text-brand-body leading-relaxed pl-6 max-w-2xl text-justify">
-                  {product.extraDesc}
+                <p className="text-base text-brand-body leading-relaxed border-l-4 border-green pl-6 max-w-2xl text-justify mb-4">
+                  {product.desc}
                 </p>
-              )}
 
-              <div className="flex flex-wrap gap-4 mt-8">
-                <Link
-                  href="/contact"
-                  className="px-8 py-3.5 bg-green text-white font-black rounded-2xl hover:bg-green-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-green/20 uppercase tracking-widest text-xs"
-                >
-                  Enquire Now
-                </Link>
+                {product.extraDesc && (
+                  <p className="text-base text-brand-body leading-relaxed pl-6 max-w-2xl text-justify">
+                    {product.extraDesc}
+                  </p>
+                )}
+
+                <div className="flex flex-wrap gap-4 mt-8">
+                  <Link
+                    href="/contact"
+                    className="px-8 py-3.5 bg-green text-white font-black rounded-2xl hover:bg-green-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-green/20 uppercase tracking-widest text-xs"
+                  >
+                    Enquire Now
+                  </Link>
+                </div>
               </div>
+
+              {product.img && (
+                <div className="relative aspect-square rounded-[3.5rem] bg-white shadow-2xl border-[12px] border-white overflow-hidden flex items-center justify-center p-8 group">
+                  <img
+                    src={product.img}
+                    alt={product.title}
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </section>

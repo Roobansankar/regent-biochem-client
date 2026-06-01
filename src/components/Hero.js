@@ -15,7 +15,7 @@ export default function Hero() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-brand-black mb-5 animate-fade-up-2">
             Advanced Industrial
             <br />
-            <em className="text-green not-italic">Cleaning &amp;</em>
+            <span className="text-green">Cleaning &amp;</span>
             <br />
             Surface Technology
           </h1>

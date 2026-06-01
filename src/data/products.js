@@ -38,7 +38,7 @@ export const products = [
     recommendedCleaner: { name: "Bio-Circle L Liquid", slug: "biochem-bio-circle-l", desc: "A low-foaming, microorganism-based cleaner for manual and automatic parts cleaning." },
     similarProducts: ["gt-parts-washer", "cb-100", "autopurge-system"],
     icon: "fa-spray-can",
-    img: "/HTW-1200-Max-Eco-1200x1200.jpg",
+    img: "/htw-ii-bio.jpg",
     slug: "htw-ii-bio",
   },
   {
@@ -47,7 +47,7 @@ export const products = [
     title: "HTW - II - Max ECO",
     desc: "Energy-efficient automatic spray cleaning system designed for maximum cleaning performance with minimum resource consumption.",
     icon: "fa-leaf",
-    img: "/HTW-1200-Max-Eco-1200x1200.jpg",
+    img: "/htw-ii-max-eco.jpg",
     slug: "htw-ii-max-eco",
   },
   {
@@ -56,6 +56,7 @@ export const products = [
     title: "HP VINGO",
     desc: "High-pressure precision cleaning system for complex industrial parts and specialized manufacturing components.",
     icon: "fa-faucet",
+    img: "/hp-vingo.jpg",
     slug: "hp-vingo",
   },
   {
@@ -96,6 +97,7 @@ export const products = [
     title: "RWR",
     desc: "Pipe and heat exchanger cleaning system designed for efficient removal of scale and industrial deposits.",
     icon: "fa-sync",
+    img: "/rwr.jpg",
     slug: "rwr",
   },
   {
@@ -114,6 +116,7 @@ export const products = [
     extraDesc: "Our general cleaners are formulated to tackle a wide range of industrial soils including oils, greases, and machining residues. Suitable for both ferrous and non-ferrous metals, these solvent-free, VOC-free formulations deliver consistent cleaning performance while ensuring workplace safety and environmental compliance.",
     icon: "fa-broom",
     slug: "general-cleaners",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiTCc3F7n8z0csoEBwAiXn7vYD_RbE9rYm9g&s",
     products: ["cb-100", "uno-s", "biochem-power-star-l", "biochem-bio-neutral-cleaner", "biochem-bio-circle-l", "biochem-power-cleaner-db"],
   },
   {

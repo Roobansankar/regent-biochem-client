@@ -6,6 +6,8 @@ import Philosophy from "@/components/Philosophy";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ProductGrid from "@/components/ProductGrid";
 import Industries from "@/components/Industries";
+import WorkflowProcess from "@/components/WorkflowProcess";
+import EsteemedCustomers from "@/components/EsteemedCustomers";
 import CTA from "@/components/CTA";
 
 export default function Home() {
@@ -19,6 +21,8 @@ export default function Home() {
       <WhyChooseUs />
       <ProductGrid />
       <Industries />
+      <WorkflowProcess />
+      <EsteemedCustomers />
       <CTA />
     </main>
   );

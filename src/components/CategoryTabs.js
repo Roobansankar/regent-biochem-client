@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { products as allProducts } from "@/data/products";
 
 export default function CategoryTabs({ products, category }) {
   const [activeTab, setActiveTab] = useState(products[0]?.id || null);
@@ -10,11 +11,11 @@ export default function CategoryTabs({ products, category }) {
   if (!active || products.length === 0) return null;
 
   return (
-    <section className="bg-brand-bg2">
+    <section className="bg-white">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-8 sm:pb-12">
         <div className="flex items-center gap-3 mb-8">
           <span className="w-10 h-px bg-green/30"></span>
-          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-green">
+          <span className="text-sm font-black uppercase tracking-[0.3em] text-green">
             {category}
           </span>
         </div>
@@ -36,54 +37,170 @@ export default function CategoryTabs({ products, category }) {
           ))}
         </div>
 
-        {/* Product Showcase */}
-        <div className="bg-white border border-brand-border rounded-2xl p-6 sm:p-8 lg:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
-            {/* Image */}
-            <Link
-              href={`/products/${active.slug}`}
-              className="dot-bg bg-brand-bg3 rounded-xl aspect-[4/3] flex items-center justify-center relative overflow-hidden p-6 group/img"
-            >
-              <img
-                src={active.img || "/placeholder.jpg"}
-                alt={active.title}
-                className="max-w-full max-h-full object-contain relative z-10 drop-shadow-2xl transition-all duration-500 group-hover/img:scale-105"
-              />
-            </Link>
-            {/* Info */}
-            <div>
-              <Link href={`/products/${active.slug}`} className="block group/title">
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-brand-black mb-4 leading-tight group-hover/title:text-green transition-colors">
-                  {active.title}
-                </h3>
-              </Link>
-              <p className="text-base text-brand-body leading-relaxed mb-6">{active.desc}</p>
-              {active.features && active.features.length > 0 && (
-                <ul className="flex flex-col gap-2.5 mb-8">
-                  {active.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-brand-body">
-                      <span className="w-2 h-2 rounded-full bg-green flex-shrink-0"></span> {feature}
-                    </li>
-                  ))}
-                </ul>
-              )}
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Link
-                  href={`/products/${active.slug}`}
-                  className="text-center bg-green text-white font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-green-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-green/20"
-                >
-                  View Product Details
-                </Link>
-                <Link
-                  href="/contact"
-                  className="text-center border-2 border-brand-border text-brand-black font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-brand-bg2 transition-all"
-                >
-                  Request Technical Quote
-                </Link>
+        {/* ─── FULL PRODUCT DETAIL ─── */}
+        {/* Hero */}
+        <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-brand-bg3 rounded-2xl">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white -z-10 rounded-2xl"></div>
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-green-50/20 blur-[120px] -z-10"></div>
+
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+              <div className="lg:col-span-7">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-light border border-green-mid mb-4">
+                  <span className="text-sm font-black uppercase tracking-widest text-green">{active.category}</span>
+                </div>
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-brand-black mb-4 leading-[1.1]">{active.title}</h1>
+                <p className="text-xl font-bold text-green mb-8 uppercase tracking-[0.2em]">{active.subtitle || "Industrial Engineering Excellence"}</p>
+                <p className="text-lg text-brand-body leading-relaxed mb-6 border-l-4 border-green pl-8 max-w-2xl text-justify">{active.desc}</p>
+
+                {active.labels && active.labels.length > 0 && (
+                  <div className="flex flex-wrap items-center gap-4 mb-10">
+                    {active.labels.map((label, i) => {
+                      const isVocFree = label.toLowerCase() === "voc free" || label.toLowerCase() === "voc-free";
+                      if (isVocFree) {
+                        return <img key={i} src="https://c8.alamy.com/comp/2JBE5TW/voc-free-volatile-organic-compounds-free-abstract-vector-stock-illustration-2JBE5TW.jpg" alt="VOC Free" className="h-12 w-auto object-contain rounded-lg border border-brand-border bg-white" />;
+                      }
+                      return <span key={i} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border-2 border-green-mid text-xs font-black uppercase tracking-widest text-green shadow-sm h-10">{label}</span>;
+                    })}
+                  </div>
+                )}
+
+                <div className="flex flex-wrap gap-4">
+                  <Link href="/contact" className="px-10 py-4 bg-green text-white font-black rounded-2xl hover:bg-green-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-green/20 uppercase tracking-widest text-xs">Enquire Now</Link>
+                </div>
+              </div>
+              <div className="lg:col-span-5">
+                <div className="relative aspect-square rounded-[3.5rem] bg-white shadow-2xl border-[12px] border-white overflow-hidden flex items-center justify-center p-8 group">
+                  <img src={active.img} alt={active.title} className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* Technical Overview */}
+        <section className="py-24 bg-white">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-16">
+              <div className="xl:col-span-8 space-y-20">
+                {active.fullDescription && (
+                  <div>
+                    <div className="flex items-center gap-3 mb-8">
+                      <span className="w-10 h-px bg-green/30"></span>
+                      <span className="text-sm font-black uppercase tracking-[0.3em] text-green">Theoretical Deep Dive</span>
+                    </div>
+                    <div className="prose prose-lg max-w-none prose-headings:text-brand-black prose-p:text-brand-body prose-strong:text-green" dangerouslySetInnerHTML={{ __html: active.fullDescription }} />
+                  </div>
+                )}
+
+                {active.application && (
+                  <div>
+                    <div className="flex items-center gap-3 mb-6">
+                      <span className="w-10 h-px bg-green/30"></span>
+                      <span className="text-sm font-black uppercase tracking-[0.3em] text-green">Application</span>
+                    </div>
+                    <div className="p-8 bg-brand-bg2 rounded-[2.5rem] border border-brand-border">
+                      <p className="text-brand-body text-base leading-relaxed">{active.application}</p>
+                    </div>
+                  </div>
+                )}
+
+                {active.features && active.features.length > 0 && (
+                  <div>
+                    <div className="flex items-center gap-3 mb-8">
+                      <span className="w-10 h-px bg-green/30"></span>
+                      <span className="text-sm font-black uppercase tracking-[0.3em] text-green">Key Features</span>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {active.features.map((feature, i) => (
+                        <div key={i} className="flex gap-5 p-7 bg-brand-bg2 rounded-[2rem] border border-brand-border hover:bg-white hover:shadow-xl transition-all group">
+                          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-green shadow-sm group-hover:bg-green group-hover:text-white transition-all shrink-0 mt-0.5">
+                            <i className="fas fa-check text-sm"></i>
+                          </div>
+                          <p className="text-sm text-brand-body leading-relaxed pt-2">{feature}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {active.similarProducts && active.similarProducts.length > 0 && (
+                  <div>
+                    <div className="flex items-center gap-3 mb-10">
+                      <span className="w-10 h-px bg-green/30"></span>
+                      <span className="text-sm font-black uppercase tracking-[0.3em] text-green">Similar Solutions</span>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {active.similarProducts.map((ref, i) => {
+                        const similarProd = allProducts.find(p => p.title === ref || p.slug === ref || p.id === ref);
+                        if (!similarProd) return null;
+                        return (
+                          <div key={i} className="group border border-brand-border rounded-[2rem] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-500 bg-white">
+                            <div className="dot-bg bg-brand-bg3 aspect-[4/3] flex items-center justify-center p-6 relative">
+                              {similarProd.img ? <img src={similarProd.img} alt={similarProd.title} className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110" /> : <div className="w-16 h-16 bg-green-light rounded-2xl flex items-center justify-center text-green group-hover:bg-green group-hover:text-white transition-all"><i className={`fas ${similarProd.icon} text-2xl`}></i></div>}
+                            </div>
+                            <div className="p-6">
+                              <span className="text-[10px] font-bold uppercase tracking-widest text-green">{similarProd.category}</span>
+                              <h4 className="text-base font-black text-brand-black mt-1 mb-2 leading-snug uppercase tracking-tight line-clamp-1">{similarProd.title}</h4>
+                              <p className="text-[11px] text-brand-body leading-relaxed mb-4 line-clamp-2 h-8">{similarProd.desc}</p>
+                              <Link href={`/products/${similarProd.slug}`} className="inline-flex items-center justify-center w-full bg-brand-black text-white text-[10px] font-black uppercase tracking-widest py-3 rounded-xl hover:bg-green transition-all shadow-sm">View Details</Link>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {active.caseStudies && active.caseStudies.length > 0 && (
+                  <div>
+                    <div className="flex items-center gap-3 mb-6">
+                      <span className="w-10 h-px bg-green/30"></span>
+                      <span className="text-sm font-black uppercase tracking-[0.3em] text-green">Case Studies</span>
+                    </div>
+                    <div className="space-y-4">
+                      {active.caseStudies.map((cs, i) => (
+                        <Link key={i} href={cs.href} className="flex items-center justify-between p-6 bg-brand-bg2 rounded-2xl border border-brand-border hover:border-green hover:bg-green-light transition-all group">
+                          <span className="font-bold text-brand-black group-hover:text-green transition-colors">{cs.title}</span>
+                          <i className="fas fa-arrow-right text-green opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="xl:col-span-4">
+                <div className="sticky top-24 space-y-6">
+                  <div className="bg-green rounded-[2.5rem] p-10 text-white overflow-hidden relative">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                    <div className="relative z-10">
+                      <h3 className="text-2xl font-black mb-10 uppercase tracking-tight">Technical<br />Specifications</h3>
+                      <div className="space-y-6">
+                        {active.technicalSpecs ? active.technicalSpecs.map((spec, i) => (
+                          <div key={i} className="flex justify-between items-end border-b border-white/20 pb-4 group">
+                            <div>
+                              <p className="text-[10px] font-black uppercase tracking-widest text-white/70 mb-1">{spec.label}</p>
+                              <p className="text-base font-bold text-white">{spec.value}</p>
+                            </div>
+                            <div className="w-2 h-2 rounded-full bg-white/20 group-hover:bg-white transition-colors"></div>
+                          </div>
+                        )) : <p className="text-sm text-white/50 italic">Technical datasheet pending.</p>}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-8 rounded-[2rem] bg-white border-2 border-brand-border shadow-sm">
+                    <i className="fas fa-headset text-2xl text-green mb-4"></i>
+                    <p className="text-sm font-bold text-brand-black mb-2">Need a Custom Config?</p>
+                    <p className="text-xs text-brand-body leading-relaxed mb-6">Our engineers can tailor {active.title} to your specific production line requirements.</p>
+                    <Link href="/contact" className="block w-full text-center px-6 py-3 bg-green text-white text-xs font-black rounded-xl hover:bg-green-dark transition-all uppercase tracking-widest shadow-lg shadow-green/20">Speak with an Expert →</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   );

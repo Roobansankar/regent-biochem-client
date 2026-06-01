@@ -49,7 +49,7 @@ export default function FeaturedProducts() {
           <div>
             <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-2">GREEN WAY TO GROWTH</p>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-black">
-              Flagship products, <em className="text-green">field-proven globally.</em>
+              Flagship products, <span className="text-green">field-proven globally.</span>
             </h2>
           </div>
           <Link

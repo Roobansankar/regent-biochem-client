@@ -38,7 +38,7 @@ export default function WhyChooseUs() {
         <div className="text-center mb-8">
           <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">Why Choose Us</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-black mb-4">
-            The Regent Biochem <em className="text-green">Advantage</em>
+            The Regent Biochem <span className="text-green">Advantage</span>
           </h2>
           <p className="text-base text-brand-body max-w-xl mx-auto leading-relaxed">
             We combine decades of chemical expertise with rigorous quality control to deliver products that perform

@@ -8,7 +8,7 @@ export default function Stats() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-brand-black mb-4">
             40+ Years of
             <br />
-            German <em className="text-green not-italic">Engineering</em>
+            German <span className="text-green">Engineering</span>
             <br />
             Excellence
           </h2>
@@ -17,7 +17,7 @@ export default function Stats() {
           </p>
         </div>
         {/* Numbers */}
-        <div className="bg-brand-bg2 border border-brand-border rounded-2xl p-8 sm:p-10 grid grid-cols-3 gap-4 sm:gap-8 text-center">  
+        <div className="bg-white border border-brand-border rounded-2xl p-8 sm:p-10 grid grid-cols-3 gap-4 sm:gap-8 text-center">  
           <div>
             <span className="block text-4xl sm:text-5xl font-bold text-green tracking-tight leading-none">500+</span>
             <span className="block text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">
