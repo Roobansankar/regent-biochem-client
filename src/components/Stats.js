@@ -1,6 +1,6 @@
 export default function Stats() {
   return (
-    <section className="bg-white border-b border-brand-border">
+    <section className="bg-[#f7f7f5] border-b border-[#e1e1e1]">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Text */}
         <div>
@@ -17,7 +17,7 @@ export default function Stats() {
           </p>
         </div>
         {/* Numbers */}
-        <div className="bg-brand-bg2 border border-brand-border rounded-2xl p-8 sm:p-10 grid grid-cols-3 gap-4 sm:gap-8 text-center">
+        <div className="bg-brand-bg2 border border-brand-border rounded-2xl p-8 sm:p-10 grid grid-cols-3 gap-4 sm:gap-8 text-center">  
           <div>
             <span className="block text-4xl sm:text-5xl font-bold text-green tracking-tight leading-none">500+</span>
             <span className="block text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">

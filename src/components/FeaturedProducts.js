@@ -6,7 +6,7 @@ import Link from "next/link";
 const products = {
   htw: {
     slug: "htw-ii-bio",
-    title: "HTW II Bio",
+    title: "HTW II - BIO",
     desc: "Hot-water, single-stage spray cleaning with rotating basket and oxygen membrane compressor — engineered for continuous duty in production lines.",
     features: [
       "Oxygen membrane compressor",
@@ -67,7 +67,7 @@ export default function FeaturedProducts() {
             }`}
             onClick={() => setActiveTab("htw")}
           >
-            HTW II Bio
+            HTW II - BIO
           </button>
           <button
             className={`px-5 py-2.5 text-xs sm:text-sm font-semibold whitespace-nowrap border-r border-brand-border transition-colors ${

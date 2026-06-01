@@ -8,11 +8,13 @@ import { products } from "@/data/products";
 export default function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    product.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    product.desc.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredProducts = products
+    .filter((p) => !p.products)
+    .filter((product) =>
+      product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.desc.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
   return (
     <main className="flex flex-col min-h-screen">

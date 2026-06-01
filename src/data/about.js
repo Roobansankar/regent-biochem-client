@@ -8,10 +8,10 @@ export const timeline = [
 ];
 
 export const values = [
-  { icon: "fa-medal", title: "Uncompromising Quality", text: "Every batch undergoes rigorous QC testing. We never cut corners — your operations depend on it." },
-  { icon: "fa-handshake", title: "Client Partnership", text: "We view every client relationship as a long-term partnership, providing personalized support and solutions." },
-  { icon: "fa-lightbulb", title: "Continuous Innovation", text: "Our R&D team is always developing next-generation formulations to keep your operations ahead." },
-  { icon: "fa-leaf", title: "Environmental Responsibility", text: "Eco-conscious manufacturing with biodegradable formulations and minimal chemical waste generation." },
-  { icon: "fa-shield-alt", title: "Safety First", text: "All products are designed with workplace safety in mind, with complete MSDS and safety documentation." },
-  { icon: "fa-chart-line", title: "Operational Excellence", text: "Streamlined manufacturing and supply chain operations ensure reliable delivery and consistent quality." },
+  { icon: "fa-leaf", title: "Sustainability", text: "We promote environmentally responsible technologies and chemistry that reduce waste, emissions, and ecological impact." },
+  { icon: "fa-lightbulb", title: "Innovation", text: "We continuously develop advanced cleaning solutions that improve efficiency, safety, and performance for modern industries." },
+  { icon: "fa-handshake", title: "Customer Partnership", text: "We work closely with customers to understand their processes and provide solutions that improve productivity and value." },
+  { icon: "fa-shield-alt", title: "Integrity", text: "We conduct our business with transparency, ethics, and accountability in every interaction." },
+  { icon: "fa-medal", title: "Quality & Reliability", text: "We are committed to delivering dependable machines and specialty chemicals that meet the highest performance standards." },
+  { icon: "fa-chart-line", title: "Continuous Improvement", text: "We constantly refine our products, processes, and services to deliver better results and sustainability." },
 ];

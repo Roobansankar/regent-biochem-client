@@ -32,7 +32,7 @@ export default function About() {
             </h1>
             
             <p className="text-base sm:text-lg text-brand-body leading-relaxed max-w-2xl mx-auto reveal">
-              Regent Biochem is the architect of industrial purity, bridging the gap between high-performance engineering and ecological responsibility.
+              Regent Biochem is a provider of industrial cleaning machines and service-led surface technology solutions for manufacturing industries across India.
             </p>
           </div>
         </section>
@@ -56,13 +56,14 @@ export default function About() {
           {/* Text */}
           <div className="reveal">
             <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
-              <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Company Overview
+              <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> About Us
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-5">
-              Built on Chemistry.<br/><span className="text-green-600">Driven by Innovation.</span>
+              German Technology.<br/><span className="text-green-600">Indian Manufacturing.</span>
             </h2>
-            <p className="text-base text-gray-500 leading-relaxed mb-4">Founded in 1999, Regent Biochem has grown from a regional supplier into one of India&apos;s most respected manufacturers of machine cleaning liquids and industrial chemicals.</p>
-            <p className="text-sm text-gray-500 leading-relaxed mb-8">Our state-of-the-art manufacturing facility in Coimbatore houses advanced blending equipment and a dedicated R&D laboratory, where our team of expert chemists continuously develop and refine formulations that set industry benchmarks.</p>
+            <p className="text-base text-gray-500 leading-relaxed mb-4">The company operates in strategic partnership with Bio-Circle Surface Technology GmbH, Germany, a 40 year-old global surface technology leader with operations across Europe, Asia-Pacific, North & South America and Australia. This association enables Regent Biochem to deliver proven German technology, engineering standards, and application expertise to the Indian market.</p>
+            <p className="text-sm text-gray-500 leading-relaxed mb-4">Regent Biochem supplies manual and automatic industrial parts cleaning systems, supported by application engineering, installation, commissioning, and after-sales service. Complementing its machines business, the company operates a chemical manufacturing plant producing cleaning, degreasing, finishing, descaling, surface protection & preparation and welding solutions using German technology.</p>
+            <p className="text-sm text-gray-500 leading-relaxed mb-8">By integrating machines, services, and in-house manufactured chemicals, Regent Biochem delivers end-to-end, performance-driven solutions that enhance process efficiency, reliability, and long-term operational performance across diverse industrial sectors.</p>
 
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-green-50 border border-green-100 rounded-2xl p-5">
@@ -83,7 +84,7 @@ export default function About() {
         <div className="max-w-[1600px] mx-auto">
           <div className="text-center mb-8 reveal">
             <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
-              <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Mission &amp; Vision
+              <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Vision &amp; Mission
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">
               Our Purpose &amp; <span className="text-green-600">Direction</span>
@@ -91,17 +92,17 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {/* Mission */}
-            <div className="mission-bar relative bg-white border border-gray-100 rounded-2xl p-8 sm:p-10 hover:-translate-y-1 hover:shadow-card transition-all duration-300 reveal">
-              <div className="text-4xl mb-5">🎯</div>
-              <h3 className="text-xl font-extrabold text-gray-900 mb-3">Our Mission</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">To manufacture and deliver superior-grade industrial cleaning chemicals and machine maintenance solutions that enhance operational efficiency, uphold safety standards, and support sustainable industrial practices across every client facility we serve.</p>
-            </div>
             {/* Vision */}
-            <div className="vision-bar relative bg-white border border-gray-100 rounded-2xl p-8 sm:p-10 hover:-translate-y-1 hover:shadow-card transition-all duration-300 reveal">
+            <div className="mission-bar relative bg-white border border-gray-100 rounded-2xl p-8 sm:p-10 hover:-translate-y-1 hover:shadow-card transition-all duration-300 reveal">
               <div className="text-4xl mb-5">🔭</div>
               <h3 className="text-xl font-extrabold text-gray-900 mb-3">Our Vision</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">To be the most trusted industrial chemical company in South Asia &mdash; recognized for uncompromising quality, continuous innovation, and a deep commitment to building long-term partnerships with every manufacturer we support.</p>
+              <p className="text-sm text-gray-500 leading-relaxed">To be a trusted leader in sustainable cleaning technology and eco-friendly specialty chemicals, enabling industries to achieve superior performance and responsible growth—the Green Way to Growth.</p>
+            </div>
+            {/* Mission */}
+            <div className="vision-bar relative bg-white border border-gray-100 rounded-2xl p-8 sm:p-10 hover:-translate-y-1 hover:shadow-card transition-all duration-300 reveal">
+              <div className="text-4xl mb-5">🎯</div>
+              <h3 className="text-xl font-extrabold text-gray-900 mb-3">Our Mission</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">To design and deliver innovative cleaning machines and environmentally responsible specialty chemicals that improve industrial efficiency, protect surfaces and components, reduce environmental impact, and create lasting value for customers and stakeholders.</p>
             </div>
           </div>
         </div>

@@ -35,7 +35,7 @@
   --color-brand-bg2: #f6f8f6;
   --color-brand-bg3: #f0f4f1;
 
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --shadow-card: 0 8px 32px rgba(10, 69, 23, 0.10);
   --shadow-float: 0 20px 60px rgba(10, 69, 23, 0.16);
@@ -54,9 +54,12 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+  font-size: 110%; /* Increased base font size */
+}
 body { 
-  font-family: var(--font-manrope), sans-serif; 
+  font-family: var(--font-inter), sans-serif; 
   overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);

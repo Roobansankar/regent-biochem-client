@@ -1,65 +1,249 @@
 export const products = [
   {
-  id: "cb-100",
-  category: "Industrial Cleaner",
-  title: "CB 100",
-  subtitle: "Powerful Cold Cleaner Alternative",
-  desc: "CB 100 is a powerful cold cleaner alternative designed to remove heavy soiling from industrial surfaces. It is suitable for cleaning stainless steel, steel and non-ferrous metals while supporting safer and more sustainable cleaning.",
-  fullDescription: `
-    <p class="text-lg text-brand-body leading-relaxed mb-6">
-      CB 100 represents a significant shift in industrial maintenance, offering a high-performance alternative to traditional solvent-based cold cleaners. Specifically engineered to address the heavy-duty cleaning requirements of modern manufacturing, it bridges the gap between aggressive chemical action and environmental responsibility.
-    </p>
+    id: "htw-ii-bio",
+    category: "Cleaning Systems",
+    title: "HTW II - BIO",
+    subtitle: "High-Performance Bio-Active Cleaning",
+    desc: "The HTW-II Bio stands out from all hot-water parts washers because it is a real all-round talent. It is operated with the Biocircle Liquid L cleaner, which is perfectly matched to the HTW-II Bio. This means not only safe working and a long service life, but also the cleaning of medium to heavy soiling from materials such as steel, stainless steel, plastic, aluminium, zinc-coated surfaces, and non-ferrous metals.",
+    fullDescription: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        The HTW II Bio Washer represents the pinnacle of sustainable industrial cleaning. Developed for high-throughput production lines, this system eliminates the need for hazardous solvent-based cleaning, replacing it with a safe, aqueous-based process enhanced by bio-active microorganisms.
+      </p>
+      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">The Science of Bio-Remediation</h2>
+      <p class="text-brand-body leading-relaxed mb-6">
+        At the heart of the HTW II Bio is our proprietary bio-remediation process. As the system cleans parts, the resulting oil and grease are washed into the main tank. Here, specialized microorganisms 'eat' these hydrocarbons, breaking them down into harmless water and CO2. This self-cleaning capability allows the cleaning fluid to remain effective for months, significantly reducing waste disposal costs and environmental impact.
+      </p>
+      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Precision Engineering</h2>
+      <p class="text-brand-body leading-relaxed mb-6">
+        Equipped with a heavy-duty rotating basket and a high-pressure pump system, the HTW II Bio delivers consistent, repeatable results. The system is constructed from high-grade stainless steel to ensure longevity in corrosive environments. The intuitive control interface allows operators to precisely manage temperature and wash cycles, ensuring optimal performance for every component type.
+      </p>
+    `,
+    features: [
+      "HTW-II Bio 800, 1000, 1200, 1500",
+      "Degradation of grease and oil by microorganisms",
+      "Long cleaner service life due to recirculation",
+      "Less cleaner storage capacity required",
+      "Less waste disposal",
+      "Insulation of the entire housing",
+      "HTW-II Bio 800: 2.5 bar operating pressure",
+      "HTW-II Bio 1000, 1200, 1500: 5 bar operating pressure"
+    ],
+    technicalSpecs: [
+      { label: "Basket Diameter", value: "800 mm - 1500 mm" },
+      { label: "Load Capacity", value: "Up to 500 kg" },
+      { label: "Spray Pressure", value: "2.5 - 5 Bar" },
+      { label: "Heater Power", value: "9 kW - 18 kW" },
+      { label: "Tank Volume", value: "250 Litres" }
+    ],
+    recommendedCleaner: { name: "Bio-Circle L Liquid", slug: "biochem-bio-circle-l", desc: "A low-foaming, microorganism-based cleaner for manual and automatic parts cleaning." },
+    similarProducts: ["gt-parts-washer", "cb-100", "autopurge-system"],
+    icon: "fa-spray-can",
+    img: "/HTW-1200-Max-Eco-1200x1200.jpg",
+    slug: "htw-ii-bio",
+  },
+  {
+    id: "htw-ii-max-eco",
+    category: "Cleaning Systems",
+    title: "HTW - II - Max ECO",
+    desc: "Energy-efficient automatic spray cleaning system designed for maximum cleaning performance with minimum resource consumption.",
+    icon: "fa-leaf",
+    img: "/HTW-1200-Max-Eco-1200x1200.jpg",
+    slug: "htw-ii-max-eco",
+  },
+  {
+    id: "hp-vingo",
+    category: "Cleaning Systems",
+    title: "HP VINGO",
+    desc: "High-pressure precision cleaning system for complex industrial parts and specialized manufacturing components.",
+    icon: "fa-faucet",
+    slug: "hp-vingo",
+  },
+  {
+    id: "gt-compact",
+    category: "Cleaning Systems",
+    title: "GT COMPACT",
+    desc: "Space-saving parts washer offering industrial-grade cleaning performance in a compact footprint.",
+    icon: "fa-compress-arrows-alt",
+    slug: "gt-compact",
+  },
+  {
+    id: "gt-max",
+    category: "Cleaning Systems",
+    title: "GT MAX",
+    desc: "Maximum capacity parts washer designed for large-scale industrial components and high-throughput production environments.",
+    icon: "fa-expand-arrows-alt",
+    slug: "gt-max",
+  },
+  {
+    id: "prolaq-compact",
+    category: "Paint Removal Systems",
+    title: "PROLAQ COMPACT",
+    desc: "Efficient paint removal system for small to medium-sized components, designed for precision and ease of use.",
+    icon: "fa-paint-roller",
+    slug: "prolaq-compact",
+  },
+  {
+    id: "prolaq-auto",
+    category: "Paint Removal Systems",
+    title: "PROLAQ AUTO",
+    desc: "Automated paint removal system for high-volume production, ensuring consistent results and reduced manual labor.",
+    icon: "fa-robot",
+    slug: "prolaq-auto",
+  },
+  {
+    id: "rwr",
+    category: "Descaling Systems",
+    title: "RWR",
+    desc: "Pipe and heat exchanger cleaning system designed for efficient removal of scale and industrial deposits.",
+    icon: "fa-sync",
+    slug: "rwr",
+  },
+  {
+    id: "rer-kst",
+    category: "Descaling Systems",
+    title: "RER-KST",
+    desc: "Specialized descaling system for plastic-lined pipes and sensitive cooling circuits.",
+    icon: "fa-tools",
+    slug: "rer-kst",
+  },
+  {
+    id: "general-cleaners",
+    category: "Cleaners",
+    title: "General Cleaners",
+    desc: "Versatile cleaning solutions for everyday industrial maintenance and surface preparation.",
+    extraDesc: "Our general cleaners are formulated to tackle a wide range of industrial soils including oils, greases, and machining residues. Suitable for both ferrous and non-ferrous metals, these solvent-free, VOC-free formulations deliver consistent cleaning performance while ensuring workplace safety and environmental compliance.",
+    icon: "fa-broom",
+    slug: "general-cleaners",
+    products: ["cb-100", "uno-s", "biochem-power-star-l", "biochem-bio-neutral-cleaner", "biochem-bio-circle-l", "biochem-power-cleaner-db"],
+  },
+  {
+    id: "bio-circle-cleaners",
+    category: "Cleaners",
+    title: "Bio-circle Cleaners",
+    desc: "Eco-friendly, bio-active cleaning agents designed for use with Bio-Circle parts washing systems.",
+    extraDesc: "These bio-active formulations harness the power of beneficial microorganisms to continuously break down oils and hydrocarbons during the cleaning process. The result is a self-regenerating cleaning bath that extends fluid life, reduces waste, and lowers operational costs — all while maintaining exceptional cleaning performance.",
+    icon: "fa-recycle",
+    slug: "bio-circle-cleaners",
+    products: ["biochem-bio-circle-l"],
+  },
+  {
+    id: "acidic-cleaners",
+    category: "Cleaners",
+    title: "Acidic Cleaners",
+    desc: "Powerful acidic formulations for removing mineral deposits, rust, and heavy oxidation.",
+    extraDesc: "Engineered for heavy-duty descaling and de-rusting applications, our acidic cleaners penetrate and dissolve stubborn inorganic deposits including limescale, rust, and mineral buildup. Ideal for heat exchangers, cooling systems, and metal components requiring deep restoration.",
+    icon: "fa-vial",
+    slug: "acidic-cleaners",
+    products: [],
+  },
+  {
+    id: "finishers",
+    category: "Cleaners",
+    title: "Finishers",
+    desc: "Final-step solutions for surface protection, brightening, and professional-grade finishing.",
+    extraDesc: "Our finishers deliver the final touch to your cleaning process, providing surface brightening, passivation, and temporary corrosion protection. These advanced formulations ensure components emerge with a pristine, presentation-ready finish that meets the highest quality standards.",
+    icon: "fa-shining",
+    slug: "finishers",
+    products: [],
+  },
+  {
+    id: "anti-spatters",
+    category: "Safeweld",
+    title: "Anti-spatters",
+    desc: "Advanced anti-spatter solutions to prevent weld dross adhesion and protect workpieces and equipment.",
+    extraDesc: "Our anti-spatter formulations create a protective barrier on workpiece surfaces and MIG/TIG nozzles, preventing weld spatter from adhering. This extends consumable life, reduces post-weld cleanup time, and maintains consistent weld quality across production runs.",
+    icon: "fa-fire-extinguisher",
+    slug: "anti-spatters",
+    products: ["safeweld-system"],
+  },
+  {
+    id: "weld-cleaners",
+    category: "Safeweld",
+    title: "Weld cleaners",
+    desc: "Effective cleaning agents for removing heat tint and oxidation from weld seams, particularly on stainless steel.",
+    extraDesc: "Specially formulated to remove heat discoloration, oxidation layers, and welding residues from stainless steel and other alloys. Our weld cleaners restore the original surface finish and prepare welds for passivation or further processing without mechanical abrasion.",
+    icon: "fa-sparkles",
+    slug: "weld-cleaners",
+    products: [],
+  },
+  {
+    id: "surface-protectors",
+    category: "Safeweld",
+    title: "Surface protectors",
+    desc: "Protective coatings and treatments to safeguard surfaces from corrosion, scratches, and environmental damage.",
+    extraDesc: "Our surface protectors provide a durable, temporary barrier against corrosion, moisture, and mechanical damage during storage, transport, and inter-process handling. Available in film-forming and oil-based variants for different protection requirements and removal preferences.",
+    icon: "fa-shield-virus",
+    slug: "surface-protectors",
+    products: [],
+  },
+  {
+    id: "cb-100",
+    category: "Industrial Cleaner",
+    title: "CB 100",
+    subtitle: "Powerful Cold Cleaner Alternative",
+    desc: "CB 100 is a powerful cold cleaner alternative designed to remove heavy soiling from industrial surfaces. It is suitable for cleaning stainless steel, steel and non-ferrous metals while supporting safer and more sustainable cleaning.",
+    fullDescription: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        CB 100 represents a significant shift in industrial maintenance, offering a high-performance alternative to traditional solvent-based cold cleaners. Specifically engineered to address the heavy-duty cleaning requirements of modern manufacturing, it bridges the gap between aggressive chemical action and environmental responsibility.
+      </p>
 
-    <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">The Chemistry of Cold Cleaning</h2>
-    <p class="text-brand-body leading-relaxed mb-6">
-      Unlike standard cleaners that rely on high-VOC solvents, CB 100 utilizes a water-based, surfactant-rich formulation that penetrates the molecular structure of the heaviest industrial soils. It is particularly effective against burnt-on grease, bitumen, and bitumen residues, which are traditionally difficult to remove without harsh chemicals. Its demulsifying properties allow oils and greases to be easily separated from the cleaning fluid, enabling the fluid to be recycled and reused, thus significantly extending its service life and reducing operational waste.
-    </p>
+      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Advanced Technical Performance</h2>
+      <p class="text-brand-body leading-relaxed mb-6">
+        Industrial surfaces often accumulate complex, layered contaminants that resist standard aqueous cleaners. CB 100 is formulated to penetrate and break down the heaviest soiling, including burnt-on grease, smoke residues, soot, rubber residues, bitumen, and wax. Its high-solvency power ensures that even stubborn pastes and lubricants are emulsified and removed, restoring surfaces to their original specification.
+      </p>
 
-    <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Seamless Process Integration</h2>
-    <p class="text-brand-body leading-relaxed mb-6">
-      One of the core advantages of CB 100 is its compatibility with existing industrial infrastructure. It is designed for use in conventional parts washers and CLEAN BOX systems, allowing facilities to upgrade their safety standards without altering established work processes. Whether applied manually or through automated machine processes, it maintains consistent efficacy across stainless steel, steel, and non-ferrous alloys.
-    </p>
+      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">The Science of Sustainability</h2>
+      <p class="text-brand-body leading-relaxed mb-6">
+        Unlike standard cleaners that rely on high-VOC solvents, CB 100 utilizes a surfactant-rich formulation derived from renewable raw materials. Its demulsifying properties allow oils and greases to be easily separated from the cleaning fluid. This means the fluid can be recycled and reused multiple times, significantly extending its service life and reducing operational waste. This circular approach to cleaning directly impacts the bottom line by lowering chemical consumption and disposal costs.
+      </p>
 
-    <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Occupational Safety & Compliance</h2>
-    <p class="text-brand-body leading-relaxed mb-6">
-      By being VOC-free and label-free in accordance with the CLP regulation, CB 100 actively contributes to a safer workplace. It eliminates the inhalation risks associated with solvent vapors and protects operators from skin-sensitizing agents found in traditional cleaners. This focus on "Clean Blue" technology ensures that your growth is built on a foundation of sustainability and worker protection.
-    </p>
-  `,
-  features: [
-    "Removes the heaviest soiling such as burnt-on grease, oil, smoke, soot, rubber residues, bitumen and wax residues as well as pastes",
-    "Cleans stainless steel, steel and non-ferrous metals",
-    "Long service life thanks to recyclable and demulsifying properties",
-    "Suitable for conventional parts washers, enabling unaltered work processes",
-    "VOC- and label-free in accordance with the CLP regulation; increases occupational safety and protects the environment",
-    "Suitable for manual and machine use"
-  ],
-  technicalSpecs: [
-    { label: "Product Type", value: "Cold Cleaner Alternative" },
-    { label: "VOC Content", value: "VOC-Free" },
-    { label: "Base Materials", value: "Renewable Raw Materials" },
-    { label: "Foam Profile", value: "Low-Foaming" },
-    { label: "Residue", value: "Residue-Free & Water-Rinsable" },
-    { label: "Metal Compatibility", value: "Stainless Steel, Steel, Non-Ferrous" },
-    { label: "Use Modes", value: "Manual & Machine Use" },
-    { label: "Special Approvals", value: "Suitable for Food Industry Areas" }
-  ],
-  recommendedWith: "MAX ECO",
-  similarProducts: [
-    "UNO S",
-    "Biochem Power Star L",
-    "Biochem Bio Neutral Cleaner",
-  ],
-  labels: ["VOC Free", "Bio-Based", "Clean Blue"],
-  icon: "fa-flask",
-  img: "https://www.bio-circle.com/lib/uploads/sites/2/2024/09/CB_100_500ml-600x600.jpg",
-  slug: "cb-100",
-},
+      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Seamless Process Integration</h2>
+      <p class="text-brand-body leading-relaxed mb-6">
+        CB 100 is designed for versatility, making it suitable for both manual and machine use. It can be integrated into conventional parts washers or CLEAN BOX systems without requiring any alterations to existing work processes. It provides exceptional results on stainless steel, steel, and non-ferrous metals, ensuring broad compatibility across your entire component inventory.
+      </p>
+
+      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Industry Applications</h2>
+      <p class="text-brand-body leading-relaxed mb-6">
+        Extensively used in high-precision sectors such as Automotive assembly, Aerospace maintenance, and Tool & Die manufacturing. CB 100 is the preferred solution for pre-cleaning components before high-accuracy quality inspection or final coating applications, where zero-residue surfaces are essential for process integrity.
+      </p>
+
+      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Occupational Safety & Compliance</h2>
+      <p class="text-brand-body leading-relaxed mb-6">
+        By being VOC-free and label-free in accordance with the CLP regulation, CB 100 actively contributes to a safer workplace. It eliminates the inhalation risks associated with solvent vapors and reduces the chemical burden on operators. This commitment to 'Clean Blue' technology ensures that industrial growth is built on a foundation of sustainability and worker protection.
+      </p>
+    `,
+    features: [
+      "Removes the heaviest soiling such as burnt-on grease, oil, smoke, soot, rubber residues, bitumen and wax residues as well as pastes",
+      "Cleans stainless steel, steel and non-ferrous metals",
+      "Long service life thanks to recyclable and demulsifying properties",
+      "Suitable for conventional parts washers, enabling unaltered work processes",
+      "VOC- and label-free in accordance with the CLP regulation; increases occupational safety and protects the environment",
+      "Suitable for manual and machine use"
+    ],
+    technicalSpecs: [
+      { label: "Product Type", value: "Cold Cleaner Alternative" },
+      { label: "VOC Content", value: "VOC-Free" },
+      { label: "Base Materials", value: "Renewable Raw Materials" },
+      { label: "Foam Profile", value: "Low-Foaming" },
+      { label: "Residue", value: "Residue-Free & Water-Rinsable" },
+      { label: "Metal Compatibility", value: "Stainless Steel, Steel, Non-Ferrous" },
+      { label: "Use Modes", value: "Manual & Machine Use" },
+      { label: "Special Approvals", value: "Suitable for Food Industry Areas" }
+    ],
+    recommendedWith: "MAX ECO",
+    similarProducts: ["uno-s", "biochem-power-star-l", "biochem-bio-neutral-cleaner"],
+    labels: ["VOC Free", "Bio-Based", "Clean Blue"],
+    icon: "fa-flask",
+    img: "https://www.bio-circle.com/lib/uploads/sites/2/2024/09/CB_100_500ml-600x600.jpg",
+    slug: "cb-100",
+  },
   {
     id: "gt-parts-washer",
     category: "Parts Washers",
     title: "GT Parts Washer Pro",
     desc: "Compact yet powerful bench-top aqueous washer designed for precision machined components. Adjustable spray pressure and temperature control.",
     features: ["Adjustable spray pressure", "Stainless steel tank", "Low water consumption", "Ergonomic lid design"],
+    similarProducts: ["htw-ii-bio", "uno-s", "biochem-bio-neutral-cleaner"],
     icon: "fa-industry",
     img: "/GT Parts Washer.webp",
     slug: "gt-parts-washer",
@@ -75,6 +259,7 @@ export const products = [
       "Passivation capability",
       "Compatible with all MIG/TIG setups",
     ],
+    similarProducts: ["biochem-power-star-l", "uno-s", "cb-100"],
     icon: "fa-fire-alt",
     img: "/SafeWeld.jpg",
     slug: "safeweld-system",
@@ -84,6 +269,7 @@ export const products = [
     category: "Chemicals",
     title: "BioClean Concentrate",
     desc: "Eco-certified industrial degreaser for ferrous and non-ferrous metals.",
+    similarProducts: ["cb-100", "uno-s", "biochem-bio-neutral-cleaner"],
     icon: "fa-flask",
     slug: "bioclean-concentrate",
   },
@@ -92,6 +278,7 @@ export const products = [
     category: "Automation",
     title: "AutoPurge System",
     desc: "Automated pipeline purging for zero-residue chemical changeovers.",
+    similarProducts: ["htw-ii-bio", "gt-parts-washer"],
     icon: "fa-wind",
     slug: "autopurge-system",
   },
@@ -100,6 +287,7 @@ export const products = [
     category: "Protection",
     title: "CorroShield Coating",
     desc: "Temporary rust-preventive film for storage and inter-process protection.",
+    similarProducts: ["bioclean-concentrate", "safeweld-system", "uno-s"],
     icon: "fa-shield-alt",
     slug: "corroshield-coating",
   },
@@ -108,6 +296,7 @@ export const products = [
     category: "Fluids",
     title: "CoolTech Cutting Fluid",
     desc: "Semi-synthetic metalworking fluid for high-speed CNC machining.",
+    similarProducts: ["bioclean-concentrate", "uno-s", "biochem-power-star-l"],
     icon: "fa-tint",
     slug: "cooltech-cutting-fluid",
   },
@@ -141,7 +330,7 @@ export const products = [
       { label: "Metal Compatibility", value: "Stainless Steel, Aluminum, Non-Ferrous" },
       { label: "Use Modes", value: "Manual & Machine Use" }
     ],
-    similarProducts: ["CB 100", "Biochem Power Star L"],
+    similarProducts: ["cb-100", "biochem-power-star-l", "biochem-bio-neutral-cleaner"],
     labels: ["VOC Free", "Bio-Based"],
     icon: "fa-flask",
     img: "/uno-s.jpg",
@@ -177,7 +366,7 @@ export const products = [
       { label: "Application", value: "Immersion & Spray" },
       { label: "Use Modes", value: "Machine Use" }
     ],
-    similarProducts: ["CB 100", "UNO S"],
+    similarProducts: ["cb-100", "uno-s", "biochem-bio-circle-l"],
     labels: ["Concentrate", "Efficient"],
     icon: "fa-flask",
     img: "/biochem-power-star-l.jpg",
@@ -213,7 +402,7 @@ export const products = [
       { label: "Application", value: "Universal" },
       { label: "Metal Safe", value: "All Common Metals" }
     ],
-    similarProducts: ["CB 100", "UNO S"],
+    similarProducts: ["cb-100", "uno-s", "biochem-bio-circle-l"],
     labels: ["Neutral pH", "Bio-Based"],
     icon: "fa-flask",
     img: "/biochem-bio-neutral-cleaner.jpg",
@@ -249,7 +438,7 @@ export const products = [
       { label: "Waste Reduction", value: "Significantly Reduced" },
       { label: "Application", value: "Immersion Systems" }
     ],
-    similarProducts: ["CB 100", "Biochem Power Star L"],
+    similarProducts: ["cb-100", "biochem-power-star-l", "biochem-bio-neutral-cleaner"],
     labels: ["Recyclable", "Sustainable"],
     icon: "fa-flask",
     img: "/biochem-bio-circle-l.jpg",
@@ -285,7 +474,7 @@ export const products = [
       { label: "Application", value: "Immersion & Spray" },
       { label: "Metal Types", value: "Ferrous & Non-Ferrous" }
     ],
-    similarProducts: ["CB 100", "Biochem Power Star L"],
+    similarProducts: ["cb-100", "biochem-power-star-l", "uno-s"],
     labels: ["Dual Function", "Efficient"],
     icon: "fa-flask",
     img: "/biochem-power-cleaner-db.jpg",

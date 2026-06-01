@@ -31,12 +31,12 @@ export default function ProductGrid() {
                 </div>
               </div>
               <div className="p-5">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-green">{product.category}</span>
-                <h3 className="text-base font-bold text-brand-black mt-1 mb-2 leading-snug">{product.title}</h3>
-                <p className="text-[11px] text-brand-body leading-relaxed mb-4 line-clamp-2 h-8">{product.desc}</p>
+                <span className="text-xs font-bold uppercase tracking-widest text-green">{product.category}</span>
+                <h3 className="text-lg font-bold text-brand-black mt-1 mb-2 leading-snug">{product.title}</h3>
+                <p className="text-sm text-brand-body leading-relaxed mb-4 line-clamp-2">{product.desc}</p>
                 <Link
                   href={`/products/${product.slug}`}
-                  className="inline-flex items-center justify-center w-full bg-green text-white text-[10px] font-extrabold uppercase tracking-widest py-2.5 rounded-lg hover:bg-green-dark transition-all shadow-sm"
+                  className="inline-flex items-center justify-center w-full bg-green text-white text-xs font-black uppercase tracking-widest py-3 rounded-lg hover:bg-green-dark transition-all shadow-sm"
                 >
                   View Product
                 </Link>

@@ -40,28 +40,42 @@ const navData = [
       {
         label: "Cleaning Systems",
         items: [
-          { name: "Industry Part Washers", href: "/products?category=cleaning-systems" },
-          { name: "Automatic Systems", href: "/products" },
-          { name: "Manual Systems", href: "/products" },
-          { name: "Semi Automatic Systems", href: "/products" },
+          { name: "HTW II - BIO", href: "/products/htw-ii-bio" },
+          { name: "HTW - II - Max ECO", href: "/products/htw-ii-max-eco" },
+          { name: "HP VINGO", href: "/products/hp-vingo" },
+          { name: "GT COMPACT", href: "/products/gt-compact" },
+          { name: "GT MAX", href: "/products/gt-max" },
         ],
       },
       {
         label: "Paint Removal Systems",
         items: [
-          { name: "Pipe Cleaning Systems", href: "/products" },
-          { name: "RWR", href: "/products" },
-          { name: "RWR KST", href: "/products" },
+          { name: "PROLAQ COMPACT", href: "/products/prolaq-compact" },
+          { name: "PROLAQ AUTO", href: "/products/prolaq-auto" },
         ],
       },
       {
-        label: "Product Range",
+        label: "Descaling Systems",
         items: [
-          { name: "Anti-Spatter", href: "/products" },
-          { name: "Weld Cleaning", href: "/products" },
-          { name: "Surface Protection", href: "/products" },
-          { name: "General Cleaners", href: "/products" },
-          { name: "Finishing Chemicals", href: "/products" },
+          { name: "RWR", href: "/products/rwr" },
+          { name: "RER-KST", href: "/products/rer-kst" },
+        ],
+      },
+      {
+        label: "Cleaners",
+        items: [
+          { name: "General cleaners", href: "/products/general-cleaners" },
+          { name: "Bio-circle cleaners", href: "/products/bio-circle-cleaners" },
+          { name: "Acidic cleaners", href: "/products/acidic-cleaners" },
+          { name: "Finishers", href: "/products/finishers" },
+        ],
+      },
+      {
+        label: "Safeweld",
+        items: [
+          { name: "Anti-spatters", href: "/products/anti-spatters" },
+          { name: "Weld cleaners", href: "/products/weld-cleaners" },
+          { name: "Surface protectors", href: "/products/surface-protectors" },
         ],
       },
     ],
@@ -218,7 +232,9 @@ export default function Navbar() {
                       <div className={`fixed left-0 w-full bg-white shadow-2xl border-t border-brand-border animate-fade-in transition-all duration-300 ${
                         isScrolled ? "top-[64px]" : "top-[calc(64px+96px)]"
                       }`}>
-                        <div className="max-w-[1600px] mx-auto grid grid-cols-4 gap-8 p-10">
+                        <div className={`max-w-[1600px] mx-auto grid gap-8 p-10 ${
+                          link.name === "Products" ? "grid-cols-5" : "grid-cols-6"
+                        }`}>
                           {link.columns.map((col) => (
                             <div key={col.label}>
                               <h4 className="text-xs font-black uppercase tracking-widest text-green mb-5 pb-2 border-b border-green-light">
@@ -238,13 +254,14 @@ export default function Navbar() {
                               </div>
                             </div>
                           ))}
-                          {/* Featured Image/Promo in Mega Menu */}
-                          <div className="col-span-1 bg-brand-bg2 rounded-2xl p-6 flex flex-col justify-center border border-brand-border">
-                            <span className="text-[10px] font-bold uppercase tracking-widest text-green mb-2">Featured Solution</span>
-                            <h5 className="text-lg font-bold text-brand-black mb-3">Eco-Friendly Cleaning Systems</h5>
-                            <p className="text-xs text-brand-body leading-relaxed mb-4">Discover our range of bio-active part washers designed for sustainability.</p>
-                            <Link href="#" onClick={closeMenu} className="text-xs font-bold text-green underline decoration-2 underline-offset-4">Explore Products</Link>
-                          </div>
+                          {link.name !== "Products" && (
+                            <div className="col-span-1 bg-brand-bg2 rounded-2xl p-6 flex flex-col justify-center border border-brand-border">
+                              <span className="text-[10px] font-bold uppercase tracking-widest text-green mb-2">Featured Solution</span>
+                              <h5 className="text-lg font-bold text-brand-black mb-3">Eco-Friendly Cleaning Systems</h5>
+                              <p className="text-xs text-brand-body leading-relaxed mb-4">Discover our range of bio-active part washers designed for sustainability.</p>
+                              <Link href="#" onClick={closeMenu} className="text-xs font-bold text-green underline decoration-2 underline-offset-4">Explore Products</Link>
+                            </div>
+                          )}
                         </div>
                       </div>
                     )}
