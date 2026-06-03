@@ -2,7 +2,7 @@ import { industries } from "@/data/industries";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Link from "next/link";
- not 
+
 export default function IndustriesIndex() {
   return (
     <main className="flex flex-col min-h-screen bg-white">
