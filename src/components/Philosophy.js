@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Philosophy() {
   return (
-    <section className="relative border-b border-brand-border bg-gradient-to-b from-brand-bg3/50 via-white to-white py-12 lg:py-0">
+    <section className="relative  border-b border-brand-border bg-[#f7f7f5] py-12 lg:py-0">
       {/* Continuity Gradient Flare */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent opacity-60 z-10 pointer-events-none"></div>
       
@@ -36,10 +36,9 @@ export default function Philosophy() {
               TO GROWTH
             </h2>
           </div>
-          <p className="text-base text-brand-body leading-relaxed max-w-md mb-6">
-            At Bio-Chem, sustainability isn't just a goal — it's the architecture of our engineering. We believe
-            industrial power and ecological responsibility can co-exist through the science of bio-remediation and
-            solvent-free chemistry.
+          <p className="text-base text-brand-body leading-relaxed mb-6 text-justify">
+            At Regent BioChem, we deliver industrial cleaning systems, specialty chemicals, and surface technology solutions for manufacturing industries across India through our <b>Cleantech, SafeWeld, and FreeFlow product segments.</b>
+            In strategic partnership with Bio-Circle Surface Technology GmbH, Germany, we combine proven German engineering with application-focused expertise to provide performance-driven solutions that enhance efficiency, reliability, and operational productivity.
           </p>
           <Link
             href="/about"

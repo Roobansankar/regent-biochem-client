@@ -59,13 +59,13 @@ export const products = [
     slug: "htw-ii-max-eco",
   },
   {
-    id: "hp-vingo",
+    id: "hp-vigo",
     category: "Cleaning Systems",
-    title: "HP VINGO",
+    title: "HP VIGO",
     desc: "High-pressure precision cleaning system for complex industrial parts and specialized manufacturing components.",
     icon: "fa-faucet",
-    img: "/hp-vingo.jpg",
-    slug: "hp-vingo",
+    img: "/hp-vigo.jpg",
+    slug: "hp-vigo",
   },
   {
     id: "gt-compact",

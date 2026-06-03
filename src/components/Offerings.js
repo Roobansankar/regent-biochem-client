@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Offerings() {
   return (
-    <section id="offerings" className="bg-brand-bg2 py-12 px-4 sm:px-6 lg:px-8">
+    <section id="offerings" className="bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto">
         <div className="text-center mb-10">
           <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">GREEN WAY TO GROWTH</p>
@@ -16,22 +16,22 @@ export default function Offerings() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {services.map((service, index) => (
-            <Link 
-              key={index} 
-              href={`/services/freeflow/${service.slug}`}
-              className="group bg-white rounded-2xl p-10 text-center shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col items-center"
+            <div
+              key={index}
+              className="group bg-[#f7f7f5] rounded-xl border border-brand-border/40 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center px-4 pt-6 pb-5"
             >
-              <div className="w-16 h-16 bg-green-light group-hover:bg-green transition-colors rounded-2xl flex items-center justify-center mb-6">
-                <i className={`fas ${service.icon} text-2xl text-green group-hover:text-white transition-colors`}></i>
+              <div className="w-14 h-14 bg-green/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green/15 transition-colors">
+                <i className={`fas ${service.icon} text-xl text-green`}></i>
               </div>
-              <h3 className="text-xl font-extrabold text-brand-black mb-3 tracking-tight">{service.title}</h3>
-              <p className="text-sm text-brand-body leading-relaxed mb-6">
-                {service.shortDescription}
-              </p>
-              <span className="mt-auto text-xs font-bold uppercase tracking-widest text-green group-hover:text-green-dark inline-flex items-center gap-2">
-                Learn More <i className="fas fa-arrow-right"></i>
-              </span>
-            </Link>
+              <h3 className="text-sm font-semibold text-brand-black leading-snug mb-5 flex-1">{service.title}</h3>
+              <Link
+                href={`/services/freeflow/${service.slug}`}
+                className="inline-flex items-center gap-2 text-xs font-bold text-white bg-green px-5 py-2.5 rounded-lg hover:bg-green-dark transition-all hover:-translate-y-0.5"
+              >
+                View Detail
+                <i className="fas fa-arrow-right text-[10px]"></i>
+              </Link>
+            </div>
           ))}
         </div>
       </div>

@@ -42,7 +42,7 @@ const navData = [
         items: [
           { name: "HTW II - BIO", href: "/products/htw-ii-bio" },
           { name: "HTW - II - Max ECO", href: "/products/htw-ii-max-eco" },
-          { name: "HP VINGO", href: "/products/hp-vingo" },
+          { name: "HP VIGO", href: "/products/hp-vingo" },
           { name: "GT COMPACT", href: "/products/gt-compact" },
           { name: "GT MAX", href: "/products/gt-max" },
         ],

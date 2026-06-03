@@ -2,7 +2,7 @@ export const industries = [
   {
     slug: "automotive",
     title: "Automotive Industry",
-    description: "The automotive industry in India is one of the country’s major manufacturing sectors, covering two-wheelers, passenger vehicles, commercial vehicles, electric vehicles, and a large network of auto component manufacturers. Automotive manufacturing and maintenance involve parts, tools, engines, fixtures, moulds, and components that often get contaminated with oil, grease, coolant residues, dust, fingerprints, grinding dust, release agents, and welding residues. We support automotive industries with cleaning, degreasing, rust removal, surface preparation, corrosion protection, and maintenance solutions that help keep components cleaner, improve production quality, reduce manual cleaning effort, and support smoother operations.",
+    description: "The automotive industry relies on precision manufacturing, large-scale production, and advanced engineering processes for vehicles, EVs, and automotive components. During machining, welding, assembly, and maintenance operations, components are exposed to oils, grease, coolants, carbon deposits, and industrial contamination, making effective cleaning and maintenance essential for product quality and operational efficiency.\n\n<b>Industrial Parts Cleaning</b>\nRemoves oils, grease, machining residues, and contaminants from automotive components, tools, fixtures, and production equipment.\n\n<b>Welding & Surface Preparation</b>\nSupports cleaner welding, better coating adhesion, and improved surface quality for automotive manufacturing processes",
     icon: "fa-car",
     heroImage: "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&q=80&w=1600",
     handles: [
@@ -33,34 +33,35 @@ export const industries = [
     ],
     commonChallenges: [
       {
-        category: "Contaminant Management",
-        icon: "fa-vials",
-        description: "Managing the diverse range of contaminants such as heavy greases, coolant residues, and metallic dust requires specialized chemistry that can emulsify oils while being safe for various alloys used in modern vehicle manufacturing."
+        category: "Cleaning Challenges",
+        icon: "fa-broom",
+        challenges: [
+          "Oil and grease sticking to components",
+          "Coolant and lubricant residues after machining",
+          "Dust, fingerprints, and grinding particles",
+          "Carbon deposits on engine parts"
+        ]
       },
       {
-        category: "Surface Preparation",
-        icon: "fa-layer-group",
-        description: "Achieving the ideal surface tension for painting or bonding is a critical challenge. Residual fingerprints or invisible release agents can lead to coating failures, necessitating a deep, molecular-level cleaning process."
+        category: "Welding Challenges",
+        icon: "fa-fire",
+        challenges: [
+          "Rust and corrosion on metal surfaces",
+          "Welding marks and heat stains",
+          "Paint and coating residues",
+          "Hard-to-clean machining contamination"
+        ]
       },
-      {
-        category: "Corrosion During Transit",
-        icon: "fa-cloud-sun",
-        description: "Components often travel long distances before final assembly. Protecting these parts from oxidation without leaving a gummy residue that interferes with later processes is a significant technical hurdle we resolve."
-      }
     ],
     applications: [
-      {
-        title: "Pre-Assembly Degreasing",
-        description: "Ensuring that all mechanical components are stripped of temporary rust preventives and machining oils to allow for perfect fitment and friction performance."
-      },
-      {
-        title: "Mould Release Agent Removal",
-        description: "Using non-abrasive cleaners to strip residual agents from precision moulds, maintaining the class-A surface finish required for exterior plastic parts."
-      },
-      {
-        title: "In-Process Maintenance",
-        description: "Automated cleaning systems integrated into the production line to remove swarf and coolant, reducing manual intervention and preventing cross-contamination."
-      }
+      "Cleaning of tools and components",
+      "Maintenance cleaning",
+      "Pre cleaning before quality inspection",
+      "Degreasing before painting / coating / bonding",
+      "Cleaning of engine and motor parts",
+      "Cleaning of cylinder heads",
+      "Cleaning of spindles",
+      "Cleaning of trays, carrier racks and welding fixtures"
     ],
     howWeWork: [
       "Consultation", "Assessment", "Solution Planning", "Trial & Evaluation", "Performance Review", "Follow-up Support"

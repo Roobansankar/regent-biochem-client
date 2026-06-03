@@ -3,14 +3,23 @@
 import { useEffect, useRef } from "react";
 
 const customers = [
-  "Tata Motors",
-  "Mahindra",
-  "Bajaj Auto",
-  "Larsen & Toubro",
-  "BHEL",
-  "Ashok Leyland",
   "Bosch",
-  "Siemens",
+  "Knorr Bremse",
+  "Royal Enfield",
+  "Suzuki Motorcycle",
+  "Ashok Leyland",
+  "Delhi Metro",
+  "Bangalore Metro",
+  "Indian Railways",
+  "JCB",
+  "Daymor Industrial",
+  "L&T",
+  "NSK",
+  "SCW",
+  "Tata Steel",
+  "Wheels India",
+  "VE Commercial",
+  "Toyota",
 ];
 
 export default function EsteemedCustomers() {

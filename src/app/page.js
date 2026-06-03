@@ -18,10 +18,11 @@ export default function Home() {
       <Stats />
       <Offerings />
       <FeaturedProducts />
-      <WhyChooseUs />
-      <ProductGrid />
+     
+      {/* <ProductGrid /> */}
       <Industries />
       <WorkflowProcess />
+       <WhyChooseUs />
       <EsteemedCustomers />
       <CTA />
     </main>

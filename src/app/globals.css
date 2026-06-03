@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-green: #3ab75b;
+  --color-green: #3D8A4B;
   --color-green-dark: #2a8f45;
   --color-green-light: #edf7f0;
   --color-green-mid: #c8ead2;
@@ -101,7 +101,7 @@ body {
 
 /* Hero patterns */
 .hero-pattern {
-  background-image: radial-gradient(circle, rgba(58,183,91,0.1) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(61,138,75,0.1) 1px, transparent 1px);
   background-size: 30px 30px;
 }
 
@@ -115,15 +115,15 @@ body {
   transition: all 0.3s;
   outline: none;
   &:focus {
-    border-color: #3ab75b;
+    border-color: #3D8A4B;
     background: #fff;
-    box-shadow: 0 0 0 4px rgba(58, 183, 91, 0.1);
+    box-shadow: 0 0 0 4px rgba(61, 138, 75, 0.1);
   }
 }
 
 /* Product dot bg (kept from previous turn) */
 .dot-bg {
-  background-image: radial-gradient(circle, rgba(58,183,91,0.08) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(61,138,75,0.08) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
@@ -139,7 +139,7 @@ body {
 /* Card bottom line reveal (from Home page) */
 .why-card::after {
   content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-  background: #3ab75b; transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left;
+  background: #3D8A4B; transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left;
   border-radius: 0 0 12px 12px;
 }
 .why-card:hover::after { transform: scaleX(1); }

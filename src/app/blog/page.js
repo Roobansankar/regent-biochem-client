@@ -59,30 +59,19 @@ export default function BlogPage() {
       <ScrollReveal />
 
       {/* ─── BLOG HERO ─── */}
-      <div className="px-4 sm:px-6 lg:px-10 pt-8 pb-4">
-        <section className="bg-brand-bg3 py-16 md:py-24 relative overflow-hidden rounded-[2.5rem] shadow-sm border border-brand-border hero-pattern">
-          <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none">
-            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-green-light rounded-full blur-[100px]"></div>
-            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-green-mid rounded-full blur-[100px]"></div>
-          </div>
-          
-          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-            <div className="flex items-center justify-center gap-2 text-[10px] text-brand-muted mb-8 reveal">
-              <Link href="/" className="hover:text-green transition-colors uppercase tracking-widest font-bold">Home</Link>
-              <i className="fas fa-chevron-right text-[7px]"></i>
-              <span className="text-green font-bold uppercase tracking-widest">Insights & News</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-black leading-tight tracking-tight mb-6 reveal">
-              Our <span className="text-green">Blog</span>
+      <section className="relative pt-6 pb-5 lg:pt-10 lg:pb-8 bg-green overflow-hidden">
+        <div className="absolute inset-0 hero-pattern opacity-10"></div>
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight reveal">
+              Our <span className="text-green-mid">Blog</span>
             </h1>
-            
-            <p className="text-base sm:text-lg text-brand-body leading-relaxed max-w-2xl mx-auto reveal">
+            <p className="text-base text-white/90 leading-relaxed reveal">
               Expert insights on industrial cleaning technology, sustainable chemistry, and the future of surface engineering.
             </p>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       {/* ─── ARTICLES GRID ─── */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">

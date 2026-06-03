@@ -4,46 +4,53 @@ import { useState } from "react";
 import Link from "next/link";
 
 const products = {
-  htw: {
-    slug: "htw-ii-bio",
-    title: "HTW II - BIO",
-    desc: "Hot-water, single-stage spray cleaning with rotating basket and oxygen membrane compressor — engineered for continuous duty in production lines.",
+  "max-eco": {
+    slug: "htw-ii-max-eco",
+    title: "HTW - II - Max ECO",
+    desc: "Powerful and easy to operate, these hot-water parts washers are designed for efficient single-stage cleaning and degreasing. A rotating basket and high spray pressure ensure optimal cleaning performance with Bio-Chem cleaners.",
     features: [
-      "Oxygen membrane compressor",
-      "Bio-active cleaner compatible",
-      "Continuous duty rated",
-      "Single-stage precision spray",
+      "Single-stage precision spray cleaning",
+      "Rotating basket for uniform coverage",
+      "High spray pressure for stubborn soils",
+      "Compatible with Bio-Chem cleaners",
     ],
-    img: "/HTW-1200-Max-Eco-1200x1200.jpg",
+    img: "/htw-ii-max-eco.jpg",
   },
-  gt: {
-    slug: "gt-parts-washer",
-    title: "GT Parts Washer",
-    desc: "Compact yet powerful bench-top aqueous washer designed for precision machined components. Adjustable spray pressure and temperature control.",
-    features: ["Adjustable spray pressure", "Stainless steel tank", "Low water consumption", "Ergonomic lid design"],
-    img: "/GT Parts Washer.webp",
-  },
-  safe: {
-    slug: "safeweld-system",
-    title: "SafeWeld System",
-    desc: "Anti-spatter, weld cleaning and passivation system that extends tool life and consistently elevates weld quality across production.",
+  "hp-vigo": {
+    slug: "hp-vigo",
+    title: "HP VIGO",
+    desc: "High-pressure precision cleaning system for complex industrial parts and specialized manufacturing components. Designed for deep cleaning of intricate geometries and hard-to-reach surfaces.",
     features: [
-      "Water-based formula",
-      "Anti-spatter protection",
-      "Passivation capability",
-      "Compatible with all MIG/TIG setups",
+      "High-pressure cleaning capability",
+      "Precision cleaning for complex parts",
+      "Industrial-grade construction",
+      "Suitable for specialized components",
+    ],
+    img: "/hp-vigo.jpg",
+  },
+  "anti-spatter": {
+    slug: "anti-spatters",
+    title: "Anti-spatters",
+    desc: "Advanced anti-spatter solutions to prevent weld dross adhesion and protect workpieces and equipment. Extends consumable life and reduces post-weld cleanup time.",
+    features: [
+      "Prevents weld spatter adhesion",
+      "Extends MIG/TIG consumable life",
+      "Reduces post-weld cleanup time",
+      "Protects workpiece surfaces",
     ],
     img: "/SafeWeld.jpg",
   },
 };
 
 export default function FeaturedProducts() {
-  const [activeTab, setActiveTab] = useState("htw");
+  const [activeTab, setActiveTab] = useState("max-eco");
 
   const product = products[activeTab];
 
+  if (!product) return null;
+
   return (
-    <section className="bg-brand-bg2">
+    <section className="bg-[#f7f7f5]">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-8 sm:pb-12">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
@@ -54,7 +61,7 @@ export default function FeaturedProducts() {
           </div>
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 text-sm font-bold text-green border border-green rounded px-5 py-2.5 hover:bg-green hover:text-white transition-colors whitespace-nowrap self-start sm:self-auto"
+            className="inline-flex  cursor-pointer items-center gap-2 text-sm font-bold text-green border border-green rounded px-5 py-2.5 hover:bg-green hover:text-white transition-colors whitespace-nowrap self-start sm:self-auto"
           >
             View All Products <i className="fas fa-arrow-right text-xs"></i>
           </Link>
@@ -62,28 +69,28 @@ export default function FeaturedProducts() {
         {/* Tabs */}
         <div className="flex tabs-scroll overflow-x-auto border border-brand-border rounded-lg bg-white w-fit mb-8 max-w-full">
           <button
-            className={`px-5 py-2.5 text-xs sm:text-sm font-semibold whitespace-nowrap border-r border-brand-border transition-colors ${
-              activeTab === "htw" ? "bg-green text-white" : "text-brand-muted hover:text-green"
+            className={`px-5 py-2.5 text-xs cursor-pointer  sm:text-sm font-semibold whitespace-nowrap border-r border-brand-border transition-colors ${
+              activeTab === "max-eco" ? "bg-green text-white" : "text-brand-muted hover:text-green"
             }`}
-            onClick={() => setActiveTab("htw")}
+            onClick={() => setActiveTab("max-eco")}
           >
-            HTW II - BIO
+            Max ECO
           </button>
           <button
-            className={`px-5 py-2.5 text-xs sm:text-sm font-semibold whitespace-nowrap border-r border-brand-border transition-colors ${
-              activeTab === "gt" ? "bg-green text-white" : "text-brand-muted hover:text-green"
+            className={`px-5 py-2.5 text-xs cursor-pointer sm:text-sm font-semibold whitespace-nowrap border-r border-brand-border transition-colors ${
+              activeTab === "hp-vigo" ? "bg-green text-white" : "text-brand-muted hover:text-green"
             }`}
-            onClick={() => setActiveTab("gt")}
+            onClick={() => setActiveTab("hp-vigo")}
           >
-            GT Parts Washer
+            HP VIGO
           </button>
           <button
-            className={`px-5 py-2.5 text-xs sm:text-sm font-semibold whitespace-nowrap transition-colors ${
-              activeTab === "safe" ? "bg-green text-white" : "text-brand-muted hover:text-green"
+            className={`px-5 py-2.5 text-xs cursor-pointer sm:text-sm font-semibold whitespace-nowrap transition-colors ${
+              activeTab === "anti-spatter" ? "bg-green text-white" : "text-brand-muted hover:text-green"
             }`}
-            onClick={() => setActiveTab("safe")}
+            onClick={() => setActiveTab("anti-spatter")}
           >
-            SafeWeld
+            Anti-Spatter
           </button>
         </div>
 

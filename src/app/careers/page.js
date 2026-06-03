@@ -41,22 +41,13 @@ export default function CareersPage() {
       <section className="relative pt-10 pb-8 lg:pt-16 lg:pb-12 bg-green overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-10"></div>
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="reveal text-center max-w-3xl mx-auto">
-            <span className="inline-block py-1 px-3 rounded-full bg-white/20 text-white text-[10px] font-bold tracking-wider uppercase mb-3">
-              Join Our Mission
-            </span>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+          <div className="text-center max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight reveal">
               Innovate the Future of <span className="text-green-mid">Industrial Cleaning</span>
             </h1>
-            <p className="text-base text-white/90 mb-8 leading-relaxed">
+            <p className="text-base text-white/90 leading-relaxed reveal">
               Be part of a team dedicated to sustainable chemical solutions and advanced parts washing technology. 
             </p>
-            <a 
-              href="#openings" 
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-bold bg-white text-green rounded-lg hover:bg-green-light transition-all shadow-lg"
-            >
-              View Open Positions
-            </a>
           </div>
         </div>
       </section>

@@ -1,39 +1,39 @@
 export default function WhyChooseUs() {
   const advantages = [
     {
-      icon: "fa-award",
-      title: "ISO Certified Quality",
-      desc: "All our products meet ISO 9001:2015 standards. Our manufacturing facility undergoes regular third-party audits to ensure consistent product excellence.",
-    },
-    {
       icon: "fa-leaf",
-      title: "Eco-Friendly Formulations",
-      desc: "Our cleaning solutions are formulated to minimize environmental impact without compromising on industrial-grade cleaning power.",
+      title: "Sustainability",
+      desc: "We promote environmentally responsible technologies and chemistry that reduce waste, emissions, and ecological impact.",
     },
     {
-      icon: "fa-cogs",
-      title: "Custom Formulations",
-      desc: "We develop bespoke chemical solutions tailored to your specific industrial requirements, ensuring optimal performance for your processes.",
+      icon: "fa-lightbulb",
+      title: "Innovation",
+      desc: "We continuously develop advanced cleaning solutions that improve efficiency, safety, and performance for modern industries.",
     },
     {
-      icon: "fa-shipping-fast",
-      title: "Reliable Supply Chain",
-      desc: "With robust logistics and ample stock, we guarantee timely delivery across pan-India and international markets without disruption.",
+      icon: "fa-award",
+      title: "Quality & Reliability",
+      desc: "We are committed to delivering dependable machines and specialty chemicals that meet the highest performance standards.",
     },
     {
-      icon: "fa-headset",
-      title: "Expert Technical Support",
-      desc: "Our team of chemical engineers provides round-the-clock technical guidance on product usage, safety, and application optimization.",
+      icon: "fa-handshake",
+      title: "Customer Partnership",
+      desc: "We work closely with customers to understand their processes and provide solutions that improve productivity and value.",
     },
     {
-      icon: "fa-flask",
-      title: "Advanced R&D Lab",
-      desc: "Continuous innovation through our state-of-the-art R&D facility ensures your operations benefit from the latest chemical technology advancements.",
+      icon: "fa-shield-alt",
+      title: "Integrity",
+      desc: "We conduct our business with transparency, ethics, and accountability in every interaction.",
+    },
+    {
+      icon: "fa-sync",
+      title: "Continuous Improvement",
+      desc: "We constantly refine our products, processes, and services to deliver better results and sustainable progress.",
     },
   ];
 
   return (
-    <section className="bg-brand-bg2 pt-10 pb-12 px-4 sm:px-6 lg:px-8">
+    <section className="bg-white pt-10 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto">
         <div className="text-center mb-8">
           <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">Why Choose Us</p>
@@ -49,9 +49,9 @@ export default function WhyChooseUs() {
           {advantages.map((adv, i) => (
             <div
               key={i}
-              className="why-card group relative bg-white border border-brand-border rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-green-mid overflow-hidden"
+              className="why-card group relative bg-[#f7f7f5] border border-brand-border rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-green-mid overflow-hidden"
             >
-              <div className="w-14 h-14 bg-green-light rounded-xl flex items-center justify-center text-green text-xl mb-6 transition-all duration-300 group-hover:bg-green">
+              <div className="w-14 h-14 bg-white rounded-xl  flex items-center justify-center text-green text-xl mb-6 transition-all duration-300 group-hover:bg-green">
                 <i className={`fas ${adv.icon} group-hover:text-white transition-colors`}></i>
               </div>
               <h3 className="text-lg font-bold text-brand-black mb-3">{adv.title}</h3>
