@@ -28,7 +28,7 @@ export default async function IndustryPage({ params }) {
         
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7"> 
               <div className="flex items-center gap-3 mb-8">
                  <p className="text-sm font-black tracking-[0.4em] uppercase text-green">
                    Manufacturing Industries / {industry.slug}
@@ -41,7 +41,9 @@ export default async function IndustryPage({ params }) {
               
                <div className="max-w-2xl space-y-4 mb-10">
                 {industry.description.split('\n\n').map((para, i) => (
-                  <p key={i} className="text-sm sm:text-base text-brand-body leading-relaxed text-justify" dangerouslySetInnerHTML={{ __html: para }} />
+                  <p key={i} className="text-base sm:text-lg text-brand-body leading-relaxed text-justify">
+                    {para}
+                  </p>
                 ))}
               </div>
               
