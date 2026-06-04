@@ -7,21 +7,21 @@ export default function IndustriesIndex() {
   return (
     <main className="flex flex-col min-h-screen bg-white">
       {/* Hero Section - Clean, Airy, and Professional */}
-      <section className="relative pt-20 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
+      <section className="relative pt-12 pb-10 lg:pt-20 lg:pb-16 overflow-hidden">
         {/* Soft Background Elements */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-green-50 to-transparent -z-10"></div>
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-green-50 rounded-full blur-[100px] -z-10"></div>
         
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-light border border-green-mid mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-light border border-green-mid mb-4 sm:mb-6">
               <span className="w-2 h-2 rounded-full bg-green animate-pulse"></span>
               <span className="text-[10px] font-black uppercase tracking-widest text-green">Market Sectors</span>
             </div>
-            <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-brand-black leading-[1.05] tracking-tight mb-8">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-brand-black leading-[1.05] tracking-tight mb-6">
               Industries We <br/> <span className="text-green">Serve</span>
             </h1>
-            <p className="text-lg sm:text-xl text-brand-body leading-relaxed border-l-4 border-green-mid pl-8">
+            <p className="text-base sm:text-lg text-brand-body leading-relaxed border-l-4 border-green-mid pl-6">
               From high-precision medical engineering to heavy industrial manufacturing, we provide the specialized chemistry and machinery that drives modern industry forward.
             </p>
           </div>
@@ -29,9 +29,9 @@ export default function IndustriesIndex() {
       </section>
 
       {/* Industries Showcase - Staggered Unique Layout */}
-      <section className="pb-24 px-4 sm:px-6 lg:px-8">
+      <section className="pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1600px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {industries.map((industry, index) => (
               <Link 
                 key={index} 
@@ -53,14 +53,14 @@ export default function IndustriesIndex() {
                   </div>
                 </div>
                 
-                <div className="p-10 lg:p-12">
-                  <h3 className="text-3xl font-black text-brand-black mb-6 group-hover:text-green transition-colors">{industry.title}</h3>
-                  <p className="text-brand-body leading-relaxed mb-10 line-clamp-3">
+                <div className="p-6 sm:p-8 lg:p-10">
+                  <h3 className="text-2xl sm:text-3xl font-black text-brand-black mb-4 group-hover:text-green transition-colors">{industry.title}</h3>
+                  <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-6 line-clamp-3">
                     {industry.description}
                   </p>
                   
                   {/* Tags Preview */}
-                  <div className="flex flex-wrap gap-2 mb-10">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {industry.handles.slice(0, 3).map((item, i) => (
                       <span key={i} className="px-4 py-2 bg-brand-bg2 rounded-xl text-[10px] font-bold text-brand-muted uppercase tracking-wider">
                         {typeof item === 'object' ? item.title : item}
@@ -82,11 +82,11 @@ export default function IndustriesIndex() {
       </section>
 
       {/* Expertise Section - Minimal Light Design */}
-      <section className="py-24 bg-brand-bg2 border-t border-b border-brand-border">
+      <section className="py-16 sm:py-20 bg-brand-bg2 border-t border-b border-brand-border">
          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-               <h2 className="text-4xl font-black text-brand-black mb-4">Precision Engineering</h2>
-               <p className="text-brand-body max-w-2xl mx-auto">Our multi-disciplinary approach combines chemical innovation with mechanical excellence.</p>
+            <div className="text-center mb-12 sm:mb-16">
+               <h2 className="text-2xl sm:text-3xl font-black text-brand-black mb-3">Precision Engineering</h2>
+               <p className="text-sm sm:text-base text-brand-body max-w-2xl mx-auto">Our multi-disciplinary approach combines chemical innovation with mechanical excellence.</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -95,12 +95,12 @@ export default function IndustriesIndex() {
                  { title: "Scaleable Systems", desc: "Machinery that grows with your production.", icon: "fa-cogs" },
                  { title: "Pure Compliance", desc: "Exceeding global environmental standards.", icon: "fa-leaf" }
                ].map((item, i) => (
-                 <div key={i} className="bg-white p-10 rounded-[2rem] border border-brand-border shadow-sm hover:shadow-lg transition-all">
-                    <div className="w-14 h-14 bg-green-light rounded-2xl flex items-center justify-center text-green mb-8">
-                       <i className={`fas ${item.icon} text-xl`}></i>
-                    </div>
-                    <h4 className="text-xl font-black text-brand-black mb-4">{item.title}</h4>
-                    <p className="text-sm text-brand-body leading-relaxed">{item.desc}</p>
+                  <div key={i} className="bg-white p-6 sm:p-8 rounded-[2rem] border border-brand-border shadow-sm hover:shadow-lg transition-all">
+                     <div className="w-12 h-12 bg-green-light rounded-2xl flex items-center justify-center text-green mb-6">
+                        <i className={`fas ${item.icon} text-lg`}></i>
+                     </div>
+                     <h4 className="text-lg font-black text-brand-black mb-3">{item.title}</h4>
+                     <p className="text-sm text-brand-body leading-relaxed">{item.desc}</p>
                  </div>
                ))}
             </div>

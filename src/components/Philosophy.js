@@ -2,14 +2,14 @@ import Link from "next/link";
 
 export default function Philosophy() {
   return (
-    <section className="relative  border-b border-brand-border bg-[#f7f7f5] py-12 lg:py-0">
+    <section className="relative  border-b border-brand-border bg-[#f7f7f5] py-8 lg:py-0">
       {/* Continuity Gradient Flare */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent opacity-60 z-10 pointer-events-none"></div>
       
       {/* Mobile Header (hidden on lg) */}
       <div className="lg:hidden px-6 pt-8 pb-2">
         <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">About Regent Biochem</p>
-        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-black leading-tight uppercase">
+        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-black leading-tight uppercase">
           GREEN WAY
           <br />
           TO GROWTH
@@ -30,7 +30,7 @@ export default function Philosophy() {
           {/* Laptop Header (hidden on mobile/tab) */}
           <div className="hidden lg:block">
             <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">About Regent Biochem</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-black leading-tight mb-4 uppercase">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-brand-black leading-tight mb-4 uppercase">
               GREEN WAY
               <br />
               TO GROWTH

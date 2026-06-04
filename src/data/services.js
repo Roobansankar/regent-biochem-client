@@ -4,53 +4,26 @@ export const services = [
     title: "Pipeline Cleaning Solutions",
     subtitle: "Advanced Internal Maintenance",
     shortDescription: "Internal pipe & heat exchanger cleaning without dismantling.",
-    description: "The RWR (Reverse Water Recovery) System provides advanced internal cleaning for pipelines and heat exchangers without the need for dismantling. Using heated circulation and controlled fluid dynamics, we effectively remove stubborn scale and deposits to restore thermal efficiency and hydraulic integrity. Our specialized service ensures peak system performance, reduces energy consumption, and extends the operational life of your critical industrial infrastructure.",
+    description: "Over time, internal piping networks build up stubborn restrictions that choke flow rates. Using our advanced RWR mobile flushing systems, we circulate eco-friendly, high-performance cleaning fluids through your system in a closed loop. This completely restores original flow dynamics and pressure equilibrium without you having to tear down or cut into your piping infrastructure.",
     icon: "fa-faucet",
+    commonProblems: [
+      "Drops in system pressure",
+      "Reduced fluid flow rates",
+      "Premature pump wear and tear",
+      "System blockages causing unexpected downtime"
+    ],
+    contaminantsRemoved: [
+      "Rust, oxidation, and corrosion breakdown",
+      "Biofilms and organic sludge"
+    ],
+    infoNeeded: [
+      "Total length and diameter of the piping network",
+      "Current flow rates vs. original design specs",
+      "Material composition of the pipes (e.g., steel, copper, PVC)",
+      "Type of fluid normally carried"
+    ],
     heroImage: "https://images.squarespace-cdn.com/content/v1/6495ace4409a2a506cc4b8a8/dcc34794-6990-4caf-b018-0a6cd1bdb4d2/pipeline%2Bcleaning%2Bservices.jpg",
-    problems: [
-      {
-        title: "Limescale & Mineral Deposits",
-        description: "Hard water minerals like calcium and magnesium create a rock-hard layer inside pipes, acting as an insulator that drastically reduces heat transfer efficiency."
-      },
-      {
-        title: "Internal Corrosion & Rust",
-        description: "Oxidation of metal surfaces leads to 'red water', pipe thinning, and eventual leaks, often caused by poor water chemistry or oxygen ingress."
-      },
-      {
-        title: "Thermal Oil Cracking",
-        description: "In high-temperature systems, oils can thermally degrade (crack), forming carbonized residues and thick sludge that block narrow cooling channels."
-      },
-      {
-        title: "Reduced Flow & Pressure Drop",
-        description: "As deposits narrow the internal diameter of pipelines, pumps must work harder to maintain flow, increasing energy costs and risk of pump failure."
-      },
-      {
-        title: "Bio-Fouling & Slime",
-        description: "Microbiological growth can create sticky films that trap other particles, leading to rapid blockages and potential health risks like Legionella."
-      },
-      {
-        title: "Process Contamination",
-        description: "Cross-contamination from leaking heat exchangers or process residues can compromise the entire circulation loop, affecting product quality."
-      }
-    ],
-    contaminants: [
-      {
-        title: "Inorganic Scales",
-        description: "Calcium Carbonate, Magnesium Silicate, and Phosphate scales typically found in open and closed cooling loops."
-      },
-      {
-        title: "Metallic Oxides",
-        description: "Iron oxide (rust), copper oxides, and magnetite that circulate as abrasive particles or settle as heavy sludge."
-      },
-      {
-        title: "Degraded Oils",
-        description: "Carbonized oil residues, 'varnish', and thick grease from thermal fluid systems or mechanical seals."
-      },
-      {
-        title: "Organic Bio-matter",
-        description: "Algae, bacteria, and extracellular polymeric substances (EPS) that form resilient biofilms."
-      }
-    ],
+    
     process: [
       { step: "01", title: "Consultation", description: "Initial discussion to understand the system and issues." },
       { step: "02", title: "System Assessment", description: "Detailed evaluation of pipe size, material, and contamination." },
@@ -59,34 +32,13 @@ export const services = [
       { step: "05", title: "Performance Review", description: "Verifying flow restoration and system cleanliness." },
       { step: "06", title: "Follow-up", description: "Providing ongoing maintenance support and documentation." }
     ],
-    infoNeeded: [
-      "Type of system to be cleaned", "Pipe/Heat exchanger size", "Material of the system", 
-      "Type of contamination", "Current cleaning method", "Photos if available", 
-      "Downtime availability", "Required cleaning frequency", "Site location", "Contact details"
+    industries: [
+      "Chemical Processing",
+      "HVAC & Facility Management",
+      "Food & Beverage (Utilities)",
+      "Manufacturing Plants"
     ],
-    industries: ["Automotive", "CNC", "Fabrication", "MRO", "Oil and Gas", "Food", "Textile"],
-    keyFeatures: [
-      {
-        title: "No Dismantling Required",
-        description: "Our RWR system connects directly to your existing infrastructure, eliminating the need for complex and risky disassembly of pipes or heat exchangers.",
-        icon: "fa-tools"
-      },
-      {
-        title: "Advanced Heated Circulation",
-        description: "By heating the cleaning medium to optimal temperatures, we significantly accelerate the chemical breakdown of stubborn scale and carbonized deposits.",
-        icon: "fa-fire"
-      },
-      {
-        title: "Material-Safe Chemistry",
-        description: "We use laboratory-verified cleaning agents specifically matched to your system's metallurgy to ensure zero damage to internal surfaces.",
-        icon: "fa-shield-alt"
-      },
-      {
-        title: "Real-time Flow Optimization",
-        description: "Continuous monitoring of flow rates and pressure allows us to verify the restoration of system performance as the cleaning progresses.",
-        icon: "fa-chart-line"
-      }
-    ]
+  
   },
   {
     slug: "cooling-tower",

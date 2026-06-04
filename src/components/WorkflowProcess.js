@@ -33,12 +33,12 @@ export default function WorkflowProcess() {
   ];
 
   return (
-    <section className="bg-[#f7f7f5] py-20 px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#f7f7f5] py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-12">
           <p className="text-sm font-bold tracking-[0.2em] uppercase text-green mb-3">How We Work</p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-black">
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-black">
             Our Workflow <span className="text-green">Process</span>
           </h2>
         </div>

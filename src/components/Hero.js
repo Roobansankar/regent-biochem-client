@@ -233,6 +233,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import heroslide1 from "@/assets/heroslide1.png";
+import heroslide2 from "@/assets/heroslide2.webp";
+import heroslide3 from "@/assets/heroslide3.webp";
 
 const slides = [
   {
@@ -250,8 +253,7 @@ const slides = [
     desc: "Revolutionizing surface engineering with eco-conscious chemical solutions and precision-grade German machinery for global enterprise.",
   },
   {
-    bg: "",
-    bgColor: "linear-gradient(135deg, #0f3d2e 0%, #1e5f47 100%)",
+    bg: heroslide2,
     label: "GREEN WAY TO GROWTH",
     title: (
       <>
@@ -265,8 +267,7 @@ const slides = [
     desc: "High-performance industrial chemicals developed for cleaning, degreasing, corrosion protection, and process optimization.",
   },
   {
-    bg: "",
-    bgColor: "linear-gradient(135deg, #1a1f36 0%, #2b5876 100%)",
+    bg: heroslide3,
     label: "GREEN WAY TO GROWTH",
     title: (
       <>
@@ -296,33 +297,19 @@ export default function Hero() {
 
   return (
     <section
-      className="relative h-[380px] md:h-[450px] lg:h-[520px] flex items-center overflow-hidden transition-all duration-700 bg-cover bg-center"
+      className="relative h-[300px] md:h-[380px] lg:h-[450px] flex items-center overflow-hidden transition-all duration-700"
       style={{
-        backgroundImage: slide.bg
-          ? `url('${slide.bg}')`
-          : slide.bgColor,
+        backgroundImage: `url('${slide.bg.src || slide.bg}')`,
+        backgroundSize: slide.bgSize || "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundColor: slide.bgSize === "contain" ? "#0f3d2e" : undefined,
       }}
     >
       {/* Original Overlay */}
       <div className="hero-overlay absolute inset-0 z-10"></div>
 
-      {/* Left Arrow */}
-      {/* <button
-        onClick={() => setCurrent((prev) => (prev - 1 + slides.length) % slides.length)}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-xl bg-white/80 backdrop-blur-sm border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all shadow-md"
-      >
-        <i className="fas fa-chevron-left text-sm"></i>
-      </button>
-
-  
-      <button
-        onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-xl bg-white/80 backdrop-blur-sm border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all shadow-md"
-      >
-        <i className="fas fa-chevron-right text-sm"></i>
-      </button> */}
-
-      {/* Left Arrow */}
+    
 <button
   onClick={() => setCurrent((prev) => (prev - 1 + slides.length) % slides.length)}
   className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
@@ -344,11 +331,11 @@ export default function Hero() {
             {slide.label}
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight text-brand-black mb-4 animate-fade-up-2">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-[1.1] tracking-tight text-brand-black mb-3 animate-fade-up-2">
             {slide.title}
           </h1>
 
-          <p className="text-sm sm:text-base lg:text-lg text-brand-body leading-relaxed max-w-xl mb-6 animate-fade-up-3">
+          <p className="text-sm sm:text-base text-brand-body leading-relaxed max-w-xl mb-5 animate-fade-up-3">
             {slide.desc}
           </p>
 

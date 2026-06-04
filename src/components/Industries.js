@@ -6,12 +6,12 @@ const industries = [
 
 export default function Industries() {
   return (
-    <section className="bg-bg-[#f7f7f5] py-20 px-4 sm:px-6 lg:px-8">
+    <section className="bg-bg-[#f7f7f5] py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1200px] mx-auto">
 
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-12">
           <p className="text-xs font-semibold tracking-widest uppercase text-green mb-2">Our Expertise</p>
-          <h2 className="text-xl sm:text-2xl font-bold text-brand-black mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">
             Industries We Serve
           </h2>
         </div>

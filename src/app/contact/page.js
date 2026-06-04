@@ -18,30 +18,30 @@ export default function Contact() {
         <div className="absolute inset-0 hero-pattern opacity-10"></div>
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight reveal">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight reveal">
               Get in <span className="text-green-mid">Touch</span>
             </h1>
-            <p className="text-base text-white/90 leading-relaxed reveal">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
               Have questions about our solutions? Our team of technical experts is ready to help you optimize your industrial processes.
             </p>
           </div>
         </div>
       </section>
 
-      <main className="py-12 px-4 sm:px-6 lg:px-8">
+      <main className="py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1600px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
             
             {/* Contact Info */}
-            <div className="lg:col-span-1 space-y-10 reveal">
+              <div className="lg:col-span-1 space-y-6 sm:space-y-8 reveal">
               <div>
                 <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-6">
                   <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Contact Information
                 </div>
-                <h2 className="text-3xl font-extrabold text-gray-900 leading-tight tracking-tight mb-8">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight tracking-tight mb-6">
                   How can we <span className="text-green-600">help you?</span>
                 </h2>
-                <p className="text-gray-500 leading-relaxed mb-10">
+                <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-8">
                   Whether you&apos;re looking for a specific chemical formulation or need technical support for our cleaning systems, we&apos;re here to provide the expertise you need.
                 </p>
               </div>

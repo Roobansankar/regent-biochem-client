@@ -61,10 +61,10 @@ export default function CaseStudiesPage() {
         <div className="absolute inset-0 hero-pattern opacity-10"></div>
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight reveal">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight reveal">
               Industrial <span className="text-green-mid">Success Stories</span>
             </h1>
-            <p className="text-base text-white/90 leading-relaxed reveal">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
               Explore how our technical expertise and sustainable technologies deliver measurable results for global industrial leaders.
             </p>
           </div>
@@ -72,9 +72,9 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* ─── CASE STUDIES GRID ─── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1600px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {caseStudies.map((study, index) => (
               <article
                 key={index}
@@ -95,12 +95,12 @@ export default function CaseStudiesPage() {
                 </div>
 
                 {/* Content */}
-                <div className="p-8 flex flex-col flex-1">
+                <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-2 text-brand-muted text-[10px] font-bold uppercase tracking-widest mb-4">
                     <i className="fas fa-industry text-green"></i>
                     {study.product}
                   </div>
-                  <h2 className="text-xl font-bold text-brand-black mb-4 leading-tight group-hover:text-green transition-colors">
+                  <h2 className="text-lg font-bold text-brand-black mb-3 leading-tight group-hover:text-green transition-colors">
                     {study.title}
                   </h2>
                   <p className="text-sm text-brand-body leading-relaxed flex-1">

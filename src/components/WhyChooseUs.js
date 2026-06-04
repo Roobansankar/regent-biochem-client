@@ -33,14 +33,14 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="bg-white pt-10 pb-12 px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto">
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">Why Choose Us</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-black mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-brand-black mb-3">
             The Regent Biochem <span className="text-green">Advantage</span>
           </h2>
-          <p className="text-base text-brand-body max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm text-brand-body max-w-xl mx-auto leading-relaxed">
             We combine decades of chemical expertise with rigorous quality control to deliver products that perform
             where it matters most.
           </p>

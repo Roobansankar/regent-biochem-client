@@ -14,10 +14,10 @@ export default function About() {
         <div className="absolute inset-0 hero-pattern opacity-10"></div>
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight reveal">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight reveal">
               About <span className="text-green-mid">Regent Biochem</span>
             </h1>
-            <p className="text-base text-white/90 leading-relaxed reveal">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
               Regent Biochem is a provider of industrial cleaning machines and service-led surface technology solutions for manufacturing industries across India.
             </p>
           </div>
@@ -44,12 +44,12 @@ export default function About() {
             <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
               <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> About Us
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-5">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
               German Technology.<br/><span className="text-green-600">Indian Manufacturing.</span>
             </h2>
-            <p className="text-base text-gray-500 leading-relaxed mb-4">The company operates in strategic partnership with Bio-Circle Surface Technology GmbH, Germany, a 40 year-old global surface technology leader with operations across Europe, Asia-Pacific, North & South America and Australia. This association enables Regent Biochem to deliver proven German technology, engineering standards, and application expertise to the Indian market.</p>
-            <p className="text-sm text-gray-500 leading-relaxed mb-4">Regent Biochem supplies manual and automatic industrial parts cleaning systems, supported by application engineering, installation, commissioning, and after-sales service. Complementing its machines business, the company operates a chemical manufacturing plant producing cleaning, degreasing, finishing, descaling, surface protection & preparation and welding solutions using German technology.</p>
-            <p className="text-sm text-gray-500 leading-relaxed mb-8">By integrating machines, services, and in-house manufactured chemicals, Regent Biochem delivers end-to-end, performance-driven solutions that enhance process efficiency, reliability, and long-term operational performance across diverse industrial sectors.</p>
+            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-3">The company operates in strategic partnership with Bio-Circle Surface Technology GmbH, Germany, a 40 year-old global surface technology leader with operations across Europe, Asia-Pacific, North & South America and Australia. This association enables Regent Biochem to deliver proven German technology, engineering standards, and application expertise to the Indian market.</p>
+            <p className="text-sm text-gray-500 leading-relaxed mb-3">Regent Biochem supplies manual and automatic industrial parts cleaning systems, supported by application engineering, installation, commissioning, and after-sales service. Complementing its machines business, the company operates a chemical manufacturing plant producing cleaning, degreasing, finishing, descaling, surface protection & preparation and welding solutions using German technology.</p>
+            <p className="text-sm text-gray-500 leading-relaxed mb-6">By integrating machines, services, and in-house manufactured chemicals, Regent Biochem delivers end-to-end, performance-driven solutions that enhance process efficiency, reliability, and long-term operational performance across diverse industrial sectors.</p>
 
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-green-50 border border-green-100 rounded-2xl p-5">
@@ -72,7 +72,7 @@ export default function About() {
             <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
               <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Vision &amp; Mission
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
               Our Purpose &amp; <span className="text-green-600">Direction</span>
             </h2>
           </div>
@@ -101,7 +101,7 @@ export default function About() {
             <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
               <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Core Values
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
               What <span className="text-green-600">We Stand For</span>
             </h2>
           </div>
@@ -127,7 +127,7 @@ export default function About() {
             <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
               <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Company History
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
               Our Growth <span className="text-green-600">Timeline</span>
             </h2>
           </div>

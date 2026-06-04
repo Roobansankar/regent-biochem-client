@@ -74,42 +74,50 @@ export const industries = [
   {
     slug: "cnc-machining",
     title: "CNC Machining",
-    description: "The CNC machining sector demands absolute purity to maintain tolerances and surface finishes. We provide comprehensive cleaning and fluid management for CNC workshops, ensuring part accuracy and machine longevity through advanced chemistry and specialized filtration systems. CNC machining operations involve precision cutting, grinding, and finishing of metals and engineered plastics, where microscopic contamination can lead to rejected parts, tool wear, and costly rework. Our cleaning solutions are engineered to address the specific challenges of high-speed machining environments, helping manufacturers maintain consistent quality while reducing fluid disposal costs and improving workplace safety.",
+    description: "The CNC industry is all about precision manufacturing. Using advanced computer-controlled machines, the industry produces highly accurate metal and engineering components used in automotive, aerospace, engineering, electronics, and many other sectors.\n\n<b>Zero-Damage Component Degreasing:</b> Advanced, surface-safe formulations engineered to strip away heavy cutting oils and stubborn manufacturing lubricants from sensitive aluminum, brass, and alloy parts without etching or staining the metal.\n\n<b>Flash-Drying Pre-Treatment & Assembly Prep:</b> Precision, residue-free cleaners that evaporate in seconds. Perfect for wiping down finished components before final quality inspection, automated packaging, or surface coating.",
     icon: "fa-microchip",
     heroImage: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1600",
     handles: [
-      { title: "Machined components", description: "Precision-machined parts require thorough removal of cutting fluids and metal fines to maintain dimensional accuracy and surface finish before inspection or assembly." },
-      { title: "Precision gears", description: "Gear teeth and internal splines demand meticulous cleaning to eliminate grinding residues and ensure smooth engagement and long service life." },
-      { title: "Valves & Manifolds", description: "Complex internal passages must be free of burrs, chips, and oil residues to guarantee proper flow rates and sealing integrity." },
-      { title: "Hydraulic parts", description: "Cleanliness of hydraulic components is critical to prevent valve sticking, pump wear, and system contamination that leads to costly downtime." },
-      { title: "Threaded fasteners", description: "Consistent cleaning of threaded parts ensures reliable torque readings and prevents galling during high-stress assembly operations." },
-      { title: "Bearing housings", description: "Removal of fine abrasive particles from bearing seats extends bearing life and reduces vibration in rotating equipment." },
-      { title: "Aerospace components", description: "Meeting stringent aerospace cleanliness standards requires validated processes that remove organic and particulate contamination without damaging sensitive alloys." },
-      { title: "Electronic housings", description: "Safe, residue-free cleaning of enclosures and heat sinks prevents electrical tracking and maintains thermal performance." }
+      "Precision machined components",
+      "Shafts and gears",
+      "Aluminium and steel parts",
+      "CNC machine tools",
+      "Fixtures and holders",
+      "Trays & carrier racks",
+      "Spindles and cutting tools",
+      "Industrial metal components"
     ],
     commonChallenges: [
       {
-        category: "Technical",
-        icon: "fa-cogs",
-        description: "CNC machining generates a complex mix of metal chips, fine swarf, and bacterial growth in coolant sumps. Tacky residues from specialized cutting fluids and corrosion of sensitive surfaces require tailored chemistry that removes soils without attacking the base material."
-      },
-      {
-        category: "Quality",
-        icon: "fa-check-double",
-        description: "Stringent particle count requirements demand validated cleaning processes. Surface stain prevention during inter-stage storage and protection against oxidation during transit are critical challenges that must be addressed to maintain zero-defect quality goals."
-      },
-      {
-        category: "Fluid Management",
+        category: "Cleaning Challenges",
         icon: "fa-tint",
-        description: "Extending coolant life while preventing bacterial contamination and maintaining optimal pH levels is a constant battle. Poor fluid management leads to inconsistent cutting performance, foul odors, skin irritation, and frequent costly tank dumps that disrupt production schedules."
+        challenges: [
+          "Coolant and cutting fluid residues",
+          "Metal chip contamination",
+          "Precision cleaning requirements",
+          "Surface quality inconsistencies"
+        ]
+      },
+      {
+        category: "Welding Challenges",
+        icon: "fa-fire",
+        challenges: [
+          "Weld marks on precision parts",
+          "Post-weld finishing delays",
+          "Dimensional accuracy concerns",
+          "Increased inspection failures"
+        ]
       }
     ],
     applications: [
-      { title: "In-Process Cleaning & Cooling", description: "Maintaining fluid health in CNC coolant systems to prevent bacterial growth, extend tool life, and ensure consistent surface finishes across long production runs." },
-      { title: "Pre-Inspection Cleaning", description: "Removing all oily residues and particulate contamination before CMM inspection to guarantee accurate dimensional measurements and surface quality assessment." },
-      { title: "Bio-Stabilization of Machine Fluids", description: "Implementing bio-stabilization programs that control microbial growth in water-miscible cutting fluids, reducing disposal frequency and maintaining optimal performance." },
-      { title: "Swarf Cleaning for Recycling", description: "Processing metal swarf and turnings to remove coolant and oil residues, enabling higher-value recycling and reducing environmental disposal costs." },
-      { title: "Temporary Rust Prevention", description: "Applying transient corrosion protection to finished components during storage and shipping, ensuring they arrive at assembly lines in specification-ready condition." }
+      "CNC parts washing systems",
+      "Low-foaming industrial degreasers",
+      "Aluminium-safe cleaning solutions",
+      "Ultrasonic cleaning chemicals",
+      "Rust and scale removers",
+      "Surface preparation chemicals",
+      "Maintenance cleaning systems",
+      "Eco-friendly industrial cleaners"
     ],
     howWeWork: [
       "Consultation", "Assessment", "Solution Planning", "Trial & Evaluation", "Performance Review", "Follow-up Support"
@@ -263,40 +271,47 @@ export const industries = [
   {
     slug: "oil-gas",
     title: "Oil & Gas Industry",
-    description: "The oil and gas sector operates in some of the most demanding environments on earth, from offshore platforms to remote refineries, where equipment is exposed to hydrocarbons, scale, saltwater, and extreme temperatures. Our cleaning and surface protection solutions are engineered to handle crude oil residues, paraffin buildup, hydrogen sulfide corrosion byproducts, and refractory deposits in heat exchangers, pipelines, and processing vessels. We deliver chemistries that dissolve tenacious organic and inorganic deposits while being safe for high-alloy metallurgy and compliant with stringent environmental discharge regulations.",
+    description: "The oil and gas industry plays a vital role in powering industries, transportation, and everyday life through the extraction, refining, storage, and transportation of petroleum products. From offshore platforms and refineries to pipelines and storage facilities, the industry operates in highly demanding environments where equipment performance, safety, and reliability are extremely important.\n\n<b>Heat Exchanger & Pipeline Descaling:</b> Advanced circulation and flushing fluids that aggressively dissolve stubborn mineral scale, rust, and chemical fouling from internal tubes—restoring optimum thermal transfer without mechanical dismantling.\n<b>Eco-Safe, Non-Volatile Rig Washes:</b> Next-generation, biodegradable cleaning fluids that easily lift heavy grease from drilling floors and structural steel, eliminating toxic fumes and fire hazards to keep your crew safe.",
     icon: "fa-oil-can",
     heroImage: "https://images.unsplash.com/photo-1544919982-b61976f0ce43?auto=format&fit=crop&q=80&w=1600",
     handles: [
-      { title: "Pipelines & Tubing", description: "Removal of paraffin wax, scale, and corrosion deposits from interior pipe surfaces to restore flow rates and prevent blockages in crude and process lines." },
-      { title: "Heat Exchangers", description: "Chemical cleaning of shell-and-tube and plate heat exchangers to remove fouling layers, restore thermal efficiency, and reduce energy consumption." },
-      { title: "Storage Tanks", description: "Degassing and sludge removal from crude oil and product storage tanks, including recovery of hydrocarbon values from accumulated bottom solids." },
-      { title: "Valves & Actuators", description: "Precision cleaning of control valves, chokes, and actuators to remove process residues that cause sticking, leakage, and positioner drift." },
-      { title: "Separators & Vessels", description: "Descaling and degreasing of production separators, scrubbers, and pressure vessels during turnarounds to restore design capacity and inspect for corrosion damage." },
-      { title: "Drilling Equipment", description: "Cleaning of drill pipes, risers, and BOP stacks to remove drilling mud residues, grease, and salt deposits between runs." }
+      "Pipelines and valves",
+      "Heat exchangers",
+      "Storage tanks",
+      "Pumps and compressors",
+      "Refinery equipment",
+      "Process systems"
     ],
     commonChallenges: [
       {
-        category: "Hydrocarbon Residues",
+        category: "Cleaning Challenges",
         icon: "fa-oil-can",
-        description: "Crude oil, paraffin, and asphaltene deposits build up aggressively on internal surfaces, reducing flow efficiency and creating hazardous confined-space entry conditions. Solvent-based and emulsion cleaning chemistries must be carefully selected to balance solvency power with flash point safety and environmental discharge limits."
+        challenges: [
+          "Heavy oil and sludge buildup",
+          "Scale deposits in pipelines",
+          "Carbon contamination",
+          "Corrosion-related issues"
+        ]
       },
       {
-        category: "Scaling & Fouling",
-        icon: "fa-crystal",
-        description: "Calcium carbonate, barium sulfate, and silicate scales form tenacious insulating layers in heat exchangers and production tubing. Removal requires inhibited acid formulations that dissolve mineral deposits at controlled rates without attacking the parent metal or creating pitting corrosion."
-      },
-      {
-        category: "Corrosion Management",
-        icon: "fa-shield-alt",
-        description: "H2S, CO2, and chloride-containing environments cause rapid corrosion of carbon steel and stress cracking of sensitive alloys. Effective cleaning must remove corrosion byproducts without exposing fresh metal surfaces to further attack, often requiring neutralization and passivation as integral steps."
+        category: "Welding Challenges",
+        icon: "fa-fire",
+        challenges: [
+          "Strict coating preparation requirements",
+          "Extensive weld cleanup activities",
+          "High maintenance labor costs",
+          "Delays during commissioning"
+        ]
       }
     ],
     applications: [
-      { title: "Pre-Commissioning Cleaning", description: "Removal of mill scale, welding slag, and construction debris from new pipelines and vessels before commissioning to prevent downstream contamination and equipment damage." },
-      { title: "Turnaround Descaling", description: "Comprehensive chemical cleaning of process equipment during scheduled turnarounds, including circulation cleaning of piping loops and soak cleaning of vessels." },
-      { title: "Hydrocarbon Dewatering & Degassing", description: "Removal of residual hydrocarbons and vapors from tanks and vessels before maintenance entry, using specialized degassing surfactants that accelerate atmospheric equilibration." },
-      { title: "Produced Water System Cleaning", description: "Descaling and biocide treatment of produced water injection and disposal systems to maintain injectivity and prevent souring of reservoir formations." },
-      { title: "Offshore Platform Maintenance", description: "Biodegradable, low-toxicity cleaning solutions for topside equipment maintenance on offshore platforms, where discharge regulations restrict the use of conventional solvents and detergents." }
+      "Heavy-duty industrial degreasers",
+      "Pipe and tank cleaning systems",
+      "Heat exchanger descaling solutions",
+      "Rust and corrosion removers",
+      "Carbon deposit cleaners",
+      "Eco-friendly VOC-reduced chemicals",
+      "Maintenance cleaning systems"
     ],
     howWeWork: [
       "Consultation", "Assessment", "Solution Planning", "Trial & Evaluation", "Performance Review", "Follow-up Support"

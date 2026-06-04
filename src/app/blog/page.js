@@ -63,10 +63,10 @@ export default function BlogPage() {
         <div className="absolute inset-0 hero-pattern opacity-10"></div>
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight reveal">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight reveal">
               Our <span className="text-green-mid">Blog</span>
             </h1>
-            <p className="text-base text-white/90 leading-relaxed reveal">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
               Expert insights on industrial cleaning technology, sustainable chemistry, and the future of surface engineering.
             </p>
           </div>
@@ -74,9 +74,9 @@ export default function BlogPage() {
       </section>
 
       {/* ─── ARTICLES GRID ─── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1600px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {posts.map((post, index) => (
               <article 
                 key={index} 
@@ -97,12 +97,12 @@ export default function BlogPage() {
                 </div>
 
                 {/* Content */}
-                <div className="p-8 flex flex-col flex-1">
+                <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-2 text-brand-muted text-[10px] font-bold uppercase tracking-widest mb-4">
                     <i className="far fa-calendar-alt text-green"></i>
                     {post.date}
                   </div>
-                  <h2 className="text-xl font-bold text-brand-black mb-4 leading-tight group-hover:text-green transition-colors">
+                  <h2 className="text-lg font-bold text-brand-black mb-3 leading-tight group-hover:text-green transition-colors">
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h2>
                   <p className="text-sm text-brand-body leading-relaxed mb-8 flex-1">
@@ -137,12 +137,12 @@ export default function BlogPage() {
       </section>
 
       {/* ─── NEWSLETTER CTA ─── */}
-      <section className="bg-brand-bg2 py-20 px-4 sm:px-6 lg:px-8 border-t border-brand-border">
+      <section className="bg-brand-bg2 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-t border-brand-border">
         <div className="max-w-4xl mx-auto text-center reveal">
-          <div className="w-20 h-20 bg-green-light rounded-[2rem] flex items-center justify-center mx-auto mb-8 text-green text-3xl">
+          <div className="w-16 h-16 bg-green-light rounded-[2rem] flex items-center justify-center mx-auto mb-6 text-green text-2xl">
             <i className="fas fa-envelope-open-text"></i>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-black mb-4">Stay Updated</h2>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-black mb-3">Stay Updated</h2>
           <p className="text-brand-body leading-relaxed mb-10 max-w-xl mx-auto">
             Get the latest technical insights and industry news delivered directly to your inbox. No spam, just pure engineering value.
           </p>

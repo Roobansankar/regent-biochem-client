@@ -77,10 +77,10 @@ export default function FAQPage() {
         <div className="absolute inset-0 hero-pattern opacity-10"></div>
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
               Frequently Asked <span className="text-green-mid">Questions</span>
             </h1>
-            <p className="text-base text-white/90 leading-relaxed">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed">
               Everything you need to know about our bio-remediation technology and parts washers.
             </p>
           </div>
@@ -88,15 +88,15 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Accordion Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Sidebar with Categories (optional layout shift) */}
             <div className="lg:col-span-4">
               <div className="sticky top-24">
-                <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-6">Knowledge Base</h2>
-                <div className="w-20 h-1.5 bg-green rounded-full mb-8"></div>
-                <p className="text-brand-body text-base leading-relaxed mb-8">
+                <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">Knowledge Base</h2>
+                <div className="w-16 h-1 bg-green rounded-full mb-6"></div>
+                <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-6">
                   Browse our categorized help articles to find answers quickly. If you can&apos;t find what you&apos;re looking for, our technical team is ready to assist.
                 </p>
                 <div className="hidden lg:flex flex-col gap-3">
@@ -157,13 +157,13 @@ export default function FAQPage() {
           </div>
 
           {/* Still have questions? */}
-          <div className="mt-20 max-w-4xl mx-auto text-center">
-            <div className="bg-green-light p-10 md:p-16 rounded-[40px] relative overflow-hidden">
+          <div className="mt-12 sm:mt-16 max-w-4xl mx-auto text-center">
+            <div className="bg-green-light p-8 md:p-12 rounded-[32px] relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-green/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-green/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
               
-              <h2 className="text-3xl font-bold text-brand-black mb-6 relative z-10">Still have questions?</h2>
-              <p className="text-brand-body mb-8 relative z-10">
+              <h2 className="text-2xl font-bold text-brand-black mb-4 relative z-10">Still have questions?</h2>
+              <p className="text-sm sm:text-base text-brand-body mb-6 relative z-10">
                 Can&apos;t find the answer you&apos;re looking for? Please chat to our friendly team for personalized assistance.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">

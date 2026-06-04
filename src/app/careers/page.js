@@ -42,10 +42,10 @@ export default function CareersPage() {
         <div className="absolute inset-0 hero-pattern opacity-10"></div>
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight reveal">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight reveal">
               Innovate the Future of <span className="text-green-mid">Industrial Cleaning</span>
             </h1>
-            <p className="text-base text-white/90 leading-relaxed reveal">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
               Be part of a team dedicated to sustainable chemical solutions and advanced parts washing technology. 
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function CareersPage() {
       </section>
 
       {/* Why Join Us */}
-      <section className="py-20 bg-brand-bg2">
+      <section className="py-12 sm:py-16 bg-brand-bg2">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="reveal bg-white p-8 rounded-2xl shadow-sm border border-brand-border h-full relative why-card overflow-hidden">
@@ -88,11 +88,11 @@ export default function CareersPage() {
       </section>
 
       {/* Job Openings */}
-      <section id="openings" className="py-20 bg-white">
+      <section id="openings" className="py-12 sm:py-16 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-4">Open Positions</h2>
-            <div className="w-20 h-1.5 bg-green rounded-full"></div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3">Open Positions</h2>
+            <div className="w-16 h-1 bg-green rounded-full"></div>
           </div>
 
           <div className="space-y-6">
@@ -129,14 +129,14 @@ export default function CareersPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white border-t border-brand-border">
+      <section className="py-12 sm:py-16 bg-white border-t border-brand-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="reveal bg-green-light p-10 md:p-16 rounded-[40px] relative overflow-hidden">
+            <div className="reveal bg-green-light p-8 md:p-12 rounded-[32px] relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-green/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-green/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
             
-            <h2 className="text-3xl font-bold text-brand-black mb-6 relative z-10">Don&apos;t see a perfect match?</h2>
-            <p className="text-brand-body mb-8 relative z-10">
+            <h2 className="text-2xl font-bold text-brand-black mb-4 relative z-10">Don&apos;t see a perfect match?</h2>
+            <p className="text-sm sm:text-base text-brand-body mb-6 relative z-10">
               We&apos;re always looking for talented individuals who are passionate about chemicals, engineering, and sustainability. Send us your CV and we&apos;ll keep you in mind for future openings.
             </p>
             <a 

@@ -28,29 +28,27 @@ export default async function IndustryPage({ params }) {
         
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-            <div className="lg:col-span-7"> 
+            <div className="lg:col-span-6"> 
               <div className="flex items-center gap-3 mb-8">
                  <p className="text-sm font-black tracking-[0.4em] uppercase text-green">
                    Manufacturing Industries / {industry.slug}
                  </p>
               </div>
               
-               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-brand-black mb-6 leading-[1.1]">
+               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-brand-black mb-4 leading-[1.1]">
                 {industry.title}
               </h1>
               
-               <div className="max-w-2xl space-y-4 mb-10">
+               <div className="max-w-2xl space-y-3 mb-8">
                 {industry.description.split('\n\n').map((para, i) => (
-                  <p key={i} className="text-base sm:text-lg text-brand-body leading-relaxed text-justify">
-                    {para}
-                  </p>
+                  <p key={i} className="text-sm sm:text-base text-brand-body leading-relaxed text-justify" dangerouslySetInnerHTML={{ __html: para }} style={{ fontWeight: 400 }} />
                 ))}
               </div>
               
               
             </div>
 
-            <div className="lg:col-span-5 relative">
+            <div className="lg:col-span-6 relative">
               <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border-[12px] border-white">
                 <img
                   src="https://placehold.co/800x600/E5E7EB/9CA3AF?text=Industry+Image"
@@ -65,21 +63,16 @@ export default async function IndustryPage({ params }) {
       </section>
 
       {/* What This Industry Produces / Handles */}
-      <section className="pt-0 pb-14 bg-white">
+      <section className="pt-0 pb-10 sm:pb-12 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <span className="w-10 h-px bg-green/30"></span>
                <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">What This Industry Produces / Handles</span>
           </div>
           <div className="flex flex-wrap gap-3">
-            {[
-              "Vehicle parts", "Automotive components", "Engines", "Motor parts",
-              "Cylinder heads", "Spindles", "Tools", "Moulds", "Fixtures",
-              "Trays", "Carrier racks", "Welding fixtures", "Production aids",
-              "Vehicle interior components", "Vehicle exterior components"
-            ].map((item, i) => (
+            {industry.handles.map((item, i) => (
               <span key={i} className="px-5 py-2.5 bg-brand-bg2 border border-brand-border rounded-xl text-sm font-semibold text-brand-body hover:bg-green hover:text-white hover:border-green transition-colors">
-                {item}
+                {typeof item === 'object' ? item.title : item}
               </span>
             ))}
           </div>
@@ -87,7 +80,7 @@ export default async function IndustryPage({ params }) {
       </section>
 
       {/* Narrative Technical Content */}
-      <section className="pt-6 pb-20 bg-white">
+      <section className="pt-4 sm:pt-6 pb-14 sm:pb-16 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Top Row: Challenges & Applications */}
@@ -98,7 +91,7 @@ export default async function IndustryPage({ params }) {
                 <span className="w-10 h-px bg-green/30"></span>
                   <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">The Challenges</span>
               </div>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-brand-black mb-8 tracking-tight">Operational Challenges</h2>
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-brand-black mb-6 tracking-tight">Operational Challenges</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {industry.commonChallenges.map((item, index) => (
@@ -132,7 +125,7 @@ export default async function IndustryPage({ params }) {
                 <span className="w-10 h-px bg-green/30"></span>
                  <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Technical Response</span>
               </div>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-brand-black mb-8 tracking-tight">Applications</h2>
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-brand-black mb-6 tracking-tight">Applications</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {industry.applications.map((app, index) => {

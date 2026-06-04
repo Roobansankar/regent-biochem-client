@@ -54,8 +54,8 @@ export default function BlogPost() {
       <ScrollReveal />
 
       {/* ─── ARTICLE HERO ─── */}
-      <div className="px-4 sm:px-6 lg:px-10 pt-8 pb-4">
-        <section className="relative h-[400px] md:h-[550px] overflow-hidden rounded-[2.5rem] shadow-lg">
+      <div className="px-4 sm:px-6 lg:px-6 pt-6 pb-4">
+        <section className="relative h-[300px] md:h-[400px] lg:h-[480px] overflow-hidden rounded-[2rem] shadow-lg">
           <img 
             src={post.image} 
             alt={post.title} 
@@ -74,7 +74,7 @@ export default function BlogPost() {
                   <i className="far fa-clock text-green"></i> {post.readTime}
                 </span>
               </div>
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight max-w-4xl">
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight max-w-4xl">
                 {post.title}
               </h1>
             </div>
@@ -83,7 +83,7 @@ export default function BlogPost() {
       </div>
 
       {/* ─── ARTICLE CONTENT ─── */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
           
           {/* Main Content */}

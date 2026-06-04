@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export default function Offerings() {
   return (
-    <section id="offerings" className="bg-white py-12 px-4 sm:px-6 lg:px-8">
+    <section id="offerings" className="bg-white py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto">
-        <div className="text-center mb-10">
+        <div className="text-center mb-8">
           <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">GREEN WAY TO GROWTH</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-black mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-brand-black mb-3">
             Precision Offerings
           </h2>
           <p className="text-base text-brand-body max-w-xl mx-auto leading-relaxed">

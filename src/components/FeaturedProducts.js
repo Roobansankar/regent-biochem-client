@@ -51,11 +51,11 @@ export default function FeaturedProducts() {
 
   return (
     <section className="bg-[#f7f7f5]">
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-8 sm:pb-12">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-6 sm:pb-10">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
           <div>
             <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-2">GREEN WAY TO GROWTH</p>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-black">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-black">
               Flagship products, <span className="text-green">field-proven globally.</span>
             </h2>
           </div>
@@ -111,7 +111,7 @@ export default function FeaturedProducts() {
             {/* Info */}
             <div>
               <Link href={`/products/${product.slug}`} className="block group/title">
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-brand-black mb-4 leading-tight group-hover/title:text-green transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-brand-black mb-4 leading-tight group-hover/title:text-green transition-colors">
                   {product.title}
                 </h3>
               </Link>

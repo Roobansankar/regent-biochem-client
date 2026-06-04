@@ -20,13 +20,13 @@ export default function ProductsPage() {
     <main className="flex flex-col min-h-screen">
       
       {/* Header Section */}
-      <section className="bg-brand-bg2 py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b border-brand-border">
+      <section className="bg-brand-bg2 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto text-center">
           <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">Our Catalog</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-brand-black mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-black mb-4">
             All <em className="text-green">Products</em>
           </h1>
-          <p className="text-lg text-brand-body max-w-2xl mx-auto mb-10">
+          <p className="text-base sm:text-lg text-brand-body max-w-2xl mx-auto mb-8">
             Explore our comprehensive range of industrial cleaning systems, chemicals, and automation solutions designed for performance and sustainability.
           </p>
           
@@ -67,7 +67,7 @@ export default function ProductsPage() {
                         {product.category}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-brand-black mb-2 leading-tight">
+                    <h3 className="text-lg font-bold text-brand-black mb-2 leading-tight">
                       {product.title}
                     </h3>
                     <p className="text-sm text-brand-body leading-relaxed mb-6 line-clamp-3">
