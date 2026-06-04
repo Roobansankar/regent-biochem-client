@@ -2,6 +2,7 @@ import { products } from "@/data/products";
 import CTA from "@/components/CTA";
 import CategoryTabs from "@/components/CategoryTabs";
 import ProductGallery from "@/components/ProductGallery";
+import ProductFAQ from "@/components/ProductFAQ";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
@@ -56,14 +57,6 @@ export default async function ProductDetailPage({ params }) {
                   </p>
                 )}
 
-                <div className="flex flex-wrap gap-4 mt-8">
-                  <Link
-                    href="/contact"
-                    className="px-8 py-3.5 bg-green text-white font-bold rounded-2xl hover:bg-green-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-green/20 text-xs"
-                  >
-                  Enquire Now
-                </Link>
-                </div>
               </div>
 
               {product.img && (
@@ -124,7 +117,7 @@ export default async function ProductDetailPage({ params }) {
               </p>
 
               {/* Description */}
-              <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-5 border-l-4 border-green pl-4 sm:pl-6 max-w-2xl text-justify">
+              <p className="text-sm sm:text-base text-brand-bodysm:pl-2 max-w-2xl text-justify mb-4">
                 {product.desc}
               </p>
 
@@ -169,15 +162,6 @@ export default async function ProductDetailPage({ params }) {
               )}
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  href="/contact"
-                  className="px-8 py-3 bg-green text-white font-bold rounded-2xl hover:bg-green-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-green/20 text-xs"
-                >
-                  Enquire Now
-                </Link>
-               
-              </div>
             </div>
 
           </div>
@@ -197,7 +181,7 @@ export default async function ProductDetailPage({ params }) {
                 <h2 className="text-sm sm:text-base font-bold text-brand-black mb-1">
                   Is This Product Right for You?
                 </h2>
-                <p className="text-sm text-brand-body leading-relaxed max-w-4xl">
+                <p className="text-sm text-brand-body leading-relaxed max-w-4xl" style={{ whiteSpace: "pre-line" }}>
                   {product.isThisRightFor}
                 </p>
               </div>
@@ -234,34 +218,64 @@ export default async function ProductDetailPage({ params }) {
                     <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-[10px] font-bold text-green">Application</span>
                   </div>
                   <div className="p-6 sm:p-8 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
-                    <p className="text-sm sm:text-base text-brand-body leading-relaxed">{product.application}</p>
+                    <p className="text-sm sm:text-base text-brand-body leading-relaxed" style={{ whiteSpace: "pre-line" }}>{product.application}</p>
                   </div>
                 </div>
               )}
 
-              {/* Key Features */}
-              {product.features && product.features.length > 0 && (
+              {/* Why Choose */}
+              {product.whyChoose && (
                 <div>
-                  <div className="mb-6">
-                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-[10px] font-bold text-green">Key Features</span>
+                  <div className="mb-5">
+                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-[10px] font-bold text-green">Why Choose the HTW-II Bio?</span>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {product.features.map((feature, i) => (
-                      <div
-                        key={i}
-                        className="flex gap-4 p-5 bg-white rounded-xl border border-brand-border hover:border-green/30 hover:shadow-sm transition-all group"
-                      >
-                        <div className="w-9 h-9 rounded-lg bg-green-light flex items-center justify-center text-green shrink-0 mt-0.5">
-                          <i className="fas fa-check text-xs"></i>
-                        </div>
-                        <p className="text-sm text-brand-body leading-relaxed">
-                          {feature}
-                        </p>
+                  <div className="space-y-3">
+                    {product.whyChoose.split("\n").map((point, i) => (
+                      <div key={i} className="flex gap-3 p-4 bg-white rounded-xl border border-brand-border">
+                        <div className="w-2 h-2 rounded-full bg-green shrink-0 mt-2"></div>
+                        <p className="text-sm text-brand-body leading-relaxed">{point}</p>
                       </div>
                     ))}
                   </div>
                 </div>
               )}
+
+              {/* Available Models */}
+              {product.availableModels && product.availableModels.length > 0 && (
+                <div>
+                  <div className="mb-5">
+                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-[10px] font-bold text-green">Available Models</span>
+                  </div>
+                  <div className="overflow-x-auto rounded-xl border border-brand-border">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="bg-green text-white">
+                          <th className="text-left px-4 py-3 font-bold text-xs">Model</th>
+                          <th className="text-left px-4 py-3 font-bold text-xs">Basket</th>
+                          <th className="text-left px-4 py-3 font-bold text-xs">Pressure</th>
+                          <th className="text-left px-4 py-3 font-bold text-xs">Heater</th>
+                          <th className="text-left px-4 py-3 font-bold text-xs">Tank</th>
+                          <th className="text-left px-4 py-3 font-bold text-xs">Load</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {product.availableModels.map((m, i) => (
+                          <tr key={i} className={`border-t border-brand-border ${i % 2 === 0 ? "bg-white" : "bg-brand-bg2"}`}>
+                            <td className="px-4 py-3 font-bold text-brand-black text-xs">{m.model}</td>
+                            <td className="px-4 py-3 text-brand-body text-xs">{m.basket}</td>
+                            <td className="px-4 py-3 text-brand-body text-xs">{m.pressure}</td>
+                            <td className="px-4 py-3 text-brand-body text-xs">{m.heater}</td>
+                            <td className="px-4 py-3 text-brand-body text-xs">{m.tank}</td>
+                            <td className="px-4 py-3 text-brand-body text-xs">{m.load}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+
 
               {/* Packaging Details */}
               {product.packaging && (
@@ -336,6 +350,11 @@ export default async function ProductDetailPage({ params }) {
                     ))}
                   </div>
                 </div>
+              )}
+
+              {/* FAQ */}
+              {product.faq && product.faq.length > 0 && (
+                <ProductFAQ faq={product.faq} />
               )}
 
             </div>

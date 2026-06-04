@@ -3,21 +3,9 @@ export const products = [
     id: "htw-ii-bio",
     category: "Cleaning Systems",
     title: "HTW II - BIO",
-    subtitle: "High-Performance Bio-Active Cleaning",
-    desc: "The HTW-II Bio stands out from all hot-water parts washers because it is a real all-round talent. It is operated with the Biocircle Liquid L cleaner, which is perfectly matched to the HTW-II Bio. This means not only safe working and a long service life, but also the cleaning of medium to heavy soiling from materials such as steel, stainless steel, plastic, aluminium, zinc-coated surfaces, and non-ferrous metals.",
-    fullDescription: `
-      <p class="text-lg text-brand-body leading-relaxed mb-6">
-        The HTW II Bio Washer represents the pinnacle of sustainable industrial cleaning. Developed for high-throughput production lines, this system eliminates the need for hazardous solvent-based cleaning, replacing it with a safe, aqueous-based process enhanced by bio-active microorganisms.
-      </p>
-      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">The Science of Bio-Remediation</h2>
-      <p class="text-brand-body leading-relaxed mb-6">
-        At the heart of the HTW II Bio is our proprietary bio-remediation process. As the system cleans parts, the resulting oil and grease are washed into the main tank. Here, specialized microorganisms 'eat' these hydrocarbons, breaking them down into harmless water and CO2. This self-cleaning capability allows the cleaning fluid to remain effective for months, significantly reducing waste disposal costs and environmental impact.
-      </p>
-      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Precision Engineering</h2>
-      <p class="text-brand-body leading-relaxed mb-6">
-        Equipped with a heavy-duty rotating basket and a high-pressure pump system, the HTW II Bio delivers consistent, repeatable results. The system is constructed from high-grade stainless steel to ensure longevity in corrosive environments. The intuitive control interface allows operators to precisely manage temperature and wash cycles, ensuring optimal performance for every component type.
-      </p>
-    `,
+    subtitle: "Automatic Hot-Water Industrial Parts Washer",
+    desc: "The HTW-II Bio is the sector's premier automatic hot-water parts washing system. Engineered for high-performance degreasing, it stands alone as the ultimate combination of heavy-duty cleaning power and eco-friendly sustainability.",
+    whyChoose: "Best-in-Class Degreasing: Effortlessly removes heavy oil, grease, and dirt from steel, aluminum, plastics, and non-ferrous metals.\nSmart Bio-Technology: Powered by Bio-Chem's microorganism liquid, it actively digests oil—slashing waste disposal costs and maximizing fluid life.\nPremium Efficiency & Safety: Insulated housing cuts energy costs, while the solvent-free formula ensures a 100% safer workplace.",
     features: [
       "HTW-II Bio 800, 1000, 1200, 1500",
       "Degradation of grease and oil by microorganisms",
@@ -35,15 +23,27 @@ export const products = [
       { label: "Heater Power", value: "9 kW - 18 kW" },
       { label: "Tank Volume", value: "250 Litres" }
     ],
-    packaging: `
-      <p class="text-lg text-brand-body leading-relaxed mb-6">
-        The HTW-II Bio is engineered for long-term industrial use with a robust stainless steel construction and integrated bio-remediation technology. Each unit is delivered fully assembled, pre-tested, and ready for immediate integration into your production line.
-      </p>
-      <p class="text-brand-body leading-relaxed mb-6">
-        The system is designed for minimal maintenance and includes the patented Biocircle Liquid L recirculation system, ensuring consistent cleaning performance across all operating conditions. Custom configuration and installation support are available upon request.
-      </p>
-    `,
-    recommendedCleaner: { name: "Bio-Circle L Liquid", slug: "biochem-bio-circle-l", desc: "A low-foaming, microorganism-based cleaner for manual and automatic parts cleaning." },
+    availableModels: [
+      { model: "HTW-II Bio 800", basket: "800 mm", pressure: "2.5 Bar", heater: "9 kW", tank: "250 L", load: "300 kg" },
+      { model: "HTW-II Bio 1000", basket: "1000 mm", pressure: "5 Bar", heater: "12 kW", tank: "250 L", load: "400 kg" },
+      { model: "HTW-II Bio 1200", basket: "1200 mm", pressure: "5 Bar", heater: "15 kW", tank: "250 L", load: "450 kg" },
+      { model: "HTW-II Bio 1500", basket: "1500 mm", pressure: "5 Bar", heater: "18 kW", tank: "250 L", load: "500 kg" },
+      { model: "HTW-II Max Eco", basket: "—", pressure: "—", heater: "—", tank: "—", load: "—" },
+      { model: "HP Vigo", basket: "—", pressure: "—", heater: "—", tank: "—", load: "—" },
+    ],
+    isThisRightFor: "It is suitable for companies that want to:\n\n• Reduce manual cleaning effort\n• Clean oily and greasy parts consistently\n• Move away from harsh solvent-based cleaning\n• Improve workplace safety and cleanliness\n• Reduce cleaner waste and disposal frequency\n• Extend the life of the cleaning solution\n• Handle medium to heavy industrial contamination\n• Improve cleaning efficiency in workshops and production areas",
+    application: "• Cleaning machine parts used in production and maintenance\n• Degreasing oily and greasy industrial components\n• Washing tools, fixtures, and workshop parts\n• Preparing components before repair, inspection, or assembly\n• Cleaning metal, plastic, aluminium, zinc-coated, and non-ferrous parts\n• Supporting routine maintenance cleaning in industrial plants",
+    faq: [
+      { q: "What is the HTW-II Bio used for?", a: "The HTW-II Bio is used for automatic cleaning of oily, greasy, and heavily soiled industrial parts." },
+      { q: "Can the HTW-II Bio clean heavy grease and oil?", a: "Yes, it is designed to remove oil, grease, dirt, and heavy contamination from industrial components." },
+      { q: "What type of parts can I clean in the HTW-II Bio?", a: "You can clean parts made of steel, stainless steel, plastic, aluminium, zinc-coated surfaces, and non-ferrous metals." },
+      { q: "How does the HTW-II Bio cleaning process work?", a: "It uses hot-water cleaning with recirculation and Bio-Chem's microorganism-based cleaner to break down oil and grease." },
+      { q: "Which cleaner is recommended for the HTW-II Bio?", a: "The recommended cleaner is Bio-Circle L Liquid, a low-foaming microorganism-based cleaner for parts washing." },
+      { q: "Does the HTW-II Bio reduce cleaning waste?", a: "Yes, the recirculation system and biological cleaner help extend cleaner life and reduce waste disposal." },
+      { q: "What models are available in HTW-II Bio?", a: "The HTW-II Bio is available in 800, 1000, 1200, and 1500 variants." },
+      { q: "Can I get support in choosing the right HTW-II Bio model?", a: "Yes, Bio-Chem can help you choose the right model based on part size, cleaning load, and application needs." },
+    ],
+    recommendedCleaner: { name: "Bio Circle L Liquid", slug: "biochem-bio-circle-l", desc: "A low-foaming, microorganism-based cleaner for manual and automatic parts cleaning." },
     similarProducts: ["gt-parts-washer", "cb-100", "autopurge-system"],
     icon: "fa-spray-can",
     img: "/htw-ii-bio.jpg",
