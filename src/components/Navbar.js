@@ -233,7 +233,7 @@ export default function Navbar() {
                         isScrolled ? "top-[64px]" : "top-[calc(64px+96px)]"
                       }`}>
                         <div className={`max-w-[1600px] mx-auto grid gap-8 p-10 ${
-                          link.name === "Products" ? "grid-cols-5" : "grid-cols-6"
+                          link.name === "Products" ? "grid-cols-5" : link.name === "Industries" ? "grid-cols-[1fr_1fr_1.5fr]" : "grid-cols-[1fr_1.5fr]"
                         }`}>
                           {link.columns.map((col) => (
                             <div key={col.label}>

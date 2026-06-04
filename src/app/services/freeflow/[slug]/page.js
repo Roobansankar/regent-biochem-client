@@ -21,18 +21,18 @@ export default async function ServicePage({ params }) {
   return (
     <main className="flex flex-col min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative pt-6 pb-12 lg:pt-8 lg:pb-16 overflow-hidden">
+      <section className="relative pt-3 pb-12 lg:pt-4 lg:pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-brand-bg2 via-white to-white"></div>
         </div>
         
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
-            <div className="max-w-3xl">
-              <p className="text-xs font-bold tracking-[0.3em] uppercase text-green mb-4 flex items-center gap-3">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12 items-center">
+            <div className="lg:col-span-3 max-w-3xl">
+              <p className="text-xs font-semibold text-green mb-4 flex items-center gap-3">
                 <span className="w-8 h-px bg-green"></span> Free Flow
               </p>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-brand-black mb-4 leading-[1.1]">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-4 leading-[1.1]">
                 {service.title}
               </h1>
               <p className="text-base sm:text-lg text-brand-body leading-relaxed mb-6 text-justify">
@@ -40,7 +40,7 @@ export default async function ServicePage({ params }) {
               </p>
             </div>
 
-            <div className="relative group">
+            <div className="lg:col-span-2 relative group">
               <div className="absolute -inset-4 bg-green/10 rounded-[2.5rem] blur-2xl group-hover:bg-green/20 transition-all duration-500"></div>
               <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
                 <img
@@ -48,18 +48,6 @@ export default async function ServicePage({ params }) {
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-              </div>
-              {/* Floating Badge */}
-              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-brand-border hidden sm:block animate-bounce-slow">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green rounded-xl flex items-center justify-center text-white">
-                    <i className={`fas ${service.icon} text-lg`}></i>
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-green">Specialized Service</p>
-                    <p className="text-sm font-bold text-brand-black">Industrial Grade</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -70,14 +58,16 @@ export default async function ServicePage({ params }) {
       <section className="py-12 sm:py-16 bg-brand-bg2/50 border-y border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-black mb-3 uppercase tracking-tight">Common Problems Addressed</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Common Problems Addressed</h2>
           </div>
           {service.commonProblems && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-5xl mx-auto">
             {service.commonProblems.map((item, index) => (
-              <div key={index} className="flex items-center gap-3 text-sm sm:text-base text-brand-body">
-                <span className="w-2 h-2 bg-green rounded-full flex-shrink-0"></span>
-                <span>{item}</span>
+              <div key={index} className="flex items-center gap-4 bg-white p-4 rounded-xl border border-brand-border shadow-sm hover:shadow-md hover:border-green-mid transition-all">
+                <div className="w-10 h-10 rounded-xl bg-green-light flex items-center justify-center text-green flex-shrink-0">
+                  <i className="fas fa-check-circle text-lg"></i>
+                </div>
+                <span className="text-sm sm:text-base text-brand-body">{item}</span>
               </div>
             ))}
           </div>
@@ -90,13 +80,15 @@ export default async function ServicePage({ params }) {
       <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-black mb-3 uppercase tracking-tight">Contaminants That Can Be Removed</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Contaminants That Can Be Removed</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-5xl mx-auto">
             {service.contaminantsRemoved.map((item, index) => (
-              <div key={index} className="flex items-center gap-3 text-sm sm:text-base text-brand-body">
-                <span className="w-2 h-2 bg-green rounded-full flex-shrink-0"></span>
-                <span>{item}</span>
+              <div key={index} className="flex items-center gap-4 bg-white p-4 rounded-xl border border-brand-border shadow-sm hover:shadow-md hover:border-green-mid transition-all">
+                <div className="w-10 h-10 rounded-xl bg-green-light flex items-center justify-center text-green flex-shrink-0">
+                  <i className="fas fa-check-circle text-lg"></i>
+                </div>
+                <span className="text-sm sm:text-base text-brand-body">{item}</span>
               </div>
             ))}
           </div>
@@ -109,13 +101,15 @@ export default async function ServicePage({ params }) {
       <section className="py-12 sm:py-16 bg-brand-bg2/50 border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-black mb-3 uppercase tracking-tight">Information We Need From You</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Information We Need From You</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-5xl mx-auto">
             {service.infoNeeded.map((item, index) => (
-              <div key={index} className="flex items-center gap-3 text-sm sm:text-base text-brand-body">
-                <span className="w-2 h-2 bg-green rounded-full flex-shrink-0"></span>
-                <span>{item}</span>
+              <div key={index} className="flex items-center gap-4 bg-white p-4 rounded-xl border border-brand-border shadow-sm hover:shadow-md hover:border-green-mid transition-all">
+                <div className="w-10 h-10 rounded-xl bg-green-light flex items-center justify-center text-green flex-shrink-0">
+                  <i className="fas fa-check-circle text-lg"></i>
+                </div>
+                <span className="text-sm sm:text-base text-brand-body">{item}</span>
               </div>
             ))}
           </div>
@@ -127,12 +121,12 @@ export default async function ServicePage({ params }) {
       <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-black mb-3 uppercase tracking-tight">Industries We Serve</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Industries We Serve</h2>
           </div>
           <div className="flex flex-wrap justify-center gap-3">
             {service.industries.map((industry, index) => (
               <div key={index} className="px-6 py-3 rounded-2xl bg-green-light border border-green-mid/50 hover:bg-white hover:border-green/30 transition-all duration-300 group shadow-sm">
-                <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-green group-hover:text-green-dark">{industry}</span>
+                <span className="text-xs sm:text-sm font-bold text-green group-hover:text-green-dark">{industry}</span>
               </div>
             ))}
           </div>
@@ -150,7 +144,7 @@ export default async function ServicePage({ params }) {
               </div>
             </div>
             <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-black mb-4 uppercase tracking-tight">Machine Used <span className="text-green">RWR</span></h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4 tracking-tight">Machine Used <span className="text-green">RWR</span></h2>
               <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-6">
                 Our advanced RWR (Reverse Water Recovery) mobile flushing system is engineered for high-performance pipeline cleaning without dismantling.
               </p>
@@ -169,7 +163,7 @@ export default async function ServicePage({ params }) {
       <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-black mb-3 uppercase tracking-tight">Recommended Cleaner</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Recommended Cleaner</h2>
           </div>
           <div className="max-w-4xl mx-auto bg-brand-bg2/50 p-6 sm:p-10 rounded-2xl sm:rounded-[2.5rem] border border-brand-border shadow-sm">
             {[
@@ -204,7 +198,7 @@ export default async function ServicePage({ params }) {
       <section id="details" className="py-12 sm:py-16 bg-brand-bg2/50 border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-black mb-3 uppercase tracking-tight">Our Service Approach</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Our Service Approach</h2>
           </div>
           
           <div className="relative max-w-[1400px] mx-auto">
@@ -222,13 +216,13 @@ export default async function ServicePage({ params }) {
                 return (
                   <div key={index} className="flex flex-col items-center text-center group">
                     <div className="relative mb-4">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-[1.25rem] bg-green border-4 border-white flex items-center justify-center text-white shadow-lg group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10 text-base sm:text-xl font-black">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-[1.25rem] bg-green border-4 border-white flex items-center justify-center text-white shadow-lg group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10 text-base sm:text-xl font-bold">
                         {index + 1}
                       </div>
                     </div>
                     
                     <div>
-                      <h4 className="font-extrabold text-brand-black text-[11px] sm:text-xs uppercase tracking-widest leading-tight">
+                      <h4 className="font-bold text-brand-black text-[11px] sm:text-xs leading-tight">
                         {step.title}
                       </h4>
                     </div>
@@ -257,10 +251,7 @@ export default async function ServicePage({ params }) {
             </div>
 
             <div className="lg:pl-4">
-              <div className="inline-flex items-center gap-2 text-green font-black uppercase tracking-[0.3em] text-[10px] mb-4">
-                <span className="w-8 h-px bg-green"></span> Engineering Excellence
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-black mb-5 uppercase tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-black mb-5 tracking-tight leading-tight">
                 How <span className="text-green">We Do It</span>
               </h2>
               <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-8 text-justify">
@@ -285,7 +276,7 @@ export default async function ServicePage({ params }) {
         <section className="py-12 sm:py-16 bg-brand-bg2/50">
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
              <div className="text-center mb-10">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-black">Proven Results</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-brand-black">Proven Results</h2>
                 <p className="text-sm sm:text-base text-brand-body mt-2">Visual evidence of our cleaning effectiveness</p>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
