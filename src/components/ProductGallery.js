@@ -46,7 +46,7 @@ export default function ProductGallery({ product }) {
           <button
             key={i}
             onClick={() => goTo(i)}
-            className={`w-16 h-16 sm:w-20 sm:h-20 rounded-xl border-2 overflow-hidden transition-all duration-300 shrink-0 ${
+            className={`w-20 h-20 sm:w-24 sm:h-24 rounded-xl border-2 overflow-hidden transition-all duration-300 shrink-0 ${
               i === activeIndex
                 ? "border-green shadow-md ring-2 ring-green/20 scale-105"
                 : "border-brand-border opacity-60 hover:opacity-100 hover:border-green/50"
@@ -68,7 +68,7 @@ export default function ProductGallery({ product }) {
       </div>
 
       {/* Main Image */}
-      <div className="flex-1 aspect-square rounded-2xl bg-white border border-brand-border overflow-hidden relative group shadow-sm">
+      <div className="flex-1 aspect-square rounded-2xl bg-white border border-brand-border overflow-hidden relative group shadow-sm min-h-[400px] sm:min-h-[500px]">
         <div className="w-full h-full overflow-hidden">
           <div
             key={slideKey}

@@ -209,10 +209,10 @@ export default async function ProductDetailPage({ params }) {
       {/* ─── TECHNICAL OVERVIEW ─── */}
       <section className="py-14 sm:py-18 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 xl:grid-cols-12 gap-10 xl:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
 
             {/* Left: Narrative + Features + Application */}
-            <div className="xl:col-span-8 space-y-14">
+            <div className="lg:col-span-8 space-y-14">
 
               {/* Full Description */}
               {product.fullDescription && (
@@ -341,7 +341,7 @@ export default async function ProductDetailPage({ params }) {
             </div>
 
             {/* Right Sidebar: Specs + Recommend With + Enquire */}
-            <div className="xl:col-span-4">
+            <div className="lg:col-span-4">
                 <div className="sticky top-24 space-y-5">
 
                 {/* Technical Specifications */}
@@ -429,23 +429,6 @@ export default async function ProductDetailPage({ params }) {
                     </div>
                   </div>
                 )}
-
-                {/* Enquire / CTA card */}
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-brand-bg2 to-white border border-brand-border shadow-sm">
-                  <div className="w-10 h-10 rounded-xl bg-green flex items-center justify-center mb-4 shadow-sm">
-                    <i className="fas fa-headset text-white text-sm"></i>
-                  </div>
-                  <p className="text-sm font-bold text-brand-black mb-1">Need a Custom Config?</p>
-                  <p className="text-xs text-brand-body leading-relaxed mb-5">
-                    Our engineers can tailor {product.title} to your specific production line requirements.
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="block w-full text-center px-5 py-3 bg-green text-white text-xs font-bold rounded-xl hover:bg-green-dark transition-all shadow-sm"
-                  >
-                    Speak with an Expert →
-                  </Link>
-                </div>
 
               </div>
             </div>
