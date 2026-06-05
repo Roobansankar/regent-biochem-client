@@ -1,9 +1,9 @@
-export const products = [
+ export const products = [
   {
     id: "htw-ii-bio",
     category: "Cleaning Systems",
     title: "HTW II - BIO",
-    subtitle: "Automatic Hot-Water Industrial Parts Washer",
+    subtitle: "Automatic",
     desc: "The HTW-II Bio is the sector's premier automatic hot-water parts washing system. Engineered for high-performance degreasing, it stands alone as the ultimate combination of heavy-duty cleaning power and eco-friendly sustainability.",
     whyChoose: "Best-in-Class Degreasing: Effortlessly removes heavy oil, grease, and dirt from steel, aluminum, plastics, and non-ferrous metals.\nSmart Bio-Technology: Powered by Bio-Chem's microorganism liquid, it actively digests oil—slashing waste disposal costs and maximizing fluid life.\nPremium Efficiency & Safety: Insulated housing cuts energy costs, while the solvent-free formula ensures a 100% safer workplace.",
     features: [

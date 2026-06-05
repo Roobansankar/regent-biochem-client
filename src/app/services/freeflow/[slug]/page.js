@@ -28,34 +28,57 @@ export default async function ServicePage({ params }) {
         </div>
         
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12 items-center">
+          {/* Free Flow Section - content left, image right */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12 items-center mb-12 lg:mb-16">
             <div className="lg:col-span-3 max-w-3xl">
-              <p className="text-xs font-semibold text-green mb-4 flex items-center gap-3">
-                <span className="w-8 h-px bg-green"></span> Free Flow
+              <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Services</p>
+              <p className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-4">Free Flow</p>
+              <p className="text-base sm:text-lg text-brand-body leading-relaxed ">
+                The FreeFlow™ system is the sector&apos;s premier industrial pipeline cleaning solution. Engineered for maximum flow restoration, it stands alone as the ultimate combination of advanced chemical technology and eco-friendly sustainability.
               </p>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-4 leading-[1.1]">
-                {service.title}
-              </h1>
-              <p className="text-base sm:text-lg text-brand-body leading-relaxed mb-6 text-justify">
-                {service.description}
-              </p>
+             
+            
             </div>
 
-            <div className="lg:col-span-2 relative group">
+          <div className="lg:col-span-2 relative group flex justify-center">
+  <div className="absolute -inset-4 bg-green/10 rounded-[2.5rem] blur-2xl group-hover:bg-green/20 transition-all duration-500"></div>
+
+  <div className="relative w-full max-w-[500px] h-[280px] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
+    <img
+      src="https://placehold.co/800x600/e2e8f0/3D8A4B?text=Free+Flow"
+      alt="Free Flow"
+      className="w-full h-full object-cover"
+    />
+  </div>
+</div>
+          </div>
+
+          {/* Service Title Section - image left, content right */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12 items-center">
+            <div className="lg:col-span-2 lg:col-start-1 relative group">
               <div className="absolute -inset-4 bg-green/10 rounded-[2.5rem] blur-2xl group-hover:bg-green/20 transition-all duration-500"></div>
               <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
                 <img
                   src={service.heroImage}
                   alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
               </div>
+            </div>
+
+            <div className="lg:col-span-3 lg:col-start-3 max-w-3xl">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-4 leading-[1.1]">
+                {service.title}
+              </h1>
+              <p className="text-base sm:text-lg text-brand-body leading-relaxed ">
+                {service.description}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Common Problems Addressed */}
+      {/* Critical Problems We Resolve */}
     
       <section className="py-16 sm:py-20 bg-[#F6F8F6] border-y border-brand-border">
   <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,7 +86,7 @@ export default async function ServicePage({ params }) {
     {/* Heading */}
     <div className="text-center max-w-3xl mx-auto mb-12">
       <h2 className="text-3xl sm:text-4xl font-bold text-brand-black mb-4">
-      Common Problems Addressed
+   Critical Problems We Resolve
       </h2>
 
       <p className="text-brand-text text-base sm:text-lg">
@@ -143,26 +166,7 @@ export default async function ServicePage({ params }) {
   </section>
 )}
 
-      {/* Information We Need Section */}
-      {service.infoNeeded && (
-      <section className="py-12 sm:py-16 bg-brand-bg2/50 border-b border-brand-border">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Information We Need From You</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-5xl mx-auto">
-            {service.infoNeeded.map((item, index) => (
-              <div key={index} className="flex items-center gap-4 bg-white p-4 rounded-xl border border-brand-border shadow-sm hover:shadow-md hover:border-green-mid transition-all">
-                <div className="flex-shrink-0 text-green">
-                  <i className="fas fa-circle-check"></i>
-                </div>
-                <span className="text-sm sm:text-base text-brand-body">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      )}
+    
 
       {/* Industries We Serve Section */}
       <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
@@ -238,7 +242,7 @@ export default async function ServicePage({ params }) {
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-black mb-5 tracking-tight leading-tight">
                 How <span className="text-green">We Do It</span>
               </h2>
-              <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-8 text-justify">
+              <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-8 ">
                 Our approach integrates advanced chemical engineering with precision mechanical systems. We don't just provide a cleaning service; we deploy specialized technology designed to restore your infrastructure to peak operational efficiency. By utilizing eco-friendly, bio-active agents and automated delivery systems, we ensure zero-residue results while significantly reducing environmental impact and facility downtime.
               </p>
               <div className="flex flex-wrap gap-4">

@@ -22,7 +22,7 @@ export default function Home() {
       {/* <ProductGrid /> */}
       <Industries />
       <WorkflowProcess />
-       <WhyChooseUs />
+      <WhyChooseUs />
       <EsteemedCustomers />
       <CTA />
     </main>

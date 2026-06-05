@@ -37,11 +37,9 @@ export default async function ProductDetailPage({ params }) {
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-light border border-green-mid mb-4">
-                  <span className="text-xs sm:text-sm font-bold text-green">
-                    {product.category}
-                  </span>
-                </div>
+                <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">
+                  {product.category}
+                </p>
 
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-brand-black mb-4 leading-[1.1]">
                   {product.title}
@@ -100,11 +98,9 @@ export default async function ProductDetailPage({ params }) {
 
             {/* Text Side */}
             <div className="lg:col-span-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-light border border-green-mid mb-3 sm:mb-4">
-                <span className="text-xs sm:text-sm font-bold text-green">
-                  {product.category}
-                </span>
-              </div>
+              <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">
+                {product.category}
+              </p>
 
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-2 leading-[1.15]">
                 {product.title}
@@ -116,7 +112,7 @@ export default async function ProductDetailPage({ params }) {
                 </p>
               )}
 
-              <p className="text-sm sm:text-base text-brand-body  pl-2 sm:pl-2 max-w-2xl">
+              <p className="text-sm sm:text-base text-brand-body  pl-0 sm:pl-0 max-w-2xl">
                 {product.desc}
               </p>
 
@@ -130,6 +126,31 @@ export default async function ProductDetailPage({ params }) {
                   ))}
                 </ul>
               )}
+
+              {/* Available Pack Sizes */}
+              <div className="mt-6 mb-6">
+                <p className="text-xs font-bold text-green uppercase tracking-wider mb-3">Available Pack Sizes</p>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { name: "CB 100 - PET (recycled) bottle 500ml with sprayer", img: "500ml" },
+                    { name: "CB 100 - PET (recycled) bottle 1L with sprayer", img: "1L" },
+                    { name: "CB 100 - Jerry Can 1L", img: "JC1L" },
+                    { name: "CB 100 - Jerry Can 5L", img: "JC5L" },
+                    { name: "CB 100 - Jerry Can 25L", img: "JC25L" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 border border-brand-border rounded-lg p-3">
+                      <div className="w-14 h-14 rounded-lg bg-brand-bg3 border border-brand-border shrink-0 flex items-center justify-center overflow-hidden">
+                        <img
+                          src={`https://placehold.co/80x80/e2e8f0/3D8A4B?text=${item.img}`}
+                          alt={item.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <span className="text-xs font-semibold text-brand-black leading-snug">{item.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
               {product.labels && product.labels.length > 0 && (
                 <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -164,15 +185,10 @@ export default async function ProductDetailPage({ params }) {
 
               {/* Is This Product Right for You? */}
               {product.isThisRightFor && (
-                <div className="p-5 sm:p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border border-green/10">
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="shrink-0 w-8 h-8 rounded-lg bg-green flex items-center justify-center shadow-sm mt-0.5">
-                      <i className="fas fa-check-circle text-white text-xs"></i>
-                    </div>
-                    <div>
-                      <span className="text-xs sm:text-sm font-bold text-green/60 uppercase tracking-wider mb-1.5 block">Is This Product Right for You?</span>
-                      <p className="text-sm text-brand-body leading-relaxed" style={{ whiteSpace: "pre-line" }}>{product.isThisRightFor}</p>
-                    </div>
+                <div>
+                  <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Is This Product Right for You?</h3>
+                   <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
+                  <p className="text-sm text-brand-body leading-relaxed" style={{ whiteSpace: "pre-line" }}>{product.isThisRightFor}</p>
                   </div>
                 </div>
               )}
@@ -180,9 +196,7 @@ export default async function ProductDetailPage({ params }) {
               {/* Application */}
               {product.application && (
                 <div>
-                  <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-xs sm:text-sm font-bold text-green">Application</span>
-                  </div>
+                  <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Application</h3>
                   <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
                     <p className="text-sm sm:text-base text-brand-body leading-relaxed" style={{ whiteSpace: "pre-line" }}>{product.application}</p>
                   </div>
@@ -193,7 +207,7 @@ export default async function ProductDetailPage({ params }) {
               {product.whyChoose && (
                 <div>
                   <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-xs sm:text-sm font-bold text-green">Why Choose the HTW-II Bio?</span>
+                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Why Choose the HTW-II Bio?</p>
                   </div>
                   <div className="space-y-2.5">
                     {product.whyChoose.split("\n").map((point, i) => (
@@ -210,7 +224,7 @@ export default async function ProductDetailPage({ params }) {
               {product.availableModels && product.availableModels.length > 0 && (
                 <div>
                   <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-xs sm:text-sm font-bold text-green">Available Models</span>
+                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Available Models</p>
                   </div>
                   <div className="overflow-x-auto rounded-xl border border-brand-border">
                     <table className="w-full text-sm">
@@ -271,7 +285,7 @@ export default async function ProductDetailPage({ params }) {
               {product.similarProducts && product.similarProducts.length > 0 && (
                 <div>
                   <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-xs sm:text-sm font-bold text-green">Similar Solutions</span>
+                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Similar Solutions</p>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {product.similarProducts.map((ref, i) => {
