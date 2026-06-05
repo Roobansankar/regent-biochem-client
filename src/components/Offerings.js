@@ -6,11 +6,11 @@ export default function Offerings() {
     <section id="offerings" className="bg-white py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto">
         <div className="text-center mb-8">
-          <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">GREEN WAY TO GROWTH</p>
+          <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">GREEN WAY TO GROWTH</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-brand-black mb-3">
             Precision Offerings
           </h2>
-          <p className="text-base text-brand-body max-w-xl mx-auto leading-relaxed">
+          <p className="text-base text-brand-body sm:whitespace-nowrap text-center">
             Scalable technology modules designed for seamless integration into existing production workflows.
           </p>
         </div>

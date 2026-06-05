@@ -20,7 +20,7 @@ export default function Stats() {
           <div>
             <span className="block text-3xl sm:text-4xl font-bold text-green tracking-tight leading-none"><CountUp end={6} /></span>
             <span className="block text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">
-              Certificates
+              Certifications
             </span>
           </div>
           <div>
@@ -32,7 +32,7 @@ export default function Stats() {
           <div>
             <span className="block text-3xl sm:text-4xl font-bold text-green tracking-tight leading-none"><CountUp end={50} suffix="%" /></span>
             <span className="block text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">
-              Reduce in Manual Cleaning Time
+              Reduce in Cleaning Time
             </span>
           </div>
         </div>

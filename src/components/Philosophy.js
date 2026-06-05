@@ -8,36 +8,36 @@ export default function Philosophy() {
       
       {/* Mobile Header (hidden on lg) */}
       <div className="lg:hidden px-6 pt-8 pb-2">
-        <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">About Regent Biochem</p>
+        <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">About Regent Biochem</p>
         <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-black leading-tight uppercase">
-          GREEN WAY
+          <span className="text-green">GREEN</span> WAY
           <br />
-          TO GROWTH
+          <span className="text-green">TO GROWTH</span>
         </h2>
       </div>
 
-      <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2">
+      <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-3">
         {/* Image */}
-        <div className="order-1 lg:order-1 min-h-64 lg:min-h-0 overflow-hidden flex items-center justify-center p-6 sm:p-10">
+        <div className="order-1 lg:order-1 lg:col-span-1 min-h-48 lg:min-h-0 overflow-hidden flex items-center justify-center p-4 sm:p-6">
           <img
             src="https://i.pinimg.com/1200x/ae/8d/3d/ae8d3da251fe1d7ead2f4dd062d625c7.jpg"
             alt="Industrial Technology"
-            className="w-full h-full object-cover rounded-2xl shadow-lg max-h-80 lg:max-h-96"
+            className="w-full h-full object-cover rounded-2xl shadow-lg max-h-72 lg:max-h-96"
           />
         </div>
         {/* Text Content */}
-        <div className="order-2 lg:order-2 flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-8 lg:py-12">
+        <div className="order-2 lg:order-2 lg:col-span-2 flex flex-col justify-center px-6 sm:px-8 lg:px-12 py-6 lg:py-10">
           {/* Laptop Header (hidden on mobile/tab) */}
           <div className="hidden lg:block">
-            <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-3">About Regent Biochem</p>
+            <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">About Regent Biochem</p>
+            
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-brand-black leading-tight mb-4 uppercase">
-              GREEN WAY
-              <br />
-              TO GROWTH
+              <span className="text-green">GREEN</span> WAY TO
+            <span className="text-green"> GROWTH</span> 
             </h2>
           </div>
           <p className="text-base text-brand-body leading-relaxed mb-6 text-justify">
-            At Regent BioChem, we deliver industrial cleaning systems, specialty chemicals, and surface technology solutions for manufacturing industries across India through our <b>Cleantech, SafeWeld, and FreeFlow product segments.</b>
+            At Regent BioChem, we deliver industrial cleaning systems, specialty chemicals, and surface technology solutions for manufacturing industries across India through our <b>CleanTech, SafeWeld, and FreeFlow solutions.</b>
             In strategic partnership with Bio-Circle Surface Technology GmbH, Germany, we combine proven German engineering with application-focused expertise to provide performance-driven solutions that enhance efficiency, reliability, and operational productivity.
           </p>
           <Link

@@ -10,8 +10,8 @@ export default function Footer() {
             <Link href="/">
               <img src="/logo.png" alt="Bio-Chem Logo" className="h-14 w-auto mb-4" />
             </Link>
-            <p className="text-sm font-bold uppercase tracking-wider text-brand-black leading-relaxed max-w-xs">
-              GREEN WAY TO GROWTH
+            <p className="text-sm font-black uppercase tracking-wider text-brand-black leading-relaxed max-w-xs">
+              <span className="text-green">GREEN</span> WAY <span className="text-green">TO GROWTH</span>
             </p>
             <div className="flex gap-3 mt-5">
               <Link
@@ -30,7 +30,7 @@ export default function Footer() {
                 href="#"
                 className="w-9 h-9 rounded-lg border border-brand-border flex items-center justify-center text-brand-muted hover:text-green hover:border-green transition-colors text-sm"
               >
-                <i className="fab fa-youtube"></i>
+                <i className="fab fa-instagram"></i>
               </Link>
             </div>
           </div>

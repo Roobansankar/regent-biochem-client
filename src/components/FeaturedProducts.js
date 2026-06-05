@@ -57,7 +57,7 @@ export default function FeaturedProducts() {
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-6 sm:pb-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
           <div>
-            <p className="text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-green mb-2">GREEN WAY TO GROWTH</p>
+            <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">GREEN WAY TO GROWTH</p>
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-black">
               Flagship products, <span className="text-green">field-proven globally.</span>
             </h2>
@@ -133,7 +133,7 @@ export default function FeaturedProducts() {
                   href="/contact"
                   className="text-center border-2 border-brand-border text-brand-black font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-brand-bg2 transition-all"
                 >
-                  Request Technical Quote
+                  Request Consultation
                 </Link>
               </div>
             </div>

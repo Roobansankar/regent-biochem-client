@@ -201,7 +201,7 @@ export default function Navbar() {
                   >
                     <NavItem
                       href={link.href !== "#" ? link.href : undefined}
-                      className={`nav-link flex items-center h-full text-[15px] font-bold uppercase tracking-wider px-2 xl:px-3 transition-all duration-200 cursor-pointer ${
+                      className={`nav-link flex items-center h-full text-sm font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
                         pathname === link.href || activeMenu === link.name
                           ? "text-white"
                           : "text-white/90 hover:text-white"
@@ -270,16 +270,7 @@ export default function Navbar() {
               })}
             </ul>
 
-            {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-4 ml-8">
-              <Link
-                href="/contact"
-                onClick={closeMenu}
-                className="text-[13px] font-black uppercase tracking-widest bg-white text-green rounded-lg px-6 py-3 hover:bg-brand-bg2 transition-all shadow-sm whitespace-nowrap"
-              >
-                Request Quote
-              </Link>
-            </div>
+          
 
             {/* Hamburger */}
             <button
@@ -386,15 +377,7 @@ export default function Navbar() {
               </nav>
             </div>
 
-            <div className="p-6 border-t border-brand-border bg-brand-bg2">
-              <Link
-                href="/contact"
-                onClick={closeMenu}
-                className="block w-full text-center bg-green text-white font-bold py-4 rounded-xl shadow-lg shadow-green/20"
-              >
-                Request Quote
-              </Link>
-            </div>
+            
           </div>
         </div>
       </nav>

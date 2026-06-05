@@ -37,7 +37,7 @@ export default function WorkflowProcess() {
       <div className="max-w-[1600px] mx-auto">
         {/* Header */}
         <div className="text-center mb-10 sm:mb-12">
-          <p className="text-sm font-bold tracking-[0.2em] uppercase text-green mb-3">How We Work</p>
+          <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">How We Work</p>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-black">
             Our Workflow <span className="text-green">Process</span>
           </h2>
@@ -54,7 +54,7 @@ export default function WorkflowProcess() {
                 <div className="w-10 h-10 bg-green rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md shadow-green/20">
                   <i className={`fas ${step.icon} text-white text-sm`}></i>
                 </div>
-                <div className="text-[10px] font-black text-green/40 mb-1">{step.num}</div>
+                <div className="text-xs sm:text-sm font-black text-green/40 mb-1">{step.num}</div>
                 <h3 className="text-sm font-normal text-brand-black leading-snug tracking-tight">{step.title}</h3>
               </div>
             </div>

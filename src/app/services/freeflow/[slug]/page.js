@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import CTA2 from "@/components/CTA2";
 
 export async function generateStaticParams() {
   return services.map((service) => ({
@@ -55,46 +56,92 @@ export default async function ServicePage({ params }) {
       </section>
 
       {/* Common Problems Addressed */}
-      <section className="py-12 sm:py-16 bg-brand-bg2/50 border-y border-brand-border">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Common Problems Addressed</h2>
+    
+      <section className="py-16 sm:py-20 bg-[#F6F8F6] border-y border-brand-border">
+  <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* Heading */}
+    <div className="text-center max-w-3xl mx-auto mb-12">
+      <h2 className="text-3xl sm:text-4xl font-bold text-brand-black mb-4">
+      Common Problems Addressed
+      </h2>
+
+      <p className="text-brand-text text-base sm:text-lg">
+      Solving critical pipeline performance issues.
+      </p>
+    </div>
+
+    {/* Cards */}
+    {service.commonProblems && (
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        {service.commonProblems.map((item, index) => (
+          <div
+            key={index}
+            className="bg-white border border-brand-border rounded-xl p-6
+            hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+          >
+            {/* Icon */}
+            <div className="w-12 h-12 rounded-lg bg-green-light flex items-center justify-center mb-6">
+              <i
+                className={`fas ${item.icon} text-green text-lg`}
+              ></i>
+            </div>
+
+            {/* Title */}
+            <h3 className="text-xl font-bold text-brand-black mb-4">
+              {item.title}
+            </h3>
+
+            {/* Description */}
+            <p className="text-brand-text leading-relaxed">
+              {item.description}
+            </p>
           </div>
-          {service.commonProblems && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-5xl mx-auto">
-            {service.commonProblems.map((item, index) => (
-              <div key={index} className="flex items-center gap-4 bg-white p-4 rounded-xl border border-brand-border shadow-sm hover:shadow-md hover:border-green-mid transition-all">
-                <div className="w-10 h-10 rounded-xl bg-green-light flex items-center justify-center text-green flex-shrink-0">
-                  <i className="fas fa-check-circle text-lg"></i>
-                </div>
-                <span className="text-sm sm:text-base text-brand-body">{item}</span>
-              </div>
-            ))}
-          </div>
-          )}
-        </div>
-      </section>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
 
       {/* Contaminants Removed Section */}
-      {service.contaminantsRemoved && (
-      <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Contaminants That Can Be Removed</h2>
+     {service.contaminantsRemoved && (
+  <section className="py-16 sm:py-20 bg-white border-b border-brand-border">
+    <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+
+      {/* Heading */}
+      <div className="text-center max-w-3xl mx-auto mb-12">
+        <h2 className="text-3xl sm:text-4xl font-bold text-brand-black mb-3">
+          Contaminants Removed
+        </h2>
+
+        <p className="text-brand-text text-base sm:text-lg">
+          Comprehensive cleaning across all industrial residue types.
+        </p>
+      </div>
+
+      {/* Items */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
+        {service.contaminantsRemoved.map((item, index) => (
+          <div
+            key={index}
+            className="flex items-center gap-3 bg-white border border-brand-border
+            rounded-2xl px-5 py-4 hover:border-green-mid hover:bg-green-light/20
+            transition-all duration-300"
+          >
+            <div className="flex-shrink-0 text-green">
+              <i className="fas fa-circle-check text-base"></i>
+            </div>
+
+            <span className="font-semibold text-sm text-brand-black">
+              {item}
+            </span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-5xl mx-auto">
-            {service.contaminantsRemoved.map((item, index) => (
-              <div key={index} className="flex items-center gap-4 bg-white p-4 rounded-xl border border-brand-border shadow-sm hover:shadow-md hover:border-green-mid transition-all">
-                <div className="w-10 h-10 rounded-xl bg-green-light flex items-center justify-center text-green flex-shrink-0">
-                  <i className="fas fa-check-circle text-lg"></i>
-                </div>
-                <span className="text-sm sm:text-base text-brand-body">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      )}
+        ))}
+      </div>
+
+    </div>
+  </section>
+)}
 
       {/* Information We Need Section */}
       {service.infoNeeded && (
@@ -106,8 +153,8 @@ export default async function ServicePage({ params }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-5xl mx-auto">
             {service.infoNeeded.map((item, index) => (
               <div key={index} className="flex items-center gap-4 bg-white p-4 rounded-xl border border-brand-border shadow-sm hover:shadow-md hover:border-green-mid transition-all">
-                <div className="w-10 h-10 rounded-xl bg-green-light flex items-center justify-center text-green flex-shrink-0">
-                  <i className="fas fa-check-circle text-lg"></i>
+                <div className="flex-shrink-0 text-green">
+                  <i className="fas fa-circle-check"></i>
                 </div>
                 <span className="text-sm sm:text-base text-brand-body">{item}</span>
               </div>
@@ -133,67 +180,6 @@ export default async function ServicePage({ params }) {
         </div>
       </section>
 
-      {/* Machine Used RWR Section */}
-      <section className="py-12 sm:py-16 bg-brand-bg2/50 border-b border-brand-border">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="aspect-video rounded-2xl sm:rounded-[2.5rem] overflow-hidden bg-white flex items-center justify-center border border-brand-border shadow-sm">
-              <div className="text-center">
-                <i className="fas fa-image text-4xl sm:text-5xl text-brand-border mb-3"></i>
-                <p className="text-brand-muted text-xs sm:text-sm font-medium">RWR Machine Image</p>
-              </div>
-            </div>
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4 tracking-tight">Machine Used <span className="text-green">RWR</span></h2>
-              <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-6">
-                Our advanced RWR (Reverse Water Recovery) mobile flushing system is engineered for high-performance pipeline cleaning without dismantling.
-              </p>
-              <Link
-                href="/products"
-                className="inline-flex px-8 py-3 bg-green text-white font-bold rounded-xl hover:bg-green-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-green/20"
-              >
-                View Details
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Recommended Cleaners Section */}
-      <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Recommended Cleaner</h2>
-          </div>
-          <div className="max-w-4xl mx-auto bg-brand-bg2/50 p-6 sm:p-10 rounded-2xl sm:rounded-[2.5rem] border border-brand-border shadow-sm">
-            {[
-              { name: "Power Cleaner DB", slug: "power-cleaner-db" }
-            ].map((cleaner, index) => (
-              <div key={index} className="flex flex-col sm:flex-row items-center gap-6">
-                <div className="w-full sm:w-48 aspect-video sm:aspect-square rounded-xl sm:rounded-2xl bg-white flex items-center justify-center border border-brand-border flex-shrink-0">
-                  <div className="text-center">
-                    <i className="fas fa-image text-4xl text-brand-border mb-2"></i>
-                    <p className="text-brand-muted text-xs font-medium">{cleaner.name} Image</p>
-                  </div>
-                </div>
-                <div className="flex-1 text-center sm:text-left">
-                  <h3 className="text-xl sm:text-2xl font-bold text-brand-black mb-3">{cleaner.name}</h3>
-                  <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-5">
-                    High-performance cleaning solution designed for industrial pipeline systems.
-                  </p>
-                  <Link
-                    href={`/products/${cleaner.slug}`}
-                    className="inline-flex px-6 py-2.5 bg-green text-white font-bold rounded-xl hover:bg-green-dark transition-all shadow-lg shadow-green/20"
-                  >
-                    View Details
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Service Approach */}
       <section id="details" className="py-12 sm:py-16 bg-brand-bg2/50 border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -202,9 +188,7 @@ export default async function ServicePage({ params }) {
           </div>
           
           <div className="relative max-w-[1400px] mx-auto">
-            <div className="absolute top-8 left-[10%] right-[10%] h-0.5 bg-brand-border hidden lg:block z-0"></div>
-            
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 sm:gap-6 relative z-10">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
               {[
                 { title: "Discovery & Diagnosis" },
                 { title: "Solution & Proposal" },
@@ -213,18 +197,18 @@ export default async function ServicePage({ params }) {
                 { title: "Performance Validation" },
                 { title: "After Support" }
               ].map((step, index) => {
+                const num = String(index + 1).padStart(2, "0");
                 return (
-                  <div key={index} className="flex flex-col items-center text-center group">
-                    <div className="relative mb-4">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-[1.25rem] bg-green border-4 border-white flex items-center justify-center text-white shadow-lg group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 relative z-10 text-base sm:text-xl font-bold">
-                        {index + 1}
+                  <div key={index} className="relative group">
+                    {index < 5 && (
+                      <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-px bg-green/20 group-hover:bg-green/40 transition-colors -z-0"></div>
+                    )}
+                    <div className="bg-white border border-brand-border rounded-lg p-5 text-center hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 relative z-10 h-full flex flex-col">
+                      <div className="w-10 h-10 bg-green rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md shadow-green/20">
+                        <span className="text-white text-sm font-bold">{index + 1}</span>
                       </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-bold text-brand-black text-[11px] sm:text-xs leading-tight">
-                        {step.title}
-                      </h4>
+                      <div className="text-xs sm:text-sm font-black text-green/40 mb-1">{num}</div>
+                      <h3 className="text-sm font-normal text-brand-black leading-snug tracking-tight">{step.title}</h3>
                     </div>
                   </div>
                 );
@@ -293,7 +277,7 @@ export default async function ServicePage({ params }) {
         </section>
       )}
 
-      <CTA />
+      <CTA2 />
     </main>
   );
 }

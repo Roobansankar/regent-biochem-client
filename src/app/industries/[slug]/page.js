@@ -29,7 +29,7 @@ export default async function IndustryPage({ params }) {
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             <div className="lg:col-span-6"> 
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-3 mb-4">
                  <p className="text-sm font-black tracking-[0.4em] uppercase text-green">
                    Manufacturing Industries / {industry.slug}
                  </p>
@@ -81,14 +81,14 @@ export default async function IndustryPage({ params }) {
       </section>
 
       {/* Narrative Technical Content */}
-      <section className="pt-4 sm:pt-6 pb-14 sm:pb-16 bg-white">
+      <section className="pt-0 pb-14 sm:pb-16 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Top Row: Challenges & Applications */}
-          <div className="mb-12">
-            {/* Challenges Section */}
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-8">
+            <div className="mb-12">
+              {/* Challenges Section */}
+              <div className="mb-12">
+              <div className="flex items-center gap-3 mb-4">
                 <span className="w-10 h-px bg-green/30"></span>
                   <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">The Challenges</span>
               </div>
@@ -122,7 +122,7 @@ export default async function IndustryPage({ params }) {
 
             {/* Applications Section */}
             <div className="mb-12">
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-4">
                 <span className="w-10 h-px bg-green/30"></span>
                  <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Technical Response</span>
               </div>
@@ -175,7 +175,7 @@ export default async function IndustryPage({ params }) {
                     <div className="w-10 h-10 bg-green rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md shadow-green/20">
                       <i className={`fas ${step.icon} text-white text-sm`}></i>
                     </div>
-                    <div className="text-[10px] font-black text-green/40 mb-1">{step.num}</div>
+                    <div className="text-xs sm:text-sm font-black text-green/40 mb-1">{step.num}</div>
                     <h3 className="text-sm font-medium text-brand-black leading-snug tracking-tight">{step.title}</h3>
                   </div>
                 </div>

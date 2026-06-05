@@ -6,16 +6,36 @@ export const services = [
     shortDescription: "Internal pipe & heat exchanger cleaning without dismantling.",
     description: "Over time, internal piping networks build up stubborn restrictions that choke flow rates. Using our advanced RWR mobile flushing systems, we circulate eco-friendly, high-performance cleaning fluids through your system in a closed loop. This completely restores original flow dynamics and pressure equilibrium without you having to tear down or cut into your piping infrastructure.",
     icon: "fa-faucet",
-    commonProblems: [
-      "Drops in system pressure",
-      "Reduced fluid flow rates",
-      "Premature pump wear and tear",
-      "System blockages causing unexpected downtime"
-    ],
-    contaminantsRemoved: [
-      "Rust, oxidation, and corrosion breakdown",
-      "Biofilms and organic sludge"
-    ],
+   commonProblems: [
+  {
+    title: "Drops in System Pressure",
+    description:
+      "Mineral deposits restrict flow, causing pressure loss.",
+    icon: "fa-tachometer-alt",
+  },
+  {
+    title: "Reduced Fluid Flow Rates",
+    description:
+      "Scale buildup narrows pipe diameter, reducing efficiency.",
+    icon: "fa-water",
+  },
+  {
+    title: "Premature Pump Wear",
+    description:
+      "Restricted flow forces pumps to work harder, increasing wear.",
+    icon: "fa-gear",
+  },
+],
+   contaminantsRemoved: [
+  "Rust Residue",
+  "Calcium Deposits",
+  "Silicate Layers",
+  "Organic Residues",
+  "Urea Scale",
+  "Metallic Sludge",
+  "Flux Particles",
+  "Lubricant Film",
+],
     infoNeeded: [
       "Total length and diameter of the piping network",
       "Current flow rates vs. original design specs",
@@ -68,7 +88,7 @@ export const services = [
   },
   {
     slug: "mould-injection",
-    title: "Mould & Injection Cleaning",
+    title: "Injection Mould Cleaning",
     subtitle: "Precision Tooling Maintenance",
     shortDescription: "Non-abrasive removal of plastic residues.",
     description: "Specialized cleaning for injection moulds and hot runner systems. Our solutions remove burnt-on polymers and release agents without damaging delicate surfaces or complex geometries.",

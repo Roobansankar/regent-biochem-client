@@ -45,7 +45,7 @@ export default function EsteemedCustomers() {
     <section className="bg-brand-bg2 py-12 sm:py-16 overflow-hidden border-t border-brand-border">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <p className="text-sm font-bold tracking-[0.2em] uppercase text-green mb-2">Our Partners</p>
+          <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Our Partners</p>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-black">
             Our Esteemed <span className="text-green">Customers</span>
           </h2>

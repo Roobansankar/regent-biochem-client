@@ -10,7 +10,7 @@ export default function Industries() {
       <div className="max-w-[1200px] mx-auto">
 
         <div className="text-center mb-10 sm:mb-12">
-          <p className="text-xs font-semibold tracking-widest uppercase text-green mb-2">Our Expertise</p>
+          <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Our Expertise</p>
           <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">
             Industries We Serve
           </h2>

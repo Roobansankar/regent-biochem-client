@@ -288,88 +288,89 @@ export default function Hero() {
   useEffect(() => {
     const id = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(id);
   }, []);
 
-  const slide = slides[current];
+  const goTo = (index) => setCurrent(index);
 
   return (
-    <section
-      className="relative h-[300px] md:h-[380px] lg:h-[450px] flex items-center overflow-hidden transition-all duration-700"
-      style={{
-        backgroundImage: `url('${slide.bg.src || slide.bg}')`,
-        backgroundSize: slide.bgSize || "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundColor: slide.bgSize === "contain" ? "#0f3d2e" : undefined,
-      }}
-    >
-      {/* Original Overlay */}
-      <div className="hero-overlay absolute inset-0 z-10"></div>
-
-    
-<button
-  onClick={() => setCurrent((prev) => (prev - 1 + slides.length) % slides.length)}
-  className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
->
-  <i className="fas fa-chevron-left text-xs"></i>
-</button>
-
-{/* Right Arrow */}
-<button
-  onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
-  className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
->
-  <i className="fas fa-chevron-right text-xs"></i>
-</button>
-
-      <div className="relative z-20 w-full max-w-[1600px]  mx-auto px-4 sm:px-6 lg:px-8 ml-10">
-        <div className="max-w-2xl">
-          <div className="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-green mb-4 animate-fade-up-1">
-            {slide.label}
-          </div>
-
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-[1.1] tracking-tight text-brand-black mb-3 animate-fade-up-2">
-            {slide.title}
-          </h1>
-
-          <p className="text-sm sm:text-base text-brand-body leading-relaxed max-w-xl mb-5 animate-fade-up-3">
-            {slide.desc}
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 animate-fade-up-4">
-            <Link
-              href="#"
-              className="text-center bg-green text-white font-bold text-sm px-6 py-3 rounded hover:bg-green-dark transition-colors"
+    <section className="relative overflow-hidden">
+      <div className="relative h-[300px] md:h-[380px] lg:h-[450px]">
+        {/* Slides track */}
+        <div
+          className="flex h-full transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {slides.map((slide, i) => (
+            <div
+              key={i}
+              className="relative w-full h-full shrink-0 flex items-center"
+              style={{
+                backgroundImage: `url('${slide.bg.src || slide.bg}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
             >
-              Explore Solutions
-            </Link>
+              <div className="hero-overlay absolute inset-0 z-10"></div>
 
-            <Link
-              href="#"
-              className="text-center border border-gray-300 text-brand-black font-medium text-sm px-6 py-3 rounded hover:border-green hover:text-green transition-colors"
-            >
-              Request Consultation
-            </Link>
-          </div>
+              <div className="relative z-20 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pl-10 lg:pl-16">
+                <div className="max-w-2xl">
+                  <div className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">
+                    {slide.label}
+                  </div>
 
-          {/* Slider Dots */}
-          {/* <div className="flex gap-2 mt-6">
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                aria-label={`Go to slide ${i + 1}`}
-                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  i === current
-                    ? "bg-green w-6"
-                    : "bg-green/30 hover:bg-green/50"
-                }`}
-              />
-            ))}
-          </div> */}
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-[1.1] tracking-tight text-brand-black mb-3">
+                    {slide.title}
+                  </h1>
+
+                  <p className="text-sm sm:text-base text-brand-body leading-relaxed max-w-xl mb-5">
+                    {slide.desc}
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link
+                      href="/products"
+                      className="text-center bg-green text-white font-bold text-sm px-6 py-3 rounded hover:bg-green-dark transition-colors"
+                    >
+                      Explore Solutions
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Left Arrow */}
+        <button
+          onClick={() => setCurrent((prev) => (prev - 1 + slides.length) % slides.length)}
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
+        >
+          <i className="fas fa-chevron-left text-xs"></i>
+        </button>
+
+        {/* Right Arrow */}
+        <button
+          onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
+        >
+          <i className="fas fa-chevron-right text-xs"></i>
+        </button>
+
+        {/* Dots */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                i === current ? "bg-green w-6" : "bg-white/60 hover:bg-white"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>
