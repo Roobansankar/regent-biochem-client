@@ -29,7 +29,7 @@ export default function Philosophy() {
         <div className="order-2 lg:order-2 lg:col-span-2 flex flex-col justify-center px-6 sm:px-8 lg:px-12 py-6 lg:py-10">
           {/* Laptop Header (hidden on mobile/tab) */}
           <div className="hidden lg:block">
-            <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">About Regent Biochem</p>
+            <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4 mt-8">About Regent Biochem</p>
             
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-brand-black leading-tight mb-4 uppercase">
               <span className="text-green">GREEN</span> WAY TO
