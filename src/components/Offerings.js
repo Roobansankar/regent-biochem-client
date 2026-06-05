@@ -18,19 +18,22 @@ export default function Offerings() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-[#f7f7f5] rounded-xl border border-brand-border/40 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center px-4 pt-6 pb-5"
+              className="group bg-white rounded-xl border border-brand-border/40 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden"
             >
-              <div className="w-14 h-14 bg-green/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green/15 transition-colors">
-                <i className={`fas ${service.icon} text-xl text-green`}></i>
+              <div className="aspect-[4/3] bg-brand-bg3 flex items-center justify-center">
+                <i className={`fas ${service.icon} text-3xl sm:text-4xl text-green/40`}></i>
               </div>
-              <h3 className="text-sm font-semibold text-brand-black leading-snug mb-5 flex-1">{service.title}</h3>
-              <Link
-                href={`/services/freeflow/${service.slug}`}
-                className="inline-flex items-center gap-2 text-xs font-bold text-white bg-green px-5 py-2.5 rounded-lg hover:bg-green-dark transition-all hover:-translate-y-0.5"
-              >
-                View Detail
-                <i className="fas fa-arrow-right text-[10px]"></i>
-              </Link>
+              <div className="flex flex-col items-start text-left px-4 pt-4 pb-5 flex-1">
+                <h3 className="text-sm font-bold text-brand-black leading-snug mb-2">{service.title}</h3>
+                <p className="text-xs text-brand-body leading-relaxed mb-4 flex-1 line-clamp-2">{service.shortDescription}</p>
+                <Link
+                  href={`/services/freeflow/${service.slug}`}
+                  className="inline-flex items-center gap-2 text-xs font-bold text-white bg-green px-5 py-2.5 rounded-lg hover:bg-green-dark transition-all hover:-translate-y-0.5"
+                >
+                  View Detail
+                  <i className="fas fa-arrow-right text-[10px]"></i>
+                </Link>
+              </div>
             </div>
           ))}
         </div>

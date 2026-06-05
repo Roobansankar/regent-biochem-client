@@ -10,7 +10,7 @@ export default function ProductFAQ({ faq }) {
   return (
     <div>
       <div className="mb-5">
-        <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-[10px] font-bold text-green">FAQ</span>
+        <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-xs sm:text-sm font-bold text-green">FAQ</span>
       </div>
       <div className="space-y-3">
         {faq.map((item, i) => (

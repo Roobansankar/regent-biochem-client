@@ -20,9 +20,9 @@ export default function Philosophy() {
         {/* Image */}
         <div className="order-1 lg:order-1 min-h-64 lg:min-h-0 overflow-hidden flex items-center justify-center p-6 sm:p-10">
           <img
-            src="https://www.zeta.com/wp-content/uploads/2025/05/Loba-630_1800x755px-1800x690.jpg"
+            src="https://i.pinimg.com/1200x/ae/8d/3d/ae8d3da251fe1d7ead2f4dd062d625c7.jpg"
             alt="Industrial Technology"
-            className="w-full h-full object-cover rounded-2xl shadow-lg max-h-80 lg:max-h-full"
+            className="w-full h-full object-cover rounded-2xl shadow-lg max-h-80 lg:max-h-96"
           />
         </div>
         {/* Text Content */}

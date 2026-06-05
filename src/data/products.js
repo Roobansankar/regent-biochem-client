@@ -78,7 +78,7 @@ export const products = [
   {
     id: "gt-max",
     category: "Cleaning Systems",
-    title: "GT MAX",
+    title: "GT MAXI",
     desc: "Maximum capacity parts washer designed for large-scale industrial components and high-throughput production environments.",
     icon: "fa-expand-arrows-alt",
     slug: "gt-max",

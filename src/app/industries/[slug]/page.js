@@ -65,10 +65,11 @@ export default async function IndustryPage({ params }) {
       {/* What This Industry Produces / Handles */}
       <section className="pt-0 pb-10 sm:pb-12 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-4">
             <span className="w-10 h-px bg-green/30"></span>
-               <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">What This Industry Produces / Handles</span>
+            <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Industry Focus</span>
           </div>
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-brand-black mb-6 tracking-tight">What This Industry Produces / Handles</h2>
           <div className="flex flex-wrap gap-3">
             {industry.handles.map((item, i) => (
               <span key={i} className="px-5 py-2.5 bg-brand-bg2 border border-brand-border rounded-xl text-sm font-semibold text-brand-body hover:bg-green hover:text-white hover:border-green transition-colors">
@@ -153,10 +154,11 @@ export default async function IndustryPage({ params }) {
 
           {/* Workflow Process */}
           <div className="mb-12">
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-4">
               <span className="w-10 h-px bg-green/30"></span>
-               <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Our Workflow Process</span>
+              <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Workflow</span>
             </div>
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-brand-black mb-6 tracking-tight">Our Workflow Process</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {[
                 { num: "01", title: "Discovery & Diagnosis", icon: "fa-search" },

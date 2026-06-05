@@ -15,6 +15,7 @@ const products = {
       "Compatible with Bio-Chem cleaners",
     ],
     img: "/htw-ii-max-eco.jpg",
+    icon: "fa-shower",
   },
   "hp-vigo": {
     slug: "hp-vigo",
@@ -27,6 +28,7 @@ const products = {
       "Suitable for specialized components",
     ],
     img: "/hp-vigo.jpg",
+    icon: "fa-water",
   },
   "anti-spatter": {
     slug: "anti-spatters",
@@ -39,6 +41,7 @@ const products = {
       "Protects workpiece surfaces",
     ],
     img: "/SafeWeld.jpg",
+    icon: "fa-shield",
   },
 };
 
@@ -102,11 +105,7 @@ export default function FeaturedProducts() {
               href={`/products/${product.slug}`}
               className="dot-bg bg-brand-bg3 rounded-xl aspect-[4/3] flex items-center justify-center relative overflow-hidden p-6 group/img"
             >
-              <img
-                src={product.img}
-                alt={product.title}
-                className="max-w-full max-h-full object-contain relative z-10 drop-shadow-2xl transition-all duration-500 group-hover/img:scale-105"
-              />
+              <i className={`fas ${product.icon} text-5xl sm:text-6xl text-green/40 relative z-10 transition-all duration-500 group-hover/img:scale-105`}></i>
             </Link>
             {/* Info */}
             <div>

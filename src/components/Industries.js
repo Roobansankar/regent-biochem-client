@@ -19,7 +19,7 @@ export default function Industries() {
         <div className="flex flex-wrap justify-center gap-4">
           {industries.map((industry, index) => (
             <div key={index} className="px-8 py-4 rounded-2xl bg-green-light border border-green-mid/50 hover:bg-white hover:border-green/30 transition-all duration-300 group shadow-sm">
-              <span className="text-sm font-black uppercase tracking-widest text-green group-hover:text-green-dark">{industry}</span>
+              <span className="text-sm font-bold text-green group-hover:text-green-dark">{industry}</span>
             </div>
           ))}
         </div>

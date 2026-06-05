@@ -41,10 +41,10 @@ const navData = [
         label: "Cleaning Systems",
         items: [
           { name: "HTW II - BIO", href: "/products/htw-ii-bio" },
-          { name: "HTW - II - Max ECO", href: "/products/htw-ii-max-eco" },
+          { name: "HTW II - Max ECO", href: "/products/htw-ii-max-eco" },
           { name: "HP VIGO", href: "/products/hp-vingo" },
           { name: "GT COMPACT", href: "/products/gt-compact" },
-          { name: "GT MAX", href: "/products/gt-max" },
+          { name: "GT MAXI", href: "/products/gt-max" },
         ],
       },
       {
@@ -171,9 +171,9 @@ export default function Navbar() {
   return (
     <>
       {/* ─── TOP HEADER (desktop only) ─── */}
-      <header className="hidden lg:flex justify-center items-center py-4 border-b border-brand-border bg-white">
+      <header className="hidden lg:flex justify-center items-center py-1.5 border-b border-brand-border bg-white">
         <Link href="/">
-          <img src="/logo.png" alt="Bio-Chem Logo" className="h-16 w-auto" />
+          <img src="/logo.png" alt="Bio-Chem Logo" className="h-14 w-auto" />
         </Link>
       </header>
 
@@ -230,7 +230,7 @@ export default function Navbar() {
                     {/* Mega Menu */}
                     {link.mega && activeMenu === link.name && (
                       <div className={`fixed left-0 w-full bg-white shadow-2xl border-t border-brand-border animate-fade-in transition-all duration-300 ${
-                        isScrolled ? "top-[64px]" : "top-[calc(64px+96px)]"
+                        isScrolled ? "top-[64px]" : "top-[131px]"
                       }`}>
                         <div className={`max-w-[1600px] mx-auto grid gap-8 p-10 ${
                           link.name === "Products" ? "grid-cols-5" : link.name === "Industries" ? "grid-cols-[1fr_1fr_1.5fr]" : "grid-cols-[1fr_1.5fr]"
