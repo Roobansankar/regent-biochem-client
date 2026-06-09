@@ -127,13 +127,13 @@ export default function Footer() {
             <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-4">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-brand-muted">
-                <i className="fas fa-map-marker-alt text-green mt-0.5 flex-shrink-0"></i> Coimbatore, India
+                <i className="fas fa-map-marker-alt text-green mt-0.5 flex-shrink-0"></i> 24, Bypass Rd, Sungam, Paari Nagar, Coimbatore, Tamil Nadu 641045
               </li>
               <li className="flex items-center gap-2 text-sm text-brand-muted">
-                <i className="fas fa-phone text-green flex-shrink-0"></i> +91 98434 06642
+                <i className="fas fa-phone text-green flex-shrink-0"></i> 0422 231 0396
               </li>
               <li className="flex items-center gap-2 text-sm text-brand-muted">
-                <i className="fas fa-envelope text-green flex-shrink-0"></i> info@bio-chem.in
+                <i className="fas fa-envelope text-green flex-shrink-0"></i> info@regentbiochem.com
               </li>
             </ul>
           </div>

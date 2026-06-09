@@ -1,4 +1,3 @@
-import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 
@@ -137,13 +136,13 @@ export default function BlogPage() {
       </section>
 
       {/* ─── NEWSLETTER CTA ─── */}
-      <section className="bg-brand-bg2 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-t border-brand-border">
+      <section className="bg-brand-bg2 py-10 sm:py-12 px-4 sm:px-6 lg:px-8 border-t border-brand-border">
         <div className="max-w-4xl mx-auto text-center reveal">
-          <div className="w-16 h-16 bg-green-light rounded-[2rem] flex items-center justify-center mx-auto mb-6 text-green text-2xl">
+          <div className="w-12 h-12 bg-green-light rounded-2xl flex items-center justify-center mx-auto mb-4 text-green text-xl">
             <i className="fas fa-envelope-open-text"></i>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-black mb-3">Stay Updated</h2>
-          <p className="text-brand-body leading-relaxed mb-10 max-w-xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-black mb-2">Stay Updated</h2>
+          <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-6 max-w-xl mx-auto">
             Get the latest technical insights and industry news delivered directly to your inbox. No spam, just pure engineering value.
           </p>
           <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">

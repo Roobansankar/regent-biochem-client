@@ -1,5 +1,4 @@
 import { industries } from "@/data/industries";
-import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Link from "next/link";
 

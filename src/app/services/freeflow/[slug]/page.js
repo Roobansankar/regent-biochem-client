@@ -1,5 +1,4 @@
 import { services } from "@/data/services";
-import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -28,29 +27,24 @@ export default async function ServicePage({ params }) {
         </div>
         
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Free Flow Section - content left, image right */}
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12 items-center mb-12 lg:mb-16">
-            <div className="lg:col-span-3 max-w-3xl">
-              <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Services</p>
-              <p className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-4">Free Flow</p>
-              <p className="text-base sm:text-lg text-brand-body leading-relaxed ">
-                The FreeFlow™ system is the sector&apos;s premier industrial pipeline cleaning solution. Engineered for maximum flow restoration, it stands alone as the ultimate combination of advanced chemical technology and eco-friendly sustainability.
-              </p>
-             
-            
+          {/* Free Flow Section - full width content, logo right of heading */}
+          <div className="mb-12 lg:mb-16">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div>
+                <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Services</p>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-brand-black">Free Flow</h2>
+              </div>
+              <div className="shrink-0">
+                <img
+                  src="/logo.png"
+                  alt="Regent Biochem Logo"
+                  className="h-12 sm:h-16 w-auto object-contain"
+                />
+              </div>
             </div>
-
-          <div className="lg:col-span-2 relative group flex justify-center">
-  <div className="absolute -inset-4 bg-green/10 rounded-[2.5rem] blur-2xl group-hover:bg-green/20 transition-all duration-500"></div>
-
-  <div className="relative w-full max-w-[500px] h-[280px] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
-    <img
-      src="https://placehold.co/800x600/e2e8f0/3D8A4B?text=Free+Flow"
-      alt="Free Flow"
-      className="w-full h-full object-cover"
-    />
-  </div>
-</div>
+            <p className="text-base sm:text-lg lg:text-xl text-brand-body leading-relaxed max-w-none">
+              The FreeFlow™ system is the sector&apos;s premier industrial pipeline cleaning solution. Engineered for maximum flow restoration, it stands alone as the ultimate combination of advanced chemical technology and eco-friendly sustainability.
+            </p>
           </div>
 
           {/* Service Title Section - image left, content right */}

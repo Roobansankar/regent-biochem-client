@@ -1,12 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import CTA from "@/components/CTA";
 import Link from "next/link";
 import { products } from "@/data/products";
 
-export default function ProductsPage() {
-  const [searchQuery, setSearchQuery] = useState("");
+function ProductsContent() {
+  const searchParams = useSearchParams();
+  const initialSearch = searchParams.get("search") || "";
+  const [searchQuery, setSearchQuery] = useState(initialSearch);
+
+  useEffect(() => {
+    setSearchQuery(searchParams.get("search") || "");
+  }, [searchParams]);
 
   const filteredProducts = products
     .filter((p) => !p.products)
@@ -107,5 +114,13 @@ export default function ProductsPage() {
 
       <CTA />
     </main>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<div>Loading products...</div>}>
+      <ProductsContent />
+    </Suspense>
   );
 }

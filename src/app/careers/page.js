@@ -8,28 +8,16 @@ export default function CareersPage() {
       department: "Technical Services",
       location: "Pan India",
       type: "Full-time",
+      experience: "1-3 Years",
       description: "Responsible for maintenance and servicing of Bio-Washer and GT Parts Washer systems at client sites."
     },
     {
-      title: "Chemical Sales Engineer",
-      department: "Sales & Marketing",
-      location: "Regional Office",
-      type: "Full-time",
-      description: "Driving growth for our AutoPurge System and eco-friendly cleaning chemical lines in industrial sectors."
-    },
-    {
-      title: "R&D Chemist",
-      department: "Research & Development",
+      title: "Technical Intern",
+      department: "Engineering",
       location: "Headquarters",
-      type: "Full-time",
-      description: "Developing the next generation of biodegradable, high-performance industrial cleaning solvents."
-    },
-    {
-      title: "Operations Manager",
-      department: "Logistics",
-      location: "Warehouse Hub",
-      type: "Full-time",
-      description: "Overseeing the supply chain for our cleaning equipment and chemical distribution networks."
+      type: "Internship",
+      experience: "Fresher",
+      description: "Support our engineering team in testing and documenting new chemical formulations and equipment performance."
     }
   ];
 
@@ -43,46 +31,105 @@ export default function CareersPage() {
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight reveal">
-              Innovate the Future of <span className="text-green-mid">Industrial Cleaning</span>
+              Build More Than a Career — <span className="text-green-mid">Build Impact</span>
             </h1>
             <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
-              Be part of a team dedicated to sustainable chemical solutions and advanced parts washing technology. 
+              At Regent BioChem, we believe innovation starts with people. We offer opportunities to work on real-world industrial challenges and contribute to sustainable technologies.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Why Join Us */}
+      {/* Why Bio chem? */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="reveal mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">Why Bio chem?</h2>
+            <div className="w-16 h-1 bg-green rounded-full mb-6"></div>
+            <p className="text-brand-body leading-relaxed text-lg">
+              At Regent BioChem, we believe innovation starts with people. We offer opportunities to work on real-world industrial challenges, gain hands-on industry exposure, and contribute to sustainable technologies that improve manufacturing processes. Whether you&apos;re a student, intern, or experienced professional, you&apos;ll find an environment that encourages learning, collaboration, and continuous growth.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 mt-12">
+            <div className="reveal text-center">
+              <h3 className="text-xl font-bold text-brand-black mb-6 flex flex-col items-center gap-3">
+                <span className="w-8 h-8 rounded-lg bg-green/10 flex items-center justify-center text-green">
+                  <i className="fas fa-star text-sm"></i>
+                </span>
+                What You Can Expect
+              </h3>
+              <ul className="space-y-4 inline-block text-left">
+                {[
+                  "Hands-on industry experience",
+                  "Learning and development opportunities",
+                  "Exposure to German technology and industrial best practices",
+                  "Collaborative and supportive work culture",
+                  "Career growth through challenging projects",
+                  "Opportunity to contribute to sustainable industrial solutions"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-brand-body">
+                    <i className="fas fa-check-circle text-green mt-1"></i>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="reveal text-center">
+              <h3 className="text-xl font-bold text-brand-black mb-6 flex flex-col items-center gap-3">
+                <span className="w-8 h-8 rounded-lg bg-green/10 flex items-center justify-center text-green">
+                  <i className="fas fa-search text-sm"></i>
+                </span>
+                What we look for?
+              </h3>
+              <p className="text-sm font-semibold text-brand-muted mb-4 uppercase tracking-wider">Ideal Candidates Demonstrate:</p>
+              <ul className="space-y-4 inline-block text-left">
+                {[
+                  "A strong willingness to learn",
+                  "Responsibility and accountability",
+                  "Problem-solving mindset",
+                  "Teamwork and collaboration",
+                  "Effective communication skills",
+                  "Adaptability in dynamic environments",
+                  "Customer-focused thinking",
+                  "Passion for continuous improvement"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-brand-body">
+                    <i className="fas fa-user-check text-green mt-1"></i>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interview Process */}
       <section className="py-12 sm:py-16 bg-brand-bg2">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="reveal bg-white p-8 rounded-2xl shadow-sm border border-brand-border h-full relative why-card overflow-hidden">
-              <div className="w-12 h-12 bg-green-light rounded-xl flex items-center justify-center text-green mb-6">
-                <i className="fas fa-leaf text-xl"></i>
+          <div className="reveal text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">Interview Process</h2>
+            <p className="text-brand-body">Our structured approach to finding the right fit.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {[
+              { title: "Application Screening", icon: "fa-file-alt" },
+              { title: "Resume Screening", icon: "fa-id-badge" },
+              { title: "Technical/Role-based Interview", icon: "fa-comments" },
+              { title: "Final Interview", icon: "fa-users" },
+              { title: "Offer & Onboarding", icon: "fa-check-double" }
+            ].map((step, i) => (
+              <div key={i} className="reveal bg-white p-6 rounded-2xl border border-brand-border text-center flex flex-col items-center">
+                <div className="w-12 h-12 bg-green-light rounded-xl flex items-center justify-center text-green mb-4">
+                  <i className={`fas ${step.icon} text-xl`}></i>
+                </div>
+                <div className="text-xs font-bold text-green uppercase tracking-widest mb-2">Step 0{i+1}</div>
+                <h4 className="text-sm font-bold text-brand-black leading-tight">{step.title}</h4>
               </div>
-              <h3 className="text-xl font-bold text-brand-black mb-4">Eco-Innovation</h3>
-              <p className="text-brand-body leading-relaxed">
-                Work with biodegradable chemicals that are safe for both the environment and the workforce.
-              </p>
-            </div>
-            <div className="reveal bg-white p-8 rounded-2xl shadow-sm border border-brand-border h-full relative why-card overflow-hidden" style={{ transitionDelay: '0.1s' }}>
-              <div className="w-12 h-12 bg-green-light rounded-xl flex items-center justify-center text-green mb-6">
-                <i className="fas fa-tools text-xl"></i>
-              </div>
-              <h3 className="text-xl font-bold text-brand-black mb-4">Cutting-Edge Tech</h3>
-              <p className="text-brand-body leading-relaxed">
-                Join the team behind the Pro AutoPurge System and GT Parts Washer—leaders in parts cleaning technology.
-              </p>
-            </div>
-            <div className="reveal bg-white p-8 rounded-2xl shadow-sm border border-brand-border h-full relative why-card overflow-hidden" style={{ transitionDelay: '0.2s' }}>
-              <div className="w-12 h-12 bg-green-light rounded-xl flex items-center justify-center text-green mb-6">
-                <i className="fas fa-chart-line text-xl"></i>
-              </div>
-              <h3 className="text-xl font-bold text-brand-black mb-4">Growth & Impact</h3>
-              <p className="text-brand-body leading-relaxed">
-                Expand your career in a high-growth sector focused on efficiency and sustainable industrial practices.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -91,13 +138,14 @@ export default function CareersPage() {
       <section id="openings" className="py-12 sm:py-16 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3">Open Positions</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3">Opening @Biochem</h2>
+            <p className="text-brand-muted font-medium mb-4">To be discussed !!</p>
             <div className="w-16 h-1 bg-green rounded-full"></div>
           </div>
 
           <div className="space-y-6">
             {jobRoles.map((job, index) => (
-              <div key={index} className="reveal group bg-white border border-brand-border hover:border-green p-6 md:p-8 rounded-2xl transition-all hover:shadow-md flex flex-col md:flex-row md:items-center justify-between gap-6" style={{ transitionDelay: `${index * 0.1}s` }}>
+              <div key={index} className="reveal group bg-white border border-brand-border hover:border-green p-6 md:p-8 rounded-2xl transition-all hover:shadow-md flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="text-xl font-bold text-brand-black group-hover:text-green transition-colors">{job.title}</h3>
@@ -112,13 +160,16 @@ export default function CareersPage() {
                     <span className="flex items-center gap-2">
                       <i className="fas fa-map-marker-alt text-green"></i> {job.location}
                     </span>
+                    <span className="flex items-center gap-2 font-bold text-brand-black">
+                      <i className="fas fa-history text-green"></i> Exp: {job.experience}
+                    </span>
                   </div>
                   <p className="text-brand-body text-sm max-w-2xl">
                     {job.description}
                   </p>
                 </div>
                 <div>
-                  <button className="w-full md:w-auto px-6 py-3 bg-brand-black text-white font-bold rounded-lg hover:bg-green transition-colors">
+                  <button className="w-full md:w-auto px-8 py-3 bg-brand-black text-white font-bold rounded-xl hover:bg-green transition-colors shadow-lg shadow-black/5">
                     Apply Now
                   </button>
                 </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import ScrollReveal from '@/components/ScrollReveal';
 import Link from 'next/link';
@@ -120,7 +119,6 @@ export default function CaseStudiesPage() {
       </section>
 
       <CTA />
-      <Footer />
     </main>
   );
 }

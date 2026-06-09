@@ -30,10 +30,10 @@ export default function Contact() {
 
       <main className="py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1600px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-16">
             
             {/* Contact Info */}
-              <div className="lg:col-span-1 space-y-6 sm:space-y-8 reveal">
+            <div className="lg:col-span-2 space-y-6 sm:space-y-8 reveal">
               <div>
                 <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-6">
                   <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Contact Information
@@ -46,14 +46,14 @@ export default function Contact() {
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-green-600 flex-shrink-0">
                     <i className="fas fa-map-marker-alt text-xl"></i>
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">Our Location</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">123 Industrial Zone, SIPCOT Estate,<br/>Coimbatore, Tamil Nadu, India</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">24, Bypass Rd, Sungam, Paari Nagar,<br/>Coimbatore, Tamil Nadu 641045</p>
                   </div>
                 </div>
 
@@ -63,7 +63,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">Phone Number</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">+91 422 123 4567<br/>+91 98765 43210</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">0422 231 0396</p>
                   </div>
                 </div>
 
@@ -76,44 +76,43 @@ export default function Contact() {
                     <p className="text-sm text-gray-500 leading-relaxed">info@regentbiochem.com<br/>support@regentbiochem.com</p>
                   </div>
                 </div>
-              </div>
 
-              {/* Socials */}
-              <div className="pt-8">
-                <h4 className="font-bold text-gray-900 mb-4">Follow Us</h4>
-                <div className="flex gap-3">
-                  <Link href="#" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-linkedin-in"></i></Link>
-                  <Link href="#" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-twitter"></i></Link>
-                  <Link href="#" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-facebook-f"></i></Link>
-                  <Link href="#" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-instagram"></i></Link>
+                {/* Socials */}
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-4">Follow Us</h4>
+                  <div className="flex gap-3">
+                    <Link href="#" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-linkedin-in"></i></Link>
+                    <Link href="#" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-twitter"></i></Link>
+                    <Link href="#" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-facebook-f"></i></Link>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="lg:col-span-2 reveal">
-              <div className="bg-white border border-gray-100 rounded-[2rem] p-8 sm:p-12 shadow-card">
-                <form action="#" className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-gray-500 ml-1">Full Name</label>
-                      <input type="text" id="name" placeholder="John Doe" className="form-input" />
+            <div className="lg:col-span-2 reveal flex flex-col items-center lg:items-end">
+              <div className="bg-white border border-gray-100 rounded-[2rem] p-8 sm:p-10 shadow-card w-full max-w-2xl">
+                <form action="#" className="space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="space-y-1.5">
+                      <label htmlFor="name" className="text-[11px] font-bold uppercase tracking-wider text-gray-500 ml-1">Full Name</label>
+                      <input type="text" id="name" placeholder="John Doe" className="form-input py-3" />
                     </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-gray-500 ml-1">Email Address</label>
-                      <input type="email" id="email" placeholder="john@company.com" className="form-input" />
+                    <div className="space-y-1.5">
+                      <label htmlFor="email" className="text-[11px] font-bold uppercase tracking-wider text-gray-500 ml-1">Email Address</label>
+                      <input type="email" id="email" placeholder="john@company.com" className="form-input py-3" />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="phone" className="text-xs font-bold uppercase tracking-wider text-gray-500 ml-1">Phone Number</label>
-                      <input type="tel" id="phone" placeholder="+91 00000 00000" className="form-input" />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="space-y-1.5">
+                      <label htmlFor="phone" className="text-[11px] font-bold uppercase tracking-wider text-gray-500 ml-1">Phone Number</label>
+                      <input type="tel" id="phone" placeholder="+91 00000 00000" className="form-input py-3" />
                     </div>
-                    <div className="space-y-2">
-                      <label htmlFor="subject" className="text-xs font-bold uppercase tracking-wider text-gray-500 ml-1">Subject</label>
+                    <div className="space-y-1.5">
+                      <label htmlFor="subject" className="text-[11px] font-bold uppercase tracking-wider text-gray-500 ml-1">Subject</label>
                       <div className="relative">
-                        <select id="subject" className="form-input appearance-none pr-10">
+                        <select id="subject" className="form-input appearance-none pr-10 py-3">
                           <option value="">Select an option</option>
                           <option value="product">Product Inquiry</option>
                           <option value="technical">Technical Support</option>
@@ -121,20 +120,20 @@ export default function Contact() {
                           <option value="other">Other</option>
                         </select>
                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
-                          <i className="fas fa-chevron-down text-xs"></i>
+                          <i className="fas fa-chevron-down text-[10px]"></i>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider text-gray-500 ml-1">Your Message</label>
-                    <textarea id="message" rows="5" placeholder="Tell us about your requirements..." className="form-input resize-none"></textarea>
+                  <div className="space-y-1.5">
+                    <label htmlFor="message" className="text-[11px] font-bold uppercase tracking-wider text-gray-500 ml-1">Your Message</label>
+                    <textarea id="message" rows="4" placeholder="Tell us about your requirements..." className="form-input resize-none py-3"></textarea>
                   </div>
 
-                  <div className="pt-4">
-                    <button type="submit" className="w-full sm:w-auto bg-green text-white font-bold px-10 py-4 rounded-xl hover:bg-green-dark hover:-translate-y-1 transition-all shadow-lg shadow-green/20">
-                      Send Message <i className="fas fa-paper-plane ml-2 text-sm"></i>
+                  <div className="pt-2">
+                    <button type="submit" className="w-full sm:w-auto bg-green text-white font-bold px-8 py-3.5 rounded-xl hover:bg-green-dark hover:-translate-y-1 transition-all shadow-lg shadow-green/20 text-sm">
+                      Send Message <i className="fas fa-paper-plane ml-2 text-[10px]"></i>
                     </button>
                   </div>
                 </form>

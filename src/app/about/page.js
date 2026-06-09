@@ -1,10 +1,32 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import { timeline, values } from "@/data/about";
+import Link from "next/link";
 
 export const dynamic = "force-static";
 export const revalidate = false;
 
 export default function About() {
+  const productCategories = [
+    {
+      title: "CleanTech",
+      desc: "Advanced aqueous cleaning systems and bio-active fluids for precision industrial parts washing.",
+      icon: "fa-broom",
+      link: "/products?search=CleanTech"
+    },
+    {
+      title: "SafeWeld",
+      desc: "High-performance, eco-friendly anti-spatter and surface protection solutions for welding operations.",
+      icon: "fa-shield-halved",
+      link: "/products?search=SafeWeld"
+    },
+    {
+      title: "Freeflow",
+      desc: "Specialized chemical technologies for industrial pipeline cleaning and flow restoration.",
+      icon: "fa-water",
+      link: "/products?search=Freeflow"
+    }
+  ];
+
   return (
     <main className="flex flex-col min-h-screen">
       <ScrollReveal />
@@ -18,7 +40,7 @@ export default function About() {
               About <span className="text-green-mid">Regent Biochem</span>
             </h1>
             <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
-              Regent Biochem is a provider of industrial cleaning machines and service-led surface technology solutions for manufacturing industries across India.
+              Empowering industrial efficiency through sustainable surface technology and precision engineering.
             </p>
           </div>
         </div>
@@ -32,35 +54,18 @@ export default function About() {
             <div className="rounded-3xl h-72 sm:h-96 border border-green-100 overflow-hidden shadow-card">
               <img src="https://i.pinimg.com/736x/2d/76/fd/2d76fd55699341142a0ab75391688c86.jpg" alt="Company Overview" className="w-full h-full object-cover" />
             </div>
-            {/* Float badge */}
-            <div className="absolute -bottom-5 -right-4 sm:-bottom-6 sm:-right-6 bg-white border border-gray-100 rounded-2xl px-6 py-4 shadow-float text-center">
-              <div className="text-3xl sm:text-4xl font-extrabold text-green-600 leading-none">25+</div>
-              <div className="text-xs text-gray-500 font-semibold mt-1">Years in Industry</div>
-            </div>
           </div>
 
           {/* Text */}
           <div className="reveal">
             <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
-              <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> About Us
+              <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Our Story
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
-              German Technology.<br/><span className="text-green-600">Indian Manufacturing.</span>
+              Driving Efficiency.<br/><span className="text-green-600">The Green Way to Growth.</span>
             </h2>
-            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-3">The company operates in strategic partnership with Bio-Circle Surface Technology GmbH, Germany, a 40 year-old global surface technology leader with operations across Europe, Asia-Pacific, North & South America and Australia. This association enables Regent Biochem to deliver proven German technology, engineering standards, and application expertise to the Indian market.</p>
-            <p className="text-sm text-gray-500 leading-relaxed mb-3">Regent Biochem supplies manual and automatic industrial parts cleaning systems, supported by application engineering, installation, commissioning, and after-sales service. Complementing its machines business, the company operates a chemical manufacturing plant producing cleaning, degreasing, finishing, descaling, surface protection & preparation and welding solutions using German technology.</p>
-            <p className="text-sm text-gray-500 leading-relaxed mb-6">By integrating machines, services, and in-house manufactured chemicals, Regent Biochem delivers end-to-end, performance-driven solutions that enhance process efficiency, reliability, and long-term operational performance across diverse industrial sectors.</p>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-green-50 border border-green-100 rounded-2xl p-5">
-                <div className="text-2xl font-extrabold text-green-600 mb-1">ISO 9001:2015</div>
-                <div className="text-xs text-gray-500 font-semibold">Quality Certified</div>
-              </div>
-              <div className="bg-green-50 border border-green-100 rounded-2xl p-5">
-                <div className="text-2xl font-extrabold text-green-600 mb-1">Pan-India</div>
-                <div className="text-xs text-gray-500 font-semibold">Distribution Network</div>
-              </div>
-            </div>
+            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-4">Regent BioChem is an industrial solutions company focused on helping manufacturers improve operational efficiency, reliability, and process performance. Through a combination of advanced cleaning technologies, specialty chemical formulations, and application expertise, we support industries in maintaining cleaner, safer, and more productive operations.</p>
+            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-8">Our approach goes beyond supplying products. We work closely with customers to understand their challenges, recommend the right solutions, and provide ongoing technical support to ensure long-term value.</p>
           </div>
         </div>
       </section>
@@ -80,13 +85,13 @@ export default function About() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Vision */}
             <div className="mission-bar relative bg-white border border-gray-100 rounded-2xl p-8 sm:p-10 hover:-translate-y-1 hover:shadow-card transition-all duration-300 reveal">
-              <div className="text-4xl mb-5">🔭</div>
+              <div className="text-4xl mb-5 text-green">🔭</div>
               <h3 className="text-xl font-extrabold text-gray-900 mb-3">Our Vision</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">To be a trusted leader in sustainable cleaning technology and eco-friendly specialty chemicals, enabling industries to achieve superior performance and responsible growth—the Green Way to Growth.</p>
+              <p className="text-sm text-gray-500 leading-relaxed">To be a trusted leader in sustainable cleaning technology and eco-friendly specialty chemicals, enabling industries to achieve superior performance and responsible growth—the green way to growth.</p>
             </div>
             {/* Mission */}
             <div className="vision-bar relative bg-white border border-gray-100 rounded-2xl p-8 sm:p-10 hover:-translate-y-1 hover:shadow-card transition-all duration-300 reveal">
-              <div className="text-4xl mb-5">🎯</div>
+              <div className="text-4xl mb-5 text-green">🎯</div>
               <h3 className="text-xl font-extrabold text-gray-900 mb-3">Our Mission</h3>
               <p className="text-sm text-gray-500 leading-relaxed">To design and deliver innovative cleaning machines and environmentally responsible specialty chemicals that improve industrial efficiency, protect surfaces and components, reduce environmental impact, and create lasting value for customers and stakeholders.</p>
             </div>
@@ -94,8 +99,42 @@ export default function About() {
         </div>
       </section>
 
+      {/* ─── PRODUCT CATEGORIES ─── */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-[1600px] mx-auto">
+          <div className="text-center mb-10 reveal">
+            <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
+              <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Our Expertise
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
+              Product <span className="text-green-600">Categories</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {productCategories.map((cat, i) => (
+              <div key={i} className="reveal bg-brand-bg2 border border-brand-border rounded-[2rem] p-8 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                <div className="w-14 h-14 bg-green-light rounded-2xl flex items-center justify-center text-green text-2xl mb-6 shadow-sm">
+                  <i className={`fas ${cat.icon}`}></i>
+                </div>
+                <h3 className="text-xl font-extrabold text-brand-black mb-3">{cat.title}</h3>
+                <p className="text-sm text-brand-body leading-relaxed mb-8 flex-grow">
+                  {cat.desc}
+                </p>
+                <Link 
+                  href={cat.link}
+                  className="inline-flex items-center justify-center w-full bg-green text-white text-xs font-extrabold uppercase tracking-widest py-3.5 rounded-xl hover:bg-green-dark transition-all shadow-md shadow-green/20"
+                >
+                  View Products
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── CORE VALUES ─── */}
-      <section id="quality" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section id="quality" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-brand-border">
         <div className="max-w-[1600px] mx-auto">
           <div className="text-center mb-10 reveal">
             <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
@@ -108,7 +147,7 @@ export default function About() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((v, i) => (
-              <div key={i} className="reveal bg-gray-50 border border-gray-100 rounded-2xl p-8 text-center hover:bg-white hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+              <div key={i} className="reveal bg-white border border-gray-100 rounded-2xl p-8 text-center hover:shadow-card hover:-translate-y-1 transition-all duration-300">
                 <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-green-50 rounded-full flex items-center justify-center mx-auto mb-5 text-green-600 text-2xl">
                   <i className={`fas ${v.icon}`}></i>
                 </div>
@@ -121,7 +160,7 @@ export default function About() {
       </section>
 
       {/* ─── TIMELINE ─── */}
-      <section id="commitment" className="bg-gray-50 py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section id="commitment" className="bg-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10 reveal">
             <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
