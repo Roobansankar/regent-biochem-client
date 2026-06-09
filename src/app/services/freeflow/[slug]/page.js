@@ -32,7 +32,7 @@ export default async function ServicePage({ params }) {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
               <div>
                 <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Services</p>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-brand-black">Free Flow</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brand-black">Free Flow</h2>
               </div>
               <div className="shrink-0">
                 <img
@@ -242,7 +242,7 @@ export default async function ServicePage({ params }) {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/products"
-                  className="px-8 py-3 bg-brand-black text-white font-bold rounded-xl hover:bg-green transition-all transform hover:-translate-y-1 shadow-xl shadow-black/10 flex items-center gap-3 group"
+                  className="px-8 py-3 bg-green text-white font-bold rounded-xl hover:bg-green-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-green/30 flex items-center gap-3 group"
                 >
                   View Product Details
                   <i className="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>

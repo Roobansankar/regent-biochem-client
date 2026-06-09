@@ -24,12 +24,70 @@
       { label: "Tank Volume", value: "250 Litres" }
     ],
     availableModels: [
-      { model: "HTW-II Bio 800", basket: "800 mm", pressure: "2.5 Bar", heater: "9 kW", tank: "250 L", load: "300 kg" },
-      { model: "HTW-II Bio 1000", basket: "1000 mm", pressure: "5 Bar", heater: "12 kW", tank: "250 L", load: "400 kg" },
-      { model: "HTW-II Bio 1200", basket: "1200 mm", pressure: "5 Bar", heater: "15 kW", tank: "250 L", load: "450 kg" },
-      { model: "HTW-II Bio 1500", basket: "1500 mm", pressure: "5 Bar", heater: "18 kW", tank: "250 L", load: "500 kg" },
-      { model: "HTW-II Max Eco", basket: "—", pressure: "—", heater: "—", tank: "—", load: "—" },
-      { model: "HP Vigo", basket: "—", pressure: "—", heater: "—", tank: "—", load: "—" },
+      {
+        model: "HTW-II Bio 800",
+        dimensions: "1250 x 1165",
+        height: "1380 / 1800",
+        rackDiameter: "775",
+        usefulHeight: "400",
+        payload: "350",
+        tankCapacity: "150",
+        weight: "280",
+        connectedLoad: "6",
+        powerSupply: "230 V, 50 Hz",
+        pumpFlow: "4.8 / 3.8",
+        heatingPower: "4.5",
+        treatmentTemp: "45",
+        oxygenCompressor: "Yes"
+      },
+      {
+        model: "HTW-II Bio 1000",
+        dimensions: "1405 x 1280",
+        height: "1540 / 2040",
+        rackDiameter: "975",
+        usefulHeight: "450",
+        payload: "350",
+        tankCapacity: "300",
+        weight: "370",
+        connectedLoad: "8.5",
+        powerSupply: "230 V, 50 Hz",
+        pumpFlow: "12.0 / 3.8",
+        heatingPower: "6",
+        treatmentTemp: "45",
+        oxygenCompressor: "Yes"
+      },
+      {
+        model: "HTW-II Bio 1200",
+        dimensions: "1620 x 1505",
+        height: "1600 / 2320",
+        rackDiameter: "1175",
+        usefulHeight: "650",
+        payload: "350",
+        tankCapacity: "485",
+        weight: "500",
+        connectedLoad: "11.5",
+        powerSupply: "230 V, 50 Hz",
+        pumpFlow: "12.0 / 3.8",
+        heatingPower: "9",
+        treatmentTemp: "45",
+        oxygenCompressor: "Yes"
+      },
+      {
+        model: "HTW-II Bio 1500",
+        dimensions: "2080 x 1720",
+        height: "1840 / 2740",
+        rackDiameter: "1475",
+        usefulHeight: "700",
+        payload: "350",
+        tankCapacity: "770",
+        weight: "800",
+        connectedLoad: "21.5",
+        powerSupply: "230 V, 50 Hz",
+        pumpFlow: "14.5 / 4.5",
+        heatingPower: "2 x 9",
+        treatmentTemp: "45",
+        oxygenCompressor: "Yes"
+      },
     ],
     isThisRightFor: "It is suitable for companies that want to:\n\n• Reduce manual cleaning effort\n• Clean oily and greasy parts consistently\n• Move away from harsh solvent-based cleaning\n• Improve workplace safety and cleanliness\n• Reduce cleaner waste and disposal frequency\n• Extend the life of the cleaning solution\n• Handle medium to heavy industrial contamination\n• Improve cleaning efficiency in workshops and production areas",
     application: "• Cleaning machine parts used in production and maintenance\n• Degreasing oily and greasy industrial components\n• Washing tools, fixtures, and workshop parts\n• Preparing components before repair, inspection, or assembly\n• Cleaning metal, plastic, aluminium, zinc-coated, and non-ferrous parts\n• Supporting routine maintenance cleaning in industrial plants",
@@ -44,7 +102,7 @@
       { q: "Can I get support in choosing the right HTW-II Bio model?", a: "Yes, Bio-Chem can help you choose the right model based on part size, cleaning load, and application needs." },
     ],
     recommendedCleaner: { name: "Bio Circle L Liquid", slug: "biochem-bio-circle-l", desc: "A low-foaming, microorganism-based cleaner for manual and automatic parts cleaning." },
-    similarProducts: ["gt-parts-washer", "cb-100", "autopurge-system"],
+    similarProducts: ["htw-ii-max-eco", "hp-vigo"],
     icon: "fa-spray-can",
     img: "/htw-ii-bio.jpg",
     slug: "htw-ii-bio",
@@ -193,36 +251,9 @@
     title: "CB 100",
     subtitle: "Powerful Cold Cleaner Alternative",
     desc: "CB 100 is a powerful cold cleaner alternative designed to remove heavy soiling from industrial surfaces. It is suitable for cleaning stainless steel, steel and non-ferrous metals while supporting safer and more sustainable cleaning.",
-    fullDescription: `
-      <p class="text-lg text-brand-body leading-relaxed mb-6">
-        CB 100 represents a significant shift in industrial maintenance, offering a high-performance alternative to traditional solvent-based cold cleaners. Specifically engineered to address the heavy-duty cleaning requirements of modern manufacturing, it bridges the gap between aggressive chemical action and environmental responsibility.
-      </p>
-
-      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Advanced Technical Performance</h2>
-      <p class="text-brand-body leading-relaxed mb-6">
-        Industrial surfaces often accumulate complex, layered contaminants that resist standard aqueous cleaners. CB 100 is formulated to penetrate and break down the heaviest soiling, including burnt-on grease, smoke residues, soot, rubber residues, bitumen, and wax. Its high-solvency power ensures that even stubborn pastes and lubricants are emulsified and removed, restoring surfaces to their original specification.
-      </p>
-
-      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">The Science of Sustainability</h2>
-      <p class="text-brand-body leading-relaxed mb-6">
-        Unlike standard cleaners that rely on high-VOC solvents, CB 100 utilizes a surfactant-rich formulation derived from renewable raw materials. Its demulsifying properties allow oils and greases to be easily separated from the cleaning fluid. This means the fluid can be recycled and reused multiple times, significantly extending its service life and reducing operational waste. This circular approach to cleaning directly impacts the bottom line by lowering chemical consumption and disposal costs.
-      </p>
-
-      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Seamless Process Integration</h2>
-      <p class="text-brand-body leading-relaxed mb-6">
-        CB 100 is designed for versatility, making it suitable for both manual and machine use. It can be integrated into conventional parts washers or CLEAN BOX systems without requiring any alterations to existing work processes. It provides exceptional results on stainless steel, steel, and non-ferrous metals, ensuring broad compatibility across your entire component inventory.
-      </p>
-
-      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Industry Applications</h2>
-      <p class="text-brand-body leading-relaxed mb-6">
-        Extensively used in high-precision sectors such as Automotive assembly, Aerospace maintenance, and Tool & Die manufacturing. CB 100 is the preferred solution for pre-cleaning components before high-accuracy quality inspection or final coating applications, where zero-residue surfaces are essential for process integrity.
-      </p>
-
-      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Occupational Safety & Compliance</h2>
-      <p class="text-brand-body leading-relaxed mb-6">
-        By being VOC-free and label-free in accordance with the CLP regulation, CB 100 actively contributes to a safer workplace. It eliminates the inhalation risks associated with solvent vapors and reduces the chemical burden on operators. This commitment to 'Clean Blue' technology ensures that industrial growth is built on a foundation of sustainability and worker protection.
-      </p>
-    `,
+    whyChoose: "Advanced Solvency: Penetrates and removes burnt-on grease, soot, bitumen, and wax.\nSustainable Science: Derived from renewable raw materials with demulsifying properties for fluid recycling.\nSafe & Compliant: VOC-free and label-free, ensuring maximum operator safety and environmental protection.",
+    isThisRightFor: "• You need to remove heavy, burnt-on grease and soot\n• You want a sustainable alternative to solvent-based cold cleaners\n• You require a VOC-free and label-free cleaning solution\n• You need a cleaner that works on stainless steel, steel, and non-ferrous metals\n• You want to reduce chemical waste through fluid recycling",
+    application: "• Pre-cleaning components before quality inspection or final coating\n• Cleaning tools, dies, and precision industrial components\n• Maintenance cleaning in Automotive, Aerospace, and Tool & Die sectors\n• Use in conventional parts washers or Clean Box systems\n• Manual or machine cleaning of metal parts",
     features: [
       "Removes the heaviest soiling such as burnt-on grease, oil, smoke, soot, rubber residues, bitumen and wax residues as well as pastes",
       "Cleans stainless steel, steel and non-ferrous metals",
@@ -259,6 +290,11 @@
       </p>
     `,
     labels: ["VOC Free", "Bio-Based", "Clean Blue"],
+    faq: [
+      { q: "Is CB 100 safe for non-ferrous metals?", a: "Yes, CB 100 is safe for cleaning stainless steel, steel, and non-ferrous metals without causing surface damage." },
+      { q: "Can I use CB 100 in a parts washer?", a: "Absolutely. It is designed for both manual use and integration into conventional parts washers or Clean Box systems." },
+      { q: "What makes CB 100 an alternative to cold cleaners?", a: "CB 100 provides the heavy-duty solvency of cold cleaners but is water-based, VOC-free, and derived from renewable materials." },
+    ],
     icon: "fa-flask",
     img: "https://www.bio-circle.com/lib/uploads/sites/2/2024/09/CB_100_500ml-600x600.jpg",
     slug: "cb-100",
@@ -332,15 +368,9 @@
     title: "UNO S",
     subtitle: "Solvent-Free Industrial Cleaner",
     desc: "Powerful solvent-free cleaner for precision machined components and assembly areas. Effective on ferrous and non-ferrous metals.",
-    fullDescription: `
-      <p class="text-lg text-brand-body leading-relaxed mb-6">
-        UNO S is a next-generation solvent-free industrial cleaner engineered for demanding manufacturing environments. It delivers superior cleaning performance on precision components while maintaining a safe, VOC-free workspace.
-      </p>
-      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6 uppercase tracking-tight">Superior Cleaning Performance</h2>
-      <p class="text-brand-body leading-relaxed mb-6">
-        Advanced surfactant technology penetrates and removes light to medium soiling, oils, and machining residues without harsh solvents.
-      </p>
-    `,
+    whyChoose: "Solvent-Free Power: Delivers superior cleaning without the risks of harsh solvents.\nHigh Compatibility: Safe for use on stainless steel, aluminum, and sensitive non-ferrous metals.\nVersatile Efficiency: Low-foaming formula suitable for both manual and machine cleaning applications.",
+    isThisRightFor: "• You need a solvent-free cleaning solution for assembly areas\n• You are cleaning precision machined components made of aluminum or stainless steel\n• You want to reduce VOC emissions in your facility\n• You need a low-foaming cleaner for machine parts washing\n• You require a safe, bio-based industrial cleaner",
+    application: "• Cleaning precision assembly components and machined parts\n• Degreasing aluminum and sensitive alloy surfaces\n• Maintenance cleaning in electronics and precision engineering\n• Use in low-pressure parts washers and manual cleaning stations\n• Surface preparation before assembly or testing",
     features: [
       "Solvent-free formulation",
       "Compatible with stainless steel and aluminum",
@@ -370,6 +400,11 @@
       </ul>
     `,
     labels: ["VOC Free", "Bio-Based"],
+    faq: [
+      { q: "Is UNO S safe for aluminum components?", a: "Yes, UNO S is specifically formulated to be safe on sensitive surfaces like aluminum and non-ferrous metals." },
+      { q: "Does UNO S contain any VOCs?", a: "No, UNO S is a VOC-free formulation, making it safer for operators and the environment." },
+      { q: "What is the foam profile of UNO S?", a: "UNO S has a low-foaming profile, which makes it suitable for both manual application and machine use." },
+    ],
     icon: "fa-flask",
     img: "/uno-s.jpg",
     slug: "uno-s",

@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { products as allProducts } from "@/data/products";
+import ProductGallery from "./ProductGallery";
+import ProductFAQ from "./ProductFAQ";
 
 export default function CategoryTabs({ products, category }) {
   const [activeTab, setActiveTab] = useState(products[0]?.id || null);
@@ -12,23 +14,18 @@ export default function CategoryTabs({ products, category }) {
 
   return (
     <section className="bg-white">
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-8 sm:pb-12">
-        <div className="flex items-center gap-3 mb-8">
-          <span className="w-10 h-px bg-green/30"></span>
-          <span className="text-sm font-black uppercase tracking-[0.3em] text-green">
-            {category}
-          </span>
-        </div>
-
-        {/* Tabs */}
-        <div className="flex tabs-scroll overflow-x-auto border border-brand-border rounded-lg bg-white w-fit mb-8 max-w-full">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Tabs - Restored Original Style */}
+        <div className="flex tabs-scroll overflow-x-auto border border-brand-border rounded-lg bg-white w-fit mb-10 max-w-full shadow-sm">
           {products.map((p, i) => (
             <button
               key={p.id}
-              className={`px-5 py-2.5 text-xs sm:text-sm font-semibold whitespace-nowrap transition-colors ${
+              className={`px-6 py-3 text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
                 i < products.length - 1 ? "border-r border-brand-border" : ""
               } ${
-                activeTab === p.id ? "bg-green text-white" : "text-brand-muted hover:text-green"
+                activeTab === p.id 
+                  ? "bg-green text-white" 
+                  : "text-brand-muted hover:text-green hover:bg-green-light/30"
               }`}
               onClick={() => setActiveTab(p.id)}
             >
@@ -37,167 +34,172 @@ export default function CategoryTabs({ products, category }) {
           ))}
         </div>
 
-        {/* ─── FULL PRODUCT DETAIL ─── */}
-        {/* Hero */}
-        <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-brand-bg3 rounded-2xl">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white -z-10 rounded-2xl"></div>
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-green-50/20 blur-[120px] -z-10"></div>
+        {/* ─── ACTIVE PRODUCT DETAIL (HTW-II Bio Style) ─── */}
+        
+        {/* Product Hero */}
+        <section className="relative pb-12 sm:pb-16 overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+            {/* Gallery Side */}
+            <div className="lg:col-span-6 lg:sticky lg:top-24 w-full">
+              <ProductGallery product={active} />
+            </div>
 
-          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-              <div className="lg:col-span-7">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-light border border-green-mid mb-4">
-                  <span className="text-sm font-black uppercase tracking-widest text-green">{active.category}</span>
-                </div>
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-brand-black mb-4 leading-[1.1]">{active.title}</h1>
-                <p className="text-xl font-bold text-green mb-8 uppercase tracking-[0.2em]">{active.subtitle || "Industrial Engineering Excellence"}</p>
-                <p className="text-lg text-brand-body leading-relaxed mb-6 border-l-4 border-green pl-8 max-w-2xl text-justify">{active.desc}</p>
+            {/* Text Side */}
+            <div className="lg:col-span-6 w-full">
+              <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-3">
+                {active.category}
+              </p>
 
-                {active.labels && active.labels.length > 0 && (
-                  <div className="flex flex-wrap items-center gap-4 mb-10">
-                    {active.labels.map((label, i) => {
-                      const isVocFree = label.toLowerCase() === "voc free" || label.toLowerCase() === "voc-free";
-                      if (isVocFree) {
-                        return <img key={i} src="https://c8.alamy.com/comp/2JBE5TW/voc-free-volatile-organic-compounds-free-abstract-vector-stock-illustration-2JBE5TW.jpg" alt="VOC Free" className="h-12 w-auto object-contain rounded-lg border border-brand-border bg-white" />;
-                      }
-                      return <span key={i} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border-2 border-green-mid text-xs font-black uppercase tracking-widest text-green shadow-sm h-10">{label}</span>;
-                    })}
-                  </div>
-                )}
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-3 leading-[1.2]">
+                {active.title}
+              </h2>
 
-                <div className="flex flex-wrap gap-4">
-                  <Link href="/contact" className="px-10 py-4 bg-green text-white font-black rounded-2xl hover:bg-green-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-green/20 uppercase tracking-widest text-xs">Enquire Now</Link>
+              {active.subtitle && (
+                <p className="text-xs sm:text-sm font-bold text-green mb-5">
+                  {active.subtitle}
+                </p>
+              )}
+
+              <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-6 max-w-2xl">
+                {active.desc}
+              </p>
+
+              {active.descBullets && active.descBullets.length > 0 && (
+                <ul className="mb-6 space-y-2">
+                  {active.descBullets.map((bullet, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-brand-body leading-relaxed">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-green shrink-0"></span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {/* Available Pack Sizes */}
+              <div className="mt-6 mb-8">
+                <p className="text-xs font-bold text-green uppercase tracking-wider mb-4">Available Pack Sizes</p>
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
+                  {[
+                    { name: `${active.title} - PET (recycled) bottle 500ml with sprayer`, img: "500ml" },
+                    { name: `${active.title} - PET (recycled) bottle 1L with sprayer`, img: "1L" },
+                    { name: `${active.title} - Jerry Can 1L`, img: "JC1L" },
+                    { name: `${active.title} - Jerry Can 5L`, img: "JC5L" },
+                    { name: `${active.title} - Jerry Can 25L`, img: "JC25L" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 border border-brand-border rounded-xl p-3 bg-white hover:border-green/30 transition-all shadow-sm">
+                      <div className="w-12 h-12 rounded-lg bg-brand-bg3 border border-brand-border shrink-0 flex items-center justify-center overflow-hidden">
+                        <img
+                          src={`https://placehold.co/80x80/e2e8f0/3D8A4B?text=${item.img}`}
+                          alt={item.name}
+                          className="w-full h-full object-cover opacity-80"
+                        />
+                      </div>
+                      <span className="text-xs font-bold text-brand-black leading-snug">{item.name}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="lg:col-span-5">
-                <div className="relative aspect-square rounded-[3.5rem] bg-white shadow-2xl border-[12px] border-white overflow-hidden flex items-center justify-center p-8 group">
-                  <img src={active.img} alt={active.title} className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" />
+
+              {/* Labels */}
+              {active.labels && active.labels.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2 mb-6">
+                  {active.labels.map((label, i) => {
+                    const isVocFree = label.toLowerCase() === "voc free" || label.toLowerCase() === "voc-free";
+                    if (isVocFree) {
+                      return (
+                        <img key={i} src="https://c8.alamy.com/comp/2JBE5TW/voc-free-volatile-organic-compounds-free-abstract-vector-stock-illustration-2JBE5TW.jpg" alt="VOC Free" className="h-8 sm:h-10 w-auto object-contain rounded-lg border border-brand-border bg-white" />
+                      );
+                    }
+                    return (
+                      <span key={i} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white border border-green-mid text-xs font-bold text-green shadow-sm">
+                        {label}
+                      </span>
+                    );
+                  })}
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </section>
 
-        {/* Technical Overview */}
-        <section className="py-24 bg-white">
-          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 xl:grid-cols-12 gap-16">
-              <div className="xl:col-span-8 space-y-20">
-                {active.fullDescription && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-8">
-                      <span className="w-10 h-px bg-green/30"></span>
-                      <span className="text-sm font-black uppercase tracking-[0.3em] text-green">Theoretical Deep Dive</span>
-                    </div>
-                    <div className="prose prose-lg max-w-none prose-headings:text-brand-black prose-p:text-brand-body prose-strong:text-green" dangerouslySetInnerHTML={{ __html: active.fullDescription }} />
-                  </div>
-                )}
-
-                {active.application && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <span className="w-10 h-px bg-green/30"></span>
-                      <span className="text-sm font-black uppercase tracking-[0.3em] text-green">Application</span>
-                    </div>
-                    <div className="p-8 bg-brand-bg2 rounded-[2.5rem] border border-brand-border">
-                      <p className="text-brand-body text-base leading-relaxed">{active.application}</p>
-                    </div>
-                  </div>
-                )}
-
-                {active.features && active.features.length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-8">
-                      <span className="w-10 h-px bg-green/30"></span>
-                      <span className="text-sm font-black uppercase tracking-[0.3em] text-green">Key Features</span>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {active.features.map((feature, i) => (
-                        <div key={i} className="flex gap-5 p-7 bg-brand-bg2 rounded-[2rem] border border-brand-border hover:bg-white hover:shadow-xl transition-all group">
-                          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-green shadow-sm group-hover:bg-green group-hover:text-white transition-all shrink-0 mt-0.5">
-                            <i className="fas fa-check text-sm"></i>
-                          </div>
-                          <p className="text-sm text-brand-body leading-relaxed pt-2">{feature}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {active.similarProducts && active.similarProducts.length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-10">
-                      <span className="w-10 h-px bg-green/30"></span>
-                      <span className="text-sm font-black uppercase tracking-[0.3em] text-green">Similar Solutions</span>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {active.similarProducts.map((ref, i) => {
-                        const similarProd = allProducts.find(p => p.title === ref || p.slug === ref || p.id === ref);
-                        if (!similarProd) return null;
-                        return (
-                          <div key={i} className="group border border-brand-border rounded-[2rem] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-500 bg-white">
-                            <div className="dot-bg bg-brand-bg3 aspect-[4/3] flex items-center justify-center p-6 relative">
-                              {similarProd.img ? <img src={similarProd.img} alt={similarProd.title} className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110" /> : <div className="w-16 h-16 bg-green-light rounded-2xl flex items-center justify-center text-green group-hover:bg-green group-hover:text-white transition-all"><i className={`fas ${similarProd.icon} text-2xl`}></i></div>}
-                            </div>
-                            <div className="p-6">
-                              <span className="text-[10px] font-bold uppercase tracking-widest text-green">{similarProd.category}</span>
-                              <h4 className="text-base font-black text-brand-black mt-1 mb-2 leading-snug uppercase tracking-tight line-clamp-1">{similarProd.title}</h4>
-                              <p className="text-[11px] text-brand-body leading-relaxed mb-4 line-clamp-2 h-8">{similarProd.desc}</p>
-                              <Link href={`/products/${similarProd.slug}`} className="inline-flex items-center justify-center w-full bg-brand-black text-white text-[10px] font-black uppercase tracking-widest py-3 rounded-xl hover:bg-green transition-all shadow-sm">View Details</Link>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-
-                {active.caseStudies && active.caseStudies.length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <span className="w-10 h-px bg-green/30"></span>
-                      <span className="text-sm font-black uppercase tracking-[0.3em] text-green">Case Studies</span>
-                    </div>
-                    <div className="space-y-4">
-                      {active.caseStudies.map((cs, i) => (
-                        <Link key={i} href={cs.href} className="flex items-center justify-between p-6 bg-brand-bg2 rounded-2xl border border-brand-border hover:border-green hover:bg-green-light transition-all group">
-                          <span className="font-bold text-brand-black group-hover:text-green transition-colors">{cs.title}</span>
-                          <i className="fas fa-arrow-right text-green opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              <div className="xl:col-span-4">
-                <div className="sticky top-24 space-y-6">
-                  <div className="bg-green rounded-[2.5rem] p-10 text-white overflow-hidden relative">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
-                    <div className="relative z-10">
-                      <h3 className="text-2xl font-black mb-10 uppercase tracking-tight">Technical<br />Specifications</h3>
-                      <div className="space-y-6">
-                        {active.technicalSpecs ? active.technicalSpecs.map((spec, i) => (
-                          <div key={i} className="flex justify-between items-end border-b border-white/20 pb-4 group">
-                            <div>
-                              <p className="text-[10px] font-black uppercase tracking-widest text-white/70 mb-1">{spec.label}</p>
-                              <p className="text-base font-bold text-white">{spec.value}</p>
-                            </div>
-                            <div className="w-2 h-2 rounded-full bg-white/20 group-hover:bg-white transition-colors"></div>
-                          </div>
-                        )) : <p className="text-sm text-white/50 italic">Technical datasheet pending.</p>}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-8 rounded-[2rem] bg-white border-2 border-brand-border shadow-sm">
-                    <i className="fas fa-headset text-2xl text-green mb-4"></i>
-                    <p className="text-sm font-bold text-brand-black mb-2">Need a Custom Config?</p>
-                    <p className="text-xs text-brand-body leading-relaxed mb-6">Our engineers can tailor {active.title} to your specific production line requirements.</p>
-                    <Link href="/contact" className="block w-full text-center px-6 py-3 bg-green text-white text-xs font-black rounded-xl hover:bg-green-dark transition-all uppercase tracking-widest shadow-lg shadow-green/20">Speak with an Expert →</Link>
+        {/* Detailed Sections */}
+        <section className="py-12 border-t border-brand-border">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+            
+            {/* Left Column */}
+            <div className="lg:col-span-8 space-y-10">
+              {active.isThisRightFor && (
+                <div>
+                  <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Is This Product Right for You?</h3>
+                  <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
+                    <p className="text-sm text-brand-body leading-relaxed whitespace-pre-line">{active.isThisRightFor}</p>
                   </div>
                 </div>
-              </div>
+              )}
+
+              {active.application && (
+                <div>
+                  <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Application</h3>
+                  <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
+                    <p className="text-sm text-brand-body leading-relaxed whitespace-pre-line">{active.application}</p>
+                  </div>
+                </div>
+              )}
+
+              {active.whyChoose && (
+                <div>
+                  <div className="mb-4">
+                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Why Choose the {active.title}?</p>
+                  </div>
+                  <div className="space-y-2.5">
+                    {active.whyChoose.split("\n").map((point, i) => (
+                      <div key={i} className="flex gap-3 p-4 sm:p-5 bg-white rounded-xl border border-brand-border">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green shrink-0 mt-2"></div>
+                        <p className="text-sm text-brand-body leading-relaxed">{point}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {active.faq && active.faq.length > 0 && (
+                <ProductFAQ faq={active.faq} />
+              )}
+            </div>
+
+            {/* Right Column / Sidebar */}
+            <div className="lg:col-span-4 space-y-8">
+              {active.technicalSpecs && (
+                <div className="bg-green rounded-[2rem] p-8 sm:p-10 text-white relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-8 uppercase tracking-tight">Technical Specifications</h3>
+                  <div className="space-y-6">
+                    {active.technicalSpecs.map((spec, i) => (
+                      <div key={i} className="border-b border-white/20 pb-4">
+                        <p className="text-xs font-black uppercase tracking-widest text-white/60 mb-1">{spec.label}</p>
+                        <p className="text-sm sm:text-base font-bold text-white">{spec.value}</p>
+                      </div>
+                    ))}
+
+                  </div>
+                </div>
+              )}
+
+              {active.recommendedCleaner && (
+                <div className="p-6 sm:p-8 rounded-[2rem] bg-white border border-brand-border shadow-sm">
+                  <div className="flex items-center gap-2 mb-6">
+                    <i className="fas fa-flask text-green text-xs"></i>
+                    <span className="text-xs sm:text-sm font-bold text-green uppercase tracking-wider">Recommended Cleaner</span>
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <h5 className="text-base font-bold text-brand-black">{active.recommendedCleaner.name}</h5>
+                    <p className="text-xs sm:text-sm text-brand-body leading-relaxed">{active.recommendedCleaner.desc}</p>
+                    <Link href={`/products/${active.recommendedCleaner.slug}`} className="text-sm font-bold text-green hover:underline">
+                      View Product →
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>

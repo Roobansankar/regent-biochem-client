@@ -41,12 +41,12 @@ export default function ProductGallery({ product }) {
   return (
     <div className="flex gap-4">
       {/* Thumbnails */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2 sm:gap-3">
         {views.map((view, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
-            className={`w-20 h-20 sm:w-24 sm:h-24 rounded-xl border-2 overflow-hidden transition-all duration-300 shrink-0 ${
+            className={`w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-xl border-2 overflow-hidden transition-all duration-300 shrink-0 ${
               i === activeIndex
                 ? "border-green shadow-md ring-2 ring-green/20 scale-105"
                 : "border-brand-border opacity-60 hover:opacity-100 hover:border-green/50"
@@ -60,7 +60,7 @@ export default function ProductGallery({ product }) {
               />
             ) : (
               <div className="w-full h-full bg-brand-bg2 flex items-center justify-center">
-                <i className={`fas ${product.icon || view.icon} text-brand-muted text-base sm:text-lg`}></i>
+                <i className={`fas ${product.icon || view.icon} text-brand-muted text-sm sm:text-base`}></i>
               </div>
             )}
           </button>
@@ -68,7 +68,7 @@ export default function ProductGallery({ product }) {
       </div>
 
       {/* Main Image */}
-      <div className="flex-1 aspect-square rounded-2xl bg-white border border-brand-border overflow-hidden relative group shadow-sm min-h-[400px] sm:min-h-[500px]">
+      <div className="flex-1 aspect-square rounded-2xl bg-white border border-brand-border overflow-hidden relative group shadow-sm min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]">
         <div className="w-full h-full overflow-hidden">
           <div
             key={slideKey}
@@ -82,12 +82,12 @@ export default function ProductGallery({ product }) {
               <img
                 src={product.img}
                 alt={product.title}
-                className="w-full h-full object-contain p-6 sm:p-10 transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-contain p-4 sm:p-8 lg:p-10 transition-transform duration-700 group-hover:scale-110"
               />
             ) : (
-              <div className="w-full h-full bg-brand-bg2 flex flex-col items-center justify-center gap-3 sm:gap-4 p-8">
-                <i className={`fas ${product.icon || views[activeIndex].icon} text-5xl sm:text-7xl text-brand-muted`}></i>
-                <span className="text-xs sm:text-sm font-bold text-brand-muted">{views[activeIndex].label}</span>
+              <div className="w-full h-full bg-brand-bg2 flex flex-col items-center justify-center gap-2 sm:gap-4 p-6 sm:p-8">
+                <i className={`fas ${product.icon || views[activeIndex].icon} text-4xl sm:text-6xl lg:text-7xl text-brand-muted`}></i>
+                <span className="text-[10px] sm:text-xs lg:text-sm font-bold text-brand-muted">{views[activeIndex].label}</span>
               </div>
             )}
           </div>

@@ -30,42 +30,21 @@ export default async function ProductDetailPage({ params }) {
       <main className="flex flex-col min-h-screen bg-white">
 
         {/* ─── CATEGORY HERO ─── */}
-        <section className="relative pt-8 pb-12 lg:pt-12 lg:pb-16 overflow-hidden bg-brand-bg3">
+        <section className="relative pt-10 pb-12 lg:pt-12 lg:pb-14 overflow-hidden bg-brand-bg3">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white -z-10"></div>
           <div className="absolute top-0 right-0 w-1/2 h-full bg-green-50/20 blur-[120px] -z-10"></div>
 
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div>
-                <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">
-                  {product.category}
-                </p>
+            <div className="w-full">
+              {/* Removed {product.category} as requested */}
 
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-brand-black mb-4 leading-[1.1]">
-                  {product.title}
-                </h1>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-4 leading-tight">
+                {product.title}
+              </h1>
 
-                <p className="text-sm sm:text-base text-brand-body leading-relaxed border-l-4 border-green pl-4 sm:pl-6 max-w-2xl text-justify mb-4">
-                  {product.desc}
-                </p>
-
-                {product.extraDesc && (
-                  <p className="text-sm sm:text-base text-brand-body leading-relaxed pl-4 sm:pl-6 max-w-2xl text-justify">
-                    {product.extraDesc}
-                  </p>
-                )}
-
-              </div>
-
-              {product.img && (
-                <div className="relative aspect-square rounded-[3.5rem] bg-white shadow-2xl border-[12px] border-white overflow-hidden flex items-center justify-center p-8 group">
-                  <img
-                    src={product.img}
-                    alt={product.title}
-                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-              )}
+              <p className="text-sm sm:text-base text-brand-body leading-relaxed pl-0 w-full text-justify">
+                {product.desc} {product.extraDesc}
+              </p>
             </div>
           </div>
         </section>
@@ -130,13 +109,13 @@ export default async function ProductDetailPage({ params }) {
               {/* Available Pack Sizes */}
               <div className="mt-6 mb-6">
                 <p className="text-xs font-bold text-green uppercase tracking-wider mb-3">Available Pack Sizes</p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    { name: "CB 100 - PET (recycled) bottle 500ml with sprayer", img: "500ml" },
-                    { name: "CB 100 - PET (recycled) bottle 1L with sprayer", img: "1L" },
-                    { name: "CB 100 - Jerry Can 1L", img: "JC1L" },
-                    { name: "CB 100 - Jerry Can 5L", img: "JC5L" },
-                    { name: "CB 100 - Jerry Can 25L", img: "JC25L" },
+                    { name: `${product.title} - PET (recycled) bottle 500ml with sprayer`, img: "500ml" },
+                    { name: `${product.title} - PET (recycled) bottle 1L with sprayer`, img: "1L" },
+                    { name: `${product.title} - Jerry Can 1L`, img: "JC1L" },
+                    { name: `${product.title} - Jerry Can 5L`, img: "JC5L" },
+                    { name: `${product.title} - Jerry Can 25L`, img: "JC25L" },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3 border border-brand-border rounded-lg p-3">
                       <div className="w-14 h-14 rounded-lg bg-brand-bg3 border border-brand-border shrink-0 flex items-center justify-center overflow-hidden">
@@ -207,7 +186,7 @@ export default async function ProductDetailPage({ params }) {
               {product.whyChoose && (
                 <div>
                   <div className="mb-4">
-                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Why Choose the HTW-II Bio?</p>
+                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Why Choose the {product.title}?</p>
                   </div>
                   <div className="space-y-2.5">
                     {product.whyChoose.split("\n").map((point, i) => (
@@ -230,23 +209,33 @@ export default async function ProductDetailPage({ params }) {
                     <table className="w-full text-sm">
                       <thead>
                         <tr className="bg-green text-white">
-                          <th className="text-left px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-xs sm:text-sm">Model</th>
-                          <th className="text-left px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-xs sm:text-sm">Basket</th>
-                          <th className="text-left px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-xs sm:text-sm">Pressure</th>
-                          <th className="text-left px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-xs sm:text-sm">Heater</th>
-                          <th className="text-left px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-xs sm:text-sm">Tank</th>
-                          <th className="text-left px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-xs sm:text-sm">Load</th>
+                          <th className="text-left px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-xs sm:text-sm">Specifications</th>
+                          {product.availableModels.map((m, i) => (
+                            <th key={i} className="text-left px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-xs sm:text-sm">{m.model}</th>
+                          ))}
                         </tr>
                       </thead>
                       <tbody>
-                        {product.availableModels.map((m, i) => (
-                          <tr key={i} className={`border-t border-brand-border ${i % 2 === 0 ? "bg-white" : "bg-brand-bg2"}`}>
-                            <td className="px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-brand-black text-xs sm:text-sm">{m.model}</td>
-                            <td className="px-3 sm:px-4 py-2.5 sm:py-3 text-brand-body text-xs sm:text-sm">{m.basket}</td>
-                            <td className="px-3 sm:px-4 py-2.5 sm:py-3 text-brand-body text-xs sm:text-sm">{m.pressure}</td>
-                            <td className="px-3 sm:px-4 py-2.5 sm:py-3 text-brand-body text-xs sm:text-sm">{m.heater}</td>
-                            <td className="px-3 sm:px-4 py-2.5 sm:py-3 text-brand-body text-xs sm:text-sm">{m.tank}</td>
-                            <td className="px-3 sm:px-4 py-2.5 sm:py-3 text-brand-body text-xs sm:text-sm">{m.load}</td>
+                        {[
+                          { key: "dimensions", label: "Overall width x overall depth (mm)" },
+                          { key: "height", label: "Height with lid closed/open with angled exhaust duct (mm)" },
+                          { key: "rackDiameter", label: "Inner diameter of rack, approx. (mm)" },
+                          { key: "usefulHeight", label: "Useful height max. (mm)" },
+                          { key: "payload", label: "Payload max. (kg)" },
+                          { key: "tankCapacity", label: "Washing tank capacity (L)" },
+                          { key: "weight", label: "Total weight of the cleaning device (kg)" },
+                          { key: "connectedLoad", label: "Connected value total (kW) excl. supplementary equipment approx." },
+                          { key: "powerSupply", label: "Power supply" },
+                          { key: "pumpFlow", label: "Pump – automatic cleaning: flow rate (m³/h / bar)" },
+                          { key: "heatingPower", label: "Electric heating in the washing tank (kW)" },
+                          { key: "treatmentTemp", label: "Treatment temperature (guide value) (°C)" },
+                          { key: "oxygenCompressor", label: "Oxygen membrane compressor" },
+                        ].map((spec, rowIndex) => (
+                          <tr key={spec.key} className={`border-t border-brand-border ${rowIndex % 2 === 0 ? "bg-white" : "bg-brand-bg2"}`}>
+                            <td className="px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-brand-black text-xs sm:text-sm">{spec.label}</td>
+                            {product.availableModels.map((m, i) => (
+                              <td key={i} className="px-3 sm:px-4 py-2.5 sm:py-3 text-brand-body text-xs sm:text-sm">{m[spec.key]}</td>
+                            ))}
                           </tr>
                         ))}
                       </tbody>
