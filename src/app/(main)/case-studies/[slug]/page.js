@@ -420,32 +420,28 @@ export default function CaseStudyDetail() {
         </div>
       </section>
 
-      {/* ── Main image ── */}
-      <section className="py-6 sm:py-8 bg-white">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="aspect-[21/7] rounded-xl overflow-hidden shadow-lg border border-gray-100">
-            <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
-          </div>
-        </div>
-      </section>
-
       {/* ── Content ── */}
-      <section className="pb-16">
+      <section className="pt-6 pb-16">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10 items-start">
 
             {/* ── Left — main content ── */}
             <div className="lg:col-span-2 space-y-10">
 
-              {/* Customer background */}
-              <div>
-                <SectionLabel>Customer background</SectionLabel>
-                <p className="text-sm text-brand-body leading-relaxed mb-3">{study.customerBackground}</p>
-                <ul className="space-y-1.5">
-                  {study.businessChallenges.slice(0, 3).map((item, i) => (
-                    <ChallengeItem key={i}>{item}</ChallengeItem>
-                  ))}
-                </ul>
+              {/* Image + Customer background (side-by-side) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start">
+                <div className="aspect-[4/5] rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                  <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <SectionLabel>Customer background</SectionLabel>
+                  <p className="text-sm text-brand-body leading-relaxed mb-3">{study.customerBackground}</p>
+                  <ul className="space-y-1.5">
+                    {study.businessChallenges.slice(0, 3).map((item, i) => (
+                      <ChallengeItem key={i}>{item}</ChallengeItem>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
               <Divider />
@@ -571,9 +567,9 @@ export default function CaseStudyDetail() {
 
 function SectionLabel({ children }) {
   return (
-    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-green mb-2">
-      {children}
-    </p>
+    <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green-600 mb-4">
+      <span className="w-5 h-0.5 bg-green-500 rounded-sm"></span> {children}
+    </div>
   );
 }
 
