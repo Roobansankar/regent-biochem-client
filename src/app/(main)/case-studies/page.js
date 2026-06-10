@@ -7,17 +7,17 @@ import Link from 'next/link';
 
 const caseStudies = [
   {
-    slug: "solvent-waste-reduction",
-    title: "85% Reduction in Solvent Waste for Automotive Assembly",
-    client: "Tier-1 Automotive Manufacturer",
-    category: "Automotive",
-    product: "Bio-Washer System",
-    problem: "The client was struggling with high hazardous waste disposal costs and operator exposure to toxic VOCs from traditional solvent tanks.",
-    solution: "Implementation of 12 Bio-Washer units utilizing bio-remediation technology to break down oils in-situ.",
+    slug: "e-weld-shield",
+    title: "Reducing Slag Adhesion and Maintenance Downtime in Laser & Plasma Cutting Operation",
+    client: "Industrial Fabrication Co.",
+    category: "Manufacturing",
+    product: "E-WELD SHIELD",
+    problem: "Excessive slag adhesion on cutting beds caused frequent maintenance downtime and reduced cutting precision in laser and plasma operations.",
+    solution: "Application of E-WELD SHIELD anti-spatter coating to protect cutting beds and minimize slag buildup.",
     results: [
-      "85% reduction in annual hazardous waste",
-      "90% decrease in VOC emissions",
-      "Payback period achieved in 14 months"
+      "Reduced slag adhesion by 80%",
+      "Decreased maintenance downtime by 60%",
+      "Extended cutting bed service life"
     ],
     image: "https://www.eieprocess.se/media/jdnlnbhi/eie-process_detaljtvattar_bio-circle.jpg?width=1140&height=640&format=webp&quality=80&v=1db72f771808be0"
   },
@@ -105,9 +105,7 @@ export default function CaseStudiesPage() {
                   <h2 className="text-lg font-bold text-brand-black mb-3 leading-tight group-hover:text-green transition-colors">
                     {study.title}
                   </h2>
-                  <p className="text-sm text-brand-body leading-relaxed flex-1">
-                    {study.problem}
-                  </p>
+
                   <Link
                     href={`/case-studies/${study.slug}`}
                     className="inline-flex items-center gap-2 text-xs font-extrabold text-green uppercase tracking-widest hover:gap-3 transition-all mt-6"

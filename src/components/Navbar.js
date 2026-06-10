@@ -43,22 +43,22 @@ const navData = [
           { name: "HTW II - BIO", href: "/products/htw-ii-bio" },
           { name: "HTW II - Max ECO", href: "/products/htw-ii-max-eco" },
           { name: "HP VIGO", href: "/products/hp-vingo" },
-          { name: "GT COMPACT", href: "/products/gt-compact" },
           { name: "GT MAXI", href: "/products/gt-max" },
+          { name: "GT COMPACT", href: "/products/gt-compact" },
         ],
       },
       {
         label: "Paint Removal Systems",
         items: [
-          { name: "PROLAQ COMPACT", href: "/products/prolaq-compact" },
           { name: "PROLAQ AUTO", href: "/products/prolaq-auto" },
+          { name: "PROLAQ COMPACT", href: "/products/prolaq-compact" },
         ],
       },
       {
         label: "Descaling Systems",
         items: [
+          { name: "RWR-KST", href: "/products/rer-kst" },
           { name: "RWR", href: "/products/rwr" },
-          { name: "RER-KST", href: "/products/rer-kst" },
         ],
       },
       {
@@ -90,7 +90,7 @@ const navData = [
         items: [
           { name: "Pipeline Cleaning Solutions", href: "/services/freeflow/pipeline" },
           { name: "Cooling Tower Cleaning", href: "/services/freeflow/cooling-tower" },
-          { name: "Mould & Injection Cleaning", href: "/services/freeflow/mould-injection" },
+          { name: "Injection Mould Cleaning", href: "/services/freeflow/mould-injection" },
           { name: "Heat Exchanger Cleaning", href: "/services/freeflow/heat-exchanger" },
           { name: "Operational Impact Assessment", href: "/services/freeflow/impact-assessment" },
         ],

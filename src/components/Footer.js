@@ -8,10 +8,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 flex flex-col">
             <Link href="/">
-              <img src="/logo.png" alt="Bio-Chem Logo" className="h-12 w-auto mb-4" />
+              <img src="/logo.png" alt="Bio-Chem Logo" className="h-14 w-auto mb-4" />
             </Link>
-            <p className="text-[11px] font-black uppercase tracking-wider text-brand-black leading-relaxed">
-              <span className="text-green">GREEN</span> WAY <span className="text-green">TO GROWTH</span>
+            <p className="text-xs font-black uppercase tracking-wider text-brand-black leading-relaxed">
+              <span className="text-green">GREEN</span> WAY TO <span className="text-green">GROWTH</span>
             </p>
             <div className="flex gap-3 mt-5">
               <Link
@@ -33,17 +33,7 @@ export default function Footer() {
                 <i className="fab fa-instagram"></i>
               </Link>
             </div>
-            <div className="mt-6 space-y-2">
-              <p className="flex items-start gap-2 text-xs text-brand-muted">
-                <i className="fas fa-map-marker-alt text-green mt-0.5 flex-shrink-0"></i> 24, Bypass Rd, Sungam, Paari Nagar, Coimbatore, Tamil Nadu 641045
-              </p>
-              <p className="flex items-center gap-2 text-xs text-brand-muted">
-                <i className="fas fa-phone text-green flex-shrink-0"></i> 0422 231 0396
-              </p>
-              <p className="flex items-center gap-2 text-xs text-brand-muted">
-                <i className="fas fa-envelope text-green flex-shrink-0"></i> info@regentbiochem.com
-              </p>
-            </div>
+
           </div>
           {/* Company */}
           <div>
@@ -133,7 +123,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/services/freeflow/mould-injection" className="text-sm text-brand-muted hover:text-green transition-colors">
-                  Mould & Injection Cleaning
+                  Injection Mould Cleaning
                 </Link>
               </li>
               <li>
@@ -148,24 +138,18 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          {/* Resources */}
+          {/* Contact */}
           <div>
-            <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-4">Resources</h4>
+            <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-4">Contact</h4>
             <ul className="space-y-3">
-              <li>
-                <Link href="/blog" className="text-sm text-brand-muted hover:text-green transition-colors">
-                  Blog
-                </Link>
+              <li className="flex items-start gap-2 text-sm text-brand-muted">
+                <i className="fas fa-map-marker-alt text-green mt-0.5 flex-shrink-0"></i> 24, Sungam Bypass Road,<br/>Paari Nagar,<br/>Coimbatore,<br/>Tamil Nadu - 641045
               </li>
-              <li>
-                <Link href="/faq" className="text-sm text-brand-muted hover:text-green transition-colors">
-                  FAQ
-                </Link>
+              <li className="flex items-center gap-2 text-sm text-brand-muted">
+                <i className="fas fa-phone text-green flex-shrink-0"></i> 0422 231 0396
               </li>
-              <li>
-                <Link href="/case-studies" className="text-sm text-brand-muted hover:text-green transition-colors">
-                  Case Studies
-                </Link>
+              <li className="flex items-center gap-2 text-sm text-brand-muted">
+                <i className="fas fa-envelope text-green flex-shrink-0"></i> info@regentbiochem.com
               </li>
             </ul>
           </div>

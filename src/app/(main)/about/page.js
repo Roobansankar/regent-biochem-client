@@ -85,13 +85,17 @@ export default function About() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Vision */}
             <div className="mission-bar relative bg-white border border-gray-100 rounded-2xl p-8 sm:p-10 hover:-translate-y-1 hover:shadow-card transition-all duration-300 reveal">
-              <div className="text-4xl mb-5 text-green">🔭</div>
+              <div className="w-14 h-14 bg-green-light rounded-2xl flex items-center justify-center text-green text-2xl mb-6 shadow-sm">
+                <i className="fas fa-eye"></i>
+              </div>
               <h3 className="text-xl font-extrabold text-gray-900 mb-3">Our Vision</h3>
               <p className="text-sm text-gray-500 leading-relaxed">To be a trusted leader in sustainable cleaning technology and eco-friendly specialty chemicals, enabling industries to achieve superior performance and responsible growth—the green way to growth.</p>
             </div>
             {/* Mission */}
             <div className="vision-bar relative bg-white border border-gray-100 rounded-2xl p-8 sm:p-10 hover:-translate-y-1 hover:shadow-card transition-all duration-300 reveal">
-              <div className="text-4xl mb-5 text-green">🎯</div>
+              <div className="w-14 h-14 bg-green-light rounded-2xl flex items-center justify-center text-green text-2xl mb-6 shadow-sm">
+                <i className="fas fa-bullseye"></i>
+              </div>
               <h3 className="text-xl font-extrabold text-gray-900 mb-3">Our Mission</h3>
               <p className="text-sm text-gray-500 leading-relaxed">To design and deliver innovative cleaning machines and environmentally responsible specialty chemicals that improve industrial efficiency, protect surfaces and components, reduce environmental impact, and create lasting value for customers and stakeholders.</p>
             </div>
@@ -125,7 +129,7 @@ export default function About() {
                   href={cat.link}
                   className="inline-flex items-center justify-center w-full bg-green text-white text-xs font-extrabold uppercase tracking-widest py-3.5 rounded-xl hover:bg-green-dark transition-all shadow-md shadow-green/20"
                 >
-                  View Products
+                  View More
                 </Link>
               </div>
             ))}

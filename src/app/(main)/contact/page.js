@@ -42,7 +42,7 @@ export default function Contact() {
                   How can we <span className="text-green-600">help you?</span>
                 </h2>
                 <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-8">
-                  Whether you&apos;re looking for a specific chemical formulation or need technical support for our cleaning systems, we&apos;re here to provide the expertise you need.
+                  Whether you&apos;re looking for a specific cleaning system, chemical formulation or need technical support, we&apos;re here to provide the expertise.
                 </p>
               </div>
 
@@ -53,7 +53,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">Our Location</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">24, Bypass Rd, Sungam, Paari Nagar,<br/>Coimbatore, Tamil Nadu 641045</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">24, Sungam Bypass Road,<br/>Paari Nagar,<br/>Coimbatore,<br/>Tamil Nadu - 641045</p>
                   </div>
                 </div>
 

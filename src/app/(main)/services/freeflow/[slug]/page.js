@@ -163,7 +163,81 @@ export default async function ServicePage({ params }) {
   </section>
 )}
 
-    
+      {/* How We Do It Section */}
+      <section className="py-16 sm:py-20 bg-white border-b border-brand-border">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div>
+            <div className="text-center mb-10">
+              <h2 className="text-3xl sm:text-4xl font-bold text-brand-black mb-3">
+                How <span className="text-green">We Do It</span>
+              </h2>
+            </div>
+
+            <div className="bg-brand-bg2 rounded-[2rem] border border-brand-border overflow-hidden">
+              <div className="flex flex-col lg:flex-row">
+                <div className="lg:w-96 h-64 lg:h-auto flex-shrink-0">
+                  <img 
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3-qykdqq-UvLJBnT4rPxUc6-uzwMM1lcFaA&s" 
+                    alt="How We Do It" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-8 lg:p-10 flex-1 flex flex-col justify-center">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-green-light rounded-xl flex items-center justify-center text-green text-xl mx-auto mb-3">
+                        <i className="fas fa-industry"></i>
+                      </div>
+                      <h4 className="font-bold text-brand-black text-sm mb-2">Machine</h4>
+                      <p className="text-xs text-brand-body leading-relaxed">Advanced precision equipment for consistent cleaning results.</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-green-light rounded-xl flex items-center justify-center text-green text-xl mx-auto mb-3">
+                        <i className="fas fa-flask"></i>
+                      </div>
+                      <h4 className="font-bold text-brand-black text-sm mb-2">Chemistry</h4>
+                      <p className="text-xs text-brand-body leading-relaxed">Eco-friendly bio-active agents for effective contaminant removal.</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-green-light rounded-xl flex items-center justify-center text-green text-xl mx-auto mb-3">
+                        <i className="fas fa-chart-line"></i>
+                      </div>
+                      <h4 className="font-bold text-brand-black text-sm mb-2">Output</h4>
+                      <p className="text-xs text-brand-body leading-relaxed">Zero-residue results with restored operational efficiency.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Background */}
+      <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green mb-4">
+              Customer background
+            </div>
+            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-6">
+              A tier-1 supplier to major global OEMs, this facility manufactures and cleans over 50,000 engine components per month across 12 continuous production lines.
+            </p>
+            <ul className="space-y-3">
+              {[
+                "High-volume solvent use requiring replacement every 72 hours",
+                "800 litres of hazardous waste generated weekly",
+                "VOC emissions approaching OSHA non-compliance thresholds"
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-gray-500">
+                  <i className="fas fa-circle text-green/40 text-[7px] mt-1.5 flex-shrink-0"></i>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* Industries We Serve Section */}
       <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
@@ -219,42 +293,7 @@ export default async function ServicePage({ params }) {
         </div>
       </section>
 
-      {/* How We Deliver Section */}
-      <section className="py-12 sm:py-16 bg-white overflow-hidden">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-green/5 rounded-[3rem] blur-3xl group-hover:bg-green/10 transition-all duration-500"></div>
-              <div className="relative rounded-2xl sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
-                <img 
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3-qykdqq-UvLJBnT4rPxUc6-uzwMM1lcFaA&s" 
-                  alt="Industrial Technology" 
-                  className="w-full h-64 sm:h-80 lg:h-[450px] object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div className="absolute top-1/2 -right-8 w-24 h-24 bg-green/10 rounded-full blur-2xl hidden lg:block"></div>
-            </div>
 
-            <div className="lg:pl-4">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-black mb-5 tracking-tight leading-tight">
-                How <span className="text-green">We Do It</span>
-              </h2>
-              <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-8 ">
-                Our approach integrates advanced chemical engineering with precision mechanical systems. We don't just provide a cleaning service; we deploy specialized technology designed to restore your infrastructure to peak operational efficiency. By utilizing eco-friendly, bio-active agents and automated delivery systems, we ensure zero-residue results while significantly reducing environmental impact and facility downtime.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/products"
-                  className="px-8 py-3 bg-green text-white font-bold rounded-xl hover:bg-green-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-green/30 flex items-center gap-3 group"
-                >
-                  View Product Details
-                  <i className="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Before & After Section */}
       {service.beforeAfter && (
