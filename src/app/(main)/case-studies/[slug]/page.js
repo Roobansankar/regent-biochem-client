@@ -420,36 +420,36 @@ export default function CaseStudyDetail() {
         </div>
       </section>
 
+      {/* ── Image + Customer Background (side-by-side, like about page) ── */}
+      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="rounded-3xl h-72 sm:h-96 border border-green-100 overflow-hidden shadow-card">
+            <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
+          </div>
+          <div>
+            <SectionLabel>Customer background</SectionLabel>
+            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-4">{study.customerBackground}</p>
+            <ul className="space-y-2">
+              {study.businessChallenges.slice(0, 3).map((item, i) => (
+                <ChallengeItem key={i}>{item}</ChallengeItem>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* ── Content ── */}
-      <section className="pt-6 pb-16">
+      <section className="pb-16">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16 items-start">
 
             {/* ── Left — main content ── */}
             <div className="lg:col-span-2 space-y-10">
 
-              {/* Image + Customer background (side-by-side) */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start">
-                <div className="aspect-[4/5] rounded-xl overflow-hidden shadow-lg border border-gray-100">
-                  <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <SectionLabel>Customer background</SectionLabel>
-                  <p className="text-sm text-brand-body leading-relaxed mb-3">{study.customerBackground}</p>
-                  <ul className="space-y-1.5">
-                    {study.businessChallenges.slice(0, 3).map((item, i) => (
-                      <ChallengeItem key={i}>{item}</ChallengeItem>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <Divider />
-
               {/* Business challenges */}
               <div>
                 <SectionLabel>Business challenges</SectionLabel>
-                <p className="text-sm text-brand-body leading-relaxed mb-3">
+                <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-3">
                   Recurring operational issues were impacting production quality and cost:
                 </p>
                 <ul className="space-y-1.5">
@@ -460,7 +460,7 @@ export default function CaseStudyDetail() {
 
                 {/* Pull quote */}
                 <blockquote className="mt-5 pl-4 border-l-[3px] border-green bg-gray-50 rounded-r-lg py-3 pr-4">
-                  <p className="text-sm text-brand-body italic leading-relaxed">{study.problem}</p>
+                  <p className="text-sm sm:text-base text-gray-500 italic leading-relaxed">{study.problem}</p>
                 </blockquote>
               </div>
 
@@ -486,7 +486,7 @@ export default function CaseStudyDetail() {
                       <div className="w-5 h-5 rounded-full bg-green/10 border border-green/30 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <i className="fas fa-check text-green text-[9px]" />
                       </div>
-                      <p className="text-sm text-brand-body leading-relaxed">{step}</p>
+                      <p className="text-sm sm:text-base text-gray-500 leading-relaxed">{step}</p>
                     </div>
                   ))}
                 </div>
@@ -497,7 +497,7 @@ export default function CaseStudyDetail() {
               {/* Outcome */}
               <div>
                 <SectionLabel>The outcome</SectionLabel>
-                <p className="text-sm text-brand-body leading-relaxed">{study.outcome}</p>
+                <p className="text-sm sm:text-base text-gray-500 leading-relaxed">{study.outcome}</p>
               </div>
             </div>
 
@@ -579,8 +579,8 @@ function Divider({ tight = false }) {
 
 function ChallengeItem({ children }) {
   return (
-    <li className="flex items-start gap-2 text-sm text-brand-body list-none">
-      <span className="text-green text-[10px] mt-1 flex-shrink-0">▸</span>
+    <li className="flex items-start gap-2 text-sm sm:text-base text-gray-500 list-none">
+      <span className="text-green text-[10px] mt-1.5 flex-shrink-0">▸</span>
       {children}
     </li>
   );
