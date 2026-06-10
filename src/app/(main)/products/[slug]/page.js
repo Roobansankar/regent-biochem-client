@@ -263,6 +263,22 @@ export default async function ProductDetailPage({ params }) {
                 </div>
               )}
 
+              {/* Model Variants */}
+              {product.availableModels && product.availableModels.length > 0 && (
+                <div>
+                  <div className="mb-4">
+                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-xs sm:text-sm font-bold text-green">Models</span>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    {product.availableModels.map((m, i) => (
+                      <span key={i} className="px-5 py-3 bg-brand-bg2 border border-brand-border rounded-xl text-sm font-bold text-brand-black hover:border-green hover:bg-green-light/20 transition-all">
+                        {m.model}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Full Description */}
               {product.fullDescription && (
                 <div>
@@ -293,7 +309,7 @@ export default async function ProductDetailPage({ params }) {
               {product.similarProducts && product.similarProducts.length > 0 && (
                 <div>
                   <div className="mb-4">
-                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Similar Solutions</p>
+                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Similar Products</p>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {product.similarProducts.map((ref, i) => {

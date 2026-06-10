@@ -3,31 +3,31 @@ export default function WorkflowProcess() {
     {
       num: "01",
       title: "Discovery & Diagnosis",
-      desc: "On-site assessment to understand your operations and identify pain points.",
+      desc: "Assess customer applications, operational challenges, and performance requirements.",
       icon: "fa-search",
     },
     {
       num: "02",
       title: "Solution & Proposal",
-      desc: "Engineers design a tailored solution with the right equipment, chemistry, and service model.",
+      desc: "Evaluate value proposition and recommend suitable solution for the usecase.",
       icon: "fa-file-alt",
     },
     {
       num: "03",
       title: "Order Execution & Delivery",
-      desc: "Precision execution with coordinated manufacturing, procurement, and logistics.",
+      desc: "Execute orders efficiently and ensure on-time delivery of the quality products.",
       icon: "fa-truck",
     },
     {
       num: "04",
       title: "Installation & Commissioning",
-      desc: "On-site installation, system integration, and commissioning for day-one productivity.",
+      desc: "Install, test, and validate system performance against expected outcomes.",
       icon: "fa-cogs",
     },
     {
       num: "05",
       title: "Product Lifecycle Support",
-      desc: "Preventive maintenance, fluid management, and ongoing technical support for long-term value.",
+      desc: "Provide continuous technical and service support to ensure long-term reliability.",
       icon: "fa-headset",
     },
   ];
@@ -37,9 +37,9 @@ export default function WorkflowProcess() {
       <div className="max-w-[1600px] mx-auto">
         {/* Header */}
         <div className="text-center mb-10 sm:mb-12">
-          <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">How We Work</p>
+          <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">How We Add Value</p>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-black">
-            Our Workflow <span className="text-green">Process</span>
+            From Insight to <span className="text-green">Impact</span>
           </h2>
         </div>
 
@@ -55,7 +55,8 @@ export default function WorkflowProcess() {
                   <i className={`fas ${step.icon} text-white text-sm`}></i>
                 </div>
                 <div className="text-xs sm:text-sm font-black text-green/40 mb-1">{step.num}</div>
-                <h3 className="text-sm font-normal text-brand-black leading-snug tracking-tight">{step.title}</h3>
+                <h3 className="text-sm font-bold text-brand-black leading-snug tracking-tight mb-2">{step.title}</h3>
+                <p className="text-xs text-brand-body leading-relaxed flex-1">{step.desc}</p>
               </div>
             </div>
           ))}

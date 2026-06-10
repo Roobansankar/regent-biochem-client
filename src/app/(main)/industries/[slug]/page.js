@@ -89,7 +89,7 @@ export default async function IndustryPage({ params }) {
               <div className="mb-12">
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-10 h-px bg-green/30"></span>
-                  <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">The Challenges</span>
+                  <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Where We Add Value</span>
               </div>
               <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-brand-black mb-6 tracking-tight">Operational Challenges</h2>
 
@@ -123,9 +123,9 @@ export default async function IndustryPage({ params }) {
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-10 h-px bg-green/30"></span>
-                 <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Technical Response</span>
+                 <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Process Excellence</span>
               </div>
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-brand-black mb-6 tracking-tight">Applications</h2>
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-brand-black mb-6 tracking-tight">Key Areas of Impact</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {industry.applications.map((app, index) => {
@@ -155,16 +155,16 @@ export default async function IndustryPage({ params }) {
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
               <span className="w-10 h-px bg-green/30"></span>
-              <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Workflow</span>
+              <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">How We Add Value</span>
             </div>
-            <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-brand-black mb-6 tracking-tight">Our Workflow Process</h2>
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-brand-black mb-6 tracking-tight">From Insight to Impact</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {[
-                { num: "01", title: "Discovery & Diagnosis", icon: "fa-search" },
-                { num: "02", title: "Solutioning & Proposal", icon: "fa-file-alt" },
-                { num: "03", title: "Order Execution & Delivery", icon: "fa-truck" },
-                { num: "04", title: "Installation & Commissioning", icon: "fa-cogs" },
-                { num: "05", title: "Product Lifecycle Support", icon: "fa-headset" }
+                { num: "01", title: "Discovery & Diagnosis", icon: "fa-search", desc: "Assess customer applications, operational challenges, and performance requirements." },
+                { num: "02", title: "Solutioning & Proposal", icon: "fa-file-alt", desc: "Evaluate value proposition and recommend suitable solution for the usecase." },
+                { num: "03", title: "Order Execution & Delivery", icon: "fa-truck", desc: "Execute orders efficiently and ensure on-time delivery of the quality products." },
+                { num: "04", title: "Installation & Commissioning", icon: "fa-cogs", desc: "Install, test, and validate system performance against expected outcomes." },
+                { num: "05", title: "Product Lifecycle Support", icon: "fa-headset", desc: "Provide continuous technical and service support to ensure long-term reliability." }
               ].map((step, i, arr) => (
                 <div key={i} className="relative group">
                   {i < arr.length - 1 && (
@@ -175,7 +175,8 @@ export default async function IndustryPage({ params }) {
                       <i className={`fas ${step.icon} text-white text-sm`}></i>
                     </div>
                     <div className="text-xs sm:text-sm font-black text-green/40 mb-1">{step.num}</div>
-                    <h3 className="text-sm font-medium text-brand-black leading-snug tracking-tight">{step.title}</h3>
+                    <h3 className="text-sm font-bold text-brand-black leading-snug tracking-tight mb-2">{step.title}</h3>
+                    <p className="text-xs text-brand-body leading-relaxed flex-1">{step.desc}</p>
                   </div>
                 </div>
               ))}

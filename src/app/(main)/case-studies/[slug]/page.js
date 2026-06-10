@@ -24,7 +24,7 @@ const caseStudies = [
       "Decreased maintenance downtime by 60%",
       "Extended cutting bed service life"
     ],
-    image: "https://www.eieprocess.se/media/jdnlnbhi/eie-process_detaljtvattar_bio-circle.jpg?width=1140&height=640&format=webp&quality=80&v=1db72f771808be0",
+    image: "/e-weld.webp",
     challenge: "The fabrication facility was experiencing excessive slag buildup on cutting beds, requiring frequent manual chiseling and grinding to remove accumulated deposits. This caused up to 6 hours of downtime per shift, reduced cutting precision due to uneven bed surfaces, and increased operational costs from premature bed replacement.",
     customerBackground: "A leading manufacturer of railway infrastructure and track maintenance equipment. The facility supports fabrication and assembly operations for heavy engineering equipment used in rail infrastructure projects.",
     businessChallenges: [

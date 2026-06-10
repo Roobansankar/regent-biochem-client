@@ -5,22 +5,31 @@ import ScrollReveal from '@/components/ScrollReveal';
 export default function CareersPage() {
   const jobRoles = [
     {
-      title: "Field Service Technician",
-      department: "Technical Services",
-      location: "Pan India",
-      type: "Full-time",
-      experience: "1-3 Years",
-      description: "Responsible for maintenance and servicing of Bio-Washer and GT Parts Washer systems at client sites.",
-      fullDescription: "We are seeking a skilled Field Service Technician to join our Technical Services team. In this role, you will be responsible for the installation, maintenance, troubleshooting, and servicing of Bio-Washer and GT Parts Washer systems at various client sites across India. You will work directly with clients to ensure optimal performance of our equipment, provide training to operators, and report technical feedback to our engineering team. This role requires extensive travel and hands-on technical expertise."
+      title: "Machines Vertical Manager",
+      department: "Quality & Operations",
+      location: "Coimbatore",
+      type: "Full-Time",
+      experience: "3+ Years",
+      description: "Drive quality excellence and operational efficiency across manufacturing and machine-related operations.",
+      fullDescription: "Drive quality excellence and operational efficiency across manufacturing and machine-related operations. This role focuses on maintaining product quality standards, improving process performance, and leading continuous improvement initiatives. The candidate will collaborate with production teams, suppliers, and internal stakeholders to enhance reliability, reduce defects, and support business growth.\n\nKey Responsibilities\n\nLead quality assurance, root cause analysis, and process improvement initiatives to ensure consistent product performance.\nCollaborate with cross-functional teams and suppliers to strengthen operational efficiency and quality standards.\n\nQualification\nBachelor's Degree in Engineering, Metallurgy, Quality Management (Master's preferred)\n\nExperience Required\nMinimum 3+ Years in quality management within the foundry/manufacturing industry\n\nKey Skills Required\n• Quality Management\n• Process Improvement\n• Root Cause Analysis\n• Supplier Quality Management\n• Data Analysis & Reporting\n• Leadership & Cross-Functional Collaboration"
     },
     {
-      title: "Technical Intern",
-      department: "Engineering",
-      location: "Headquarters",
-      type: "Internship",
-      experience: "Fresher",
-      description: "Support our engineering team in testing and documenting new chemical formulations and equipment performance.",
-      fullDescription: "As a Technical Intern, you will work closely with our engineering team to support the development and testing of new chemical formulations and equipment. Your responsibilities will include assisting with laboratory experiments, documenting test results, preparing technical reports, and helping maintain quality standards. This internship offers hands-on exposure to industrial cleaning technologies and specialty chemical development in a real-world manufacturing environment."
+      title: "Application Engineer",
+      department: "Sales & Business Development",
+      location: "Coimbatore",
+      type: "Full-Time",
+      experience: "0-8 Years",
+      description: "Drive business growth by promoting industrial cleaning machine solutions across diverse industries.",
+      fullDescription: "Drive business growth by promoting industrial cleaning machine solutions across diverse industries. This role involves understanding customer requirements, recommending suitable solutions, conducting demonstrations, and managing the complete sales cycle. The ideal candidate will build strong customer relationships while identifying new business opportunities and delivering value-driven solutions.\n\nKey Responsibilities\n\nGenerate new business opportunities through customer engagement, product demonstrations, and consultative selling.\nManage the sales pipeline from lead generation and proposal development to negotiation and order closure.\n\nQualification\nDiploma / BE / B.Tech in Mechanical, Mechatronics, Electrical, Instrumentation. Any graduate with strong industrial technical sales exposure may also be considered.\n\nExperience Required\nPreferred: 0-8 Years in industrial machinery, technical products, maintenance equipment, pumps, compressors, or industrial chemicals sales.\n\nKey Skills Required\n• Technical Sales\n• Business Development\n• Customer Relationship Management\n• Product Demonstration & Solution Selling\n• Negotiation & Communication\n• Sales Pipeline Management"
+    },
+    {
+      title: "Field Service Technician",
+      department: "Service & Support",
+      location: "Coimbatore",
+      type: "Full-Time",
+      experience: "1-3 Years",
+      description: "Provide technical expertise through the installation, commissioning, maintenance, and servicing of industrial cleaning systems at customer locations.",
+      fullDescription: "Provide technical expertise through the installation, commissioning, maintenance, and servicing of industrial cleaning systems at customer locations. This role is focused on ensuring reliable equipment performance, minimizing downtime, and delivering responsive technical support. The candidate will work closely with customers to maintain operational efficiency and service excellence.\n\nKey Responsibilities\n\nPerform installation, preventive maintenance, troubleshooting, and servicing of industrial cleaning equipment.\nDeliver on-site technical support and ensure optimal machine performance through timely issue resolution and customer assistance.\n\nQualification\nDiploma / BE in Mechanical, Mechatronics, Electrical, Instrumentation, or related field.\n\nExperience Required\n1–3 Years\n\nKey Skills Required\n• Equipment Installation & Maintenance\n• Troubleshooting & Technical Support\n• Field Service Operations\n• Customer Service\n• Problem Solving\n• Service Documentation"
     }
   ];
 
@@ -195,23 +204,26 @@ export default function CareersPage() {
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedJob(null)}></div>
           <div className="relative bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl">
-            <div className="flex items-center justify-between p-6 pb-4 border-b border-brand-border">
-              <div>
-                <h3 className="text-xl font-bold text-brand-black">{selectedJob.title}</h3>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-brand-muted mt-1">
-                  <span><i className="fas fa-briefcase text-green mr-1"></i> {selectedJob.department}</span>
-                  <span><i className="fas fa-map-marker-alt text-green mr-1"></i> {selectedJob.location}</span>
-                  <span><i className="fas fa-history text-green mr-1"></i> Exp: {selectedJob.experience}</span>
-                </div>
+            <div className="p-6 pb-4 border-b border-brand-border">
+              <h3 className="text-xl font-bold text-brand-black">{selectedJob.title}</h3>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-brand-muted mt-1">
+                <span><i className="fas fa-briefcase text-green mr-1"></i> {selectedJob.department}</span>
+                <span><i className="fas fa-map-marker-alt text-green mr-1"></i> {selectedJob.location}</span>
+                <span><i className="fas fa-history text-green mr-1"></i> Exp: {selectedJob.experience}</span>
               </div>
-              <button onClick={() => setSelectedJob(null)} className="w-8 h-8 rounded-lg bg-brand-bg2 flex items-center justify-center text-brand-muted hover:text-brand-black hover:bg-brand-border transition-all flex-shrink-0">
-                <i className="fas fa-times"></i>
-              </button>
             </div>
             <div className="p-6 overflow-y-auto flex-1">
-              <p className="text-brand-body text-sm leading-relaxed">
-                {selectedJob.fullDescription}
-              </p>
+              <div className="text-sm leading-relaxed">
+                {selectedJob.fullDescription.split('\n').map((line, i) => {
+                  const headings = ["Key Responsibilities", "Qualification", "Experience Required", "Key Skills Required"];
+                  const isHeading = headings.some(h => line.trim() === h);
+                  return isHeading ? (
+                    <p key={i} className="font-bold text-brand-black mt-4">{line}</p>
+                  ) : (
+                    <p key={i} className="text-brand-body">{line}</p>
+                  );
+                })}
+              </div>
             </div>
             <div className="p-6 pt-4 border-t border-brand-border">
               <button className="w-full px-8 py-3 bg-green text-white font-bold rounded-xl hover:bg-green-dark transition-colors shadow-lg shadow-green/30">

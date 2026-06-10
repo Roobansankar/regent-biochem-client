@@ -19,7 +19,7 @@ const caseStudies = [
       "Decreased maintenance downtime by 60%",
       "Extended cutting bed service life"
     ],
-    image: "https://www.eieprocess.se/media/jdnlnbhi/eie-process_detaljtvattar_bio-circle.jpg?width=1140&height=640&format=webp&quality=80&v=1db72f771808be0"
+    image: "/e-weld.webp"
   },
   {
     slug: "aerospace-precision-cleaning",
