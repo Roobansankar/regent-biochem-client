@@ -213,32 +213,6 @@ export default async function ServicePage({ params }) {
         </div>
       </section>
 
-      {/* Customer Background */}
-      <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[2.5px] uppercase text-green mb-4">
-              Customer background
-            </div>
-            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-6">
-              A tier-1 supplier to major global OEMs, this facility manufactures and cleans over 50,000 engine components per month across 12 continuous production lines.
-            </p>
-            <ul className="space-y-3">
-              {[
-                "High-volume solvent use requiring replacement every 72 hours",
-                "800 litres of hazardous waste generated weekly",
-                "VOC emissions approaching OSHA non-compliance thresholds"
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-gray-500">
-                  <i className="fas fa-circle text-green/40 text-[7px] mt-1.5 flex-shrink-0"></i>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
       {/* Industries We Serve Section */}
       <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">

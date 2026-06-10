@@ -431,7 +431,6 @@ export default function CaseStudyDetail() {
         </div>
       </section>
 
-      <CTA />
     </main>
   );
 }

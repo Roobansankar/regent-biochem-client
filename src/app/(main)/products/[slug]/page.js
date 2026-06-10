@@ -428,7 +428,7 @@ export default async function ProductDetailPage({ params }) {
                       <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-light to-white flex items-center justify-center shrink-0 border border-green/20">
                         <i className="fas fa-link text-green text-sm"></i>
                       </div>
-                      <p className="text-sm font-bold text-brand-black">{product.recommendedWith}</p>
+                      <p className="text-sm font-bold text-brand-black whitespace-pre-line">{product.recommendedWith}</p>
                     </div>
                   </div>
                 )}

@@ -86,7 +86,12 @@ export default function CategoryTabs({ products, category }) {
                     Available Pack Sizes
                   </p>
                   <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
-                    {[
+                    {(active.id === "uno-s" ? [
+                      { name: "Box-10", img: "Box" },
+                      { name: "Jerry Can-100", img: "JC100" },
+                      { name: "Jerry Can-30", img: "JC30" },
+                      { name: "Jerry Can-50", img: "JC50" },
+                    ] : [
                       {
                         name: `${active.title} - PET (recycled) bottle 500ml with sprayer`,
                         img: "500ml",
@@ -98,7 +103,7 @@ export default function CategoryTabs({ products, category }) {
                       { name: `${active.title} - Jerry Can 1L`, img: "JC1L" },
                       { name: `${active.title} - Jerry Can 5L`, img: "JC5L" },
                       { name: `${active.title} - Jerry Can 25L`, img: "JC25L" },
-                    ].map((item, i) => (
+                    ]).map((item, i) => (
                       <div
                         key={i}
                         className="flex items-center gap-3 border border-brand-border rounded-xl p-3 bg-white hover:border-green/30 transition-all shadow-sm"
@@ -119,10 +124,16 @@ export default function CategoryTabs({ products, category }) {
                 </div>
               )}
 
-              {/* Labels */}
-              {active.labels && active.labels.length > 0 && (
-                <div className="flex flex-wrap items-center gap-2 mb-6">
-                  {active.labels.map((label, i) => {
+              {/* Labels / Nature BOOST Badge */}
+              <div className="flex flex-wrap items-center gap-2 mb-6">
+                {active.id === "cb-100" ? (
+                  <>
+                    <img src="/nature-boost.webp" alt="Nature BOOST" className="h-16 sm:h-20 w-auto object-contain rounded-lg" />
+                    <img src="https://c8.alamy.com/comp/2JBE5TW/voc-free-volatile-organic-compounds-free-abstract-vector-stock-illustration-2JBE5TW.jpg" alt="VOC Free" className="h-8 sm:h-10 w-auto object-contain rounded-lg border border-brand-border bg-white" />
+                    <img src="/Clean-Blue.webp" alt="Clean Blue" className="h-16 sm:h-20 w-auto object-contain rounded-lg" />
+                  </>
+                ) : (
+                  active.labels && active.labels.length > 0 && active.labels.map((label, i) => {
                     const isVocFree = label.toLowerCase() === "voc free" || label.toLowerCase() === "voc-free";
                     if (isVocFree) {
                       return (
@@ -134,9 +145,9 @@ export default function CategoryTabs({ products, category }) {
                         {label}
                       </span>
                     );
-                  })}
-                </div>
-              )}
+                  })
+                )}
+              </div>
             </div>
           </div>
         </section>
@@ -216,6 +227,31 @@ export default function CategoryTabs({ products, category }) {
                     <Link href={`/products/${active.recommendedCleaner.slug}`} className="text-sm font-bold text-green hover:underline">
                       View Product →
                     </Link>
+                  </div>
+                </div>
+              )}
+
+              {active.recommendedWith && (
+                <div className="p-6 sm:p-8 rounded-[2rem] bg-white border border-brand-border shadow-sm">
+                  <div className="flex items-center gap-2 mb-6">
+                    <i className="fas fa-link text-green text-xs"></i>
+                    <span className="text-xs sm:text-sm font-bold text-green uppercase tracking-wider">Recommended With</span>
+                  </div>
+                  <div className="space-y-4">
+                    {active.recommendedWith.split("\n").map((item, i) => (
+                      <div key={i} className="flex items-center gap-4">
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-green-light to-white flex items-center justify-center shrink-0 border border-green/20">
+                          <i className="fas fa-flask text-green text-lg"></i>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h5 className="text-sm font-bold text-brand-black">{item.replace("• ", "")}</h5>
+                          <p className="text-xs text-brand-body leading-relaxed mt-0.5">Industrial cleaner for heavy-duty applications</p>
+                        </div>
+                        <Link href={`/products/${item.replace("• ", "").toLowerCase().replace(/\s+/g, "-")}`} className="text-xs font-bold text-green hover:underline shrink-0">
+                          View More →
+                        </Link>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}

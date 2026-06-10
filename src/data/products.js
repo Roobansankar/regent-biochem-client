@@ -183,7 +183,7 @@
     icon: "fa-broom",
     slug: "general-cleaners",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiTCc3F7n8z0csoEBwAiXn7vYD_RbE9rYm9g&s",
-    products: ["cb-100", "uno-s", "biochem-power-star-l", "biochem-bio-neutral-cleaner", "biochem-bio-circle-l", "biochem-power-cleaner-db"],
+    products: ["uno-s", "cb-100", "alu-star-extra", "biochem-power-star-l"],
   },
   {
     id: "bio-circle-cleaners",
@@ -193,7 +193,7 @@
     extraDesc: "These bio-active formulations harness the power of beneficial microorganisms to continuously break down oils and hydrocarbons during the cleaning process. The result is a self-regenerating cleaning bath that extends fluid life, reduces waste, and lowers operational costs — all while maintaining exceptional cleaning performance.",
     icon: "fa-recycle",
     slug: "bio-circle-cleaners",
-    products: ["biochem-bio-circle-l"],
+    products: ["biochem-bio-neutral-cleaner", "biochem-bio-circle-l"],
   },
   {
     id: "acidic-cleaners",
@@ -203,7 +203,7 @@
     extraDesc: "Engineered for heavy-duty descaling and de-rusting applications, our acidic cleaners penetrate and dissolve stubborn inorganic deposits including limescale, rust, and mineral buildup. Ideal for heat exchangers, cooling systems, and metal components requiring deep restoration.",
     icon: "fa-vial",
     slug: "acidic-cleaners",
-    products: [],
+    products: ["biochem-power-cleaner-db"],
   },
   {
     id: "finishers",
@@ -213,7 +213,7 @@
     extraDesc: "Our finishers deliver the final touch to your cleaning process, providing surface brightening, passivation, and temporary corrosion protection. These advanced formulations ensure components emerge with a pristine, presentation-ready finish that meets the highest quality standards.",
     icon: "fa-shining",
     slug: "finishers",
-    products: [],
+    products: ["rapid-clean-200", "ft-100", "ft-300"],
   },
   {
     id: "anti-spatters",
@@ -223,7 +223,7 @@
     extraDesc: "Our anti-spatter formulations create a protective barrier on workpiece surfaces and MIG/TIG nozzles, preventing weld spatter from adhering. This extends consumable life, reduces post-weld cleanup time, and maintains consistent weld quality across production runs.",
     icon: "fa-fire-extinguisher",
     slug: "anti-spatters",
-    products: ["safeweld-system"],
+    products: ["fun-at-weld", "safeweld-l", "safeweld-ultra"],
   },
   {
     id: "weld-cleaners",
@@ -233,7 +233,7 @@
     extraDesc: "Specially formulated to remove heat discoloration, oxidation layers, and welding residues from stainless steel and other alloys. Our weld cleaners restore the original surface finish and prepare welds for passivation or further processing without mechanical abrasion.",
     icon: "fa-sparkles",
     slug: "weld-cleaners",
-    products: [],
+    products: ["surfox"],
   },
   {
     id: "surface-protectors",
@@ -243,7 +243,7 @@
     extraDesc: "Our surface protectors provide a durable, temporary barrier against corrosion, moisture, and mechanical damage during storage, transport, and inter-process handling. Available in film-forming and oil-based variants for different protection requirements and removal preferences.",
     icon: "fa-shield-virus",
     slug: "surface-protectors",
-    products: [],
+    products: ["e-weld-shield"],
   },
   {
     id: "cb-100",
@@ -289,7 +289,7 @@
         All packaging is recyclable. Larger bulk quantities and custom filling options are available on request.
       </p>
     `,
-    labels: ["VOC Free", "Bio-Based", "Clean Blue"],
+    labels: ["VOC Free", "Nature BOOST", "Clean Blue"],
     faq: [
       { q: "Is CB 100 safe for non-ferrous metals?", a: "Yes, CB 100 is safe for cleaning stainless steel, steel, and non-ferrous metals without causing surface damage." },
       { q: "Can I use CB 100 in a parts washer?", a: "Absolutely. It is designed for both manual use and integration into conventional parts washers or Clean Box systems." },
@@ -366,18 +366,15 @@
     id: "uno-s",
     category: "Industrial Cleaner",
     title: "UNO S",
-    subtitle: "Solvent-Free Industrial Cleaner",
-    desc: "Powerful solvent-free cleaner for precision machined components and assembly areas. Effective on ferrous and non-ferrous metals.",
-    whyChoose: "Solvent-Free Power: Delivers superior cleaning without the risks of harsh solvents.\nHigh Compatibility: Safe for use on stainless steel, aluminum, and sensitive non-ferrous metals.\nVersatile Efficiency: Low-foaming formula suitable for both manual and machine cleaning applications.",
-    isThisRightFor: "• You need a solvent-free cleaning solution for assembly areas\n• You are cleaning precision machined components made of aluminum or stainless steel\n• You want to reduce VOC emissions in your facility\n• You need a low-foaming cleaner for machine parts washing\n• You require a safe, bio-based industrial cleaner",
-    application: "• Cleaning precision assembly components and machined parts\n• Degreasing aluminum and sensitive alloy surfaces\n• Maintenance cleaning in electronics and precision engineering\n• Use in low-pressure parts washers and manual cleaning stations\n• Surface preparation before assembly or testing",
+    subtitle: "Low-Foaming Cleaner & Degreaser",
+    desc: "UNO “S” is a water-based, phosphate-free alkaline cleaner designed for effective removal of oils, greases, dirt, carbon stains, and general industrial residues. Its low-foaming nature makes it suitable for both manual cleaning and machine-based cleaning systems.",
+    whyChoose: "Massive Dilution Savings: Highly concentrated and ultra-economical, it can be diluted with water up to 1:20 while maintaining its heavy-duty stripping power, drastically lowering your chemical consumption.\nLow-Foaming Versatility: Its specialized low-foaming formula means you can use it anywhere—whether your team is manually scrubbing parts or running high-pressure automated washing machinery.",
+    isThisRightFor: "• Removes oil, grease, dirt, and carbon stains\n• Works in manual and machine cleaning systems\n• Suitable for metals, ceramics, floors, and coated surfaces\n• Water-dilutable for economical daily use\n• Low-foaming and biodegradable formula\n• Ideal for workshop and industrial degreasing",
+    application: "• Manual parts cleaning\n• Automatic parts washers\n• Jet cleaning machines\n• Floor cleaning machines\n• Degreasing of industrial components\n• Cleaning of mild steel and ferrous metal parts",
     features: [
-      "Solvent-free formulation",
-      "Compatible with stainless steel and aluminum",
-      "Efficient on light to medium soiling",
-      "Low foam profile",
-      "Safe for precision assembly areas",
-      "Environmentally responsible formula"
+      "Removes the heaviest soiling such as burnt-on grease, oil, smoke, soot, rubber residues, bitumen and wax residues as well as pastes",
+      "Cleans stainless steel, steel and non-ferrous metals",
+      "Long service life thanks to recyclable and demulsifying properties"
     ],
     technicalSpecs: [
       { label: "Product Type", value: "Solvent-Free Cleaner" },
@@ -387,27 +384,71 @@
       { label: "Use Modes", value: "Manual & Machine Use" }
     ],
     similarProducts: ["cb-100", "biochem-power-star-l", "biochem-bio-neutral-cleaner"],
-    packaging: `
-      <p class="text-lg text-brand-body leading-relaxed mb-6">
-        UNO S is supplied in a range of packaging formats for flexible use across industrial settings:
-      </p>
-      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
-        <li><strong class="text-green">500 ml Spray Can</strong> — Quick and easy application for precision cleaning tasks.</li>
-        <li><strong class="text-green">1 Litre Bottle</strong> — Standard format for manual cleaning stations.</li>
-        <li><strong class="text-green">5 Litre Canister</strong> — Economical choice for medium-volume usage.</li>
-        <li><strong class="text-green">20 Litre Drum</strong> — For high-consumption cleaning operations.</li>
-        <li><strong class="text-green">200 Litre Barrel</strong> — Bulk supply for automated cleaning systems.</li>
-      </ul>
-    `,
+    recommendedWith: "• AluSTAR Extra\n• PowerSTAR L\n• CB 100",
     labels: ["VOC Free", "Bio-Based"],
     faq: [
-      { q: "Is UNO S safe for aluminum components?", a: "Yes, UNO S is specifically formulated to be safe on sensitive surfaces like aluminum and non-ferrous metals." },
-      { q: "Does UNO S contain any VOCs?", a: "No, UNO S is a VOC-free formulation, making it safer for operators and the environment." },
-      { q: "What is the foam profile of UNO S?", a: "UNO S has a low-foaming profile, which makes it suitable for both manual application and machine use." },
+      { q: "Can I test the cleaning agent?", a: "Yes, we offer the opportunity to test all of our cleaning agents. Contact us and our sales representative will get in touch with you to arrange an on-site demonstration." },
+      { q: "Are the cleaning agents environmentally friendly?", a: "Our cleaning agents are based on innovative technologies and often contain biological active ingredients. They are environmentally friendly and sustainably developed to minimize environmental impact." },
+      { q: "Which surfaces can be treated with the cleaning agent?", a: "Our cleaning agents are suitable for various surfaces such as metal, plastic, glass, and rubber. You can find the exact suitability in the product specifications." },
+      { q: "Are the cleaning agents suitable for use in food areas?", a: "Some of our cleaning agents are certified for use in food-related areas. Please check the respective product information or contact us for detailed advice." },
+      { q: "How is the cleaning agent used?", a: "The application depends on the product. Detailed instructions on use and dilution can be found in the respective safety data sheets and product descriptions." },
+      { q: "Are the cleaning agents safe to use?", a: "Yes, all our cleaning agents are safe to use if the instructions on the label and in the safety data sheet are followed. If you have any questions about handling, please do not hesitate to contact us." },
+      { q: "What should I do if I am unsure which cleaning agent is the right one?", a: "Contact our team of experts, who will help you select the right product for your specific requirements." },
+      { q: "Are the cleaning agents biodegradable?", a: "Many of our cleaning agents are biodegradable and meet high environmental standards. More detailed information can be found in the product data sheets." },
+      { q: "Are there any special requirements for storing the cleaning agents?", a: "Yes, cleaning agents should be stored per the instructions on the safety data sheet, usually in a cool, dry place, away from direct sunlight and out of reach of children." },
+      { q: "Can the cleaning agents also be used in automated cleaning systems?", a: "Yes, many of our cleaning agents are compatible with automated cleaning systems such as parts washing machines. We will be happy to advise you on selecting the right product." },
+      { q: "What is the shelf life of the cleaning agents?", a: "The shelf life of our cleaning agents varies, but is usually 12–24 months, depending on the product and storage conditions." },
+      { q: "Are the cleaning agents also available in larger containers?", a: "Yes, our cleaning agents are available in various container sizes, from handy bottles to drums for industrial use." },
     ],
     icon: "fa-flask",
     img: "/uno-s.jpg",
     slug: "uno-s",
+  },
+  {
+    id: "alu-star-extra",
+    category: "Industrial Cleaner",
+    title: "Alu Star Extra",
+    subtitle: "Aluminium-Specific Industrial Cleaner",
+    desc: "Specially formulated cleaner for aluminium and non-ferrous metal surfaces, delivering effective degreasing without surface damage.",
+    whyChoose: "Aluminium Safe: Formulated specifically for aluminium surfaces to prevent etching or discolouration.\nSuperior Cleaning: Effectively removes oils, greases, and machining residues from non-ferrous metals.\nEco-Friendly: VOC-free and bio-based formulation for safer workplace operations.",
+    isThisRightFor: "• You clean aluminium or non-ferrous metal components\n• You need a cleaner that won't etch or discolour sensitive surfaces\n• You require a VOC-free cleaning solution\n• You want a bio-based alternative to harsh chemical cleaners",
+    application: "• Cleaning aluminium machined parts and assemblies\n• Degreasing non-ferrous metal surfaces\n• Surface preparation before coating or assembly\n• Maintenance cleaning in aluminium fabrication shops\n• Use in manual and machine cleaning applications",
+    features: [
+      "Safe for aluminium and non-ferrous metals",
+      "VOC-free and bio-based",
+      "Effective on light to medium soiling",
+      "Low-foaming for machine use",
+      "Residue-free cleaning"
+    ],
+    technicalSpecs: [
+      { label: "Product Type", value: "Aluminium Cleaner" },
+      { label: "VOC Content", value: "VOC-Free" },
+      { label: "Base Materials", value: "Bio-Based" },
+      { label: "Foam Profile", value: "Low-Foaming" },
+      { label: "Metal Compatibility", value: "Aluminium, Non-Ferrous Metals" },
+      { label: "Use Modes", value: "Manual & Machine Use" }
+    ],
+    similarProducts: ["cb-100", "uno-s", "biochem-power-star-l"],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        Alu Star Extra is available in the following packaging sizes:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">500 ml Spray Can</strong> — Convenient for targeted spot cleaning.</li>
+        <li><strong class="text-green">1 Litre Bottle</strong> — Standard format for manual cleaning stations.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — Economical for medium-volume usage.</li>
+        <li><strong class="text-green">20 Litre Drum</strong> — For high-consumption operations.</li>
+        <li><strong class="text-green">200 Litre Barrel</strong> — Bulk supply for automated systems.</li>
+      </ul>
+    `,
+    labels: ["VOC Free", "Bio-Based", "Aluminium Safe"],
+    faq: [
+      { q: "Is Alu Star Extra safe for all aluminium alloys?", a: "Yes, Alu Star Extra is formulated to be safe on all common aluminium alloys without causing etching or discolouration." },
+      { q: "Can Alu Star Extra be used in parts washers?", a: "Yes, its low-foaming profile makes it suitable for both manual use and machine cleaning applications." },
+      { q: "Is Alu Star Extra environmentally friendly?", a: "Yes, it is VOC-free and bio-based, offering a safer alternative to traditional solvent-based cleaners." },
+    ],
+    icon: "fa-flask",
+    slug: "alu-star-extra",
   },
   {
     id: "biochem-power-star-l",
@@ -460,7 +501,7 @@
   {
     id: "biochem-bio-neutral-cleaner",
     category: "Industrial Cleaner",
-    title: "Biochem Bio Neutral Cleaner",
+    title: "Products Bio Neutral Cleaner",
     subtitle: "pH-Neutral Universal Cleaner",
     desc: "Versatile pH-neutral cleaner for sensitive surfaces and general maintenance. Safe on all common industrial metals and coatings.",
     fullDescription: `
@@ -507,7 +548,7 @@
   {
     id: "biochem-bio-circle-l",
     category: "Industrial Cleaner",
-    title: "Biochem Bio Circle L Liquid",
+    title: "Products Bio Circle L Liquid",
     subtitle: "Circular Economy Cleaning Concentrate",
     desc: "Sustainably-formulated liquid cleaner designed for maximum reusability and minimal waste in industrial cleaning cycles.",
     fullDescription: `
@@ -554,7 +595,7 @@
   {
     id: "biochem-power-cleaner-db",
     category: "Industrial Cleaner",
-    title: "Biochem Power Cleaner DB",
+    title: "Products Power Cleaner DB",
     subtitle: "Dual-Action Degreaser & Brightener",
     desc: "Advanced dual-function cleaner that removes heavy soils while brightening and restoring metal finishes in a single step.",
     fullDescription: `
@@ -597,5 +638,334 @@
     icon: "fa-flask",
     img: "/biochem-power-cleaner-db.jpg",
     slug: "biochem-power-cleaner-db",
+  },
+  {
+    id: "rapid-clean-200",
+    category: "Industrial Cleaner",
+    title: "Products Rapid Clean 200",
+    subtitle: "Fast-Acting Industrial Cleaner",
+    desc: "High-performance rapid cleaning solution designed for quick turnaround finishing operations.",
+    whyChoose: "Fast Acting: Rapidly removes light soils and residues for quick finishing.\nSurface Safe: Gentle on finished surfaces while providing effective cleaning.\nReady to Use: No dilution required for most applications.",
+    isThisRightFor: "• You need quick cleaning between finishing steps\n• You work with sensitive finished surfaces\n• You want a ready-to-use rapid cleaning solution",
+    application: "• Final cleaning before surface finishing\n• Quick parts touch-up between operations\n• Surface preparation for inspection\n• Manual wipe-down cleaning stations",
+    features: [
+      "Fast-acting formula",
+      "Safe on finished surfaces",
+      "Ready-to-use",
+      "Residue-free finish",
+      "Pleasant working environment"
+    ],
+    technicalSpecs: [
+      { label: "Product Type", value: "Rapid Cleaner" },
+      { label: "VOC Content", value: "Low VOC" },
+      { label: "Application", value: "Manual & Wipe-Down" },
+      { label: "Surface Safe", value: "All Finished Surfaces" },
+      { label: "Use Modes", value: "Manual Application" }
+    ],
+    similarProducts: ["ft-100", "ft-300"],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        Products Rapid Clean 200 is available in the following sizes:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">500 ml Spray</strong> — Convenient for targeted cleaning.</li>
+        <li><strong class="text-green">1 Litre Bottle</strong> — Standard manual use format.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — For medium-volume usage.</li>
+      </ul>
+    `,
+    labels: ["Fast Acting", "Low VOC"],
+    faq: [
+      { q: "Can Rapid Clean 200 be used on painted surfaces?", a: "Yes, it is safe for use on most painted and coated surfaces. Always test on an inconspicuous area first." },
+      { q: "Does it leave residue?", a: "No, Products Rapid Clean 200 is formulated to leave a residue-free finish." },
+    ],
+    icon: "fa-spray-can",
+    slug: "rapid-clean-200",
+  },
+  {
+    id: "ft-100",
+    category: "Industrial Cleaner",
+    title: "Products FT 100",
+    subtitle: "Surface Finishing Treatment",
+    desc: "Specialised finishing treatment for achieving professional-grade surface quality on metal components.",
+    whyChoose: "Professional Finish: Delivers consistent, high-quality surface results.\nEasy Application: Simple to use in manual or automated processes.\nCost Effective: Concentrated formula for maximum value.",
+    isThisRightFor: "• You need consistent surface finishing results\n• You work with metal components requiring high-quality finish\n• You want an easy-to-use finishing treatment",
+    application: "• Final surface finishing of metal parts\n• Post-cleaning brightening treatment\n• Surface preparation before coating\n• Quality finishing for presentation-ready components",
+    features: [
+      "Professional-grade finish",
+      "Consistent results",
+      "Easy to apply",
+      "Cost-effective concentrate",
+      "Compatible with metals"
+    ],
+    technicalSpecs: [
+      { label: "Product Type", value: "Surface Finisher" },
+      { label: "Application", value: "Manual & Automated" },
+      { label: "Surface Results", value: "Professional-Grade" },
+      { label: "Metal Types", value: "Ferrous & Non-Ferrous" }
+    ],
+    similarProducts: ["rapid-clean-200", "ft-300"],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        Products FT 100 is available in the following sizes:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">1 Litre Bottle</strong> — Standard format.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — Medium-volume use.</li>
+        <li><strong class="text-green">20 Litre Drum</strong> — High-volume operations.</li>
+      </ul>
+    `,
+    labels: ["Professional Finish", "Concentrated"],
+    faq: [
+      { q: "What metals is FT 100 suitable for?", a: "FT 100 is suitable for both ferrous and non-ferrous metals." },
+      { q: "Is FT 100 ready to use?", a: "It is a concentrated formula and requires dilution as per instructions." },
+    ],
+    icon: "fa-star",
+    slug: "ft-100",
+  },
+  {
+    id: "ft-300",
+    category: "Industrial Cleaner",
+    title: "Products FT 300",
+    subtitle: "Advanced Surface Finishing Treatment",
+    desc: "Advanced finishing formulation for demanding surface quality requirements and high-volume finishing operations.",
+    whyChoose: "Advanced Formulation: Engineered for the most demanding finishing requirements.\nHigh Throughput: Designed for high-volume finishing operations.\nSuperior Results: Exceeds standard surface quality expectations.",
+    isThisRightFor: "• You have demanding surface finishing requirements\n• You operate high-volume finishing lines\n• You need superior, consistent finishing results",
+    application: "• High-volume surface finishing\n• Demanding quality finishing operations\n• Automated finishing lines\n• Final surface treatment before delivery",
+    features: [
+      "Advanced finishing formulation",
+      "High-volume capability",
+      "Superior surface quality",
+      "Consistent batch results",
+      "Automated system compatible"
+    ],
+    technicalSpecs: [
+      { label: "Product Type", value: "Advanced Surface Finisher" },
+      { label: "Application", value: "High-Volume & Automated" },
+      { label: "Surface Quality", value: "Superior Grade" },
+      { label: "Metal Types", value: "All Common Metals" }
+    ],
+    similarProducts: ["rapid-clean-200", "ft-100"],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        Products FT 300 is available in the following sizes:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">1 Litre Bottle</strong> — For manual finishing.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — Standard medium-volume option.</li>
+        <li><strong class="text-green">20 Litre Drum</strong> — For high-volume finishing lines.</li>
+      </ul>
+    `,
+    labels: ["Advanced", "High-Volume"],
+    faq: [
+      { q: "How does FT 300 differ from FT 100?", a: "FT 300 is an advanced formulation designed for higher volumes and more demanding surface quality requirements." },
+      { q: "Can FT 300 be used in automated systems?", a: "Yes, FT 300 is fully compatible with automated finishing systems." },
+    ],
+    icon: "fa-star",
+    slug: "ft-300",
+  },
+  {
+    id: "fun-at-weld",
+    category: "Safeweld",
+    title: "Products Fun @ Weld / E-Weld 3",
+    subtitle: "Anti-Spatter & Weld Protection",
+    desc: "Versatile anti-spatter solution that prevents weld spatter adhesion on workpieces and MIG/TIG nozzles, reducing post-weld cleanup.",
+    whyChoose: "Multi-Purpose Protection: Effective on both workpieces and welding nozzles.\nCleaner Welds: Reduces spatter adhesion for better weld quality.\nTime Saving: Minimises post-weld grinding and cleaning.",
+    isThisRightFor: "• You want to reduce post-weld cleanup time\n• You need spatter protection for both parts and nozzles\n• You want consistent, high-quality weld results",
+    application: "• MIG and TIG welding applications\n• Workpiece surface protection\n• Nozzle and torch protection\n• Production welding lines",
+    features: [
+      "Prevents spatter adhesion",
+      "Suitable for workpieces and nozzles",
+      "Reduces post-weld cleanup",
+      "Improves weld quality",
+      "Easy to apply"
+    ],
+    technicalSpecs: [
+      { label: "Product Type", value: "Anti-Spatter" },
+      { label: "Application", value: "Workpiece & Nozzle" },
+      { label: "Weld Process", value: "MIG & TIG" },
+      { label: "Use Modes", value: "Spray Application" }
+    ],
+    similarProducts: ["safeweld-l", "safeweld-ultra"],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        Products Fun @ Weld / E-Weld 3 is available in the following sizes:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">500 ml Spray</strong> — Convenient for targeted application.</li>
+        <li><strong class="text-green">1 Litre Bottle</strong> — Standard manual use format.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — For high-volume production.</li>
+      </ul>
+    `,
+    labels: ["Anti-Spatter", "Multi-Purpose"],
+    faq: [
+      { q: "Can this be used on both sides of the weld?", a: "Yes, it can be applied to both the workpiece and the nozzle for complete spatter protection." },
+      { q: "Does it affect weld quality?", a: "No, it prevents spatter adhesion without interfering with weld integrity." },
+    ],
+    icon: "fa-fire",
+    slug: "fun-at-weld",
+  },
+  {
+    id: "safeweld-l",
+    category: "Safeweld",
+    title: "Products Safeweld L",
+    subtitle: "Liquid Anti-Spatter Protection",
+    desc: "Liquid anti-spatter formulation designed for automated welding lines and high-volume production environments.",
+    whyChoose: "Automation Ready: Formulated for automated spray systems.\nHigh Coverage: Designed for high-volume production lines.\nCost Effective: Concentrated formula delivers value.",
+    isThisRightFor: "• You operate automated welding lines\n• You need high-volume anti-spatter coverage\n• You want a cost-effective liquid formulation",
+    application: "• Automated welding production lines\n• Robotic welding cells\n• High-volume MIG welding\n• Pre-weld workpiece protection",
+    features: [
+      "Liquid formulation for spray systems",
+      "Automated application ready",
+      "High coverage per litre",
+      "Prevents spatter buildup",
+      "Extends consumable life"
+    ],
+    technicalSpecs: [
+      { label: "Product Type", value: "Liquid Anti-Spatter" },
+      { label: "Application", value: "Automated Spray" },
+      { label: "Weld Process", value: "MIG Welding" },
+      { label: "Use Modes", value: "Automated Systems" }
+    ],
+    similarProducts: ["fun-at-weld", "safeweld-ultra"],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        Products Safeweld L is available in the following sizes:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">1 Litre Bottle</strong> — For small automated cells.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — Standard for production lines.</li>
+        <li><strong class="text-green">20 Litre Drum</strong> — Bulk supply for high-volume operations.</li>
+      </ul>
+    `,
+    labels: ["Liquid", "Automation Ready"],
+    faq: [
+      { q: "Is Safeweld L compatible with all spray systems?", a: "Yes, it is formulated for compatibility with most automated spray systems." },
+      { q: "Does it need dilution?", a: "Safeweld L is ready to use and does not require dilution." },
+    ],
+    icon: "fa-droplet",
+    slug: "safeweld-l",
+  },
+  {
+    id: "safeweld-ultra",
+    category: "Safeweld",
+    title: "Products Safeweld Ultra",
+    subtitle: "Premium Anti-Spatter Protection",
+    desc: "Premium anti-spatter formulation offering maximum protection for demanding welding applications and critical surface finish requirements.",
+    whyChoose: "Maximum Protection: Superior spatter repellency for demanding applications.\nPremium Quality: Highest grade formulation for critical surfaces.\nSurface Safe: Will not stain or discolour workpieces.",
+    isThisRightFor: "• You have demanding welding applications\n• You need maximum spatter protection\n• You require a premium, surface-safe formulation",
+    application: "• Critical surface welding applications\n• Stainless steel and finished surface welding\n• High-quality fabrication\n• Precision welding operations",
+    features: [
+      "Maximum spatter repellency",
+      "Premium grade formulation",
+      "Surface-safe formula",
+      "No staining or discolouration",
+      "Ideal for critical applications"
+    ],
+    technicalSpecs: [
+      { label: "Product Type", value: "Premium Anti-Spatter" },
+      { label: "Application", value: "Critical Surface Welding" },
+      { label: "Weld Process", value: "All Processes" },
+      { label: "Surface Safe", value: "Stainless Steel & Finished Surfaces" }
+    ],
+    similarProducts: ["fun-at-weld", "safeweld-l"],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        Products Safeweld Ultra is available in the following sizes:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">500 ml Spray</strong> — For precision application.</li>
+        <li><strong class="text-green">1 Litre Bottle</strong> — Standard manual use.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — For production use.</li>
+      </ul>
+    `,
+    labels: ["Premium", "Maximum Protection"],
+    faq: [
+      { q: "What makes Safeweld Ultra different from Safeweld L?", a: "Safeweld Ultra is a premium formulation offering maximum spatter repellency and is surface-safe for critical applications including stainless steel." },
+      { q: "Is Safeweld Ultra suitable for TIG welding?", a: "Yes, it is suitable for all welding processes including TIG." },
+    ],
+    icon: "fa-shield",
+    slug: "safeweld-ultra",
+  },
+  {
+    id: "surfox",
+    category: "Safeweld",
+    title: "Products Surfox",
+    subtitle: "Weld Seam Cleaner & Passivation Treatment",
+    desc: "Specialised weld cleaning solution for removing heat tint, oxidation, and discolouration from stainless steel weld seams.",
+    whyChoose: "Effective Cleaning: Rapidly removes heat tint and oxidation from weld seams.\nSurface Restoration: Restores original surface finish without mechanical abrasion.\nPassivation Ready: Prepares welds for passivation treatment.",
+    isThisRightFor: "• You need to remove heat tint from stainless steel welds\n• You want to restore surface finish without grinding\n• You require weld cleaning for passivation preparation",
+    application: "• Stainless steel weld seam cleaning\n• Heat tint and oxidation removal\n• Surface restoration after welding\n• Pre-passivation surface preparation",
+    features: [
+      "Removes heat tint and oxidation",
+      "No mechanical abrasion needed",
+      "Restores original surface finish",
+      "Prepares for passivation",
+      "Easy brush-on application"
+    ],
+    technicalSpecs: [
+      { label: "Product Type", value: "Weld Seam Cleaner" },
+      { label: "Application", value: "Brush-On" },
+      { label: "Material", value: "Stainless Steel" },
+      { label: "Use Modes", value: "Manual Application" }
+    ],
+    similarProducts: [],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        Products Surfox is available in the following sizes:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">500 ml Bottle</strong> — For small jobs and touch-ups.</li>
+        <li><strong class="text-green">1 Litre Bottle</strong> — Standard format for regular use.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — For high-volume weld cleaning.</li>
+      </ul>
+    `,
+    labels: ["Weld Cleaner", "Passivation Prep"],
+    faq: [
+      { q: "Is Surfox suitable for all stainless steel grades?", a: "Yes, it is suitable for most common stainless steel grades including 304 and 316." },
+      { q: "Does Surfox require rinsing after application?", a: "Yes, Surfox should be rinsed off with water after application following the recommended dwell time." },
+    ],
+    icon: "fa-sparkles",
+    slug: "surfox",
+  },
+  {
+    id: "e-weld-shield",
+    category: "Safeweld",
+    title: "Products E-Weld Shield",
+    subtitle: "Weld Spatter Protection Coating",
+    desc: "Protective barrier coating that prevents weld spatter adhesion on workpieces, guarding surfaces from damage during welding operations.",
+    whyChoose: "Surface Protection: Creates a durable barrier against weld spatter.\nEasy Removal: Simple water rinse or wipe-off after welding.\nCost Saving: Reduces post-weld grinding and rework costs.",
+    isThisRightFor: "• You need to protect workpiece surfaces from weld spatter\n• You want to reduce post-weld cleaning time\n• You require a protective coating for finished surfaces",
+    application: "• Pre-weld surface protection\n• Finished workpiece protection during welding\n• Protecting adjacent areas from spatter damage\n• Multi-layer welding operations",
+    features: [
+      "Protective barrier coating",
+      "Prevents spatter adhesion",
+      "Easy water rinse removal",
+      "Safe on finished surfaces",
+      "Reduces post-weld rework"
+    ],
+    technicalSpecs: [
+      { label: "Product Type", value: "Surface Protectant" },
+      { label: "Application", value: "Spray or Brush-On" },
+      { label: "Removal", value: "Water Rinse" },
+      { label: "Surface Safe", value: "All Metal Surfaces" }
+    ],
+    similarProducts: [],
+    packaging: `
+      <p class="text-lg text-brand-body leading-relaxed mb-6">
+        Products E-Weld Shield is available in the following sizes:
+      </p>
+      <ul class="list-disc list-inside text-brand-body leading-relaxed space-y-2 mb-6">
+        <li><strong class="text-green">500 ml Spray</strong> — For targeted protection.</li>
+        <li><strong class="text-green">1 Litre Bottle</strong> — Standard manual format.</li>
+        <li><strong class="text-green">5 Litre Canister</strong> — For production line use.</li>
+      </ul>
+    `,
+    labels: ["Protective Coating", "Weld Spatter Protection"],
+    faq: [
+      { q: "Can E-Weld Shield be used on painted surfaces?", a: "Yes, it is safe for use on most painted and coated surfaces. Always test a small area first." },
+      { q: "How is E-Weld Shield removed?", a: "It can be easily removed with a water rinse or wiped off after welding is complete." },
+    ],
+    icon: "fa-shield",
+    slug: "e-weld-shield",
   },
 ];
