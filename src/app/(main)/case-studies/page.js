@@ -7,6 +7,7 @@ import Link from 'next/link';
 
 const caseStudies = [
   {
+    slug: "solvent-waste-reduction",
     title: "85% Reduction in Solvent Waste for Automotive Assembly",
     client: "Tier-1 Automotive Manufacturer",
     category: "Automotive",
@@ -21,6 +22,7 @@ const caseStudies = [
     image: "https://www.eieprocess.se/media/jdnlnbhi/eie-process_detaljtvattar_bio-circle.jpg?width=1140&height=640&format=webp&quality=80&v=1db72f771808be0"
   },
   {
+    slug: "aerospace-precision-cleaning",
     title: "Aerospace-Grade Precision Cleaning with Zero Rejects",
     client: "Precision Aerospace Machining Ltd.",
     category: "Aerospace",
@@ -35,6 +37,7 @@ const caseStudies = [
     image: "https://images.kkeu.de/is/image/BEG/Environment/Hazardous_goods_handling/Parts_cleaners_cleaning_tables/GT_Maxi_parts_washer_pdplarge-mrd--688866_AAS_00_00_00_19525793.jpg"
   },
   {
+    slug: "fluid-health-automation",
     title: "Automating Fluid Health in Heavy Metal Forging",
     client: "Global Forging Group",
     category: "Heavy Industry",
@@ -106,10 +109,10 @@ export default function CaseStudiesPage() {
                     {study.problem}
                   </p>
                   <Link
-                    href="/contact"
+                    href={`/case-studies/${study.slug}`}
                     className="inline-flex items-center gap-2 text-xs font-extrabold text-green uppercase tracking-widest hover:gap-3 transition-all mt-6"
                   >
-                    Discuss Similar Project <i className="fas fa-arrow-right"></i>
+                    View More <i className="fas fa-arrow-right"></i>
                   </Link>
                 </div>
               </article>
