@@ -21,14 +21,13 @@ export default async function ServicePage({ params }) {
   return (
     <main className="flex flex-col min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative pt-3 pb-12 lg:pt-4 lg:pb-16 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-bg2 via-white to-white"></div>
-        </div>
+      <section className="relative pt-10 pb-12 lg:pt-12 lg:pb-14 overflow-hidden bg-brand-bg3">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white -z-10"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-green-50/20 blur-[120px] -z-10"></div>
         
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Free Flow Section - full width content, logo right of heading */}
-          <div className="mb-12 lg:mb-16">
+          <div>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
               <div>
                 <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Services</p>
@@ -42,12 +41,16 @@ export default async function ServicePage({ params }) {
                 />
               </div>
             </div>
-            <p className="text-base sm:text-lg lg:text-xl text-brand-body leading-relaxed max-w-none">
+            <p className="text-sm sm:text-base text-brand-body leading-relaxed max-w-none">
               The FreeFlow™ system is the sector&apos;s premier industrial pipeline cleaning solution. Engineered for maximum flow restoration, it stands alone as the ultimate combination of advanced chemical technology and eco-friendly sustainability.
             </p>
           </div>
+        </div>
+      </section>
 
-          {/* Service Title Section - image left, content right */}
+      {/* Service Title Section - image left, content right */}
+      <section className="py-12 lg:py-16 bg-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12 items-center">
             <div className="lg:col-span-2 lg:col-start-1 relative group">
               <div className="absolute -inset-4 bg-green/10 rounded-[2.5rem] blur-2xl group-hover:bg-green/20 transition-all duration-500"></div>
@@ -64,7 +67,7 @@ export default async function ServicePage({ params }) {
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-4 leading-[1.1]">
                 {service.title}
               </h1>
-              <p className="text-base sm:text-lg text-brand-body leading-relaxed ">
+              <p className="text-sm sm:text-base text-brand-body leading-relaxed">
                 {service.description}
               </p>
             </div>

@@ -4,13 +4,13 @@ export default function Footer() {
   return (
     <footer className="bg-white border-t border-brand-border px-4 sm:px-6 lg:px-8 pt-14 pb-8">
       <div className="max-w-[1600px] mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12 pb-10 border-b border-brand-border">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-12 gap-x-8 md:gap-x-10 lg:gap-x-12 xl:gap-x-16 mb-12 pb-10 border-b border-brand-border">
           {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div className="col-span-2 md:col-span-1 flex flex-col">
             <Link href="/">
-              <img src="/logo.png" alt="Bio-Chem Logo" className="h-14 w-auto mb-4" />
+              <img src="/logo.png" alt="Bio-Chem Logo" className="h-12 w-auto mb-4" />
             </Link>
-            <p className="text-sm font-black uppercase tracking-wider text-brand-black leading-relaxed max-w-xs">
+            <p className="text-[11px] font-black uppercase tracking-wider text-brand-black leading-relaxed">
               <span className="text-green">GREEN</span> WAY <span className="text-green">TO GROWTH</span>
             </p>
             <div className="flex gap-3 mt-5">
