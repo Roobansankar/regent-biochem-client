@@ -107,29 +107,48 @@ export default async function ProductDetailPage({ params }) {
               )}
 
               {/* Available Pack Sizes */}
-              <div className="mt-6 mb-6">
-                <p className="text-xs font-bold text-green uppercase tracking-wider mb-3">Available Pack Sizes</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {[
-                    { name: `${product.title} - PET (recycled) bottle 500ml with sprayer`, img: "500ml" },
-                    { name: `${product.title} - PET (recycled) bottle 1L with sprayer`, img: "1L" },
-                    { name: `${product.title} - Jerry Can 1L`, img: "JC1L" },
-                    { name: `${product.title} - Jerry Can 5L`, img: "JC5L" },
-                    { name: `${product.title} - Jerry Can 25L`, img: "JC25L" },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 border border-brand-border rounded-lg p-3">
-                      <div className="w-14 h-14 rounded-lg bg-brand-bg3 border border-brand-border shrink-0 flex items-center justify-center overflow-hidden">
-                        <img
-                          src={`https://placehold.co/80x80/e2e8f0/3D8A4B?text=${item.img}`}
-                          alt={item.name}
-                          className="w-full h-full object-cover"
-                        />
+              {![
+                "Cleaning Systems",
+                "Paint Removal Systems",
+                "Descaling Systems",
+              ].includes(product.category) && (
+                <div className="mt-6 mb-6">
+                  <p className="text-xs font-bold text-green uppercase tracking-wider mb-3">
+                    Available Pack Sizes
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      {
+                        name: `${product.title} - PET (recycled) bottle 500ml with sprayer`,
+                        img: "500ml",
+                      },
+                      {
+                        name: `${product.title} - PET (recycled) bottle 1L with sprayer`,
+                        img: "1L",
+                      },
+                      { name: `${product.title} - Jerry Can 1L`, img: "JC1L" },
+                      { name: `${product.title} - Jerry Can 5L`, img: "JC5L" },
+                      { name: `${product.title} - Jerry Can 25L`, img: "JC25L" },
+                    ].map((item, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-3 border border-brand-border rounded-lg p-3"
+                      >
+                        <div className="w-14 h-14 rounded-lg bg-brand-bg3 border border-brand-border shrink-0 flex items-center justify-center overflow-hidden">
+                          <img
+                            src={`https://placehold.co/80x80/e2e8f0/3D8A4B?text=${item.img}`}
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="text-xs font-semibold text-brand-black leading-snug">
+                          {item.name}
+                        </span>
                       </div>
-                      <span className="text-xs font-semibold text-brand-black leading-snug">{item.name}</span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {product.labels && product.labels.length > 0 && (
                 <div className="flex flex-wrap items-center gap-2 mb-4">

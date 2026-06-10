@@ -76,29 +76,48 @@ export default function CategoryTabs({ products, category }) {
               )}
 
               {/* Available Pack Sizes */}
-              <div className="mt-6 mb-8">
-                <p className="text-xs font-bold text-green uppercase tracking-wider mb-4">Available Pack Sizes</p>
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
-                  {[
-                    { name: `${active.title} - PET (recycled) bottle 500ml with sprayer`, img: "500ml" },
-                    { name: `${active.title} - PET (recycled) bottle 1L with sprayer`, img: "1L" },
-                    { name: `${active.title} - Jerry Can 1L`, img: "JC1L" },
-                    { name: `${active.title} - Jerry Can 5L`, img: "JC5L" },
-                    { name: `${active.title} - Jerry Can 25L`, img: "JC25L" },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 border border-brand-border rounded-xl p-3 bg-white hover:border-green/30 transition-all shadow-sm">
-                      <div className="w-12 h-12 rounded-lg bg-brand-bg3 border border-brand-border shrink-0 flex items-center justify-center overflow-hidden">
-                        <img
-                          src={`https://placehold.co/80x80/e2e8f0/3D8A4B?text=${item.img}`}
-                          alt={item.name}
-                          className="w-full h-full object-cover opacity-80"
-                        />
+              {![
+                "Cleaning Systems",
+                "Paint Removal Systems",
+                "Descaling Systems",
+              ].includes(active.category) && (
+                <div className="mt-6 mb-8">
+                  <p className="text-xs font-bold text-green uppercase tracking-wider mb-4">
+                    Available Pack Sizes
+                  </p>
+                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
+                    {[
+                      {
+                        name: `${active.title} - PET (recycled) bottle 500ml with sprayer`,
+                        img: "500ml",
+                      },
+                      {
+                        name: `${active.title} - PET (recycled) bottle 1L with sprayer`,
+                        img: "1L",
+                      },
+                      { name: `${active.title} - Jerry Can 1L`, img: "JC1L" },
+                      { name: `${active.title} - Jerry Can 5L`, img: "JC5L" },
+                      { name: `${active.title} - Jerry Can 25L`, img: "JC25L" },
+                    ].map((item, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-3 border border-brand-border rounded-xl p-3 bg-white hover:border-green/30 transition-all shadow-sm"
+                      >
+                        <div className="w-12 h-12 rounded-lg bg-brand-bg3 border border-brand-border shrink-0 flex items-center justify-center overflow-hidden">
+                          <img
+                            src={`https://placehold.co/80x80/e2e8f0/3D8A4B?text=${item.img}`}
+                            alt={item.name}
+                            className="w-full h-full object-cover opacity-80"
+                          />
+                        </div>
+                        <span className="text-xs font-bold text-brand-black leading-snug">
+                          {item.name}
+                        </span>
                       </div>
-                      <span className="text-xs font-bold text-brand-black leading-snug">{item.name}</span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Labels */}
               {active.labels && active.labels.length > 0 && (
