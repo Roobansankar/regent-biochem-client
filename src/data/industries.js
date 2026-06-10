@@ -6,30 +6,14 @@ export const industries = [
     icon: "fa-car",
     heroImage: "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&q=80&w=1600",
     handles: [
-      {
-        title: "Vehicle Parts",
-        description: "From chassis components to body panels, we ensure every part is free from industrial oils and ready for the next stage of assembly or coating."
-      },
-      {
-        title: "Engines & Motor Parts",
-        description: "Critical internal components require precision cleaning to remove carbon deposits and residues without affecting strict tolerances."
-      },
-      {
-        title: "Tools & Moulds",
-        description: "Maintaining the integrity of expensive moulds and dies by removing release agents and polymer buildup, extending their operational life."
-      },
-      {
-        title: "Welding Fixtures",
-        description: "Protecting fixtures from weld spatter and oxidation ensures consistent alignment and reduces maintenance frequency."
-      },
-      {
-        title: "Hydraulic Systems",
-        description: "Cleaning hydraulic components and reservoirs to remove sludge, varnish, and particulate contamination for optimal system performance."
-      },
-      {
-        title: "Electrical Enclosures",
-        description: "Safe cleaning of control panels and electrical assemblies to prevent tracking failures and maintain thermal management."
-      }
+      "Vehicle parts and components",
+      "Engines & motor parts",
+      "Cylinder heads and spindles",
+      "Tools, moulds, and fixtures",
+      "Welding fixtures",
+      "Trays & carrier racks",
+      "EV battery housings",
+      "Precision machined components"
     ],
     commonChallenges: [
       {
