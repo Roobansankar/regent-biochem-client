@@ -1,25 +1,45 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
+
+// Import logos
+import ashokLeyland from "@/assets/customer/ASHOK LEYLAND.webp";
+import bangaloreMetro from "@/assets/customer/BANGALORE METRO.webp";
+import bosch from "@/assets/customer/BOSCH.webp";
+import daimlerIndustrial from "@/assets/customer/DAIMLER INDUSTRIAL.webp";
+import delhiMetro from "@/assets/customer/DELHI METRO.webp";
+import indianRailways from "@/assets/customer/INDIAN RAILWAYS.webp";
+import jcb from "@/assets/customer/JCB.webp";
+import knorrBremse from "@/assets/customer/KNORR-BREMSE.webp";
+import lt from "@/assets/customer/L&T.webp";
+import nsk from "@/assets/customer/NSK.webp";
+import royalEnfield from "@/assets/customer/ROYAL ENFIELD.webp";
+import sewEuroDrive from "@/assets/customer/SEW EURO-DRIVE.webp";
+import suzuki from "@/assets/customer/SUZUKI.webp";
+import tataSteel from "@/assets/customer/TATA STEEL.webp";
+import toyota from "@/assets/customer/TOYOTA.webp";
+import veCommercial from "@/assets/customer/VE COMMERCIAL.webp";
+import wheelsIndia from "@/assets/customer/WHEELS INDIA.webp";
 
 const customers = [
-  "Bosch",
-  "Knorr Bremse",
-  "Royal Enfield",
-  "Suzuki Motorcycle",
-  "Ashok Leyland",
-  "Delhi Metro",
-  "Bangalore Metro",
-  "Indian Railways",
-  "JCB",
-  "Daymor Industrial",
-  "L&T",
-  "NSK",
-  "SCW",
-  "Tata Steel",
-  "Wheels India",
-  "VE Commercial",
-  "Toyota",
+  { name: "Bosch", logo: bosch },
+  { name: "Knorr Bremse", logo: knorrBremse },
+  { name: "Royal Enfield", logo: royalEnfield },
+  { name: "Suzuki", logo: suzuki },
+  { name: "Ashok Leyland", logo: ashokLeyland },
+  { name: "Delhi Metro", logo: delhiMetro },
+  { name: "Bangalore Metro", logo: bangaloreMetro },
+  { name: "Indian Railways", logo: indianRailways },
+  { name: "JCB", logo: jcb },
+  { name: "Daimler Industrial", logo: daimlerIndustrial },
+  { name: "L&T", logo: lt },
+  { name: "NSK", logo: nsk },
+  { name: "SEW Euro-drive", logo: sewEuroDrive },
+  { name: "Tata Steel", logo: tataSteel },
+  { name: "Wheels India", logo: wheelsIndia },
+  { name: "VE Commercial", logo: veCommercial },
+  { name: "Toyota", logo: toyota },
 ];
 
 export default function EsteemedCustomers() {
@@ -33,7 +53,7 @@ export default function EsteemedCustomers() {
       if (el.scrollLeft >= el.scrollWidth / 2) {
         el.scrollLeft = 0;
       } else {
-        el.scrollLeft += 1;
+        el.scrollLeft += 0.5; // Slower scroll for better visibility
       }
       animationId = requestAnimationFrame(scroll);
     };
@@ -44,7 +64,7 @@ export default function EsteemedCustomers() {
   return (
     <section className="bg-brand-bg2 py-12 sm:py-16 overflow-hidden border-t border-brand-border">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
+        <div className="text-center mb-12">
           <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Our Partners</p>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-black">
             Our Esteemed <span className="text-green">Customers</span>
@@ -54,15 +74,20 @@ export default function EsteemedCustomers() {
 
       <div
         ref={scrollRef}
-        className="flex overflow-x-hidden gap-16 items-center px-8"
+        className="flex overflow-x-hidden gap-12 sm:gap-20 items-center"
         style={{ scrollBehavior: "auto" }}
       >
         {[...customers, ...customers].map((c, i) => (
           <div
             key={i}
-            className="flex-shrink-0 text-lg font-bold text-brand-muted whitespace-nowrap hover:text-green transition-colors"
+            className="flex-shrink-0 transition-all duration-300"
           >
-            {c}
+            <Image
+              src={c.logo}
+              alt={c.name}
+              height={40}
+              className="h-7 sm:h-9 w-auto object-contain"
+            />
           </div>
         ))}
       </div>
