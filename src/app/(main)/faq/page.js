@@ -146,7 +146,7 @@ export default function FAQPage() {
               Frequently Asked <span className="text-green-mid">Questions</span>
             </h1>
             <p className="text-sm sm:text-base text-white/90 leading-relaxed">
-              Everything you need to know about our bio-remediation technology and parts washers.
+            Find quick answers to common questions about our chemical solutions, pipeline cleaning, and ordering.
             </p>
           </div>
         </div>

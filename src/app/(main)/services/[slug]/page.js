@@ -41,7 +41,7 @@ export default async function ServicePage({ params }) {
               </div>
             </div>
             <p className="text-sm sm:text-base text-brand-body leading-relaxed max-w-none">
-              The FreeFlow™ system is the sector&apos;s premier industrial pipeline cleaning solution. Engineered for maximum flow restoration, it stands alone as the ultimate combination of advanced chemical technology and eco-friendly sustainability.
+           Our specialized FreFlo pipeline cleaning service completely clears industrial lines to restore optimal pressure and fluid velocity, preventing costly clogs without damaging your infrastructure.
             </p>
           </div>
         </div>
@@ -260,12 +260,12 @@ export default async function ServicePage({ params }) {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
               {[
-                { num: "01", title: "Discovery & Diagnosis", icon: "fa-search", desc: "Understand system conditions, operational challenges, and performance requirements." },
-                { num: "02", title: "Solution & Proposal", icon: "fa-file-alt", desc: "Develop tailored solutions aligned with operational requirements." },
-                { num: "03", title: "Execution Preparation", icon: "fa-clipboard-list", desc: "Prepare resources, safety measures, and detailed execution plans." },
-                { num: "04", title: "Service Execution", icon: "fa-cogs", desc: "Execute approved solutions safely, efficiently, and with precision." },
-                { num: "05", title: "Performance Validation", icon: "fa-check-circle", desc: "Validate outcomes against defined operational performance objectives." },
-                { num: "06", title: "After Support", icon: "fa-headset", desc: "Provide ongoing guidance for sustained system performance." }
+                { num: "01", title: "Discovery &<br/>Diagnosis", icon: "fa-search", desc: "Understand system conditions, operational challenges, and performance requirements" },
+                { num: "02", title: "Solution &<br/>Proposal", icon: "fa-file-alt", desc: "Develop tailored solutions aligned with operational requirements" },
+                { num: "03", title: "Execution <br/>Preparation", icon: "fa-clipboard-list", desc: "Prepare resources, safety measures, and detailed execution plans" },
+                { num: "04", title: "Service <br/>Execution", icon: "fa-cogs", desc: "Execute approved solutions safely, efficiently, and with precision" },
+                { num: "05", title: "Performance<br/> Validation", icon: "fa-check-circle", desc: "Validate outcomes against defined operational performance objectives" },
+                { num: "06", title: "After <br/>Support", icon: "fa-headset", desc: "Provide ongoing guidance for sustained system performance" }
               ].map((step, i, arr) => (
                 <div key={i} className="relative group">
                   {i < arr.length - 1 && (
@@ -276,8 +276,16 @@ export default async function ServicePage({ params }) {
                       <i className={`fas ${step.icon} text-white text-xs xl:text-sm`}></i>
                     </div>
                     <div className="text-[13px] font-black text-green/40 mb-1 leading-none">{step.num}</div>
-                    <h3 className="text-[13px] xl:text-[14px] font-bold text-brand-black leading-snug tracking-tight mb-2 min-h-[2.5rem] flex items-center justify-center" style={{ textWrap: "balance" }}>{step.title}</h3>
-                    <p className="text-[12px] xl:text-[14px] text-brand-body leading-relaxed flex-1">{step.desc}</p>
+                    {/* <h3 className="text-[13px] xl:text-[14px] font-bold text-brand-black leading-snug tracking-tight mb-2 min-h-[2.5rem] flex items-center justify-center" style={{ textWrap: "balance" }} dangerouslySetInnerHTML={{ __html: step.title }}></h3> */}
+                    {/* <p className="text-[12px] xl:text-[14px] text-brand-body leading-relaxed flex-1">{step.desc}</p> */}
+                    <h3
+  className="text-[13px] xl:text-[14px] font-bold text-brand-black leading-snug tracking-tight mb-3 h-[56px] flex items-center justify-center"
+  dangerouslySetInnerHTML={{ __html: step.title }}
+></h3>
+
+<p className="text-[12px] xl:text-[14px] text-brand-body leading-relaxed flex-1">
+  {step.desc}
+</p>
                   </div>
                 </div>
               ))}

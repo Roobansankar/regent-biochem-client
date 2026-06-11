@@ -2,6 +2,7 @@ import { industries } from "@/data/industries";
 import CTA from "@/components/CTA";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import WorkflowProcess from "@/components/WorkflowProcess";
 
 export async function generateStaticParams() {
   return industries.map((industry) => ({
@@ -152,39 +153,8 @@ export default async function IndustryPage({ params }) {
           </div>
 
           {/* Workflow Process */}
-          <div className="mb-12">
-            <div className="text-center mb-10 sm:mb-12">
-              <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">How We Add Value</p>
-              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-black">
-                From Insight to <span className="text-green">Impact</span>
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-              {[
-                { num: "01", title: "Discovery &<br/>Diagnosis", icon: "fa-search", desc: "Understand system conditions, operational challenges, and performance requirements." },
-                { num: "02", title: "Solution &<br/>Proposal", icon: "fa-file-alt", desc: "Develop tailored solutions aligned with operational requirements." },
-                { num: "03", title: "Execution Preparation", icon: "fa-clipboard-list", desc: "Prepare resources, safety measures, and detailed execution plans." },
-                { num: "04", title: "Service Execution", icon: "fa-cogs", desc: "Execute approved solutions safely, efficiently, and with precision." },
-                { num: "05", title: "Performance Validation", icon: "fa-check-circle", desc: "Validate outcomes against defined operational performance objectives." },
-                { num: "06", title: "After Support", icon: "fa-headset", desc: "Provide ongoing guidance for sustained system performance." }
-              ].map((step, i, arr) => (
-                <div key={i} className="relative group">
-                  {i < arr.length - 1 && (
-                    <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-px bg-green/20 group-hover:bg-green/40 transition-colors -z-0"></div>
-                  )}
-                  <div className="bg-white border border-brand-border rounded-lg p-4 xl:p-5 text-center hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 relative z-10 h-full flex flex-col">
-                    <div className="w-9 h-9 xl:w-10 xl:h-10 bg-green rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md shadow-green/20 shrink-0">
-                      <i className={`fas ${step.icon} text-white text-xs xl:text-sm`}></i>
-                    </div>
-                    <div className="text-[13px] font-black text-green/40 mb-1 leading-none">{step.num}</div>
-                    <h3 className="text-[13px] xl:text-[14px] font-bold text-brand-black leading-snug tracking-tight mb-2 min-h-[2.5rem] flex items-center justify-center" style={{ textWrap: "balance" }} dangerouslySetInnerHTML={{ __html: step.title }}></h3>
-                    <p className="text-[12px] xl:text-[14px] text-brand-body leading-relaxed flex-1">{step.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
+         
+              <WorkflowProcess bg="white"/>
         </div>
       </section>
 

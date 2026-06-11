@@ -67,7 +67,7 @@ export default function CaseStudiesPage() {
               Industrial <span className="text-green-mid">Success Stories</span>
             </h1>
             <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
-              Explore how our technical expertise and sustainable technologies deliver measurable results for global industrial leaders.
+              See how we help manufacturing plants solve tough maintenance challenges, cut down on downtime, and improve floor safety.
             </p>
           </div>
         </div>

@@ -44,7 +44,7 @@ export default function BlogPage() {
               Our <span className="text-green-mid">Blog</span>
             </h1>
             <p className="text-sm sm:text-base text-white/90 leading-relaxed">
-              Expert insights on industrial cleaning technology, sustainable chemistry, and the future of surface engineering.
+              Practical field guides, technical advice, and updates on the chemical cleaning standards shaping modern plant maintenance.
             </p>
           </div>
         </div>

@@ -68,7 +68,7 @@ export default function Contact() {
               Get in <span className="text-green-mid">Touch</span>
             </h1>
             <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
-              Have questions about our solutions? Our team of technical experts is ready to help you optimize your industrial processes.
+             Reach out to our technical team today for product specifications, custom quotes, or maintenance support.
             </p>
           </div>
         </div>

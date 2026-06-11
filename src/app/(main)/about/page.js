@@ -40,7 +40,7 @@ export default function About() {
               About <span className="text-green-mid">Regent Biochem</span>
             </h1>
             <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
-              Empowering industrial efficiency through sustainable surface technology and precision engineering.
+              Empowering industrial efficiency through sustainable surface technology and precision engineering.Optimizing industrial maintenance through specialized chemical engineering and high-efficiency cleaning solutions.
             </p>
           </div>
         </div>

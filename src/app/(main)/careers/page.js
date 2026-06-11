@@ -48,7 +48,7 @@ export default function CareersPage() {
               Build More Than a Career — <span className="text-green-mid">Build Impact</span>
             </h1>
             <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
-              At Regent BioChem, we believe innovation starts with people. We offer opportunities to work on real-world industrial challenges and contribute to sustainable technologies.
+Grow your career by solving real-world industrial challenges and delivering high-performance technical solutions.
             </p>
           </div>
         </div>
