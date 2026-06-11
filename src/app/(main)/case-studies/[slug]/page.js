@@ -376,32 +376,33 @@ export default function CaseStudyDetail() {
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl">
             <div className="bg-white rounded-2xl border border-brand-border p-5">
-              <div className="flex items-center gap-2 text-green text-xs mb-2">
+              <div className="flex items-center gap-2 text-green text-sm mb-2">
                 <i className="fas fa-building"></i>
                 <span className="font-bold uppercase tracking-wider text-brand-muted">Industry</span>
               </div>
               <div className="text-sm font-semibold text-brand-black">{study.industry}</div>
             </div>
             <div className="bg-white rounded-2xl border border-brand-border p-5">
-              <div className="flex items-center gap-2 text-green text-xs mb-2">
+              <div className="flex items-center gap-2 text-green text-sm mb-2">
                 <i className="fas fa-industry"></i>
                 <span className="font-bold uppercase tracking-wider text-brand-muted">Sub Industry</span>
               </div>
               <div className="text-sm font-semibold text-brand-black">{study.subindustry}</div>
             </div>
             <div className="bg-white rounded-2xl border border-brand-border p-5">
-              <div className="flex items-center gap-2 text-green text-xs mb-2">
+              <div className="flex items-center gap-2 text-green text-sm mb-2">
                 <i className="fas fa-wrench"></i>
                 <span className="font-bold uppercase tracking-wider text-brand-muted">Application</span>
               </div>
               <div className="text-sm font-semibold text-brand-black">{study.application}</div>
             </div>
             <div className="bg-white rounded-2xl border border-brand-border p-5">
-              <div className="flex items-center gap-2 text-green text-xs mb-2">
+              <div className="flex items-center gap-2 text-green text-sm mb-2">
                 <i className="fas fa-tag"></i>
                 <span className="font-bold uppercase tracking-wider text-brand-muted">Product</span>
               </div>
               <div className="text-sm font-semibold text-brand-black">{study.product}</div>
+              <div className="text-[10px] font-bold text-green/60 uppercase tracking-wider mt-1">Ref: {study.ref}</div>
             </div>
           </div>
         </div>
@@ -418,11 +419,11 @@ export default function CaseStudyDetail() {
               {/* Customer background */}
               <div>
                 <SectionLabel>Customer background</SectionLabel>
-                <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-6">{study.customerBackground}</p>
+                <p className="text-sm text-gray-500 leading-relaxed mb-6">{study.customerBackground}</p>
                 {study.businessChallengesDescription && (
                   <div className="mt-8">
                     <SectionLabel>Business Challenges</SectionLabel>
-                    <p className="text-sm sm:text-base text-brand-black leading-relaxed mb-3 font-semibold">{study.businessChallengesDescription}</p>
+                    <p className="text-sm text-brand-black leading-relaxed mb-3 font-semibold">{study.businessChallengesDescription}</p>
                   </div>
                 )}
                 <ul className="space-y-3">
@@ -434,7 +435,7 @@ export default function CaseStudyDetail() {
                   ))}
                 </ul>
                 {study.businessChallengesQuote && (
-                  <p className="text-sm sm:text-base text-brand-black italic font-medium leading-relaxed mt-4 border-l-2 border-green/30 pl-4">&ldquo;{study.businessChallengesQuote}&rdquo;</p>
+                  <p className="text-sm text-brand-black italic font-medium leading-relaxed mt-4 border-l-2 border-green/30 pl-4">&ldquo;{study.businessChallengesQuote}&rdquo;</p>
                 )}
               </div>
 
@@ -541,7 +542,7 @@ function Divider({ tight = false }) {
 
 function ChallengeItem({ children }) {
   return (
-    <li className="flex items-start gap-2 text-sm sm:text-base text-gray-500 list-none">
+    <li className="flex items-start gap-2 text-sm text-gray-500 list-none">
       <span className="text-green text-[10px] mt-1.5 flex-shrink-0">▸</span>
       {children}
     </li>

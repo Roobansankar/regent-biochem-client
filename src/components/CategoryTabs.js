@@ -116,39 +116,22 @@ export default function CategoryTabs({ products, category }) {
                   <p className="text-xs font-bold text-green uppercase tracking-wider mb-4">
                     Available Pack Sizes
                   </p>
-                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-6 gap-y-2">
                     {(active.id === "uno-s" ? [
-                      { name: "Box-10", img: "Box" },
-                      { name: "Jerry Can-100", img: "JC100" },
-                      { name: "Jerry Can-30", img: "JC30" },
-                      { name: "Jerry Can-50", img: "JC50" },
+                      { name: "Box-10" },
+                      { name: "Jerry Can-100" },
+                      { name: "Jerry Can-30" },
+                      { name: "Jerry Can-50" },
                     ] : [
-                      {
-                        name: `${active.title} - PET (recycled) bottle 500ml with sprayer`,
-                        img: "500ml",
-                      },
-                      {
-                        name: `${active.title} - PET (recycled) bottle 1L with sprayer`,
-                        img: "1L",
-                      },
-                      { name: `${active.title} - Jerry Can 1L`, img: "JC1L" },
-                      { name: `${active.title} - Jerry Can 5L`, img: "JC5L" },
-                      { name: `${active.title} - Jerry Can 25L`, img: "JC25L" },
+                      { name: `${active.title} - PET (recycled) bottle 500ml with sprayer` },
+                      { name: `${active.title} - PET (recycled) bottle 1L with sprayer` },
+                      { name: `${active.title} - Jerry Can 1L` },
+                      { name: `${active.title} - Jerry Can 5L` },
+                      { name: `${active.title} - Jerry Can 25L` },
                     ]).map((item, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-3 border border-brand-border rounded-xl p-3 bg-white hover:border-green/30 transition-all shadow-sm"
-                      >
-                        <div className="w-12 h-12 rounded-lg bg-brand-bg3 border border-brand-border shrink-0 flex items-center justify-center overflow-hidden">
-                          <img
-                            src={`https://placehold.co/80x80/e2e8f0/3D8A4B?text=${item.img}`}
-                            alt={item.name}
-                            className="w-full h-full object-cover opacity-80"
-                          />
-                        </div>
-                        <span className="text-xs font-bold text-brand-black leading-snug">
-                          {item.name}
-                        </span>
+                      <div key={i} className="flex items-center gap-3 py-2 border-b border-green/10">
+                        <span className="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center text-green text-xs font-bold shrink-0">{i + 1}</span>
+                        <span className="text-sm font-semibold text-brand-black">{item.name}</span>
                       </div>
                     ))}
                   </div>
