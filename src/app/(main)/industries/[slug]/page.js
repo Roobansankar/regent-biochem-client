@@ -175,9 +175,9 @@ export default async function IndustryPage({ params }) {
                     <div className="w-9 h-9 xl:w-10 xl:h-10 bg-green rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md shadow-green/20 shrink-0">
                       <i className={`fas ${step.icon} text-white text-xs xl:text-sm`}></i>
                     </div>
-                    <div className="text-xs font-black text-green/40 mb-1 leading-none">{step.num}</div>
-                    <h3 className="text-xs xl:text-sm font-bold text-brand-black leading-snug tracking-tight mb-2 min-h-[2.5rem] flex items-center justify-center" style={{ textWrap: "balance" }}>{step.title}</h3>
-                    <p className="text-xs xl:text-sm text-brand-body leading-relaxed flex-1">{step.desc}</p>
+                    <div className="text-[12px] font-black text-green/40 mb-1 leading-none">{step.num}</div>
+                    <h3 className="text-[12px] xl:text-[13px] font-bold text-brand-black leading-snug tracking-tight mb-2 min-h-[2.5rem] flex items-center justify-center" style={{ textWrap: "balance" }}>{step.title}</h3>
+                    <p className="text-[11px] xl:text-[13px] text-brand-body leading-relaxed flex-1">{step.desc}</p>
                   </div>
                 </div>
               ))}
