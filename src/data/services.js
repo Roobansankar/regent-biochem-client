@@ -6,6 +6,7 @@ export const services = [
     shortDescription: "Internal pipe & heat exchanger cleaning without dismantling.",
     description: "Over time, internal piping networks build up stubborn restrictions that choke flow rates. Using our advanced RWR mobile flushing systems, we circulate eco-friendly, high-performance cleaning fluids through your system in a closed loop. This completely restores original flow dynamics and pressure equilibrium without you having to tear down or cut into your piping infrastructure.",
     icon: "fa-faucet",
+    recommendedCleaners: ["Power Cleaner DB", "SRR"],
    commonProblems: [
   {
     title: "Drops in System Pressure",
@@ -27,14 +28,11 @@ export const services = [
   },
 ],
    contaminantsRemoved: [
-  "Rust Residue",
-  "Calcium Deposits",
-  "Silicate Layers",
-  "Organic Residues",
-  "Urea Scale",
-  "Metallic Sludge",
-  "Flux Particles",
-  "Lubricant Film",
+  "Rust",
+  "Oxidation",
+  "Corrosion Breakdown",
+  "Biofilms",
+  "Organic Sludge",
 ],
     infoNeeded: [
       "Total length and diameter of the piping network",
@@ -65,16 +63,37 @@ export const services = [
     title: "Cooling Tower Cleaning",
     subtitle: "Thermal Efficiency & Safety",
     shortDescription: "Restore heat transfer & ensure compliance.",
-    description: "Comprehensive cleaning and disinfection services for cooling towers. We remove biological growth, scale, and debris from fill media and basins to restore thermal performance and mitigate Legionella risks.",
+    description: "Cooling towers are highly prone to scaling and biological fouling, which destroys heat transfer efficiency and spikes energy bills. Our RWR system hooks directly into the tower's circulation loop, flushing out hidden buildup within the internal matrices and internal plumbing. It improves thermal efficiency instantly while helping you maintain strict hygiene standards.",
     icon: "fa-wind",
     heroImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600",
+    commonProblems: [
+  {
+    title: "Spiking Energy Consumption",
+    description:
+      "Scale and fouling force the system to work harder, dramatically increasing power consumption.",
+    icon: "fa-bolt",
+  },
+  {
+    title: "Poor Thermal Performance",
+    description:
+      "Buildup insulates heat transfer surfaces, causing elevated return water temperatures and system strain.",
+    icon: "fa-temperature-high",
+  },
+  {
+    title: "Reduced Equipment Lifecycle",
+    description:
+      "Ongoing fouling accelerates corrosion and wear, shortening the lifespan of tower components.",
+    icon: "fa-clock",
+  },
+],
     problems: [
       "Biofilm accumulation", "Legionella risks", "Fill media clogging", 
       "Reduced cooling capacity", "Regulatory non-compliance", "Sludge buildup"
     ],
-    contaminants: [
-      "Algae & Biofilm", "Scale deposits", "Sediment & Sludge", "Airborne debris", "Corrosion byproducts"
-    ],
+    contaminantsRemoved: [
+  "Calcium carbonate and hard water scale",
+  "Loose rust and sediment deposits",
+],
     process: [
       { step: "01", title: "Inspection", description: "Visual and thermal audit of tower performance." },
       { step: "02", title: "Water Treatment", description: "Pre-cleaning biocide treatment for safety." },
@@ -84,23 +103,47 @@ export const services = [
     infoNeeded: [
       "Tower model/capacity", "Fill type", "Last cleaning date", "Water quality reports", "Site access requirements"
     ],
-    industries: ["HVAC", "Power Generation", "Data Centers", "Manufacturing", "Hospitals"]
+    industries: ["Power Generation", "Data Centers", "Commercial HVAC", "Heavy Manufacturing"]
   },
   {
     slug: "mould-injection",
     title: "Injection Mould Cleaning",
     subtitle: "Precision Tooling Maintenance",
     shortDescription: "Non-abrasive removal of plastic residues.",
-    description: "Specialized cleaning for injection moulds and hot runner systems. Our solutions remove burnt-on polymers and release agents without damaging delicate surfaces or complex geometries.",
+    description: "Narrow cooling channels in plastic injection moulds are notorious for trapping deposits, leading to uneven cooling, warped parts, and long cycle times. Optimized for the RWR KST system, this service uses automated pulse-flushing, flow-reversal, and compressed-air line clearing. We completely purge the intricate channels of your expensive tooling, ensuring uniform heat dissipation and protecting moulds from structural corrosion.",
     icon: "fa-industry",
     heroImage: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1600",
-    problems: [
-      "Polymer degradation", "Clogged vent lines", "High scrap rates", 
-      "Surface finish issues", "Frequent downtime", "Expensive tooling damage"
-    ],
-    contaminants: [
-      "Burnt plastics", "Release agents", "Rust in cooling channels", "Carbonized additives", "Grease"
-    ],
+    commonProblems: [
+  {
+    title: "Uneven Part Cooling and Warping",
+    description:
+      "Deposits in cooling channels cause hot spots, resulting in inconsistent cooling and part deformation.",
+    icon: "fa-temperature-high",
+  },
+  {
+    title: "Extended Cycle Times",
+    description:
+      "Reduced cooling efficiency forces longer cycle times, directly impacting production throughput.",
+    icon: "fa-clock",
+  },
+  {
+    title: "High Scrap/Rejection Rates",
+    description:
+      "Blocked channels and uneven cooling lead to dimensional defects and increased rejection rates.",
+    icon: "fa-times-circle",
+  },
+  {
+    title: "Blocked Micro-Sized Cooling Channels",
+    description:
+      "Mineral scale and debris accumulate in narrow channels, restricting coolant flow and causing blockages.",
+    icon: "fa-microchip",
+  },
+],
+    contaminantsRemoved: [
+  "Calcification (hard water scale)",
+  "Rust formations inside cooling channels",
+  "Degraded thermal fluids and oily residues",
+],
     process: [
       { step: "01", title: "Residue Analysis", description: "Identifying the specific polymer and additive buildup." },
       { step: "02", title: "Cleaning Selection", description: "Choosing between ultrasonic or chemical immersion." },
@@ -110,23 +153,47 @@ export const services = [
     infoNeeded: [
       "Mould material", "Type of polymer used", "Mould dimensions", "Cavity complexity", "Available downtime"
     ],
-    industries: ["Plastic Injection", "Packaging", "Automotive", "Medical Device Mfg", "Electronics"]
+    industries: ["Plastics & Polymer Injection Moulding", "Automotive Component Manufacturing", "Medical Device Packaging", "Consumer Goods Packaging"]
   },
   {
     slug: "heat-exchanger",
     title: "Heat Exchanger Cleaning",
     subtitle: "Restoring Thermal Performance",
     shortDescription: "Descaling & cleaning for all heat exchanger types.",
-    description: "Advanced descaling and cleaning for shell-and-tube or plate heat exchangers. We restore optimal Delta-T and flow rates by removing calcium, silica, and organic fouling.",
+    description: "Even a millimeter of scale inside a heat exchanger acts as an insulator, forcing your system to work twice as hard to achieve the same results. Our RWR service provides a fast, non-destructive flush that clears out plate or shell-and-tube exchangers. By completely restoring optimal thermal conductivity, we lower your energy overheads and prolong the operational life of your assets.",
     icon: "fa-temperature-high",
     heroImage: "https://images.unsplash.com/photo-1532187875605-2fe358a3d46a?auto=format&fit=crop&q=80&w=1600",
-    problems: [
-      "Thermal efficiency loss", "High pressure drop", "Calcium scaling", 
-      "Silica buildup", "Increased energy consumption", "Flow restrictions"
-    ],
-    contaminants: [
-      "Calcium scale", "Silica", "Biofouling", "Corrosion products", "Oil films", "Process residues"
-    ],
+    commonProblems: [
+  {
+    title: "Drastic Drops in Heat Transfer Efficiency",
+    description:
+      "Scale buildup insulates heat transfer surfaces, severely reducing thermal conductivity.",
+    icon: "fa-temperature-low",
+  },
+  {
+    title: "High Pressure Drops Across the Exchanger",
+    description:
+      "Mineral deposits narrow flow paths, causing increased resistance and pressure loss.",
+    icon: "fa-tachometer-alt",
+  },
+  {
+    title: "Increased System Backpressure",
+    description:
+      "Restricted flow forces upstream equipment to operate under elevated backpressure.",
+    icon: "fa-exclamation-triangle",
+  },
+  {
+    title: "Risk of Thermal-Stress Cracking",
+    description:
+      "Uneven heat distribution creates thermal stress points, leading to material fatigue and cracking.",
+    icon: "fa-exclamation-triangle",
+  },
+],
+    contaminantsRemoved: [
+  "Calcium and magnesium scale",
+  "Corrosion products and oxides",
+  "Silts, mud, and chemical residues",
+],
     process: [
       { step: "01", title: "Efficiency Audit", description: "Measuring current vs. design heat transfer rates." },
       { step: "02", title: "Isolation", description: "Safe bypass and connection of circulation equipment." },
@@ -143,16 +210,35 @@ export const services = [
     title: "Operational Impact Assessment",
     subtitle: "Efficiency & Sustainability Analytics",
     shortDescription: "Data-driven analysis for cost & energy savings.",
-    description: "Comprehensive evaluation of your current industrial cleaning operations. we analyze chemical usage, waste generation, energy consumption, and labor to provide a roadmap for optimization and cost reduction.",
+    description: "Don't wait for a system failure to take action. Before we clean, our team uses the diagnostic capabilities of the RWR system to run a data-driven health check on your loops. After cleaning, we run a comparative assessment to quantify your exact improvements in flow rate, thermal efficiency, and pressure stability, giving you a transparent view of your return on investment (ROI).",
     icon: "fa-chart-pie",
     heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600",
-    problems: [
-      "High operational costs", "Excessive chemical waste", "Energy inefficiency", 
-      "Poor ESG reporting", "Process bottlenecks", "Regulatory compliance risk"
-    ],
-    contaminants: [
-      "Chemical waste", "Wasted energy", "Inefficient labor hours", "Excessive water usage"
-    ],
+    commonProblems: [
+  {
+    title: "Unexplained Efficiency Drops",
+    description:
+      "Gradual performance decline often goes unnoticed until it significantly impacts production output.",
+    icon: "fa-chart-line",
+  },
+  {
+    title: "Lack of Visibility on Internal System Health",
+    description:
+      "Without diagnostic data, hidden fouling and blockages remain undetected until failure occurs.",
+    icon: "fa-eye-slash",
+  },
+  {
+    title: "Difficulty Justifying Maintenance Budgets",
+    description:
+      "Lack of quantified performance data makes it hard to secure funding for preventive maintenance.",
+    icon: "fa-file-invoice-dollar",
+  },
+  {
+    title: "High Energy Costs with Unknown Root Causes",
+    description:
+      "Rising utility bills without clear drivers make it difficult to target meaningful efficiency improvements.",
+    icon: "fa-bolt",
+  },
+],
     process: [
       { step: "01", title: "Data Gathering", description: "Reviewing utility bills, chemical orders, and waste logs." },
       { step: "02", title: "Benchmarking", description: "Comparing current performance against industry best practices." },
@@ -162,6 +248,6 @@ export const services = [
     infoNeeded: [
       "Current chemical usage data", "Waste disposal costs", "Energy logs", "Labor allocation", "Production goals"
     ],
-    industries: ["Corporate", "Manufacturing Facilities", "Plant Management", "Sustainability Teams"]
+    industries: ["All industrial manufacturing sectors utilizing thermal loops, chillers, or extensive piping systems."]
   }
 ];

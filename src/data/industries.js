@@ -76,20 +76,19 @@ export const industries = [
         category: "Cleaning Challenges",
         icon: "fa-tint",
         challenges: [
-          "Coolant and cutting fluid residues",
-          "Metal chip contamination",
-          "Precision cleaning requirements",
-          "Surface quality inconsistencies"
+          "Cutting oil and coolant residues",
+          "Metal chips and machining dust",
+          "Grease and oil contamination"
         ]
       },
       {
         category: "Welding Challenges",
         icon: "fa-fire",
         challenges: [
-          "Weld marks on precision parts",
-          "Post-weld finishing delays",
-          "Dimensional accuracy concerns",
-          "Increased inspection failures"
+          "Carbon and burnt residues",
+          "Rust formation on machined parts",
+          "Hard-to-clean internal passages",
+          "Fingerprints and surface stains"
         ]
       }
     ],
@@ -161,42 +160,48 @@ export const industries = [
   },
   {
     slug: "mro-maintenance",
-    title: "MRO & Maintenance",
-    description: "Maintenance, Repair, and Overhaul (MRO) services are critical for operational integrity. We provide non-toxic, biodegradable cleaning systems that replace hazardous solvents, making workshops safer and more efficient for technicians across all industrial sectors. MRO facilities handle an unmatched variety of equipment and contaminants, from grease-laden gearboxes and carbonized engine components to rusted structural steel and sensitive electronic assemblies. Our versatile cleaning portfolio delivers effective results across this full spectrum while prioritizing operator safety, reducing VOC emissions, and simplifying waste disposal compliance.",
+    title: "MRO (Maintenance, Repair, and Operations)",
+    category: "Process Industries",
+    description: "The MRO (Maintenance, Repair, and Operations) industry helps industries keep their machines, equipment, and production systems running smoothly every day. From factories and workshops to large manufacturing plants, MRO activities are essential to avoid unexpected breakdowns, reduce downtime, and improve overall operational efficiency.\n\n<b>Self-Regenerating Biological Parts Washers:</b> Next-generation parts washing fluids powered by natural microorganisms that actively digest oils and grease—completely eliminating toxic, foul-smelling solvents from your repair bays.\n\n<b>Flash-Drying Precision Cleaners:</b> High-performance, residue-free finishing solvents that evaporate in seconds, allowing motors, pumps, and mechanical components to be inspected, rebuilt, and reassembled instantly.",
     icon: "fa-tools",
     heroImage: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1600",
     handles: [
-      { title: "Motors & Gearboxes", description: "Removal of aged grease, carbonized oil, and metallic wear debris from motors and gearboxes to restore efficiency and prevent premature failure." },
-      { title: "Pumps & Valves", description: "Precision cleaning of pump housings, impellers, and valve bodies to remove scale, process residues, and corrosion products that impair performance." },
-      { title: "Jigs & Fixtures", description: "Cleaning of welding and assembly jigs to remove spatter, oil, and process residues that accumulate over time and affect alignment accuracy." },
-      { title: "Maintenance tools", description: "Regular cleaning of hand tools, power tools, and inspection equipment to maintain functionality, safety, and prolong service life." },
-      { title: "Mobile industrial assets", description: "Portable cleaning solutions for on-site maintenance of forklifts, cranes, and other mobile equipment without requiring disassembly or transport." },
-      { title: "Shop floor equipment", description: "Degreasing and surface preparation of production machinery, workbenches, and floor surfaces to maintain a safe and efficient working environment." },
-      { title: "Safety gear", description: "Cleaning and sanitization of PPE including helmets, goggles, and harnesses using non-toxic, skin-safe cleaners that preserve material integrity." },
-      { title: "Forklift components", description: "Removal of grease, hydraulic fluid residues, and operational grime from forklift masts, chains, and undercarriages during routine maintenance." }
+      "Industrial machinery",
+      "Motors and pumps",
+      "Bearings and gearboxes",
+      "Workshop tools",
+      "Maintenance equipment",
+      "Pipes and heat exchangers",
+      "Utility systems"
     ],
     commonChallenges: [
       {
-        category: "Diversity",
-        icon: "fa-layer-group",
-        description: "MRO operations encounter an extremely wide variety of contaminants—from grease and carbon deposits to rust and chemical residues—across multiple base materials including metals, polymers, and composites. A single versatile chemistry must handle them all safely."
+        category: "Cleaning Challenges",
+        icon: "fa-broom",
+        challenges: [
+          "Heavy oil and grease buildup",
+          "Carbon and soot contamination",
+          "Rust and corrosion"
+        ]
       },
       {
-        category: "Environment",
-        icon: "fa-leaf",
-        description: "Maintenance workshops require portable, low-toxicity cleaning solutions that can be used in open or confined spaces without special ventilation. Strict safety requirements for technicians combined with rising waste disposal costs make solvent-free, biodegradable cleaners the preferred choice."
-      },
-      {
-        category: "Turnaround Pressure",
-        icon: "fa-clock",
-        description: "MRO shutdowns and turnarounds operate under extreme time pressure, where every hour of downtime carries significant cost. Cleaning processes must be fast-acting and reliable, eliminating the need for repeated cycles or rework while meeting strict cleanliness standards before reassembly and commissioning."
+        category: "Welding Challenges",
+        icon: "fa-fire",
+        challenges: [
+          "Dirt accumulation on tools and machines",
+          "Scale deposits in pipes and systems",
+          "Difficult maintenance cleaning"
+        ]
       }
     ],
     applications: [
-      { title: "General Facility Maintenance", description: "All-purpose cleaning of workshop surfaces, equipment, and production machinery using neutral pH cleaners that are safe for daily use across all material types." },
-      { title: "Deep Cleaning for Overhaul", description: "Comprehensive degreasing and descaling of components during scheduled overhauls to restore them to like-new condition and extend operational life." },
-      { title: "NDT Surface Preparation", description: "Surface preparation and cleaning for non-destructive testing, ensuring contaminants do not mask defects or produce false indications during inspection." },
-      { title: "Corrosion Protection for Spares", description: "Application of temporary corrosion inhibitors to stored spare parts and standby equipment, preventing oxidation during extended storage periods." }
+      "Biological parts washing systems",
+      "Maintenance degreasers",
+      "Pipe and heat exchanger cleaners",
+      "Rust and scale removal solutions",
+      "Workshop cleaning systems",
+      "Eco-friendly maintenance chemicals",
+      "Industrial surface cleaning systems"
     ],
     howWeWork: [
       "Consultation", "Assessment", "Solution Planning", "Trial & Evaluation", "Performance Review", "Follow-up Support"
@@ -255,6 +260,7 @@ export const industries = [
   {
     slug: "oil-gas",
     title: "Oil & Gas Industry",
+    category: "Process Industries",
     description: "The oil and gas industry plays a vital role in powering industries, transportation, and everyday life through the extraction, refining, storage, and transportation of petroleum products. From offshore platforms and refineries to pipelines and storage facilities, the industry operates in highly demanding environments where equipment performance, safety, and reliability are extremely important.\n\n<b>Heat Exchanger & Pipeline Descaling:</b> Advanced circulation and flushing fluids that aggressively dissolve stubborn mineral scale, rust, and chemical fouling from internal tubes—restoring optimum thermal transfer without mechanical dismantling.\n<b>Eco-Safe, Non-Volatile Rig Washes:</b> Next-generation, biodegradable cleaning fluids that easily lift heavy grease from drilling floors and structural steel, eliminating toxic fumes and fire hazards to keep your crew safe.",
     icon: "fa-oil-can",
     heroImage: "https://images.unsplash.com/photo-1544919982-b61976f0ce43?auto=format&fit=crop&q=80&w=1600",
@@ -272,19 +278,17 @@ export const industries = [
         icon: "fa-oil-can",
         challenges: [
           "Heavy oil and sludge buildup",
-          "Scale deposits in pipelines",
-          "Carbon contamination",
-          "Corrosion-related issues"
+          "Carbon and grease contamination",
+          "Scale formation in pipelines"
         ]
       },
       {
         category: "Welding Challenges",
         icon: "fa-fire",
         challenges: [
-          "Strict coating preparation requirements",
-          "Extensive weld cleanup activities",
-          "High maintenance labor costs",
-          "Delays during commissioning"
+          "Rust and corrosion",
+          "Difficult cleaning of process equipment",
+          "Hazardous residue accumulation"
         ]
       }
     ],
@@ -308,40 +312,45 @@ export const industries = [
   {
     slug: "food-beverage",
     title: "Food & Beverage Industry",
-    description: "The food and beverage industry demands the highest standards of hygiene and cleanliness to ensure product safety, regulatory compliance, and operational efficiency. Processing equipment, packaging lines, and storage vessels must be free from biofilms, protein residues, mineral scale, and allergen traces. Our cleaning solutions are food-grade, rinse-safe, and designed for CIP (Clean-in-Place) systems, helping producers maintain HACCP standards while reducing water and chemical consumption through optimized cleaning cycles.",
+    description: "The food industry is all about delivering safe, hygienic, and high-quality food products to consumers. From food processing units and commercial kitchens to packaging and storage facilities, maintaining cleanliness is an essential part of everyday operations.\n\n<b>Heavy-Duty Organic Degreasing:</b> Advanced, rinse-easy formulations designed to effortlessly break down thick animal fats, vegetable oils, and sticky starches from processing machinery and slicing equipment.\n\n<b>Residue-Free Conveyor & Packaging Cleaners:</b> High-performance, fast-acting solutions that lift light residues and dust from packaging systems and bottling lines without leaving any chemical film behind.\n\n<b>Stainless Steel Passivation & Shines:</b> Specialized electrolyte and surface treatments that deep-clean scale and food stains from large tanks, blending vats, and pipelines while restoring the metal's natural corrosion resistance.",
     icon: "fa-utensils",
     heroImage: "https://images.unsplash.com/photo-1565299507177-b0ac6056387d?auto=format&fit=crop&q=80&w=1600",
     handles: [
-      { title: "Processing Vessels", description: "Removal of baked-on protein deposits, caramelized sugars, and mineral scaling from kettles, cookers, and fermentation tanks using food-safe caustic and acid cleaning sequences." },
-      { title: "Pipelines & Hoses", description: "CIP circulation cleaning of product transfer lines to eliminate biofilms, prevent cross-contamination between product runs, and maintain microbiological control." },
-      { title: "Packaging Equipment", description: "Sanitization of fillers, cappers, labelers, and conveyors to prevent product contamination and ensure package integrity across high-speed packaging lines." },
-      { title: "Heat Exchangers", description: "Descaling of plate and tubular heat exchangers used in pasteurization and sterilization to restore thermal efficiency and prevent product scorching." },
-      { title: "Storage Silos & Tanks", description: "Dry and wet cleaning of bulk storage silos and tanks for ingredients, intermediates, and finished products, including removal of caked residues and fumigation." },
-      { title: "Floor & Drainage Systems", description: "Heavy-duty degreasing and sanitization of production floor surfaces and drainage channels to eliminate slip hazards and prevent bacterial harborages." }
+      "Food processing equipment",
+      "Stainless steel machinery",
+      "Conveyors and production lines",
+      "Mixing and storage systems",
+      "Packaging machines",
+      "Utility and cleaning systems"
     ],
     commonChallenges: [
       {
-        category: "Biofilm Control",
-        icon: "fa-bacteria",
-        description: "Biofilms — structured communities of bacteria encased in a protective matrix — form on equipment surfaces and are notoriously resistant to conventional cleaning. Effective removal requires a two-step approach: alkaline detergents to dissolve the organic matrix followed by acid rinses to eliminate mineral-bound residues."
+        category: "Cleaning Challenges",
+        icon: "fa-broom",
+        challenges: [
+          "Food residue buildup",
+          "Oil and grease contamination",
+          "Hygiene and odour issues"
+        ]
       },
       {
-        category: "Allergen Management",
-        icon: "fa-exclamation-triangle",
-        description: "Cross-contamination of allergens (gluten, dairy, nuts, soy) between production runs is a critical food safety risk. Cleaning validation using ATP swabbing and allergen-specific ELISA tests is essential, requiring chemistries that denature and remove allergenic proteins completely."
-      },
-      {
-        category: "Water & Chemical Optimization",
-        icon: "fa-tint",
-        description: "Food plants consume enormous volumes of water and cleaning chemicals. Optimizing CIP cycles through conductivity monitoring, flow rate control, and chemical recovery systems can reduce water usage by up to 40% while maintaining microbiological safety and minimizing effluent treatment costs."
+        category: "Welding Challenges",
+        icon: "fa-fire",
+        challenges: [
+          "Frequent cleaning requirements",
+          "Water and scale deposits",
+          "Sensitive surface cleaning"
+        ]
       }
     ],
     applications: [
-      { title: "CIP System Cleaning", description: "Automated clean-in-place cycles for tanks, pipes, and heat exchangers using programmed sequences of pre-rinse, caustic wash, intermediate rinse, acid wash, and final sanitization." },
-      { title: "Manual Equipment Sanitization", description: "Foam-based and spray-on cleaning of open vessels, filling heads, and manual handling equipment using food-grade sanitizers that meet NSF and EPA standards." },
-      { title: "Environmental Hygiene", description: "Comprehensive cleaning of production environments including walls, ceilings, ventilation ducts, and drainage systems to maintain positive air quality and prevent mold growth." },
-      { title: "Packaging Line Changeover", description: "Rapid cleaning and sanitization protocols for packaging lines during product changeovers to minimize downtime while ensuring complete removal of previous product residues." },
-      { title: "Wastewater Treatment Support", description: "Pre-treatment of cleaning effluents through oil-water separation, pH neutralization, and solids settling to meet local discharge permits and reduce sewer surcharges." }
+      "Food-safe cleaning solutions",
+      "Stainless steel cleaners",
+      "Low-residue degreasers",
+      "Maintenance cleaning chemicals",
+      "Descaling solutions",
+      "Eco-friendly water-based cleaners",
+      "Industrial hygiene cleaning systems"
     ],
     howWeWork: [
       "Consultation", "Assessment", "Solution Planning", "Trial & Evaluation", "Performance Review", "Follow-up Support"
@@ -354,40 +363,45 @@ export const industries = [
   {
     slug: "textile-industry",
     title: "Textile Industry",
-    description: "The textile industry spans fiber processing, spinning, weaving, dyeing, and finishing, each stage generating unique contamination challenges. From sizing residues on loom components to dye stains on processing equipment and oil buildup on knitting machinery, effective cleaning is essential to maintain product quality and prevent defects. Our cleaning solutions are formulated to remove waxes, oils, dyes, and sizing agents without damaging sensitive machinery or creating hazardous waste streams.",
+    description: "The textile industry plays an important role in producing fabrics, garments, and industrial textiles used in everyday life. From spinning and weaving to dyeing and finishing, textile manufacturing involves continuous production processes that require clean and well-maintained machinery for smooth operations and consistent fabric quality.\n\n<b>Internal Pipeline & Heat Exchanger Descaling:</b> Highly concentrated acidic circulation fluids designed to clear mineral scale and chemical buildup from internal pipelines, valves, and stenter heat exchangers—restoring thermal efficiency instantly.\n\n<b>Residue-Free Roller & Guide Cleaners:</b> Fast-acting, flash-drying cleaners developed to wipe down feed rollers, drawing frames, and fabric guides, leaving behind a 100% film-free surface that eliminates fabric snagging and staining.",
     icon: "fa-tshirt",
     heroImage: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=1600",
     handles: [
-      { title: "Spinning Machinery", description: "Removal of fiber waxes, lubricant aerosols, and fly buildup from spinning frames and draw frames to maintain consistent yarn quality and reduce end breaks." },
-      { title: "Weaving Looms", description: "Degreasing of loom components including heald frames, reeds, and picking mechanisms to prevent oil stains on fabric and ensure smooth high-speed operation." },
-      { title: "Knitting Machines", description: "Cleaning of needle beds, sinkers, and yarn feeders to remove needle oil residues, lint accumulation, and fiber finishes that cause knitting defects." },
-      { title: "Dyeing Equipment", description: "Removal of dye deposits, color cross-contamination, and chemical scale from dyeing machines, jiggers, and beam dyeing systems between color batches." },
-      { title: "Printing Screens & Rollers", description: "Deep cleaning of rotary screens, flat screens, and print rollers to remove dried paste and ensure sharp, consistent pattern registration across production runs." },
-      { title: "Finishing Calenders", description: "Cleaning of heated calender rolls and padders to remove resin buildup, thermosol deposits, and chemical residues that affect fabric hand and finish quality." }
+      "Textile machinery",
+      "Rollers and drums",
+      "Dyeing equipment",
+      "Process tanks and pipelines",
+      "Fabric handling systems",
+      "Heat exchangers"
     ],
     commonChallenges: [
       {
-        category: "Oil Stain Prevention",
-        icon: "fa-oil-can",
-        description: "Machinery lubricants and fiber oils can migrate onto fabric surfaces during processing, causing permanent staining that renders high-value goods seconds-grade. Preventing oil stains requires optimized lubrication practices combined with regular cleaning of all contact surfaces."
+        category: "Cleaning Challenges",
+        icon: "fa-broom",
+        challenges: [
+          "Dye and chemical residue buildup",
+          "Oil and grease contamination",
+          "Scale formation in pipelines"
+        ]
       },
       {
-        category: "Dye Cross-Contamination",
-        icon: "fa-palette",
-        description: "Color carryover between dye batches is a persistent quality issue, particularly when switching between light and dark shades. Complete removal of residual dye from machine interiors, circulation pumps, and piping is essential to maintain color consistency and reduce re-dye costs."
-      },
-      {
-        category: "Sizing & Wax Removal",
-        icon: "fa-water",
-        description: "Sizing compounds applied to warp yarns and waxes used in knitting must be completely removed from machinery between style changes. Incomplete removal leads to buildup that alters machine geometry, causes tension variations, and produces defects in subsequent production."
+        category: "Welding Challenges",
+        icon: "fa-fire",
+        challenges: [
+          "Roller contamination",
+          "Dust and fibre accumulation",
+          "Difficult equipment cleaning"
+        ]
       }
     ],
     applications: [
-      { title: "Machine Changeover Cleaning", description: "Rapid cleaning protocols for looms, knitters, and dyeing machines during style or color changeovers to minimize downtime while ensuring zero cross-contamination." },
-      { title: "Preventive Maintenance Cleaning", description: "Scheduled deep cleaning of all textile machinery components as part of preventive maintenance programs to extend equipment life and maintain consistent production quality." },
-      { title: "Dye House Equipment Descaling", description: "Removal of calcium, dye auxiliaries, and alkali scale from dyeing machines using inhibited acid cleaners that restore heating efficiency and prevent spot marking." },
-      { title: "Printing Screen Regeneration", description: "Chemical cleaning of used printing screens to remove residual paste and open clogged mesh areas, extending screen life and reducing replacement costs." },
-      { title: "Floor & Effluent System Cleaning", description: "Degreasing and desludging of production floor drains and effluent collection pits to prevent blockages, eliminate odors, and maintain environmental compliance." }
+      "Industrial textile cleaners",
+      "Roller and machine cleaning systems",
+      "Descaling solutions",
+      "Maintenance degreasers",
+      "Pipe and tank cleaning systems",
+      "Eco-friendly industrial cleaners",
+      "Surface preparation chemicals"
     ],
     howWeWork: [
       "Consultation", "Assessment", "Solution Planning", "Trial & Evaluation", "Performance Review", "Follow-up Support"
@@ -396,5 +410,57 @@ export const industries = [
       { title: "Eliminating Oil Stains in High-Speed Weaving Operations", link: "/case-studies" }
     ],
     standards: ["ISO 9001:2015", "Oeko-Tex & GOTS Compliance Support", "REACH & BLUESIGN", "Zero Discharge of Hazardous Chemicals (ZDHC)"]
+  },
+  {
+    slug: "fabrications",
+    title: "Fabrication Industry",
+    description: "The fabrication industry focuses on cutting, bending, welding, and assembling metal components and structures used across various industries. From small fabricated parts to large industrial structures, the industry plays an important role in manufacturing, construction, automotive, heavy engineering, and infrastructure sectors.\n\n<b>Premium Paint-Safe Anti-Spatter Protection:</b> High-performance, silicone-free liquids that prevent hot spatter from sticking to your workpieces, jigs, and nozzles—allowing spatter to simply wipe away without grueling post-weld grinding.\n\n<b>Instant Electrochemical Weld Cleaning & Passivation:</b> Advanced electrolyte fluids that blast away heat tint, oxidation, and scale from stainless steel and aluminum welds in a single step, restoring maximum corrosion resistance without dangerous pickling pastes.",
+    icon: "fa-welding",
+    heroImage: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1600",
+    handles: [
+      "Welded structures",
+      "Steel and metal components",
+      "Pipes and tanks",
+      "Welding fixtures",
+      "Fabricated assemblies",
+      "Heavy engineering parts",
+      "Structural components"
+    ],
+    commonChallenges: [
+      {
+        category: "Cleaning Challenges",
+        icon: "fa-broom",
+        challenges: [
+          "Welding smoke and soot deposits",
+          "Burn marks and heat stains",
+          "Oil and grease contamination"
+        ]
+      },
+      {
+        category: "Welding Challenges",
+        icon: "fa-fire",
+        challenges: [
+          "Rust and oxidation on surfaces",
+          "Paint and coating residues",
+          "Metal dust and grinding particles"
+        ]
+      }
+    ],
+    applications: [
+      "Welding residue cleaners",
+      "Heavy-duty degreasers",
+      "Rust and scale removers",
+      "Paint and coating removal systems",
+      "Surface preparation chemicals",
+      "Maintenance cleaning systems",
+      "Eco-friendly cleaning solutions"
+    ],
+    howWeWork: [
+      "Consultation", "Assessment", "Solution Planning", "Trial & Evaluation", "Performance Review", "Follow-up Support"
+    ],
+    caseStudies: [
+      { title: "Improving Weld Quality Through Next-Gen Anti-Spatter Technology", link: "/case-studies" }
+    ],
+    standards: ["ISO 9001:2015", "AWS D1.1 Structural Welding", "OSHA 29 CFR 1910", "REACH Compliance"]
   }
 ];

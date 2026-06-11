@@ -27,7 +27,7 @@ export default function Offerings() {
                 <h3 className="text-sm font-bold text-brand-black leading-snug mb-2">{service.title}</h3>
                 <p className="text-xs text-brand-body leading-relaxed mb-4 flex-1 line-clamp-2">{service.shortDescription}</p>
                 <Link
-                  href={`/services/freeflow/${service.slug}`}
+                  href={`/services/${service.slug}`}
                   className="inline-flex items-center gap-2 text-xs font-bold text-white bg-green px-5 py-2.5 rounded-lg hover:bg-green-dark transition-all hover:-translate-y-0.5"
                 >
                   View Detail

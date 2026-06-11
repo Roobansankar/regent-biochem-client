@@ -112,27 +112,27 @@ export default function Footer() {
             <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-4">Services</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/services/freeflow/pipeline" className="text-sm text-brand-muted hover:text-green transition-colors">
+                <Link href="/services/pipeline" className="text-sm text-brand-muted hover:text-green transition-colors">
                   Pipeline Cleaning Solutions
                 </Link>
               </li>
               <li>
-                <Link href="/services/freeflow/cooling-tower" className="text-sm text-brand-muted hover:text-green transition-colors">
+                <Link href="/services/cooling-tower" className="text-sm text-brand-muted hover:text-green transition-colors">
                   Cooling Tower Cleaning
                 </Link>
               </li>
               <li>
-                <Link href="/services/freeflow/mould-injection" className="text-sm text-brand-muted hover:text-green transition-colors">
+                <Link href="/services/mould-injection" className="text-sm text-brand-muted hover:text-green transition-colors">
                   Injection Mould Cleaning
                 </Link>
               </li>
               <li>
-                <Link href="/services/freeflow/heat-exchanger" className="text-sm text-brand-muted hover:text-green transition-colors">
+                <Link href="/services/heat-exchanger" className="text-sm text-brand-muted hover:text-green transition-colors">
                   Heat Exchanger Cleaning
                 </Link>
               </li>
               <li>
-                <Link href="/services/freeflow/impact-assessment" className="text-sm text-brand-muted hover:text-green transition-colors">
+                <Link href="/services/impact-assessment" className="text-sm text-brand-muted hover:text-green transition-colors">
                   Operational Impact Assessment
                 </Link>
               </li>

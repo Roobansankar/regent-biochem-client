@@ -26,12 +26,11 @@ export default async function ServicePage({ params }) {
         <div className="absolute top-0 right-0 w-1/2 h-full bg-green-50/20 blur-[120px] -z-10"></div>
         
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Free Flow Section - full width content, logo right of heading */}
           <div>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
               <div>
                 <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Services</p>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brand-black">Free Flow</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brand-black">Free Flo</h2>
               </div>
               <div className="shrink-0">
                 <img
@@ -228,6 +227,26 @@ export default async function ServicePage({ params }) {
           </div>
         </div>
       </section>
+
+      {/* Recommended Cleaners */}
+      {service.recommendedCleaners && (
+        <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Recommended Cleaners</h2>
+              <p className="text-brand-text text-base sm:text-lg">Optimized chemistry for maximum cleaning performance.</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              {service.recommendedCleaners.map((cleaner, index) => (
+                <div key={index} className="px-6 py-4 rounded-2xl bg-green-light border border-green-mid/50 shadow-sm flex items-center gap-3">
+                  <i className="fas fa-vial text-green text-sm"></i>
+                  <span className="font-bold text-sm text-green-dark">{cleaner}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Service Approach */}
       <section id="details" className="py-12 sm:py-16 bg-brand-bg2/50 border-b border-brand-border">

@@ -30,7 +30,7 @@ export default async function IndustryPage({ params }) {
             <div className="lg:col-span-6"> 
               <div className="flex items-center gap-3 mb-4">
                  <p className="text-sm font-black tracking-[0.4em] uppercase text-green">
-                   Manufacturing Industries / {industry.slug}
+                    {industry.category || "Manufacturing Industries"} / {industry.slug}
                  </p>
               </div>
               
