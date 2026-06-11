@@ -95,6 +95,21 @@ export default async function ProductDetailPage({ params }) {
                 {product.desc}
               </p>
 
+              {/* Available Models */}
+              {product.availableModels && product.availableModels.length > 0 && (
+                <div className="mt-6 mb-4">
+                  <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Available Models</p>
+                  <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+                    {product.availableModels.map((m, i) => (
+                      <div key={i} className="flex items-center gap-3 py-2 border-b border-green/10">
+                        <span className="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center text-green text-xs font-bold shrink-0">{i + 1}</span>
+                        <span className="text-sm font-semibold text-brand-black">{m.model}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {product.descBullets && product.descBullets.length > 0 && (
                 <ul className="mb-5 space-y-1.5">
                   {product.descBullets.map((bullet, i) => (
@@ -213,67 +228,6 @@ export default async function ProductDetailPage({ params }) {
                         <div className="w-2 h-2 rounded-full bg-green shrink-0 mt-2"></div>
                         <p className="text-sm text-brand-body leading-relaxed">{point}</p>
                       </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Available Models */}
-              {product.availableModels && product.availableModels.length > 0 && (
-                <div>
-                  <div className="mb-4">
-                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Available Models</p>
-                  </div>
-                  <div className="overflow-x-auto rounded-xl border border-brand-border">
-                    <table className="w-full text-sm">
-                      <thead>
-                        <tr className="bg-green text-white">
-                          <th className="text-left px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-xs sm:text-sm">Specifications</th>
-                          {product.availableModels.map((m, i) => (
-                            <th key={i} className="text-left px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-xs sm:text-sm">{m.model}</th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {[
-                          { key: "dimensions", label: "Overall width x overall depth (mm)" },
-                          { key: "height", label: "Height with lid closed/open with angled exhaust duct (mm)" },
-                          { key: "rackDiameter", label: "Inner diameter of rack, approx. (mm)" },
-                          { key: "usefulHeight", label: "Useful height max. (mm)" },
-                          { key: "payload", label: "Payload max. (kg)" },
-                          { key: "tankCapacity", label: "Washing tank capacity (L)" },
-                          { key: "weight", label: "Total weight of the cleaning device (kg)" },
-                          { key: "connectedLoad", label: "Connected value total (kW) excl. supplementary equipment approx." },
-                          { key: "powerSupply", label: "Power supply" },
-                          { key: "pumpFlow", label: "Pump – automatic cleaning: flow rate (m³/h / bar)" },
-                          { key: "heatingPower", label: "Electric heating in the washing tank (kW)" },
-                          { key: "treatmentTemp", label: "Treatment temperature (guide value) (°C)" },
-                          { key: "oxygenCompressor", label: "Oxygen membrane compressor" },
-                        ].map((spec, rowIndex) => (
-                          <tr key={spec.key} className={`border-t border-brand-border ${rowIndex % 2 === 0 ? "bg-white" : "bg-brand-bg2"}`}>
-                            <td className="px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-brand-black text-xs sm:text-sm">{spec.label}</td>
-                            {product.availableModels.map((m, i) => (
-                              <td key={i} className="px-3 sm:px-4 py-2.5 sm:py-3 text-brand-body text-xs sm:text-sm">{m[spec.key]}</td>
-                            ))}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              )}
-
-              {/* Model Variants */}
-              {product.availableModels && product.availableModels.length > 0 && (
-                <div>
-                  <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-xs sm:text-sm font-bold text-green">Models</span>
-                  </div>
-                  <div className="flex flex-wrap gap-3">
-                    {product.availableModels.map((m, i) => (
-                      <span key={i} className="px-5 py-3 bg-brand-bg2 border border-brand-border rounded-xl text-sm font-bold text-brand-black hover:border-green hover:bg-green-light/20 transition-all">
-                        {m.model}
-                      </span>
                     ))}
                   </div>
                 </div>

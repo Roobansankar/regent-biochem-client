@@ -269,31 +269,106 @@ export default function CaseStudyDetail() {
     <main className="flex flex-col min-h-screen bg-white">
 
       {/* ── Hero ── */}
-      {/* <section className="relative bg-green overflow-hidden"> */}
-      <section className="relative overflow-hidden bg-[linear-gradient(90deg,#166534_0%,#16a34a_55%,#ffffff_100%)]">
-        <div className="absolute inset-0 hero-pattern opacity-10" />
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-10 relative z-10">
-          <div className="flex flex-col lg:flex-row items-start justify-between gap-6">
-            <div className="flex-1">
-              <Link
-                href="/case-studies"
-                className="inline-flex items-center gap-2 text-xs text-white/60 hover:text-white transition-colors mb-6"
-              >
-                <i className="fas fa-arrow-left text-[10px]" /> Back to Case Studies
-              </Link>
+   
+     {/* <section className="relative overflow-hidden flex bg-[linear-gradient(90deg,#166534_0%,#16a34a_45%,#7ec99a_65%,#ffffff_100%)]">
+  <div className="absolute inset-0 hero-pattern opacity-10" />
 
-              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4 leading-snug">
-                {study.title}
-              </h1>
+  
+  <div className="flex-1 px-8 py-10 flex flex-col justify-center relative z-10">
+    <Link
+      href="/case-studies"
+      className="inline-flex items-center gap-2 text-xs text-white/60 hover:text-white transition-colors mb-6"
+    >
+      <i className="fas fa-arrow-left text-[10px]" /> Back to Case Studies
+    </Link>
 
-            </div>
+    <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-snug">
+      {study.title}
+    </h1>
+  </div>
 
-            <div className="w-56 h-48 lg:w-72 lg:h-56 rounded-3xl bg-white p-2 shadow-lg flex-shrink-0">
-              <img src={study.image} alt={study.title} className="w-full h-full object-cover rounded-2xl" />
-            </div>
-          </div>
-        </div>
-      </section>
+  <div className="w-64 lg:w-80 flex-shrink-0 flex items-center justify-center p-6 relative z-10">
+    <img
+      src={study.image}
+      alt={study.title}
+      className="w-full h-52 lg:h-64 object-cover rounded-2xl shadow-md"
+    />
+  </div>
+</section> */}
+
+{/* <section className="relative overflow-hidden flex bg-[linear-gradient(90deg,#166534_0%,#16a34a_40%,#a8d8b0_62%,#ffffff_80%,#ffffff_100%)]">
+
+  <div className="flex-1 px-8 py-8 flex flex-col justify-center gap-3 relative z-10">
+
+    
+    <div>
+      <span className="text-2xl font-bold text-white tracking-tight">
+        bio-chem <sup className="text-xs">®</sup>
+      </span>
+      <p className="text-[10px] uppercase tracking-widest text-white/80 mt-0.5">
+        Surface Technology
+      </p>
+    </div>
+
+   
+    <div className="inline-block bg-white text-[#166534] text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full w-fit">
+      E-WELD SHIELD
+    </div>
+
+    
+    <h1 className="text-sm md:text-base font-bold text-white leading-relaxed max-w-xs">
+      Reducing Slag Adhesion<br />
+      and Maintenance Downtime<br />
+      in Laser &amp; Plasma Cutting Operations
+    </h1>
+  </div>
+
+
+  <div className="w-64 lg:w-80 flex-shrink-0 overflow-hidden">
+    <img
+      src={study.image}
+      alt={study.title}
+      className="w-full h-full object-cover"
+    />
+  </div>
+
+</section> */}
+
+
+<section className="relative overflow-hidden">
+  <div className="flex items-center min-h-[400px] bg-gradient-to-r from-green via-green via-[25%] to-white">
+
+    {/* Left Content */}
+    <div className="flex-1 px-8 lg:px-12 py-10 relative z-10">
+
+      <Link
+        href="/case-studies"
+        className="inline-flex items-center gap-2 text-sm text-white/75 hover:text-white transition-colors mb-6"
+      >
+        <i className="fas fa-arrow-left text-xs" />
+        Back to Case Studies
+      </Link>
+
+      <h1 className="text-3xl lg:text-4xl font-bold text-white leading-tight max-w-3xl">
+        Reducing Slag Adhesion and Maintenance Downtime in Laser & Plasma
+        <br />
+        Cutting Operations
+      </h1>
+
+    </div>
+
+    {/* Right Image */}
+    <div className="w-[380px] lg:w-[450px] flex justify-center items-center pr-8">
+      <img
+        src={study.image}
+        alt={study.title}
+        className="w-full h-auto object-contain"
+      />
+    </div>
+
+  </div>
+</section>
+
 
       {/* Meta Details */}
       <section className="py-8 bg-white border-b border-brand-border">

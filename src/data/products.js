@@ -385,7 +385,7 @@
     ],
     similarProducts: ["cb-100", "biochem-power-star-l", "biochem-bio-neutral-cleaner"],
     recommendedWith: "• AluSTAR Extra\n• PowerSTAR L\n• CB 100",
-    labels: ["VOC Free", "Bio-Based"],
+    labels: ["VOC Free"],
     faq: [
       { q: "Can I test the cleaning agent?", a: "Yes, we offer the opportunity to test all of our cleaning agents. Contact us and our sales representative will get in touch with you to arrange an on-site demonstration." },
       { q: "Are the cleaning agents environmentally friendly?", a: "Our cleaning agents are based on innovative technologies and often contain biological active ingredients. They are environmentally friendly and sustainably developed to minimize environmental impact." },

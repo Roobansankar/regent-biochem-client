@@ -86,7 +86,7 @@ export default function EsteemedCustomers() {
               src={c.logo}
               alt={c.name}
               height={40}
-              className="h-7 sm:h-9 w-auto object-contain"
+              className={`${c.name === "Daimler Industrial" ? "h-4 sm:h-6" : "h-7 sm:h-9"} w-auto object-contain`}
             />
           </div>
         ))}

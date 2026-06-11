@@ -40,12 +40,12 @@ export default function CategoryTabs({ products, category }) {
         <section className="relative pb-12 sm:pb-16 overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
             {/* Gallery Side */}
-            <div className="lg:col-span-6 lg:sticky lg:top-24 w-full">
+            <div className="lg:col-span-6 lg:sticky lg:top-24 w-full pl-2 sm:pl-4">
               <ProductGallery product={active} />
             </div>
 
             {/* Text Side */}
-            <div className="lg:col-span-6 w-full">
+            <div className="lg:col-span-6 w-full lg:-mt-4">
               <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-3">
                 {active.category}
               </p>
@@ -74,6 +74,37 @@ export default function CategoryTabs({ products, category }) {
                   ))}
                 </ul>
               )}
+
+              {/* Labels / Nature BOOST Badge */}
+              <div className="flex flex-wrap items-center gap-2 mb-6 mt-6">
+                {active.id === "cb-100" ? (
+                  <>
+                    <img src="/nature-boost.webp" alt="Nature BOOST" className="h-16 sm:h-20 w-auto object-contain rounded-lg" />
+                    <img src="/VOCFree.webp" alt="VOC Free" className="h-8 sm:h-10 w-auto object-contain rounded-lg border border-brand-border bg-white" />
+                    <img src="/Clean-Blue.webp" alt="Clean Blue" className="h-16 sm:h-20 w-auto object-contain rounded-lg" />
+                  </>
+                ) : active.id === "uno-s" ? (
+                  <div className="flex flex-wrap items-center justify-start gap-1 w-full">
+                    <img src="/VOCFree.webp" alt="VOC Free" className="h-8 sm:h-10 w-auto object-contain rounded-lg border border-brand-border bg-white" />
+                    <img src="/H20.png" alt="H2O" className="h-16 sm:h-20 w-auto object-contain rounded-lg" />
+                    <img src="/ready.webp" alt="Ready" className="h-16 sm:h-20 w-auto object-contain rounded-lg" />
+                  </div>
+                ) : (
+                  active.labels && active.labels.length > 0 && active.labels.map((label, i) => {
+                    const isVocFree = label.toLowerCase() === "voc free" || label.toLowerCase() === "voc-free";
+                    if (isVocFree) {
+                      return (
+                        <img key={i} src="/VOCFree.webp" alt="VOC Free" className="h-8 sm:h-10 w-auto object-contain rounded-lg border border-brand-border bg-white" />
+                      );
+                    }
+                    return (
+                      <span key={i} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white border border-green-mid text-xs font-bold text-green shadow-sm">
+                        {label}
+                      </span>
+                    );
+                  })
+                )}
+              </div>
 
               {/* Available Pack Sizes */}
               {![
@@ -123,31 +154,6 @@ export default function CategoryTabs({ products, category }) {
                   </div>
                 </div>
               )}
-
-              {/* Labels / Nature BOOST Badge */}
-              <div className="flex flex-wrap items-center gap-2 mb-6">
-                {active.id === "cb-100" ? (
-                  <>
-                    <img src="/nature-boost.webp" alt="Nature BOOST" className="h-16 sm:h-20 w-auto object-contain rounded-lg" />
-                    <img src="https://c8.alamy.com/comp/2JBE5TW/voc-free-volatile-organic-compounds-free-abstract-vector-stock-illustration-2JBE5TW.jpg" alt="VOC Free" className="h-8 sm:h-10 w-auto object-contain rounded-lg border border-brand-border bg-white" />
-                    <img src="/Clean-Blue.webp" alt="Clean Blue" className="h-16 sm:h-20 w-auto object-contain rounded-lg" />
-                  </>
-                ) : (
-                  active.labels && active.labels.length > 0 && active.labels.map((label, i) => {
-                    const isVocFree = label.toLowerCase() === "voc free" || label.toLowerCase() === "voc-free";
-                    if (isVocFree) {
-                      return (
-                        <img key={i} src="https://c8.alamy.com/comp/2JBE5TW/voc-free-volatile-organic-compounds-free-abstract-vector-stock-illustration-2JBE5TW.jpg" alt="VOC Free" className="h-8 sm:h-10 w-auto object-contain rounded-lg border border-brand-border bg-white" />
-                      );
-                    }
-                    return (
-                      <span key={i} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white border border-green-mid text-xs font-bold text-green shadow-sm">
-                        {label}
-                      </span>
-                    );
-                  })
-                )}
-              </div>
             </div>
           </div>
         </section>
