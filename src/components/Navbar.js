@@ -171,7 +171,7 @@ export default function Navbar() {
     <>
       {/* ─── TOP HEADER (desktop only) ─── */}
       <header className="hidden lg:flex justify-center items-center py-1.5 border-b border-brand-border bg-white">
-        <Link href="/">
+        <Link href="/" onClick={() => window.scrollTo(0, 0)}>
           <img src="/logo.png" alt="Bio-Chem Logo" className="h-14 w-auto" />
         </Link>
       </header>
@@ -181,7 +181,7 @@ export default function Navbar() {
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-[64px]">
             {/* Mobile Logo */}
-            <Link href="/" className="lg:hidden flex-shrink-0">
+            <Link href="/" onClick={() => window.scrollTo(0, 0)} className="lg:hidden flex-shrink-0">
               <img src="/logo.png" alt="Bio-Chem Logo" className="h-10 w-auto brightness-0 invert" />
             </Link>
 
@@ -200,6 +200,7 @@ export default function Navbar() {
                   >
                     <NavItem
                       href={link.href !== "#" ? link.href : undefined}
+                      onClick={link.name === "Home" ? () => window.scrollTo(0, 0) : undefined}
                       className={`nav-link flex items-center h-full text-sm font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
                         pathname === link.href || activeMenu === link.name
                           ? "text-white"
@@ -346,7 +347,7 @@ export default function Navbar() {
                                         <Link
                                           key={item.name}
                                           href={item.href}
-                                          onClick={closeMenu}
+                          onClick={() => { closeMenu(); if (link.name === "Home") window.scrollTo(0, 0); }}
                                           className="py-2 px-4 text-sm font-semibold text-brand-body hover:text-green hover:bg-green-light rounded-lg transition-all"
                                         >
                                           {item.name}
