@@ -2,12 +2,58 @@
 
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: ""
+  });
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus({ type: "", message: "" });
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus({ type: "success", message: "Message sent successfully!" });
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+        
+        // Disappear after 4 seconds
+        setTimeout(() => {
+          setStatus({ type: "", message: "" });
+        }, 4000);
+      } else {
+        setStatus({ type: "error", message: "Failed to send message. Please try again." });
+      }
+    } catch (error) {
+      setStatus({ type: "error", message: "An error occurred. Please check your connection." });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <main className="flex flex-col min-h-screen">
@@ -92,27 +138,27 @@ export default function Contact() {
             {/* Contact Form */}
             <div className="lg:col-span-2 reveal flex flex-col items-center lg:items-end">
               <div className="bg-white border border-gray-100 rounded-[2rem] p-8 sm:p-10 shadow-card w-full max-w-2xl">
-                <form action="#" className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-1.5">
                       <label htmlFor="name" className="text-[11px] font-bold uppercase tracking-wider text-gray-500 ml-1">Full Name</label>
-                      <input type="text" id="name" placeholder="John Doe" className="form-input py-3" />
+                      <input type="text" id="name" value={formData.name} onChange={handleChange} required placeholder="Your Name" className="form-input py-3" />
                     </div>
                     <div className="space-y-1.5">
                       <label htmlFor="email" className="text-[11px] font-bold uppercase tracking-wider text-gray-500 ml-1">Email Address</label>
-                      <input type="email" id="email" placeholder="john@company.com" className="form-input py-3" />
+                      <input type="email" id="email" value={formData.email} onChange={handleChange} required placeholder="your@email.com" className="form-input py-3" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-1.5">
                       <label htmlFor="phone" className="text-[11px] font-bold uppercase tracking-wider text-gray-500 ml-1">Phone Number</label>
-                      <input type="tel" id="phone" placeholder="+91 00000 00000" className="form-input py-3" />
+                      <input type="tel" id="phone" value={formData.phone} onChange={handleChange} placeholder="+91 00000 00000" className="form-input py-3" />
                     </div>
                     <div className="space-y-1.5">
                       <label htmlFor="subject" className="text-[11px] font-bold uppercase tracking-wider text-gray-500 ml-1">Subject</label>
                       <div className="relative">
-                        <select id="subject" className="form-input appearance-none pr-10 py-3">
+                        <select id="subject" value={formData.subject} onChange={handleChange} className="form-input appearance-none pr-10 py-3">
                           <option value="">Select an option</option>
                           <option value="product">Product Inquiry</option>
                           <option value="technical">Technical Support</option>
@@ -128,12 +174,18 @@ export default function Contact() {
 
                   <div className="space-y-1.5">
                     <label htmlFor="message" className="text-[11px] font-bold uppercase tracking-wider text-gray-500 ml-1">Your Message</label>
-                    <textarea id="message" rows="4" placeholder="Tell us about your requirements..." className="form-input resize-none py-3"></textarea>
+                    <textarea id="message" value={formData.message} onChange={handleChange} required rows="4" placeholder="Tell us about your requirements..." className="form-input resize-none py-3"></textarea>
                   </div>
 
+                  {status.message && (
+                    <div className={`p-4 rounded-xl text-sm font-medium ${status.type === "success" ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"}`}>
+                      {status.message}
+                    </div>
+                  )}
+
                   <div className="pt-2">
-                    <button type="submit" className="w-full sm:w-auto bg-green text-white font-bold px-8 py-3.5 rounded-xl hover:bg-green-dark hover:-translate-y-1 transition-all shadow-lg shadow-green/20 text-sm">
-                      Send Message <i className="fas fa-paper-plane ml-2 text-[10px]"></i>
+                    <button type="submit" disabled={loading} className={`w-full sm:w-auto bg-green text-white font-bold px-8 py-3.5 rounded-xl hover:bg-green-dark hover:-translate-y-1 transition-all shadow-lg shadow-green/20 text-sm flex items-center justify-center gap-2 ${loading ? "opacity-70 cursor-not-allowed" : "cursor-pointer"}`}>
+                      {loading ? "Sending..." : "Send Message"} <i className="fas fa-paper-plane text-[10px]"></i>
                     </button>
                   </div>
                 </form>
@@ -142,10 +194,7 @@ export default function Contact() {
 
           </div>
 
-          {/* Map Placeholder */}
-          <div className="mt-12 rounded-[2.5rem] overflow-hidden h-96 border border-gray-100 reveal grayscale hover:grayscale-0 transition-all duration-700 shadow-sm">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.282998344485!2d76.95886!3d11.012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859af2f973067%3A0x1036365f5a894a8f!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy"></iframe>
-          </div>
+
         </div>
       </main>
     </main>

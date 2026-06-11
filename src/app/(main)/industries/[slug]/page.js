@@ -175,7 +175,7 @@ export default async function IndustryPage({ params }) {
                       <i className={`fas ${step.icon} text-white text-sm`}></i>
                     </div>
                     <div className="text-xs sm:text-sm font-black text-green/40 mb-1">{step.num}</div>
-                    <h3 className="text-sm font-bold text-brand-black leading-snug tracking-tight mb-2">{step.title}</h3>
+                    <h3 className="text-sm font-bold text-brand-black leading-snug tracking-tight mb-2" style={{ textWrap: "balance" }}>{step.title}</h3>
                     <p className="text-xs text-brand-body leading-relaxed flex-1">{step.desc}</p>
                   </div>
                 </div>

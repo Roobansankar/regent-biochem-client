@@ -27,20 +27,24 @@ const caseStudies = [
     image: "/e-weld.webp",
     challenge: "The fabrication facility was experiencing excessive slag buildup on cutting beds, requiring frequent manual chiseling and grinding to remove accumulated deposits. This caused up to 6 hours of downtime per shift, reduced cutting precision due to uneven bed surfaces, and increased operational costs from premature bed replacement.",
     customerBackground: "A leading manufacturer of railway infrastructure and track maintenance equipment. The facility supports fabrication and assembly operations for heavy engineering equipment used in rail infrastructure projects.",
+    businessChallengesDescription: "Frequent slag accumulation and slat wear resulted in:",
     businessChallenges: [
-      "High-volume Oxy-fuel cutting of heavy steel plates",
-      "Continuous production for downstream assembly operations",
-      "Recurring cutting bed and slat maintenance"
+      "Slag buildup on cutting slats causing uneven part seating",
+      "Frequent slat replacements in continuous-running machines",
+      "Increased manual chipping and scraping of cutting tables",
+      "Higher downtime due to cleaning and slat changeovers",
+      "Impact on cut accuracy and downstream fabrication and welding quality"
     ],
+    businessChallengesQuote: "Excessive slag accumulation on cutting bed required frequent manual cleaning of slats, reducing operational efficiency.",
     operationalSnapshot: [
-      { value: "80%", description: "reduction in slag adhesion on cutting bed surfaces" },
-      { value: "60%", description: "decrease in maintenance downtime across all shifts" },
-      { value: "3x", description: "extension of cutting bed service life before replacement" },
+      { value: "50%", description: "reduction in cutting bed cleaning cycles, decreasing from 52 to 26 cleanings per year" },
+      { value: "75%", description: "reduction in bed replacement frequency, lowering replacements from 4 to 1 cycle annually" },
+      { value: "41%", description: "reduction in total downtime, reducing downtime from 291 hrs to 170 hrs per year" },
     ],
     costSnapshot: [
-      { value: "4 mo", description: "payback period from reduced maintenance and replacement costs" },
-      { value: "120+ hrs", description: "annual maintenance hours saved per cutting line" },
-      { value: "2 beds", description: "cutting beds still in service after 18 months without replacement" },
+      { value: "12%", description: "reduction in total annual operational cost, generating ~₹1.37 lakh net annual savings" },
+      { value: "₹10/kg", description: "production cost per unit reduced (₹360/kg to ₹350/kg)" },
+      { value: "₹2.84L", description: "annual savings from reduced bed replacement costs" },
     ],
     approachSteps: [
       "Conducted detailed assessment of current slag buildup patterns and maintenance schedules.",
@@ -49,17 +53,18 @@ const caseStudies = [
       "Adjusted coating application frequency based on real-world wear patterns.",
       "Trained operators on proper bed maintenance and coating reapplication."
     ],
+    takeawaysDescription: "<b>E-Weld Shield</b> shifts laser bed maintenance from reactive slag removal to preventive surface protection, delivering:",
     takeaways: [
-      "Eliminated manual chiseling and grinding between shifts",
-      "Improved cutting precision and part quality",
-      "Significant reduction in operational downtime",
-      "Extended cutting bed lifespan by 3x"
+      "Reduced slag buildup and adhesion",
+      "Faster maintenance and reduced downtime",
+      "Extended slat and cutting bed lifespan",
+      "Predictable and lower maintenance costs"
     ],
     idealUseCases: [
-      "High-volume laser and plasma cutting operations",
-      "Facilities with frequent slag buildup issues",
-      "Operations looking to reduce maintenance downtime",
-      "Shops seeking to extend cutting bed service life"
+      "High-volume laser/plasma/Oxy-fuel cutting beds",
+      "Precision engineering facilities",
+      "Heavy metal fabrication shops",
+      "Plants seeking productivity + EHS improvements"
     ],
     outcome: "The implementation of E-WELD SHIELD transformed the facility's cutting operations. Slag adhesion was reduced by 80%, cutting maintenance downtime from 6 hours to just over 2 hours per shift. Cutting precision improved significantly due to consistently flat bed surfaces. The initial investment was recovered within 4 months through reduced labor costs and extended bed life."
   },
@@ -277,9 +282,6 @@ export default function CaseStudyDetail() {
                 <i className="fas fa-arrow-left text-[10px]" /> Back to Case Studies
               </Link>
 
-              <span className="text-xs font-bold uppercase tracking-widest text-yellow-400 mb-2 block">
-                {study.product}
-              </span>
               <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4 leading-snug">
                 {study.title}
               </h1>
@@ -300,7 +302,7 @@ export default function CaseStudyDetail() {
             <div className="bg-brand-bg2 rounded-2xl border border-brand-border p-5">
               <div className="flex items-center gap-2 text-yellow-400 text-xs mb-2">
                 <i className="fas fa-building"></i>
-                <span className="font-bold uppercase tracking-wider text-brand-muted">Client</span>
+                <span className="font-bold uppercase tracking-wider text-brand-muted">Industry</span>
               </div>
               <div className="text-sm font-semibold text-brand-black">{study.client}</div>
             </div>
@@ -321,9 +323,9 @@ export default function CaseStudyDetail() {
             <div className="bg-brand-bg2 rounded-2xl border border-brand-border p-5">
               <div className="flex items-center gap-2 text-yellow-400 text-xs mb-2">
                 <i className="fas fa-tag"></i>
-                <span className="font-bold uppercase tracking-wider text-brand-muted">Ref</span>
+                <span className="font-bold uppercase tracking-wider text-brand-muted">Product</span>
               </div>
-              <div className="text-sm font-semibold text-brand-black">{study.ref}</div>
+              <div className="text-sm font-semibold text-brand-black">{study.product}</div>
             </div>
           </div>
         </div>
@@ -341,14 +343,23 @@ export default function CaseStudyDetail() {
               <div>
                 <SectionLabel>Customer background</SectionLabel>
                 <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-6">{study.customerBackground}</p>
+                {study.businessChallengesDescription && (
+                  <div className="mt-8">
+                    <SectionLabel>Business Challenges</SectionLabel>
+                    <p className="text-sm sm:text-base text-brand-black leading-relaxed mb-3 font-semibold">{study.businessChallengesDescription}</p>
+                  </div>
+                )}
                 <ul className="space-y-3">
-                  {study.businessChallenges.slice(0, 3).map((item, i) => (
+                  {study.businessChallenges.map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-gray-500">
                       <i className="fas fa-circle text-green/40 text-[7px] mt-1.5 flex-shrink-0"></i>
                       {item}
                     </li>
                   ))}
                 </ul>
+                {study.businessChallengesQuote && (
+                  <p className="text-sm sm:text-base text-brand-black italic font-medium leading-relaxed mt-4 border-l-2 border-green/30 pl-4">&ldquo;{study.businessChallengesQuote}&rdquo;</p>
+                )}
               </div>
 
               <Divider />
@@ -393,7 +404,10 @@ export default function CaseStudyDetail() {
               {/* Key takeaways */}
               <div className="bg-green/5 rounded-2xl border border-green/20 p-5">
                 <SectionLabel>Key takeaways</SectionLabel>
-                <ul className="space-y-2 mt-2">
+                {study.takeawaysDescription && (
+                  <p className="text-sm text-green-900 leading-relaxed mt-2 mb-3" dangerouslySetInnerHTML={{ __html: study.takeawaysDescription }}></p>
+                )}
+                <ul className="space-y-2">
                   {study.takeaways.map((t, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-green-900">
                       <i className="fas fa-circle-check text-green text-xs mt-0.5 flex-shrink-0" />

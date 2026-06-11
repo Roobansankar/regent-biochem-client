@@ -6,11 +6,12 @@ import Link from "next/link";
 
 const sidebarLinks = [
   { label: "Dashboard", href: "/admin", icon: "fa-chart-pie" },
+  { label: "Messages", href: "/admin/messages", icon: "fa-envelope" },
+  { label: "Blog", href: "/admin/blog", icon: "fa-newspaper" },
   { label: "Products", href: "/admin/products", icon: "fa-box" },
   { label: "Services", href: "/admin/services", icon: "fa-concierge-bell" },
   { label: "Orders", href: "/admin/orders", icon: "fa-shopping-cart" },
   { label: "Users", href: "/admin/users", icon: "fa-users" },
-  { label: "Blog", href: "/admin/blog", icon: "fa-newspaper" },
   { label: "Settings", href: "/admin/settings", icon: "fa-gear" },
 ];
 

@@ -152,8 +152,7 @@ export default function CareersPage() {
       <section id="openings" className="py-12 sm:py-16 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3">Opening @Biochem</h2>
-            <p className="text-brand-muted font-medium mb-4">Current opening</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3">Current Openings</h2>
             <div className="w-16 h-1 bg-green rounded-full"></div>
           </div>
 
@@ -213,6 +212,7 @@ export default function CareersPage() {
               </div>
             </div>
             <div className="p-6 overflow-y-auto flex-1">
+              <h4 className="text-sm font-bold text-brand-black mb-3">Overview</h4>
               <div className="text-sm leading-relaxed">
                 {selectedJob.fullDescription.split('\n').map((line, i) => {
                   const headings = ["Key Responsibilities", "Qualification", "Experience Required", "Key Skills Required"];
@@ -244,7 +244,7 @@ export default function CareersPage() {
             <div className="relative z-10 flex-1">
               <h2 className="text-2xl font-bold text-brand-black mb-4">Don&apos;t see a perfect match?</h2>
               <p className="text-sm sm:text-base text-brand-body max-w-2xl">
-                We&apos;re always looking for talented individuals who are passionate about chemicals, engineering, and sustainability. Send us your CV and we&apos;ll keep you in mind for future openings.
+                We&apos;re always looking for talented individuals who are passionate about Engineering and Sustainability. Send us your CV and we&apos;ll keep you in mind for future openings.
               </p>
             </div>
             <div className="relative z-10 flex-shrink-0">

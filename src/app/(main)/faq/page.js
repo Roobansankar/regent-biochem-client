@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const faqs = [
   {
-    category: "Solution & Application FAQs",
+    category: "Solution & Application ",
     items: [
       {
         question: "How do I determine the right cleaning solution for my application?",
@@ -27,7 +27,7 @@ const faqs = [
     ]
   },
   {
-    category: "Performance & Operational FAQs",
+    category: "Performance & Operational ",
     items: [
       {
         question: "How can industrial cleaning improve equipment performance?",
@@ -52,7 +52,7 @@ const faqs = [
     ]
   },
   {
-    category: "Safety & Sustainability FAQs",
+    category: "Safety & Sustainability ",
     items: [
       {
         question: "Are your cleaning solutions environmentally responsible?",
@@ -77,7 +77,7 @@ const faqs = [
     ]
   },
   {
-    category: "Support & Service FAQs",
+    category: "Support & Service ",
     items: [
       {
         question: "Do you provide technical support for solution selection?",
@@ -102,7 +102,7 @@ const faqs = [
     ]
   },
   {
-    category: "Commercial & Implementation FAQs",
+    category: "Commercial & Implementation ",
     items: [
       {
         question: "How can I request a product demonstration or trial?",

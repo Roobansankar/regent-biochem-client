@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-white border-t border-brand-border px-4 sm:px-6 lg:px-8 pt-14 pb-8">
       <div className="max-w-[1600px] mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-12 gap-x-8 md:gap-x-10 lg:gap-x-12 xl:gap-x-16 mb-12 pb-10 border-b border-brand-border">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12 pb-10 border-b border-brand-border">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 flex flex-col">
             <Link href="/">
@@ -38,7 +38,7 @@ export default function Footer() {
           {/* Company */}
           <div>
             <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-4">Company</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               <li>
                 <Link href="/" className="text-sm text-brand-muted hover:text-green transition-colors">
                   Home
@@ -64,7 +64,7 @@ export default function Footer() {
           {/* Industries */}
           <div>
             <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-4">Industries</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               <li>
                 <Link href="/industries/automotive" className="text-sm text-brand-muted hover:text-green transition-colors">
                   Automotive
@@ -110,7 +110,7 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-4">Services</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               <li>
                 <Link href="/services/pipeline" className="text-sm text-brand-muted hover:text-green transition-colors">
                   Pipeline Cleaning Solutions
@@ -141,9 +141,9 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-4">Contact</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               <li className="flex items-start gap-2 text-sm text-brand-muted">
-                <i className="fas fa-map-marker-alt text-green mt-0.5 flex-shrink-0"></i> 24, Sungam Bypass Road,<br/>Paari Nagar,<br/>Coimbatore,<br/>Tamil Nadu - 641045
+                <i className="fas fa-map-marker-alt text-green mt-0.5 flex-shrink-0"></i> 24, Sungam Bypass Road, Paari Nagar,<br/>Coimbatore,<br/>Tamil Nadu - 641045
               </li>
               <li className="flex items-center gap-2 text-sm text-brand-muted">
                 <i className="fas fa-phone text-green flex-shrink-0"></i> 0422 231 0396

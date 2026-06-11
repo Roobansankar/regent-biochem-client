@@ -251,36 +251,35 @@ export default async function ServicePage({ params }) {
       {/* Service Approach */}
       <section id="details" className="py-12 sm:py-16 bg-brand-bg2/50 border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Our Service Approach</h2>
-          </div>
-          
-          <div className="relative max-w-[1400px] mx-auto">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-4 justify-center">
+              <span className="w-10 h-px bg-green/30"></span>
+              <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">How We Add Value</span>
+              <span className="w-10 h-px bg-green/30"></span>
+            </div>
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-brand-black mb-6 tracking-tight text-center">From Insight to Impact</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {[
-                { title: "Discovery & Diagnosis" },
-                { title: "Solution & Proposal" },
-                { title: "Execution Preparation" },
-                { title: "Service Execution" },
-                { title: "Performance Validation" },
-                { title: "After Support" }
-              ].map((step, index) => {
-                const num = String(index + 1).padStart(2, "0");
-                return (
-                  <div key={index} className="relative group">
-                    {index < 5 && (
-                      <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-px bg-green/20 group-hover:bg-green/40 transition-colors -z-0"></div>
-                    )}
-                    <div className="bg-white border border-brand-border rounded-lg p-5 text-center hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 relative z-10 h-full flex flex-col">
-                      <div className="w-10 h-10 bg-green rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md shadow-green/20">
-                        <span className="text-white text-sm font-bold">{index + 1}</span>
-                      </div>
-                      <div className="text-xs sm:text-sm font-black text-green/40 mb-1">{num}</div>
-                      <h3 className="text-sm font-normal text-brand-black leading-snug tracking-tight">{step.title}</h3>
+                { num: "01", title: "Discovery & Diagnosis", icon: "fa-search", desc: "Assess customer applications, operational challenges, and performance requirements." },
+                { num: "02", title: "Solutioning & Proposal", icon: "fa-file-alt", desc: "Evaluate value proposition and recommend suitable solution for the usecase." },
+                { num: "03", title: "Order Execution & Delivery", icon: "fa-truck", desc: "Execute orders efficiently and ensure on-time delivery of the quality products." },
+                { num: "04", title: "Installation & Commissioning", icon: "fa-cogs", desc: "Install, test, and validate system performance against expected outcomes." },
+                { num: "05", title: "Product Lifecycle Support", icon: "fa-headset", desc: "Provide continuous technical and service support to ensure long-term reliability." }
+              ].map((step, i, arr) => (
+                <div key={i} className="relative group">
+                  {i < arr.length - 1 && (
+                    <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-px bg-green/20 group-hover:bg-green/40 transition-colors -z-0"></div>
+                  )}
+                  <div className="bg-brand-bg2 border border-brand-border rounded-lg p-5 text-center hover:bg-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 relative z-10 h-full flex flex-col items-center">
+                    <div className="w-10 h-10 bg-green rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md shadow-green/20">
+                      <i className={`fas ${step.icon} text-white text-sm`}></i>
                     </div>
+                    <div className="text-xs sm:text-sm font-black text-green/40 mb-1">{step.num}</div>
+                    <h3 className="text-sm font-bold text-brand-black leading-snug tracking-tight mb-2" style={{ textWrap: "balance" }}>{step.title}</h3>
+                    <p className="text-xs text-brand-body leading-relaxed flex-1">{step.desc}</p>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
           </div>
         </div>
