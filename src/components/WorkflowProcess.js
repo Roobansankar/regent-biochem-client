@@ -48,7 +48,8 @@ export default function WorkflowProcess() {
         </div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4"> */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {steps.map((step, i) => (
             <div key={i} className="relative group">
               {/* Connector line */}
@@ -67,10 +68,9 @@ export default function WorkflowProcess() {
 
                 {/* Title — fixed height so all cards align */}
                 {/* <h3 className="text-[13px] xl:text-[14px] font-bold text-brand-black leading-snug tracking-tight mb-2 min-h-[2.5rem] flex items-center justify-center"> */}
-                <h3 className="text-[12px] lg:text-[13px] font-bold text-brand-black leading-tight tracking-tight mb-2 h-[52px] flex items-center justify-center px-2">
-                  {step.title}
-                </h3>
-
+                <h3 className="text-[12px] lg:text-[13px] font-bold text-brand-black leading-tight h-[56px] flex items-center justify-center px-3 text-center">
+  {step.title}
+</h3>
                 {/* Description */}
                 <p className="text-[12px] xl:text-[14px] text-brand-body leading-relaxed flex-1">
                   {step.desc}
