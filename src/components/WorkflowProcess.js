@@ -130,15 +130,15 @@ export default function WorkflowProcess() {
                 </div>
 
                 {/* Step number */}
-                <div className="text-[12px] font-black text-green/40 mb-1 leading-none">{step.num}</div>
+                <div className="text-[13px] font-black text-green/40 mb-1 leading-none">{step.num}</div>
 
                 {/* Title — fixed height so all cards align */}
-                <h3 className="text-[12px] xl:text-[13px] font-bold text-brand-black leading-snug tracking-tight mb-2 min-h-[2.5rem] flex items-center justify-center">
+                <h3 className="text-[13px] xl:text-[14px] font-bold text-brand-black leading-snug tracking-tight mb-2 min-h-[2.5rem] flex items-center justify-center">
                   {step.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-[11px] xl:text-[13px] text-brand-body leading-relaxed flex-1">
+                <p className="text-[12px] xl:text-[14px] text-brand-body leading-relaxed flex-1">
                   {step.desc}
                 </p>
               </div>
