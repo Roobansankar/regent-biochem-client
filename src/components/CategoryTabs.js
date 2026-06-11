@@ -20,7 +20,7 @@ export default function CategoryTabs({ products, category }) {
           {products.map((p, i) => (
             <button
               key={p.id}
-              className={`px-6 py-3 text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
+              className={`px-6 py-3 text-xs sm:text-sm font-bold whitespace-nowrap transition-all cursor-pointer ${
                 i < products.length - 1 ? "border-r border-brand-border" : ""
               } ${
                 activeTab === p.id 
