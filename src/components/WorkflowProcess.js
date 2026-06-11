@@ -4,13 +4,13 @@ export default function WorkflowProcess() {
   const steps = [
     {
       num: "01",
-      title: "Discovery & Diagnosis",
+      title: "Discovery &<br/>Diagnosis",
       desc: "Assess customer applications, operational challenges, and performance requirements.",
       icon: "fa-search",
     },
     {
       num: "02",
-      title: "Solution & Proposal",
+      title: "Solution &<br/>Proposal",
       desc: "Evaluate value proposition and recommend suitable solution for the usecase.",
       icon: "fa-file-alt",
     },
@@ -67,10 +67,7 @@ export default function WorkflowProcess() {
                 <div className="text-[13px] font-black text-green/40 mb-1 leading-none">{step.num}</div>
 
                 {/* Title — fixed height so all cards align */}
-                {/* <h3 className="text-[13px] xl:text-[14px] font-bold text-brand-black leading-snug tracking-tight mb-2 min-h-[2.5rem] flex items-center justify-center"> */}
-                <h3 className="text-[12px] lg:text-[13px] font-bold text-brand-black leading-tight h-[56px] flex items-center justify-center px-3 text-center">
-  {step.title}
-</h3>
+                <h3 className="text-[13px] xl:text-[14px] font-bold text-brand-black leading-snug tracking-tight mb-2 min-h-[2.5rem] flex items-center justify-center px-2 text-center" style={{ textWrap: "balance", maxWidth: "180px", margin: "0 auto" }} dangerouslySetInnerHTML={{ __html: step.title }}></h3>
                 {/* Description */}
                 <p className="text-[12px] xl:text-[14px] text-brand-body leading-relaxed flex-1">
                   {step.desc}
