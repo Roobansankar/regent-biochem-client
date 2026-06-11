@@ -258,13 +258,14 @@ export default async function ServicePage({ params }) {
                 From Insight to <span className="text-green">Impact</span>
               </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
               {[
-                { num: "01", title: "Discovery & Diagnosis", icon: "fa-search", desc: "Assess customer applications, operational challenges, and performance requirements." },
-                { num: "02", title: "Solutioning & Proposal", icon: "fa-file-alt", desc: "Evaluate value proposition and recommend suitable solution for the usecase." },
-                { num: "03", title: "Order Execution & Delivery", icon: "fa-truck", desc: "Execute orders efficiently and ensure on-time delivery of the quality products." },
-                { num: "04", title: "Installation & Commissioning", icon: "fa-cogs", desc: "Install, test, and validate system performance against expected outcomes." },
-                { num: "05", title: "Product Lifecycle Support", icon: "fa-headset", desc: "Provide continuous technical and service support to ensure long-term reliability." }
+                { num: "01", title: "Discovery & Diagnosis", icon: "fa-search", desc: "Understand system conditions, operational challenges, and performance requirements." },
+                { num: "02", title: "Solution & Proposal", icon: "fa-file-alt", desc: "Develop tailored solutions aligned with operational requirements." },
+                { num: "03", title: "Execution Preparation", icon: "fa-clipboard-list", desc: "Prepare resources, safety measures, and detailed execution plans." },
+                { num: "04", title: "Service Execution", icon: "fa-cogs", desc: "Execute approved solutions safely, efficiently, and with precision." },
+                { num: "05", title: "Performance Validation", icon: "fa-check-circle", desc: "Validate outcomes against defined operational performance objectives." },
+                { num: "06", title: "After Support", icon: "fa-headset", desc: "Provide ongoing guidance for sustained system performance." }
               ].map((step, i, arr) => (
                 <div key={i} className="relative group">
                   {i < arr.length - 1 && (
@@ -292,8 +293,8 @@ export default async function ServicePage({ params }) {
         <section className="py-6 sm:py-8 bg-brand-bg2/50">
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
              <div className="text-center mb-10">
-                <h2 className="text-2xl sm:text-3xl font-bold text-brand-black">Proven Results</h2>
-                <p className="text-sm sm:text-base text-brand-body mt-2">Visual evidence of our cleaning effectiveness</p>
+                 <h2 className="text-2xl sm:text-3xl font-bold text-brand-black">Proven Results</h2>
+                 <p className="text-sm sm:text-base text-brand-body mt-2">Visual evidence of our cleaning effectiveness</p>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                 <div className="relative rounded-2xl overflow-hidden shadow-xl border border-brand-border">
@@ -309,7 +310,7 @@ export default async function ServicePage({ params }) {
         </section>
       )}
 
-      <CTA2 />
+      <CTA2 variant={service.slug} />
     </main>
   );
 }

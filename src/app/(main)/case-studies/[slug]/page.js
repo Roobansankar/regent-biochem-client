@@ -6,15 +6,16 @@
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 import CTA from "@/components/CTA";
+import { industries } from "@/data/industries";
 
 const caseStudies = [
   {
     slug: "e-weld-shield",
     ref: "W/002",
     title: "Reducing Slag Adhesion and Maintenance Downtime in Laser & Plasma Cutting Operation",
-    client: "Industrial Fabrication Co.",
+     industry: "Industrial Fabrication Co.",
     category: "Fabrication",
-    industry: "Railway Equipment Manufacturing",
+    subindustry: "Railway Equipment Manufacturing",
     application: "Protective coating for laser / plasma / oxy-fuel cutting beds",
     product: "E-WELD SHIELD",
     problem: "Excessive slag adhesion on cutting beds caused frequent maintenance downtime and reduced cutting precision in laser and plasma operations.",
@@ -72,9 +73,10 @@ const caseStudies = [
     slug: "solvent-waste-reduction",
     ref: "W/001",
     title: "85% Reduction in Solvent Waste for Automotive Assembly",
-    client: "Tier-1 Automotive Manufacturer",
+    industry: "Tier-1 Automotive Manufacturer",
     category: "Automotive",
     industry: "Automotive manufacturing",
+    subindustry: "Automotive Assembly",
     application: "Protective coating for laser / plasma / oxy-fuel cutting beds",
     product: "Bio-Washer System",
     problem:
@@ -135,9 +137,9 @@ const caseStudies = [
     slug: "aerospace-precision-cleaning",
     ref: "W/002",
     title: "Aerospace-Grade Precision Cleaning with Zero Rejects",
-    client: "Precision Aerospace Machining Ltd.",
+    industry: "Precision Aerospace Machining Ltd.",
     category: "Aerospace",
-    industry: "Aerospace precision machining",
+    subindustry: "Aerospace precision machining",
     application: "Aqueous parts washing — turbine components",
     product: "GT Parts Washer",
     problem:
@@ -198,9 +200,10 @@ const caseStudies = [
     slug: "fluid-health-automation",
     ref: "W/003",
     title: "Automating Fluid Health in Heavy Metal Forging",
-    client: "Global Forging Group",
+    industry: "Global Forging Group",
     category: "Heavy Industry",
     industry: "Heavy engineering — hot forging",
+    subindustry: "Heavy engineering — hot forging",
     application: "Automated tank fluid management — aqueous degreasing",
     product: "Pro AutoPurge System",
     problem:
@@ -336,14 +339,14 @@ export default function CaseStudyDetail() {
 
 
 <section className="relative overflow-hidden">
-  <div className="flex items-center min-h-[400px] bg-white">
+  <div className="flex items-center min-h-[280px] bg-white">
 
     {/* Left Content */}
-    <div className="flex-1 px-8 lg:px-12 py-10 relative z-10">
+    <div className="flex-1 px-8 lg:px-12 py-8 relative z-10">
 
       <Link
         href="/case-studies"
-        className="inline-flex items-center gap-2 text-sm text-green/60 hover:text-green transition-colors mb-6"
+        className="inline-flex items-center gap-2 text-sm text-green/60 hover:text-green transition-colors mb-4"
       >
         <i className="fas fa-arrow-left text-xs" />
         Back to Case Studies
@@ -356,7 +359,7 @@ export default function CaseStudyDetail() {
     </div>
 
     {/* Right Image */}
-    <div className="w-[380px] lg:w-[450px] flex justify-center items-center pr-8">
+    <div className="w-[250px] lg:w-[320px] flex justify-center items-center pr-6">
       <img
         src={study.image}
         alt={study.title}
@@ -377,14 +380,14 @@ export default function CaseStudyDetail() {
                 <i className="fas fa-building"></i>
                 <span className="font-bold uppercase tracking-wider text-brand-muted">Industry</span>
               </div>
-              <div className="text-sm font-semibold text-brand-black">{study.client}</div>
+              <div className="text-sm font-semibold text-brand-black">{study.industry}</div>
             </div>
             <div className="bg-white rounded-2xl border border-brand-border p-5">
               <div className="flex items-center gap-2 text-green text-xs mb-2">
                 <i className="fas fa-industry"></i>
                 <span className="font-bold uppercase tracking-wider text-brand-muted">Sub Industry</span>
               </div>
-              <div className="text-sm font-semibold text-brand-black">{study.industry}</div>
+              <div className="text-sm font-semibold text-brand-black">{study.subindustry}</div>
             </div>
             <div className="bg-white rounded-2xl border border-brand-border p-5">
               <div className="flex items-center gap-2 text-green text-xs mb-2">
