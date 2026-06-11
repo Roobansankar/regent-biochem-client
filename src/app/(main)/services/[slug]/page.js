@@ -48,7 +48,7 @@ export default async function ServicePage({ params }) {
       </section>
 
       {/* Service Title Section - image left, content right */}
-      <section className="py-12 lg:py-16 bg-white">
+      <section className="py-6 sm:py-8 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12 items-center">
             <div className="lg:col-span-2 lg:col-start-1 relative group">
@@ -76,7 +76,7 @@ export default async function ServicePage({ params }) {
 
       {/* Critical Problems We Resolve */}
     
-      <section className="py-16 sm:py-20 bg-[#F6F8F6] border-y border-brand-border">
+      <section className="py-6 sm:py-8 bg-[#F6F8F6] border-y border-brand-border">
   <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
 
     {/* Heading */}
@@ -124,7 +124,7 @@ export default async function ServicePage({ params }) {
 
       {/* Contaminants Removed Section */}
      {service.contaminantsRemoved && (
-  <section className="py-16 sm:py-20 bg-white border-b border-brand-border">
+  <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
     <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
 
       {/* Heading */}
@@ -163,10 +163,10 @@ export default async function ServicePage({ params }) {
 )}
 
       {/* How We Do It Section */}
-      <section className="py-16 sm:py-20 bg-white border-b border-brand-border">
+      <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div>
-            <div className="text-center mb-10">
+            <div className="text-center mb-8">
               <h2 className="text-3xl sm:text-4xl font-bold text-brand-black mb-3">
                 How <span className="text-green">We Do It</span>
               </h2>
@@ -213,7 +213,7 @@ export default async function ServicePage({ params }) {
       </section>
 
       {/* Industries We Serve Section */}
-      <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
+      <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Industries We Serve</h2>
@@ -230,7 +230,7 @@ export default async function ServicePage({ params }) {
 
       {/* Recommended Cleaners */}
       {service.recommendedCleaners && (
-        <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
+        <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
               <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Recommended Cleaners</h2>
@@ -249,7 +249,7 @@ export default async function ServicePage({ params }) {
       )}
 
       {/* Service Approach */}
-      <section id="details" className="py-12 sm:py-16 bg-brand-bg2/50 border-b border-brand-border">
+      <section id="details" className="py-6 sm:py-8 bg-brand-bg2/50 border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4 justify-center">
@@ -289,7 +289,7 @@ export default async function ServicePage({ params }) {
 
       {/* Before & After Section */}
       {service.beforeAfter && (
-        <section className="py-12 sm:py-16 bg-brand-bg2/50">
+        <section className="py-6 sm:py-8 bg-brand-bg2/50">
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
              <div className="text-center mb-10">
                 <h2 className="text-2xl sm:text-3xl font-bold text-brand-black">Proven Results</h2>

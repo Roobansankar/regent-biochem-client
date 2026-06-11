@@ -43,7 +43,7 @@ export default function CTA2() {
             <h3 className="text-xl sm:text-2xl font-bold text-brand-black mb-3 tracking-tight">Ready to Optimize Your Flow?</h3>
             <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-6">
               Our specialists are ready to discuss your specific infrastructure
-              needs and provide a customized RWR cleaning solution.
+               needs and provide a customized cleaning solution.
             </p>
             <a
               href="#"
