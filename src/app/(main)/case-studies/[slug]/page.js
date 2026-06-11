@@ -336,23 +336,21 @@ export default function CaseStudyDetail() {
 
 
 <section className="relative overflow-hidden">
-  <div className="flex items-center min-h-[400px] bg-gradient-to-r from-green via-green via-[25%] to-white">
+  <div className="flex items-center min-h-[400px] bg-white">
 
     {/* Left Content */}
     <div className="flex-1 px-8 lg:px-12 py-10 relative z-10">
 
       <Link
         href="/case-studies"
-        className="inline-flex items-center gap-2 text-sm text-white/75 hover:text-white transition-colors mb-6"
+        className="inline-flex items-center gap-2 text-sm text-green/60 hover:text-green transition-colors mb-6"
       >
         <i className="fas fa-arrow-left text-xs" />
         Back to Case Studies
       </Link>
 
-      <h1 className="text-3xl lg:text-4xl font-bold text-white leading-tight max-w-3xl">
-        Reducing Slag Adhesion and Maintenance Downtime in Laser & Plasma
-        <br />
-        Cutting Operations
+      <h1 className="text-3xl lg:text-4xl font-bold text-green leading-tight max-w-3xl">
+        {study.title}
       </h1>
 
     </div>
@@ -371,32 +369,32 @@ export default function CaseStudyDetail() {
 
 
       {/* Meta Details */}
-      <section className="py-8 bg-white border-b border-brand-border">
+      <section className="py-8 bg-brand-bg2 border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl">
-            <div className="bg-brand-bg2 rounded-2xl border border-brand-border p-5">
-              <div className="flex items-center gap-2 text-yellow-400 text-xs mb-2">
+            <div className="bg-white rounded-2xl border border-brand-border p-5">
+              <div className="flex items-center gap-2 text-green text-xs mb-2">
                 <i className="fas fa-building"></i>
                 <span className="font-bold uppercase tracking-wider text-brand-muted">Industry</span>
               </div>
               <div className="text-sm font-semibold text-brand-black">{study.client}</div>
             </div>
-            <div className="bg-brand-bg2 rounded-2xl border border-brand-border p-5">
-              <div className="flex items-center gap-2 text-yellow-400 text-xs mb-2">
+            <div className="bg-white rounded-2xl border border-brand-border p-5">
+              <div className="flex items-center gap-2 text-green text-xs mb-2">
                 <i className="fas fa-industry"></i>
                 <span className="font-bold uppercase tracking-wider text-brand-muted">Sub Industry</span>
               </div>
               <div className="text-sm font-semibold text-brand-black">{study.industry}</div>
             </div>
-            <div className="bg-brand-bg2 rounded-2xl border border-brand-border p-5">
-              <div className="flex items-center gap-2 text-yellow-400 text-xs mb-2">
+            <div className="bg-white rounded-2xl border border-brand-border p-5">
+              <div className="flex items-center gap-2 text-green text-xs mb-2">
                 <i className="fas fa-wrench"></i>
                 <span className="font-bold uppercase tracking-wider text-brand-muted">Application</span>
               </div>
               <div className="text-sm font-semibold text-brand-black">{study.application}</div>
             </div>
-            <div className="bg-brand-bg2 rounded-2xl border border-brand-border p-5">
-              <div className="flex items-center gap-2 text-yellow-400 text-xs mb-2">
+            <div className="bg-white rounded-2xl border border-brand-border p-5">
+              <div className="flex items-center gap-2 text-green text-xs mb-2">
                 <i className="fas fa-tag"></i>
                 <span className="font-bold uppercase tracking-wider text-brand-muted">Product</span>
               </div>

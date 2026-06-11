@@ -99,7 +99,7 @@ export default function CaseStudiesPage() {
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-2 text-brand-muted text-[10px] font-bold uppercase tracking-widest mb-4">
-                    <i className="fas fa-industry text-green"></i>
+                    <i className="fas fa-tag text-green"></i>
                     {study.product}
                   </div>
                   <h2 className="text-lg font-bold text-brand-black mb-3 leading-tight group-hover:text-green transition-colors">
