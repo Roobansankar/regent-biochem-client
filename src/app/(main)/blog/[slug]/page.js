@@ -96,34 +96,45 @@ export default function BlogPost() {
             </div>
 
             <article 
-              className="prose prose-lg max-w-none prose-headings:text-brand-black prose-p:text-brand-body prose-blockquote:border-green"
+              className="prose prose-lg max-w-none prose-headings:text-brand-black prose-p:text-brand-body prose-p:mb-6 prose-p:leading-relaxed prose-blockquote:border-green break-words overflow-hidden blog-content"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
-
-            {/* Tags & Share */}
-            <div className="mt-16 pt-10 border-t border-brand-border flex flex-wrap items-center justify-between gap-6">
-              <div className="flex flex-wrap gap-2">
-                {post.tags ? post.tags.split(',').map(tag => (
-                  <span key={tag} className="px-4 py-2 bg-brand-bg2 text-brand-muted text-xs font-bold rounded-xl border border-brand-border">
-                    #{tag.trim()}
-                  </span>
-                )) : null}
-              </div>
-              <div className="flex items-center gap-4">
-                <span className="text-xs font-bold text-brand-muted uppercase tracking-widest">Share Article:</span>
-                <div className="flex gap-2">
-                  <button className="w-10 h-10 rounded-xl border border-brand-border flex items-center justify-center text-brand-muted hover:text-green hover:border-green transition-all">
-                    <i className="fab fa-linkedin-in"></i>
-                  </button>
-                  <button className="w-10 h-10 rounded-xl border border-brand-border flex items-center justify-center text-brand-muted hover:text-green hover:border-green transition-all">
-                    <i className="fab fa-twitter"></i>
-                  </button>
-                  <button className="w-10 h-10 rounded-xl border border-brand-border flex items-center justify-center text-brand-muted hover:text-green hover:border-green transition-all">
-                    <i className="fas fa-link"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
+            <style jsx global>{`
+              .blog-content p {
+                margin-bottom: 1.5rem !important;
+                line-height: 1.8 !important;
+                color: #4b5563 !important; /* Tailwind gray-600 */
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+              }
+              .blog-content ul {
+                list-style-type: disc !important;
+                padding-left: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
+                color: #4b5563 !important;
+              }
+              .blog-content ol {
+                list-style-type: decimal !important;
+                padding-left: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
+                color: #4b5563 !important;
+              }
+              .blog-content li {
+                margin-bottom: 0.5rem !important;
+              }
+              .blog-content blockquote {
+                border-left-width: 4px !important;
+                border-left-color: #22c55e !important; /* Tailwind green-500 */
+                background-color: rgba(34, 197, 94, 0.1) !important;
+                padding: 2rem !important;
+                margin-top: 2.5rem !important;
+                margin-bottom: 2.5rem !important;
+                border-top-right-radius: 1rem !important;
+                border-bottom-right-radius: 1rem !important;
+                font-style: italic !important;
+                color: #1f2937 !important; /* Tailwind gray-800 */
+              }
+            `}</style>
           </div>
 
           {/* Sidebar */}

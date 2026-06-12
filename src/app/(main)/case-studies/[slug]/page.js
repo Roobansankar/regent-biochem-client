@@ -28,6 +28,11 @@ const caseStudies = [
     image: "/e-weld.webp",
     challenge: "The fabrication facility was experiencing excessive slag buildup on cutting beds, requiring frequent manual chiseling and grinding to remove accumulated deposits. This caused up to 6 hours of downtime per shift, reduced cutting precision due to uneven bed surfaces, and increased operational costs from premature bed replacement.",
     customerBackground: "A leading manufacturer of railway infrastructure and track maintenance equipment. The facility supports fabrication and assembly operations for heavy engineering equipment used in rail infrastructure projects.",
+    customerBackgroundPoints: [
+      "High-volume Oxy-fuel cutting of heavy steel plates",
+      "Continuous production for downstream assembly operations",
+      "Recurring cutting bed and slat maintenance for E-WELD SHIELD"
+    ],
     businessChallengesDescription: "Frequent slag accumulation and slat wear resulted in:",
     businessChallenges: [
       "Slag buildup on cutting slats causing uneven part seating",
@@ -419,7 +424,17 @@ export default function CaseStudyDetail() {
               {/* Customer background */}
               <div>
                 <SectionLabel>Customer background</SectionLabel>
-                <p className="text-sm text-gray-500 leading-relaxed mb-6">{study.customerBackground}</p>
+                <p className="text-sm text-gray-500 leading-relaxed mb-4">{study.customerBackground}</p>
+                {study.customerBackgroundPoints && (
+                  <ul className="space-y-2 mb-6">
+                    {study.customerBackgroundPoints.map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-sm text-gray-500">
+                        <i className="fas fa-circle text-green/40 text-[7px] mt-1.5 flex-shrink-0"></i>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 {study.businessChallengesDescription && (
                   <div className="mt-8">
                     <SectionLabel>Business Challenges</SectionLabel>

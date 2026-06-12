@@ -137,35 +137,20 @@ export default function AdminBlogs() {
 
   const loadTemplate = () => {
     const template = `
-      <p class="text-lg text-brand-body leading-relaxed mb-6">
-        Write a powerful introduction here to hook your readers...
-      </p>
-      
-      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6">First Key Point</h2>
-      <p class="text-brand-body leading-relaxed mb-6">
-        Describe your technology or solution here. Explain the benefits in detail...
-      </p>
-
-      <blockquote class="border-l-4 border-green bg-green-light/30 p-8 my-10 rounded-r-2xl italic text-brand-black">
-        "Add an inspiring quote or a key takeaway from your technical experts here."
-      </blockquote>
-
-      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6">Second Key Point</h2>
-      <p class="text-brand-body leading-relaxed mb-6">
-        Continue your explanation. Use bullet points below to list features:
-      </p>
-
-      <ul class="list-disc pl-6 space-y-2 text-brand-body mb-6">
-        <li>Feature 1: Explain the technical benefit...</li>
-        <li>Feature 2: Explain the environmental impact...</li>
-        <li>Feature 3: Explain the cost savings...</li>
-      </ul>
-
-      <h2 class="text-2xl font-bold text-brand-black mt-12 mb-6">Conclusion</h2>
-      <p class="text-brand-body leading-relaxed mb-6">
-        Wrap up your article with a final thought and a call to action.
-      </p>
-    `;
+<p>Industrial cleaning is no longer just about removing dirt; it is about doing so sustainably and efficiently. At Regent Biochem, we have developed a range of bio&#8209;active cleaning fluids that utilize natural microorganisms to break down oils and greases.</p>
+<p><br></p>
+<h2><strong>The Science Behind Bio&#8209;Active Cleaning</strong></h2>
+<p>Unlike traditional solvents that simply dissolve grease and create hazardous waste, our bio&#8209;active fluids contain specialized microbes that literally "eat" the oil. This process, known as bio&#8209;remediation, turns contaminants into water and carbon dioxide.</p>
+<blockquote>"Our mission is to provide high-performance cleaning solutions that protect both the operator and the environment."</blockquote>
+<h2><strong>Key Benefits</strong></h2>
+<ul>
+  <li><strong>Eco-Friendly:</strong> Zero VOC emissions and non-toxic formulations.</li>
+  <li><strong>Cost-Effective:</strong> The fluid lasts longer as the microbes constantly clean it.</li>
+  <li><strong>Safety:</strong> Safe for skin contact and non-flammable.</li>
+</ul>
+<p><br></p>
+<p>Explore our GT Parts Washer Pro range to see these fluids in action!</p>
+    `.trim();
     setFormData(prev => ({ ...prev, content: template }));
   };
 
