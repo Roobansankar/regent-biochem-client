@@ -101,11 +101,14 @@ export default function BlogPost() {
             />
             <style jsx global>{`
               .blog-content p {
-                margin-bottom: 1.5rem !important;
-                line-height: 1.8 !important;
+                margin-bottom: 1rem !important;
+                line-height: 1.6 !important;
                 color: #4b5563 !important; /* Tailwind gray-600 */
                 word-wrap: break-word;
                 overflow-wrap: break-word;
+              }
+              .blog-content p:last-child {
+                margin-bottom: 0 !important;
               }
               .blog-content ul {
                 list-style-type: disc !important;

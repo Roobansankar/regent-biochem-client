@@ -216,6 +216,35 @@ export default async function ProductDetailPage({ params }) {
                 </div>
               )}
 
+              {/* Specification Table */}
+              {product.availableModels && product.specificationFields && product.availableModels.length > 0 && (
+                <div>
+                  <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
+                  <div className="overflow-x-auto rounded-2xl border border-brand-border">
+                    <table className="w-full text-xs sm:text-sm">
+                      <thead>
+                        <tr className="bg-gradient-to-r from-green to-emerald-600">
+                          <th className="text-left px-4 py-3 font-bold text-white whitespace-nowrap">Parameter</th>
+                          {product.availableModels.map((m, i) => (
+                            <th key={i} className="px-4 py-3 font-bold text-white whitespace-nowrap text-center">{m.model}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {product.specificationFields.map((field, i) => (
+                          <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-brand-bg2"}>
+                            <td className="px-4 py-2.5 font-semibold text-brand-black whitespace-nowrap border-r border-brand-border">{field.label}</td>
+                            {product.availableModels.map((m, j) => (
+                              <td key={j} className="px-4 py-2.5 text-brand-body text-center border-r border-brand-border last:border-r-0">{m[field.key]}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
               {/* Why Choose */}
               {product.whyChoose && (
                 <div>

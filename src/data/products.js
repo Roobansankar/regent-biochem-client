@@ -89,6 +89,21 @@
         oxygenCompressor: "Yes"
       },
     ],
+    specificationFields: [
+      { label: "Overall width × overall depth (mm)", key: "dimensions" },
+      { label: "Height with lid closed/open with angled exhaust duct (mm)", key: "height" },
+      { label: "Inner diameter of rack, approx. (mm)", key: "rackDiameter" },
+      { label: "Useful height max. (mm)", key: "usefulHeight" },
+      { label: "Payload max. (kg)", key: "payload" },
+      { label: "Washing tank capacity (L)", key: "tankCapacity" },
+      { label: "Total weight of cleaning device (kg)", key: "weight" },
+      { label: "Connected value total (kW)", key: "connectedLoad" },
+      { label: "Power supply", key: "powerSupply" },
+      { label: "Pump – automatic cleaning flow rate (m³/h / bar)", key: "pumpFlow" },
+      { label: "Electric heating in washing tank (kW)", key: "heatingPower" },
+      { label: "Treatment temperature (guide value) (°C)", key: "treatmentTemp" },
+      { label: "Oxygen membrane compressor", key: "oxygenCompressor" },
+    ],
     isThisRightFor: "It is suitable for companies that want to:\n\n• Reduce manual cleaning effort\n• Clean oily and greasy parts consistently\n• Move away from harsh solvent-based cleaning\n• Improve workplace safety and cleanliness\n• Reduce cleaner waste and disposal frequency\n• Extend the life of the cleaning solution\n• Handle medium to heavy industrial contamination\n• Improve cleaning efficiency in workshops and production areas",
     application: "• Cleaning machine parts used in production and maintenance\n• Degreasing oily and greasy industrial components\n• Washing tools, fixtures, and workshop parts\n• Preparing components before repair, inspection, or assembly\n• Cleaning metal, plastic, aluminium, zinc-coated, and non-ferrous parts\n• Supporting routine maintenance cleaning in industrial plants",
     faq: [
