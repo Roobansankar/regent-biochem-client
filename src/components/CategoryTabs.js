@@ -85,9 +85,9 @@ export default function CategoryTabs({ products, category }) {
                   </>
                 ) : active.id === "uno-s" ? (
                   <div className="flex flex-wrap items-center justify-start gap-1 w-full">
-                    <img src="/VOCFree.webp" alt="VOC Free" className="h-8 sm:h-10 w-auto object-contain rounded-lg border border-brand-border bg-white" />
-                    <img src="/H20.png" alt="H2O" className="h-16 sm:h-20 w-auto object-contain rounded-lg" />
-                    <img src="/ready.webp" alt="Ready" className="h-16 sm:h-20 w-auto object-contain rounded-lg" />
+                    <img src="/VOCFree.webp" alt="VOC Free" className="h-10 sm:h-12 w-auto object-contain rounded-lg border border-brand-border bg-white" />
+                    <img src="/H20.png" alt="H2O" className="h-12 sm:h-14 w-auto object-contain rounded-lg" />
+                    <img src="/ready.png" alt="Ready" className="h-12 sm:h-14 w-auto object-contain rounded-lg" />
                   </div>
                 ) : (
                   active.labels && active.labels.length > 0 && active.labels.map((label, i) => {
@@ -116,7 +116,7 @@ export default function CategoryTabs({ products, category }) {
                   <p className="text-xs font-bold text-green uppercase tracking-wider mb-4">
                     Available Pack Sizes
                   </p>
-                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-6 gap-y-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {(active.id === "uno-s" ? [
                       { name: "Box-10" },
                       { name: "Jerry Can-100" },
@@ -129,10 +129,9 @@ export default function CategoryTabs({ products, category }) {
                       { name: `${active.title} - Jerry Can 5L` },
                       { name: `${active.title} - Jerry Can 25L` },
                     ]).map((item, i) => (
-                      <div key={i} className="flex items-center gap-3 py-2 border-b border-green/10">
-                        <span className="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center text-green text-xs font-bold shrink-0">{i + 1}</span>
-                        <span className="text-sm font-semibold text-brand-black">{item.name}</span>
-                      </div>
+                      <span key={i} className="text-center px-4 py-2 rounded-full border border-green/30 text-sm font-semibold text-brand-black">
+                        {item.name}
+                      </span>
                     ))}
                   </div>
                 </div>

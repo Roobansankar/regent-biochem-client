@@ -99,12 +99,11 @@ export default async function ProductDetailPage({ params }) {
               {product.availableModels && product.availableModels.length > 0 && (
                 <div className="mt-6 mb-4">
                   <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Available Models</p>
-                  <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+                  <div className="grid grid-cols-2 gap-3">
                     {product.availableModels.map((m, i) => (
-                      <div key={i} className="flex items-center gap-3 py-2 border-b border-green/10">
-                        <span className="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center text-green text-xs font-bold shrink-0">{i + 1}</span>
-                        <span className="text-sm font-semibold text-brand-black">{m.model}</span>
-                      </div>
+                      <span key={i} className="text-center px-4 py-2 rounded-full border border-green/30 text-sm font-semibold text-brand-black">
+                        {m.model}
+                      </span>
                     ))}
                   </div>
                 </div>
