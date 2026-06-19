@@ -163,7 +163,7 @@ export default async function ServicePage({ params }) {
 )}
 
       {/* How We Do It Section */}
-      <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
+      {/* <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div>
             <div className="text-center mb-8">
@@ -210,7 +210,7 @@ export default async function ServicePage({ params }) {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Industries We Serve Section */}
       <section className="py-6 sm:py-8 bg-white border-b border-brand-border">

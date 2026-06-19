@@ -1,10 +1,14 @@
 export const timeline = [
-  { year: "1999", title: "Founded in Coimbatore", text: "Regent Biochem established as a small-scale manufacturer of industrial degreasers, serving local textile mills.", num: 1 },
-  { year: "2005", title: "ISO Certification Achieved", text: "Received ISO 9001 certification, marking a major quality milestone and opening doors to national-level clients.", num: 2 },
-  { year: "2011", title: "New Manufacturing Facility", text: "Expanded to a 20,000 sq ft dedicated manufacturing plant in SIPCOT Industrial Estate with full R&D lab.", num: 3 },
-  { year: "2017", title: "Pan-India Distribution", text: "Launched nationwide distribution network with 20+ regional partners, reaching clients in all major industrial hubs.", num: 4 },
-  { year: "2023", title: "Eco-Line Product Launch", text: "Introduced our BioClear eco-friendly product line, meeting growing demand for sustainable industrial chemicals.", num: 5 },
-  { year: "2026", title: "International Expansion", text: "Began exports to Southeast Asia and Middle East markets, establishing Regent Biochem as a global industrial chemical supplier.", num: 6 },
+  { year: "2005", title: "Beginning of Our Journey", text: "Regent Bio-Chem was established with a vision to provide innovative industrial cleaning and surface treatment solutions to Indian industries.", num: 1 },
+  { year: "2007", title: "BioCircle Introduced in India", text: "Successfully launched the first BioCircle machine in India, introducing environmentally responsible parts-cleaning technology to the market.", num: 2 },
+  { year: "2009", title: "Local Manufacturing Begins", text: "Set up the company's production and assembly facility to strengthen local manufacturing capabilities and customer support.", num: 3 },
+  { year: "2011", title: "Surfox Weld Cleaning System Launched", text: "Introduced the Surfox Weld Cleaning System, bringing advanced weld cleaning and passivation technology to Indian fabricators and manufacturers.", num: 4 },
+  { year: "2012", title: "Strategic Collaboration with DEG Germany", text: "Entered into a collaboration with DEG Germany to enhance technology capabilities and expand solution offerings.", num: 5 },
+  { year: "2015", title: "Quality Milestone Achieved", text: "Obtained ISO certification, reinforcing the company's commitment to quality, consistency, and continuous improvement.", num: 6 },
+  { year: "2020", title: "Pan-India Distribution Network", text: "Expanded operations through a nationwide distribution network, enabling stronger market reach and customer service across India.", num: 7 },
+  { year: "2023", title: "HP Vigo Launch in India", text: "Added HP Vigo solutions to the product portfolio, strengthening the company's industrial cleaning and maintenance offerings.", num: 8 },
+  { year: "2024", title: "Automatic Cleaning Systems Launched", text: "Launched advanced automatic cleaning systems in India, supporting customers with higher productivity and process automation.", num: 9 },
+  { year: "2026", title: "FreFlo Brand Established", text: "Established FreFlo as a dedicated brand, expanding Regent Bio-Chem's portfolio with innovative industrial flow and process solutions.", num: 10 },
 ];
 
 export const values = [
