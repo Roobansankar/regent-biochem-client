@@ -8,6 +8,7 @@ const sidebarLinks = [
   { label: "Dashboard", href: "/admin", icon: "fa-chart-pie" },
   { label: "Messages", href: "/admin/messages", icon: "fa-envelope" },
   { label: "Blog", href: "/admin/blog", icon: "fa-newspaper" },
+  { label: "Jobs", href: "/admin/jobs", icon: "fa-briefcase" },
   { label: "Products", href: "/admin/products", icon: "fa-box" },
   { label: "Services", href: "/admin/services", icon: "fa-concierge-bell" },
   { label: "Orders", href: "/admin/orders", icon: "fa-shopping-cart" },

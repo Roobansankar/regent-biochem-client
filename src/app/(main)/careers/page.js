@@ -1,39 +1,26 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export default function CareersPage() {
-  const jobRoles = [
-    {
-      title: "Machines Vertical Manager",
-      department: "Quality & Operations",
-      location: "Coimbatore",
-      type: "Full-Time",
-      experience: "3+ Years",
-      description: "Drive quality excellence and operational efficiency across manufacturing and machine-related operations.",
-      fullDescription: "Drive quality excellence and operational efficiency across manufacturing and machine-related operations. This role focuses on maintaining product quality standards, improving process performance, and leading continuous improvement initiatives. The candidate will collaborate with production teams, suppliers, and internal stakeholders to enhance reliability, reduce defects, and support business growth.\n\nKey Responsibilities\n\nLead quality assurance, root cause analysis, and process improvement initiatives to ensure consistent product performance.\nCollaborate with cross-functional teams and suppliers to strengthen operational efficiency and quality standards.\n\nQualification\nBachelor's Degree in Engineering, Metallurgy, Quality Management (Master's preferred)\n\nExperience Required\nMinimum 3+ Years in quality management within the foundry/manufacturing industry\n\nKey Skills Required\n• Quality Management\n• Process Improvement\n• Root Cause Analysis\n• Supplier Quality Management\n• Data Analysis & Reporting\n• Leadership & Cross-Functional Collaboration"
-    },
-    {
-      title: "Application Engineer",
-      department: "Sales & Business Development",
-      location: "Coimbatore",
-      type: "Full-Time",
-      experience: "0-8 Years",
-      description: "Drive business growth by promoting industrial cleaning machine solutions across diverse industries.",
-      fullDescription: "Drive business growth by promoting industrial cleaning machine solutions across diverse industries. This role involves understanding customer requirements, recommending suitable solutions, conducting demonstrations, and managing the complete sales cycle. The ideal candidate will build strong customer relationships while identifying new business opportunities and delivering value-driven solutions.\n\nKey Responsibilities\n\nGenerate new business opportunities through customer engagement, product demonstrations, and consultative selling.\nManage the sales pipeline from lead generation and proposal development to negotiation and order closure.\n\nQualification\nDiploma / BE / B.Tech in Mechanical, Mechatronics, Electrical, Instrumentation. Any graduate with strong industrial technical sales exposure may also be considered.\n\nExperience Required\nPreferred: 0-8 Years in industrial machinery, technical products, maintenance equipment, pumps, compressors, or industrial chemicals sales.\n\nKey Skills Required\n• Technical Sales\n• Business Development\n• Customer Relationship Management\n• Product Demonstration & Solution Selling\n• Negotiation & Communication\n• Sales Pipeline Management"
-    },
-    {
-      title: "Field Service Technician",
-      department: "Service & Support",
-      location: "Coimbatore",
-      type: "Full-Time",
-      experience: "1-3 Years",
-      description: "Provide technical expertise through the installation, commissioning, maintenance, and servicing of industrial cleaning systems at customer locations.",
-      fullDescription: "Provide technical expertise through the installation, commissioning, maintenance, and servicing of industrial cleaning systems at customer locations. This role is focused on ensuring reliable equipment performance, minimizing downtime, and delivering responsive technical support. The candidate will work closely with customers to maintain operational efficiency and service excellence.\n\nKey Responsibilities\n\nPerform installation, preventive maintenance, troubleshooting, and servicing of industrial cleaning equipment.\nDeliver on-site technical support and ensure optimal machine performance through timely issue resolution and customer assistance.\n\nQualification\nDiploma / BE in Mechanical, Mechatronics, Electrical, Instrumentation, or related field.\n\nExperience Required\n1–3 Years\n\nKey Skills Required\n• Equipment Installation & Maintenance\n• Troubleshooting & Technical Support\n• Field Service Operations\n• Customer Service\n• Problem Solving\n• Service Documentation"
-    }
-  ];
-
+  const [jobRoles, setJobRoles] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedJob, setSelectedJob] = useState(null);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/jobs");
+        const data = await response.json();
+        setJobRoles(Array.isArray(data.jobs) ? data.jobs : []);
+      } catch (err) {
+        console.error("Failed to fetch jobs:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchJobs();
+  }, []);
 
   return (
     <main className="min-h-screen bg-white">
@@ -156,6 +143,13 @@ Grow your career by solving real-world industrial challenges and delivering high
             <div className="w-16 h-1 bg-green rounded-full"></div>
           </div>
 
+          {loading ? (
+            <div className="flex items-center justify-center py-20">
+              <div className="animate-spin w-8 h-8 border-4 border-green border-t-transparent rounded-full"></div>
+            </div>
+          ) : jobRoles.length === 0 ? (
+            <p className="text-center text-brand-muted py-20">No job openings at the moment. Check back soon!</p>
+          ) : (
           <div className="space-y-6">
             {jobRoles.map((job, index) => (
               <div key={index} className="reveal group bg-white border border-brand-border hover:border-green p-6 md:p-8 rounded-2xl transition-all hover:shadow-md flex flex-col md:flex-row md:items-center justify-between gap-6">
@@ -195,6 +189,7 @@ Grow your career by solving real-world industrial challenges and delivering high
               </div>
             ))}
           </div>
+          )}
         </div>
       </section>
 
@@ -211,18 +206,36 @@ Grow your career by solving real-world industrial challenges and delivering high
                 <span><i className="fas fa-history text-green mr-1"></i> Exp: {selectedJob.experience}</span>
               </div>
             </div>
-            <div className="p-6 overflow-y-auto flex-1">
-              <h4 className="text-sm font-bold text-brand-black mb-3">Overview</h4>
-              <div className="text-sm leading-relaxed">
-                {selectedJob.fullDescription.split('\n').map((line, i) => {
-                  const headings = ["Key Responsibilities", "Qualification", "Experience Required", "Key Skills Required"];
-                  const isHeading = headings.some(h => line.trim() === h);
-                  return isHeading ? (
-                    <p key={i} className="font-bold text-brand-black mt-4">{line}</p>
-                  ) : (
-                    <p key={i} className="text-brand-body">{line}</p>
-                  );
-                })}
+                <div className="p-6 overflow-y-auto flex-1 space-y-6">
+              <div>
+                <h4 className="text-sm font-bold text-brand-black mb-2">Overview</h4>
+                <p className="text-sm text-brand-body leading-relaxed">{selectedJob.overview}</p>
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-brand-black mb-2">Key Responsibilities</h4>
+                <ul className="list-disc list-inside text-sm text-brand-body space-y-1">
+                  {(selectedJob.responsibilities || []).map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-brand-black mb-2">Qualification</h4>
+                <p className="text-sm text-brand-body">{selectedJob.qualification}</p>
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-brand-black mb-2">Experience Required</h4>
+                <p className="text-sm text-brand-body">{selectedJob.experience_detail}</p>
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-brand-black mb-2">Key Skills Required</h4>
+                <div className="flex flex-wrap gap-2">
+                  {(selectedJob.skills || []).map((skill, i) => (
+                    <span key={i} className="px-3 py-1.5 bg-green-light text-green text-xs font-semibold rounded-lg border border-green-mid">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="p-6 pt-4 border-t border-brand-border">
