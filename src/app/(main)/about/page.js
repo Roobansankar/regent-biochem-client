@@ -1,4 +1,4 @@
-import ScrollReveal from "@/components/ScrollReveal";
+
 import { timeline, values } from "@/data/about";
 import Link from "next/link";
 
@@ -29,8 +29,6 @@ export default function About() {
 
   return (
     <main className="flex flex-col min-h-screen">
-      <ScrollReveal />
-
       {/* ─── PAGE HERO ─── */}
       <section className="relative pt-10 pb-8 lg:pt-16 lg:pb-12 bg-green overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-10"></div>

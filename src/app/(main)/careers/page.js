@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import ScrollReveal from '@/components/ScrollReveal';
 
 export default function CareersPage() {
   const [jobRoles, setJobRoles] = useState([]);
@@ -24,8 +23,6 @@ export default function CareersPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <ScrollReveal />
-
       {/* Hero Section */}
       <section className="relative pt-10 pb-8 lg:pt-16 lg:pb-12 bg-green overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-10"></div>

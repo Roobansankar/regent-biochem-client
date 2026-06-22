@@ -1,9 +1,11 @@
 "use client";
 
-import ScrollReveal from "@/components/ScrollReveal";
+
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+
+const fallbackImg = (w, h) => `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect fill="#e2e8f0" width="${w}" height="${h}"/><text fill="#64748b" font-family="Arial" font-size="${Math.min(w,h)/8}" font-weight="bold" x="${w/2}" y="${h/2}" text-anchor="middle" dominant-baseline="middle">No Image</text></svg>`)}`;
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -48,15 +50,14 @@ export default function BlogPost() {
 
   return (
     <main className="flex flex-col min-h-screen bg-white">
-      <ScrollReveal />
-
       {/* ─── ARTICLE HERO ─── */}
       <div className="px-4 sm:px-6 lg:px-6 pt-6 pb-4">
         <section className="relative h-[300px] md:h-[400px] lg:h-[480px] overflow-hidden rounded-[2rem] shadow-lg">
           <img 
-            src={post.image} 
+            src={post.image || fallbackImg(1600, 480)} 
             alt={post.title} 
             className="absolute inset-0 w-full h-full object-cover"
+            onError={(e) => { e.target.src = fallbackImg(1600, 480); }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/40 to-transparent"></div>
           
@@ -166,7 +167,7 @@ export default function BlogPost() {
                 {related.map((item, i) => (
                   <Link key={i} href={`/blog/${item.slug}`} className="group flex gap-4">
                     <div className="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-slate-100">
-                      <img src={item.image} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                      <img src={item.image || fallbackImg(80, 80)} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onError={(e) => { e.target.src = fallbackImg(80, 80); }} />
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-brand-black leading-tight mb-2 group-hover:text-green transition-colors line-clamp-2">{item.title}</h4>

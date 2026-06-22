@@ -1,8 +1,10 @@
 "use client";
 
-import ScrollReveal from "@/components/ScrollReveal";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
+const fallbackImg = (w, h) => `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect fill="#e2e8f0" width="${w}" height="${h}"/><text fill="#64748b" font-family="Arial" font-size="${Math.min(w,h)/8}" font-weight="bold" x="${w/2}" y="${h/2}" text-anchor="middle" dominant-baseline="middle">No Image</text></svg>`)}`;
 
 export default function BlogPage() {
   const [posts, setPosts] = useState([]);
@@ -33,8 +35,6 @@ export default function BlogPage() {
 
   return (
     <main className="flex flex-col min-h-screen bg-white">
-      <ScrollReveal />
-
       {/* ─── BLOG HERO ─── */}
       <section className="relative pt-6 pb-5 lg:pt-10 lg:pb-8 bg-green overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-10"></div>
@@ -73,9 +73,10 @@ export default function BlogPage() {
                   {/* Image */}
                   <div className="aspect-[16/10] overflow-hidden relative bg-slate-100">
                     <img 
-                      src={post.image || "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop"} 
+                      src={post.image || fallbackImg(800, 500)} 
                       alt={post.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      onError={(e) => { e.target.src = fallbackImg(800, 500); }}
                     />
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-green text-[10px] font-bold uppercase tracking-wider rounded-lg border border-green/20">

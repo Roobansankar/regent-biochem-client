@@ -1,6 +1,6 @@
 "use client";
 
-import ScrollReveal from "@/components/ScrollReveal";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -57,8 +57,6 @@ export default function Contact() {
 
   return (
     <main className="flex flex-col min-h-screen">
-      <ScrollReveal />
-
       {/* ─── PAGE HERO ─── */}
       <section className="relative pt-10 pb-8 lg:pt-16 lg:pb-12 bg-green overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-10"></div>

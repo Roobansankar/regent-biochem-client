@@ -354,10 +354,7 @@ export default async function ProductDetailPage({ params }) {
                   <div className="bg-gradient-to-br from-green to-emerald-600 rounded-2xl p-6 sm:p-7 text-white overflow-hidden relative">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
                     <div className="relative z-10">
-                      <div className="flex items-center gap-2 mb-5">
-                        <i className="fas fa-microchip text-white/60 text-xs"></i>
-                        <span className="text-xs sm:text-sm font-bold text-white/60 uppercase tracking-wider">Specifications</span>
-                      </div>
+                     
                       <h3 className="text-base sm:text-lg font-bold mb-5">Technical Specifications</h3>
                       <div className="space-y-3.5">
                         {product.technicalSpecs.map((spec, i) => (

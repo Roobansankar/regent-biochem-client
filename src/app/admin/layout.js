@@ -9,6 +9,8 @@ const sidebarLinks = [
   { label: "Messages", href: "/admin/messages", icon: "fa-envelope" },
   { label: "Blog", href: "/admin/blog", icon: "fa-newspaper" },
   { label: "Jobs", href: "/admin/jobs", icon: "fa-briefcase" },
+  { label: "Case Studies", href: "/admin/case-studies", icon: "fa-book-open" },
+  { label: "CTA", href: "/admin/cta", icon: "fa-bullhorn" },
   { label: "Products", href: "/admin/products", icon: "fa-box" },
   { label: "Services", href: "/admin/services", icon: "fa-concierge-bell" },
   { label: "Orders", href: "/admin/orders", icon: "fa-shopping-cart" },

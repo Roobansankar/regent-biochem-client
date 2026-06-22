@@ -97,10 +97,10 @@ export default function AdminBlogs() {
                       <div className="flex items-center gap-4">
                         <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 shrink-0 border border-slate-200">
                           <img 
-                            src={blog.image} 
+                            src={blog.image || 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><rect fill="#e2e8f0" width="48" height="48"/><text fill="#64748b" font-family="Arial" font-size="8" font-weight="bold" x="24" y="24" text-anchor="middle" dominant-baseline="middle">No Image</text></svg>')} 
                             className="w-full h-full object-cover" 
                             alt="" 
-                            onError={(e) => { e.target.src = 'https://via.placeholder.com/150?text=No+Image'; }}
+                            onError={(e) => { e.target.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><rect fill="#e2e8f0" width="48" height="48"/><text fill="#64748b" font-family="Arial" font-size="8" font-weight="bold" x="24" y="24" text-anchor="middle" dominant-baseline="middle">No Image</text></svg>'); }}
                           />
                         </div>
                         <div className="min-w-0">

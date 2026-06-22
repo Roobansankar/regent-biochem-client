@@ -1,63 +1,33 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CTA from '@/components/CTA';
-import ScrollReveal from '@/components/ScrollReveal';
+
 import Link from 'next/link';
 
-const caseStudies = [
-  {
-    slug: "e-weld-shield",
-    title: "Reducing Slag Adhesion and Maintenance Downtime in Laser & Plasma Cutting Operation",
-    client: "Industrial Fabrication Co.",
-    category: "Manufacturing",
-    product: "E-WELD SHIELD",
-    problem: "Excessive slag adhesion on cutting beds caused frequent maintenance downtime and reduced cutting precision in laser and plasma operations.",
-    solution: "Application of E-WELD SHIELD anti-spatter coating to protect cutting beds and minimize slag buildup.",
-    results: [
-      "Reduced slag adhesion by 80%",
-      "Decreased maintenance downtime by 60%",
-      "Extended cutting bed service life"
-    ],
-    image: "/e-weld.webp"
-  },
-  {
-    slug: "aerospace-precision-cleaning",
-    title: "Aerospace-Grade Precision Cleaning with Zero Rejects",
-    client: "Precision Aerospace Machining Ltd.",
-    category: "Aerospace",
-    product: "GT Parts Washer",
-    problem: "Stringent NADCAP cleanliness requirements meant even microscopic residue led to rejected high-value engine components.",
-    solution: "Transition to GT Parts Washer with custom spray pressure profiles and specialized aqueous chemistry.",
-    results: [
-      "Reduced reject rate from 4.2% to 0%",
-      "Faster cleaning cycle times (by 30%)",
-      "Full compliance with aerospace standards"
-    ],
-    image: "https://images.kkeu.de/is/image/BEG/Environment/Hazardous_goods_handling/Parts_cleaners_cleaning_tables/GT_Maxi_parts_washer_pdplarge-mrd--688866_AAS_00_00_00_19525793.jpg"
-  },
-  {
-    slug: "fluid-health-automation",
-    title: "Automating Fluid Health in Heavy Metal Forging",
-    client: "Global Forging Group",
-    category: "Heavy Industry",
-    product: "Pro AutoPurge System",
-    problem: "Frequent manual cleaning of large tanks caused 48 hours of production downtime every month.",
-    solution: "Installation of the Pro AutoPurge System to automate the removal of sludge and maintain chemistry balance.",
-    results: [
-      "Eliminated 100% of manual tank clean-outs",
-      "Increased production uptime by 48 hours/month",
-      "Extended chemistry life by 4x"
-    ],
-    image: "https://www.dentsplysirona.com/en-hr/discover/discover-by-brand/intego/_jcr_content/root/container/slider_1227234030/parsys_1/quicknavigationtile_/image.coreimg.70.1100.png/1763479159560/tre-image-teaser-axano-pure-full.png"
-  }
-];
+const fallbackImg = (w, h) => `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect fill="#e2e8f0" width="${w}" height="${h}"/><text fill="#64748b" font-family="Arial" font-size="${Math.min(w,h)/8}" font-weight="bold" x="${w/2}" y="${h/2}" text-anchor="middle" dominant-baseline="middle">No Image</text></svg>`)}`;
 
 export default function CaseStudiesPage() {
+  const [caseStudies, setCaseStudies] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/case-studies");
+        const data = await res.json();
+        setCaseStudies(data.caseStudies || []);
+      } catch (err) {
+        console.error("Failed to fetch case studies:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <main className="flex flex-col min-h-screen bg-white">
-      <ScrollReveal />
-
       {/* ─── PAGE HERO ─── */}
       <section className="relative pt-6 pb-5 lg:pt-10 lg:pb-8 bg-green overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-10"></div>
@@ -76,18 +46,25 @@ export default function CaseStudiesPage() {
       {/* ─── CASE STUDIES GRID ─── */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1600px] mx-auto">
+          {loading ? (
+            <div className="flex items-center justify-center py-20">
+              <div className="animate-spin w-8 h-8 border-4 border-green border-t-transparent rounded-full"></div>
+            </div>
+          ) : caseStudies.length === 0 ? (
+            <p className="text-center text-brand-muted py-20">No case studies available yet.</p>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {caseStudies.map((study, index) => (
               <article
                 key={index}
                 className="group reveal bg-white border border-brand-border rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
               >
-                {/* Image */}
                 <div className="aspect-[16/10] overflow-hidden relative">
                   <img
-                    src={study.image}
+                    src={study.image || fallbackImg(600, 400)}
                     alt={study.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => { e.target.src = fallbackImg(600, 400); }}
                   />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-green text-[10px] font-bold uppercase tracking-wider rounded-lg border border-green/20">
@@ -96,7 +73,6 @@ export default function CaseStudiesPage() {
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-2 text-brand-muted text-[10px] font-bold uppercase tracking-widest mb-4">
                     <i className="fas fa-tag text-green"></i>
@@ -116,6 +92,7 @@ export default function CaseStudiesPage() {
               </article>
             ))}
           </div>
+          )}
         </div>
       </section>
 
