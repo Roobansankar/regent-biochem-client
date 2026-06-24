@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import CTA from '@/components/CTA';
-
 import Link from 'next/link';
+import { API } from '@/lib/api';
 
 const fallbackImg = (w, h) => `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect fill="#e2e8f0" width="${w}" height="${h}"/><text fill="#64748b" font-family="Arial" font-size="${Math.min(w,h)/8}" font-weight="bold" x="${w/2}" y="${h/2}" text-anchor="middle" dominant-baseline="middle">No Image</text></svg>`)}`;
 
@@ -14,7 +14,7 @@ export default function CaseStudiesPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/case-studies");
+        const res = await fetch(`${API}/case-studies`);
         const data = await res.json();
         setCaseStudies(data.caseStudies || []);
       } catch (err) {
