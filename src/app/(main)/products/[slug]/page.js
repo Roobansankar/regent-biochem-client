@@ -421,10 +421,10 @@ export default async function ProductDetailPage({ params }) {
                     <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Similar Products</p>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {product.similarProducts.map((ref, i) => {
-                      const similarProd = allItems.find(p => p.title === ref || p.slug === ref || p.id === ref);
-                      if (!similarProd) return null;
-                      return (
+                    {product.similarProducts
+                      .map((ref) => allItems.find((p) => p.title === ref || p.slug === ref || p.id === ref))
+                      .filter(Boolean)
+                      .map((similarProd, i) => (
                         <Link key={i} href={`/products/${similarProd.slug}`} className="group block border border-brand-border rounded-xl overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 bg-white">
                           <div className="bg-gradient-to-br from-brand-bg3 to-white aspect-[4/3] flex items-center justify-center p-6">
                             <div className="w-full h-full flex items-center justify-center text-green/60 group-hover:text-green group-hover:scale-110 transition-all duration-500">
@@ -437,8 +437,7 @@ export default async function ProductDetailPage({ params }) {
                             <p className="text-xs text-brand-body leading-relaxed line-clamp-2">{similarProd.desc}</p>
                           </div>
                         </Link>
-                      );
-                    })}
+                      ))}
                   </div>
                 </div>
               )}
