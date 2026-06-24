@@ -5,7 +5,7 @@ import ProductFAQ from "@/components/ProductFAQ";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { API, imageUrl } from "@/lib/api";
-
+i
 async function fetchAllProducts() {
   try {
     const res = await fetch(`${API}/products/all`, { cache: "no-store" });
@@ -415,13 +415,10 @@ export default async function ProductDetailPage({ params }) {
               )}
 
               {/* Similar Products */}
-               {product.similarProducts && product.similarProducts.length > 0 && (
+              {product.similarProducts && product.similarProducts.length > 0 && (
                 <div>
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="mb-4">
                     <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Similar Products</p>
-                    <Link href="/products" className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-green px-4 py-2 rounded-lg hover:bg-green-dark transition-colors">
-                      View All Products <i className="fas fa-arrow-right text-[10px]"></i>
-                    </Link>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {product.similarProducts.map((ref, i) => {

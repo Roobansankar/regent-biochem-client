@@ -231,7 +231,7 @@
 
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import hero2 from "@/assets/hero2.png";
 import hero3 from "@/assets/hero3.png";
@@ -279,80 +279,83 @@ const slides = [
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
-  const timerRef = useRef(null);
-
-  const goTo = useCallback((index) => {
-    setCurrent(index);
-  }, []);
-
-  const next = useCallback(() => {
-    setCurrent((c) => (c + 1) % slides.length);
-  }, []);
-
-  const prev = useCallback(() => {
-    setCurrent((c) => (c - 1 + slides.length) % slides.length);
-  }, []);
 
   useEffect(() => {
-    timerRef.current = setInterval(() => {
-      setCurrent((c) => (c + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timerRef.current);
-  }, [current]);
+    const id = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 4000);
+
+    return () => clearInterval(id);
+  }, []);
+
+  const goTo = (index) => setCurrent(index);
 
   return (
     <section className="relative overflow-hidden">
       <div className="relative h-[300px] md:h-[380px] lg:h-[450px]">
-        {slides.map((slide, i) => (
-          <div
-            key={i}
-            className={`absolute inset-0 flex items-center transition-opacity duration-500 ${i === current ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-            style={{
-              backgroundImage: `url('${slide.bg.src || slide.bg}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          >
-            <div className="hero-overlay absolute inset-0 z-10"></div>
-            <div className="relative z-20 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pl-10 lg:pl-16">
-              <div className="max-w-2xl">
-                <div className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">
-                  {slide.label}
-                </div>
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-[1.1] tracking-tight text-brand-black mb-3">
-                  {slide.title}
-                </h1>
-                <p className="text-sm sm:text-base text-brand-body leading-relaxed max-w-xl mb-5">
-                  {slide.desc}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Link
-                    href="/products"
-                    className="text-center bg-green text-white font-bold text-sm px-6 py-3 rounded hover:bg-green-dark transition-colors"
-                  >
-                    Explore Solutions
-                  </Link>
+        {/* Slides track */}
+        <div
+          className="flex h-full transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {slides.map((slide, i) => (
+            <div
+              key={i}
+              className="relative w-full h-full shrink-0 flex items-center"
+              style={{
+                backgroundImage: `url('${slide.bg.src || slide.bg}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              <div className="hero-overlay absolute inset-0 z-10"></div>
+
+              <div className="relative z-20 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pl-10 lg:pl-16">
+                <div className="max-w-2xl">
+                  <div className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">
+                    {slide.label}
+                  </div>
+
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-[1.1] tracking-tight text-brand-black mb-3">
+                    {slide.title}
+                  </h1>
+
+                  <p className="text-sm sm:text-base text-brand-body leading-relaxed max-w-xl mb-5">
+                    {slide.desc}
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link
+                      href="/products"
+                      className="text-center bg-green text-white font-bold text-sm px-6 py-3 rounded hover:bg-green-dark transition-colors"
+                    >
+                      Explore Solutions
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
+        {/* Left Arrow */}
         <button
-          onClick={prev}
+          onClick={() => setCurrent((prev) => (prev - 1 + slides.length) % slides.length)}
           className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
         >
           <i className="fas fa-chevron-left text-xs"></i>
         </button>
 
+        {/* Right Arrow */}
         <button
-          onClick={next}
+          onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
           className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
         >
-          <i className="fas fa-chevron-right text-xs"></i>
+          <i className="fas fa-chevron-right text-xs"></i>  
         </button>
 
+        {/* Dots */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-2">
           {slides.map((_, i) => (
             <button
