@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import CaseStudyForm from "@/components/admin/CaseStudyForm";
+import { API } from "@/lib/api";
 
 export default function EditCaseStudyPage() {
   const params = useParams();
@@ -13,7 +14,7 @@ export default function EditCaseStudyPage() {
     if (!params.slug) return;
     const fetchCaseStudy = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/case-studies/${params.slug}`);
+        const res = await fetch(`${API}/case-studies/${params.slug}`);
         const data = await res.json();
         if (data.caseStudy) setCaseStudy(data.caseStudy);
       } catch (err) {

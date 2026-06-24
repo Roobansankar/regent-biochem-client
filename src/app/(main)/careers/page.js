@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { API } from '@/lib/api';
 
 export default function CareersPage() {
   const [jobRoles, setJobRoles] = useState([]);
@@ -9,7 +10,7 @@ export default function CareersPage() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/jobs");
+        const response = await fetch(`${API}/jobs`);
         const data = await response.json();
         setJobRoles(Array.isArray(data.jobs) ? data.jobs : []);
       } catch (err) {
@@ -28,10 +29,10 @@ export default function CareersPage() {
         <div className="absolute inset-0 hero-pattern opacity-10"></div>
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight reveal">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
               Build More Than a Career — <span className="text-green-mid">Build Impact</span>
             </h1>
-            <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed">
 Grow your career by solving real-world industrial challenges and delivering high-performance technical solutions.
             </p>
           </div>
@@ -41,7 +42,7 @@ Grow your career by solving real-world industrial challenges and delivering high
       {/* Why Bio chem? */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="reveal mb-12">
+          <div className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">Why Bio chem?</h2>
             <div className="w-16 h-1 bg-green rounded-full mb-6"></div>
             <p className="text-brand-body leading-relaxed text-lg">
@@ -50,7 +51,7 @@ Grow your career by solving real-world industrial challenges and delivering high
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="reveal bg-white border border-brand-border rounded-2xl p-8 shadow-sm text-center">
+            <div className="bg-white border border-brand-border rounded-2xl p-8 shadow-sm text-center">
               <h3 className="text-xl font-bold text-brand-black mb-6 flex flex-col items-center gap-3">
                 <span className="w-8 h-8 rounded-lg bg-green/10 flex items-center justify-center text-green">
                   <i className="fas fa-star text-sm"></i>
@@ -74,7 +75,7 @@ Grow your career by solving real-world industrial challenges and delivering high
               </ul>
             </div>
 
-            <div className="reveal bg-white border border-brand-border rounded-2xl p-8 shadow-sm text-center">
+            <div className="bg-white border border-brand-border rounded-2xl p-8 shadow-sm text-center">
               <h3 className="text-xl font-bold text-brand-black mb-6 flex flex-col items-center gap-3">
                 <span className="w-8 h-8 rounded-lg bg-green/10 flex items-center justify-center text-green">
                   <i className="fas fa-search text-sm"></i>
@@ -107,7 +108,7 @@ Grow your career by solving real-world industrial challenges and delivering high
       {/* Interview Process */}
       <section className="py-12 sm:py-16 bg-brand-bg2">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="reveal text-center mb-12">
+          <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">Interview Process</h2>
             <p className="text-brand-body">Our structured approach to finding the right fit.</p>
           </div>
@@ -119,13 +120,18 @@ Grow your career by solving real-world industrial challenges and delivering high
               { title: "Technical/ Role-based Interview", icon: "fa-comments" },
               { title: "Final Interview", icon: "fa-users" },
               { title: "Offer & Onboarding", icon: "fa-check-double" }
-            ].map((step, i) => (
-              <div key={i} className="reveal bg-white p-6 rounded-2xl border border-brand-border text-center flex flex-col items-center">
+            ].map((step, i, arr) => (
+              <div key={i} className="relative group">
+                {i < arr.length - 1 && (
+                  <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-green group-hover:bg-green-dark transition-colors -z-0" />
+                )}
+                <div className="bg-white p-6 rounded-2xl border border-brand-border text-center flex flex-col items-center h-full relative z-10">
                 <div className="w-12 h-12 bg-green-light rounded-xl flex items-center justify-center text-green mb-4">
                   <i className={`fas ${step.icon} text-xl`}></i>
                 </div>
                 <div className="text-xs font-bold text-green uppercase tracking-widest mb-2">Step 0{i+1}</div>
-                <h4 className="text-sm font-bold text-brand-black leading-tight">{step.title}</h4>
+                  <h4 className="text-sm font-bold text-brand-black leading-tight">{step.title}</h4>
+                </div>
               </div>
             ))}
           </div>
@@ -135,7 +141,7 @@ Grow your career by solving real-world industrial challenges and delivering high
       {/* Job Openings */}
       <section id="openings" className="py-12 sm:py-16 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="reveal mb-12">
+          <div className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3">Current Openings</h2>
             <div className="w-16 h-1 bg-green rounded-full"></div>
           </div>
@@ -149,7 +155,7 @@ Grow your career by solving real-world industrial challenges and delivering high
           ) : (
           <div className="space-y-6">
             {jobRoles.map((job, index) => (
-              <div key={index} className="reveal group bg-white border border-brand-border hover:border-green p-6 md:p-8 rounded-2xl transition-all hover:shadow-md flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div key={index} className="group bg-white border border-brand-border hover:border-green p-6 md:p-8 rounded-2xl transition-all hover:shadow-md flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="text-xl font-bold text-brand-black group-hover:text-green transition-colors">{job.title}</h3>
@@ -247,7 +253,7 @@ Grow your career by solving real-world industrial challenges and delivering high
       {/* CTA Section */}
       <section className="py-12 sm:py-16 bg-white border-t border-brand-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="reveal bg-green-light p-8 md:p-12 rounded-[32px] relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="bg-green-light p-8 md:p-12 rounded-[32px] relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="absolute top-0 right-0 w-32 h-32 bg-green/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-green/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
             

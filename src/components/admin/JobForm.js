@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { API } from "@/lib/api";
 
 export default function JobForm({ initialData = null, isEditing = false }) {
   const router = useRouter();
@@ -50,8 +51,8 @@ export default function JobForm({ initialData = null, isEditing = false }) {
 
     const method = isEditing ? "PUT" : "POST";
     const url = isEditing
-      ? `http://localhost:5000/api/jobs/${initialData.id}`
-      : "http://localhost:5000/api/jobs";
+      ? `${API}/jobs/${initialData.id}`
+      : `${API}/jobs`;
 
     const responsibilities = formData.responsibilities
       .split("\n")

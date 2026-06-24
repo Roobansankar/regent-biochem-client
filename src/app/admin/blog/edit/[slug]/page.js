@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import BlogForm from "@/components/admin/BlogForm";
+import { API } from "@/lib/api";
 
 export default function EditBlogPage() {
   const params = useParams();
@@ -12,7 +13,7 @@ export default function EditBlogPage() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/blogs/${params.slug}`);
+        const response = await fetch(`${API}/blogs/${params.slug}`);
         const data = await response.json();
         if (data.blog) {
           setBlog(data.blog);

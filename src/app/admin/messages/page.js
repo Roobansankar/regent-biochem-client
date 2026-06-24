@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { API } from "@/lib/api";
 
 export default function AdminMessages() {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [search, setSearch] = useState("");
   
   // Pagination state
   const [page, setPage] = useState(1);
@@ -25,7 +27,7 @@ export default function AdminMessages() {
     console.log("Fetching messages for page:", page, "limit:", limit);
     setLoading(true);
     try {
-      const url = `http://localhost:5000/api/contact?page=${page}&limit=${limit}`;
+      const url = `${API}/contact?page=${page}&limit=${limit}`;
       console.log("Request URL:", url);
       const response = await fetch(url);
       console.log("Response status:", response.status);
@@ -45,7 +47,7 @@ export default function AdminMessages() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this message?")) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/contact/${id}`, { method: "DELETE" });
+      const response = await fetch(`${API}/contact/${id}`, { method: "DELETE" });
       if (response.ok) {
         fetchMessages();
       } else {
@@ -64,7 +66,7 @@ export default function AdminMessages() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/api/contact/${editingId}`, {
+      const response = await fetch(`${API}/contact/${editingId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(editForm),
@@ -121,13 +123,29 @@ export default function AdminMessages() {
         <div className="bg-red-50 border border-red-100 text-red-600 p-4 rounded-xl text-sm">
           {error}
         </div>
-      ) : messages.length === 0 ? (
-        <div className="flex flex-col items-center justify-center h-64 bg-white rounded-xl border border-slate-200 text-slate-400">
-          <i className="fas fa-envelope-open text-4xl mb-3 opacity-20"></i>
-          <p>No messages yet.</p>
-        </div>
       ) : (
         <>
+          <div className="relative w-72">
+            <i className="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+            <input type="text" placeholder="Search messages..." value={search} onChange={e => setSearch(e.target.value)}
+              className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all" />
+          </div>
+
+          {(() => {
+            const filtered = messages.filter(m => !search || m.name?.toLowerCase().includes(search.toLowerCase()) || m.email?.toLowerCase().includes(search.toLowerCase()) || m.subject?.toLowerCase().includes(search.toLowerCase()) || m.message?.toLowerCase().includes(search.toLowerCase()));
+            if (messages.length === 0) return (
+              <div className="flex flex-col items-center justify-center h-64 bg-white rounded-xl border border-slate-200 text-slate-400">
+                <i className="fas fa-envelope-open text-4xl mb-3 opacity-20"></i>
+                <p>No messages yet.</p>
+              </div>
+            );
+            if (filtered.length === 0) return (
+              <div className="flex flex-col items-center justify-center h-64 bg-white rounded-xl border border-slate-200 text-slate-400">
+                <i className="fas fa-envelope-open text-4xl mb-3 opacity-20"></i>
+                <p>No messages match your search.</p>
+              </div>
+            );
+            return (
           <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
@@ -142,7 +160,7 @@ export default function AdminMessages() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
-                  {messages.map((msg, index) => (
+                  {filtered.map((msg, index) => (
                     <tr key={msg.id} className="hover:bg-slate-50/50 transition-colors">
                       <td className="px-4 py-4 text-center text-xs font-medium text-slate-400">
                         {(page - 1) * limit + index + 1}
@@ -187,6 +205,8 @@ export default function AdminMessages() {
               </table>
             </div>
           </div>
+            );
+          })()}
 
           {/* Pagination Controls */}
           <div className="flex items-center justify-between bg-white p-4 rounded-xl border border-slate-200">

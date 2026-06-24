@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { API } from "@/lib/api";
 
 const fallbackImg = (w, h) => `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect fill="#e2e8f0" width="${w}" height="${h}"/><text fill="#64748b" font-family="Arial" font-size="${Math.min(w,h)/8}" font-weight="bold" x="${w/2}" y="${h/2}" text-anchor="middle" dominant-baseline="middle">No Image</text></svg>`)}`;
 
@@ -14,7 +15,7 @@ export default function BlogPage() {
     const fetchPosts = async () => {
       console.log("Fetching blogs from API...");
       try {
-        const response = await fetch("http://localhost:5000/api/blogs");
+        const response = await fetch(`${API}/blogs`);
         if (!response.ok) throw new Error("Failed to fetch");
         const data = await response.json();
         console.log("Data received in BlogPage:", data);

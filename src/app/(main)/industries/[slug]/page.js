@@ -31,7 +31,7 @@ export default async function IndustryPage({ params }) {
             <div className="lg:col-span-6"> 
               <div className="flex items-center gap-3 mb-4">
                  <p className="text-sm font-black tracking-[0.4em] uppercase text-green">
-                    {industry.category || "Manufacturing Industries"} / {industry.slug}
+                    {industry.category || "Mobility & Transport"} / {industry.slug}
                  </p>
               </div>
               
@@ -49,11 +49,11 @@ export default async function IndustryPage({ params }) {
             </div>
 
             <div className="lg:col-span-6 relative">
-              <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border-[12px] border-white">
+              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-[12px] border-white bg-white">
                 <img
-                  src="https://placehold.co/800x600/E5E7EB/9CA3AF?text=Industry+Image"
+                  src={industry.heroImage}
                   alt={industry.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto max-h-[600px] object-contain"
                 />
               </div>
               

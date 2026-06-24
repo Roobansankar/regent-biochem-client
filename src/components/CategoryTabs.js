@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { products as allProducts } from "@/data/products";
 import ProductGallery from "./ProductGallery";
 import ProductFAQ from "./ProductFAQ";
 
@@ -45,11 +44,7 @@ export default function CategoryTabs({ products, category }) {
             </div>
 
             {/* Text Side */}
-            <div className="lg:col-span-6 w-full lg:-mt-4">
-              <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-3">
-                {active.category}
-              </p>
-
+            <div className="lg:col-span-6 w-full">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-3 leading-[1.2]">
                 {active.title}
               </h2>
@@ -105,6 +100,15 @@ export default function CategoryTabs({ products, category }) {
                   })
                 )}
               </div>
+
+              {/* Badge Images */}
+              {active.badgeImages && active.badgeImages.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2 mb-4 mt-4">
+                  {active.badgeImages.map((src, i) => (
+                    <img key={i} src={src} alt={`Badge ${i + 1}`} className="h-12 sm:h-14 w-auto object-contain rounded-lg border border-brand-border bg-white" />
+                  ))}
+                </div>
+              )}
 
               {/* Available Pack Sizes */}
               {![
@@ -187,7 +191,7 @@ export default function CategoryTabs({ products, category }) {
 
             {/* Right Column / Sidebar */}
             <div className="lg:col-span-4 space-y-8">
-              {active.technicalSpecs && (
+              {!["Cleaning Systems", "Paint Removal Systems", "Descaling Systems"].includes(active.category) && active.technicalSpecs && (
                 <div className="bg-green rounded-[2rem] p-8 sm:p-10 text-white relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
                   <h3 className="text-xl sm:text-2xl font-bold mb-8 uppercase tracking-tight">Technical Specifications</h3>
@@ -198,26 +202,35 @@ export default function CategoryTabs({ products, category }) {
                         <p className="text-sm sm:text-base font-bold text-white">{spec.value}</p>
                       </div>
                     ))}
-
                   </div>
                 </div>
               )}
 
-              {active.recommendedCleaner && (
-                <div className="p-6 sm:p-8 rounded-[2rem] bg-white border border-brand-border shadow-sm">
-                  <div className="flex items-center gap-2 mb-6">
-                    <i className="fas fa-flask text-green text-xs"></i>
-                    <span className="text-xs sm:text-sm font-bold text-green uppercase tracking-wider">Recommended Cleaner</span>
+              {(() => {
+                const rcs = active.recommendedCleaner
+                  ? (Array.isArray(active.recommendedCleaner) ? active.recommendedCleaner : [active.recommendedCleaner])
+                  : [];
+                if (rcs.length === 0) return null;
+                return (
+                  <div className="p-6 sm:p-8 rounded-[2rem] bg-white border border-brand-border shadow-sm">
+                    <div className="flex items-center gap-2 mb-6">
+                      <i className="fas fa-flask text-green text-xs"></i>
+                      <span className="text-xs sm:text-sm font-bold text-green uppercase tracking-wider">Recommended Cleaner</span>
+                    </div>
+                    <div className="space-y-6">
+                      {rcs.map((rc, idx) => (
+                        <div key={idx} className="flex flex-col gap-4">
+                          <h5 className="text-base font-bold text-brand-black">{rc.name}</h5>
+                          <p className="text-xs sm:text-sm text-brand-body leading-relaxed">{rc.desc}</p>
+                          <Link href={`/products/${rc.slug}`} className="text-sm font-bold text-green hover:underline">
+                            View Product →
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex flex-col gap-4">
-                    <h5 className="text-base font-bold text-brand-black">{active.recommendedCleaner.name}</h5>
-                    <p className="text-xs sm:text-sm text-brand-body leading-relaxed">{active.recommendedCleaner.desc}</p>
-                    <Link href={`/products/${active.recommendedCleaner.slug}`} className="text-sm font-bold text-green hover:underline">
-                      View Product →
-                    </Link>
-                  </div>
-                </div>
-              )}
+                );
+              })()}
 
               {active.recommendedWith && (
                 <div className="p-6 sm:p-8 rounded-[2rem] bg-white border border-brand-border shadow-sm">

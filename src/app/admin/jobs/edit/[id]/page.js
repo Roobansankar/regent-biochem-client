@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import JobForm from "@/components/admin/JobForm";
+import { API } from "@/lib/api";
 
 export default function EditJobPage() {
   const params = useParams();
@@ -12,7 +13,7 @@ export default function EditJobPage() {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/jobs/${params.id}`);
+        const response = await fetch(`${API}/jobs/${params.id}`);
         const data = await response.json();
         if (data.job) {
           setJob(data.job);

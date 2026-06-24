@@ -1,4 +1,7 @@
 import Link from "next/link";
+// import homeabout from "@assets/homeabout.png";
+import homeabout from "@/assets/homeabout.png";
+// import heroslide3 from "@/assets/heroslide3.webp";
 
 export default function Philosophy() {
   return (
@@ -20,7 +23,7 @@ export default function Philosophy() {
         {/* Image */}
         <div className="order-1 lg:order-1 lg:col-span-1 min-h-48 lg:min-h-0 overflow-hidden flex items-center justify-center p-4 sm:p-6">
           <img
-            src="https://i.pinimg.com/1200x/ae/8d/3d/ae8d3da251fe1d7ead2f4dd062d625c7.jpg"
+            src={homeabout.src}
             alt="Industrial Technology"
             className="w-full h-full object-cover rounded-2xl shadow-lg max-h-72 lg:max-h-96"
           />

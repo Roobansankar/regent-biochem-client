@@ -1,56 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-
-const products = {
-  "max-eco": {
-    slug: "htw-ii-max-eco",
-    title: "HTW - II - Max ECO",
-    desc: "Powerful and easy to operate, these hot-water parts washers are designed for efficient single-stage cleaning and degreasing. A rotating basket and high spray pressure ensure optimal cleaning performance with Bio-Chem cleaners.",
-    features: [
-      "Single-stage precision spray cleaning",
-      "Rotating basket for uniform coverage",
-      "High spray pressure for stubborn soils",
-      "Compatible with Bio-Chem cleaners",
-    ],
-    img: "/htw-ii-max-eco.jpg",
-    icon: "fa-shower",
-  },
-  "hp-vigo": {
-    slug: "hp-vigo",
-    title: "HP VIGO",
-    desc: "High-pressure precision cleaning system for complex industrial parts and specialized manufacturing components. Designed for deep cleaning of intricate geometries and hard-to-reach surfaces.",
-    features: [
-      "High-pressure cleaning capability",
-      "Precision cleaning for complex parts",
-      "Industrial-grade construction",
-      "Suitable for specialized components",
-    ],
-    img: "/hp-vigo.jpg",
-    icon: "fa-water",
-  },
-  "anti-spatter": {
-    slug: "anti-spatters",
-    title: "Anti-spatters",
-    desc: "Advanced anti-spatter solutions to prevent weld dross adhesion and protect workpieces and equipment. Extends consumable life and reduces post-weld cleanup time.",
-    features: [
-      "Prevents weld spatter adhesion",
-      "Extends MIG/TIG consumable life",
-      "Reduces post-weld cleanup time",
-      "Protects workpiece surfaces",
-    ],
-    img: "/SafeWeld.jpg",
-    icon: "fa-shield",
-  },
-};
+import { API, imageUrl } from "@/lib/api";
 
 export default function FeaturedProducts() {
-  const [activeTab, setActiveTab] = useState("max-eco");
+  const [products, setProducts] = useState([]);
+  const [activeTab, setActiveTab] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const product = products[activeTab];
+  useEffect(() => {
+    fetch(`${API}/products/flagship`)
+      .then(r => r.json())
+      .then(d => {
+        const list = d.products || [];
+        setProducts(list);
+        if (list.length > 0) setActiveTab(list[0].slug);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
 
+  if (loading) return null;
+  if (products.length === 0) return null;
+
+  const product = products.find(p => p.slug === activeTab) || products[0];
   if (!product) return null;
+
+  const imgSrc = imageUrl(product.images?.[0]);
 
   return (
     <section className="bg-[#f7f7f5]">
@@ -64,64 +41,57 @@ export default function FeaturedProducts() {
           </div>
           <Link
             href="/products"
-            className="inline-flex  cursor-pointer items-center gap-2 text-sm font-bold text-green border border-green rounded px-5 py-2.5 hover:bg-green hover:text-white transition-colors whitespace-nowrap self-start sm:self-auto"
+            className="inline-flex cursor-pointer items-center gap-2 text-sm font-bold text-green border border-green rounded px-5 py-2.5 hover:bg-green hover:text-white transition-colors whitespace-nowrap self-start sm:self-auto"
           >
             View All Products <i className="fas fa-arrow-right text-xs"></i>
           </Link>
         </div>
-        {/* Tabs */}
-        <div className="flex tabs-scroll overflow-x-auto border border-brand-border rounded-lg bg-white w-fit mb-8 max-w-full">
-          <button
-            className={`px-5 py-2.5 text-xs cursor-pointer  sm:text-sm font-semibold whitespace-nowrap border-r border-brand-border transition-colors ${
-              activeTab === "max-eco" ? "bg-green text-white" : "text-brand-muted hover:text-green"
-            }`}
-            onClick={() => setActiveTab("max-eco")}
-          >
-            Max ECO
-          </button>
-          <button
-            className={`px-5 py-2.5 text-xs cursor-pointer sm:text-sm font-semibold whitespace-nowrap border-r border-brand-border transition-colors ${
-              activeTab === "hp-vigo" ? "bg-green text-white" : "text-brand-muted hover:text-green"
-            }`}
-            onClick={() => setActiveTab("hp-vigo")}
-          >
-            HP VIGO
-          </button>
-          <button
-            className={`px-5 py-2.5 text-xs cursor-pointer sm:text-sm font-semibold whitespace-nowrap transition-colors ${
-              activeTab === "anti-spatter" ? "bg-green text-white" : "text-brand-muted hover:text-green"
-            }`}
-            onClick={() => setActiveTab("anti-spatter")}
-          >
-            Anti-Spatter
-          </button>
-        </div>
 
-        {/* Product Showcase */}
+        {products.length > 1 && (
+          <div className="flex tabs-scroll overflow-x-auto border border-brand-border rounded-lg bg-white w-fit mb-8 max-w-full">
+            {products.map(p => (
+              <button
+                key={p.slug}
+                className={`px-5 py-2.5 text-xs cursor-pointer sm:text-sm font-semibold whitespace-nowrap border-r border-brand-border last:border-r-0 transition-colors ${
+                  activeTab === p.slug ? "bg-green text-white" : "text-brand-muted hover:text-green"
+                }`}
+                onClick={() => setActiveTab(p.slug)}
+              >
+                {p.title}
+              </button>
+            ))}
+          </div>
+        )}
+
         <div className="bg-white border border-brand-border rounded-2xl p-6 sm:p-8 lg:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
-            {/* Image */}
-            <Link 
+            <Link
               href={`/products/${product.slug}`}
               className="dot-bg bg-brand-bg3 rounded-xl aspect-[4/3] flex items-center justify-center relative overflow-hidden p-6 group/img"
             >
-              <i className={`fas ${product.icon} text-5xl sm:text-6xl text-green/40 relative z-10 transition-all duration-500 group-hover/img:scale-105`}></i>
+              {imgSrc ? (
+                <img src={imgSrc} alt={product.title} className="w-full h-full object-contain relative z-10 transition-all duration-500 group-hover/img:scale-105" />
+              ) : (
+                <i className={`fas ${product.icon || "fa-box"} text-5xl sm:text-6xl text-green/40 relative z-10 transition-all duration-500 group-hover/img:scale-105`}></i>
+              )}
             </Link>
-            {/* Info */}
+
             <div>
               <Link href={`/products/${product.slug}`} className="block group/title">
                 <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-brand-black mb-4 leading-tight group-hover/title:text-green transition-colors">
                   {product.title}
                 </h3>
               </Link>
-              <p className="text-base text-brand-body leading-relaxed mb-6">{product.desc}</p>
-              <ul className="flex flex-col gap-2.5 mb-8">
-                {product.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm text-brand-body">
-                    <span className="w-2 h-2 rounded-full bg-green flex-shrink-0"></span> {feature}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-base text-brand-body leading-relaxed mb-6">{product.description || product.desc}</p>
+              {product.features && product.features.length > 0 && (
+                <ul className="flex flex-col gap-2.5 mb-8">
+                  {product.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm text-brand-body">
+                      <span className="w-2 h-2 rounded-full bg-green flex-shrink-0"></span> {feature}
+                    </li>
+                  ))}
+                </ul>
+              )}
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href={`/products/${product.slug}`}

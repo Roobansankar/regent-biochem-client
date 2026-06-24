@@ -55,7 +55,7 @@ export default function WorkflowProcess({ bg }) {
             <div key={i} className="relative group">
               {/* Connector line */}
               {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-px bg-green/20 group-hover:bg-green/40 transition-colors -z-0" />
+                <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-green group-hover:bg-green-dark transition-colors -z-0" />
               )}
 
               <div className="bg-white border border-brand-border rounded-lg p-4 xl:p-5 text-center hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 relative z-10 h-full flex flex-col">

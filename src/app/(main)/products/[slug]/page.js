@@ -1,32 +1,158 @@
-import { products } from "@/data/products";
 import CTA from "@/components/CTA";
 import CategoryTabs from "@/components/CategoryTabs";
 import ProductGallery from "@/components/ProductGallery";
 import ProductFAQ from "@/components/ProductFAQ";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { API, imageUrl } from "@/lib/api";
+
+async function fetchAllProducts() {
+  try {
+    const res = await fetch(`${API}/products/all`, { cache: "no-store" });
+    const data = await res.json();
+    return data.products || [];
+  } catch {
+    return [];
+  }
+}
 
 export async function generateStaticParams() {
-  return products.map((product) => ({
-    slug: product.slug,
-  }));
+  const products = await fetchAllProducts();
+  const productSlugs = products.map((product) => ({ slug: product.slug }));
+  const virtualSlugs = Object.keys(CATEGORY_SLUG_MAP).map((slug) => ({ slug }));
+  return [...productSlugs, ...virtualSlugs];
+}
+
+function mapApiProduct(p) {
+  const toAbs = (path) => imageUrl(path);
+  return {
+    ...p,
+    desc: p.description || p.desc || "",
+    img: toAbs(p.images?.[0] || p.img) || null,
+    images: (p.images || []).map(toAbs),
+    badgeImages: (p.badgeImages || []).map(toAbs),
+  };
+}
+
+function slugify(str) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+const CATEGORY_SLUG_MAP = {
+  "general-cleaners": "Cleaners",
+  "bio-circle-cleaners": "Cleaners",
+  "acidic-cleaners": "Cleaners",
+  "finishers": "Cleaners",
+  "anti-spatters": "Safeweld",
+  "weld-cleaners": "Safeweld",
+  "surface-protectors": "Safeweld",
+};
+
+const CATEGORY_DESCRIPTIONS = {
+  "general-cleaners": "Our General Cleaners are engineered to address a broad spectrum of industrial cleaning challenges, from routine maintenance to demanding production environments. Designed to effectively remove oils, greases, machining residues, and process contaminants, these formulations support equipment reliability, process efficiency, and surface readiness. Suitable for a variety of metallic substrates, they deliver consistent cleaning performance while aligning with modern environmental and workplace safety standards. Our general cleaners are formulated to tackle a wide range of industrial soils including oils, greases, and machining residues. Suitable for both ferrous and non-ferrous metals, these solvent-free, VOC-free formulations deliver consistent cleaning performance while ensuring workplace safety and environmental compliance.",
+  "bio-circle-cleaners": "Bio-Circle Cleaners combine advanced cleaning chemistry with biological regeneration technology to provide long-lasting and environmentally responsible cleaning performance. Utilizing naturally occurring microorganisms, these solutions continuously degrade oils and contaminants, significantly extending bath life and reducing waste generation. Ideal for maintenance workshops, manufacturing facilities, and production operations, Bio-Circle technology helps organizations improve sustainability while lowering operating costs and enhancing process efficiency. These bio-active formulations harness the power of beneficial microorganisms to continuously break down oils and hydrocarbons during the cleaning process. The result is a self-regenerating cleaning bath that extends fluid life, reduces waste, and lowers operational costs — all while maintaining exceptional cleaning performance.",
+  "acidic-cleaners": "Our Acidic Cleaners are specifically formulated to remove oxidation, scale, mineral deposits, and other inorganic contaminants that compromise equipment performance and system efficiency. Developed for demanding industrial applications, these solutions restore heat transfer efficiency, improve fluid flow, and support asset longevity across pipelines, cooling systems, heat exchangers, and process equipment. Their targeted action ensures effective contaminant removal while maintaining operational integrity. Engineered for heavy-duty descaling and de-rusting applications, our acidic cleaners penetrate and dissolve stubborn inorganic deposits including limescale, rust, and mineral buildup. Ideal for heat exchangers, cooling systems, and metal components requiring deep restoration.",
+  "finishers": "Our Finisher solutions are designed to enhance surface quality and prepare components for subsequent manufacturing, assembly, coating, or storage processes. From residue-free cleaning and flash-drying applications to corrosion protection and surface conditioning, these products help maintain appearance, functionality, and long-term performance. By ensuring clean, protected, and process-ready surfaces, they contribute to improved product quality and operational consistency. Our finishers deliver the final touch to your cleaning process, providing surface brightening, passivation, and temporary corrosion protection. These advanced formulations ensure components emerge with a pristine, presentation-ready finish that meets the highest quality standards.",
+  "anti-spatters": "Our Anti-Spatter Solutions are designed to prevent welding spatter from adhering to workpieces, fixtures, nozzles, and surrounding equipment during welding operations. By creating a protective barrier, these formulations help minimize cleaning requirements, improve surface quality, extend equipment life, and enhance overall productivity. Suitable for a wide range of welding applications, they support cleaner processes and more efficient manufacturing operations. Our anti-spatter formulations create a protective barrier on workpiece surfaces and MIG/TIG nozzles, preventing weld spatter from adhering. This extends consumable life, reduces post-weld cleanup time, and maintains consistent weld quality across production runs.",
+  "weld-cleaners": "Our Weld Cleaners are engineered to remove weld discoloration, oxidation, heat tint, and process residues from stainless steel and other metallic surfaces. Designed to restore the original appearance and corrosion resistance of welded components, these solutions help ensure compliance with quality standards while improving surface finish and long-term performance. Ideal for fabrication, process equipment, architectural structures, and precision manufacturing applications. Specially formulated to remove heat discoloration, oxidation layers, and welding residues from stainless steel and other alloys. Our weld cleaners restore the original surface finish and prepare welds for passivation or further processing without mechanical abrasion.",
+  "surface-protectors": "Our Surface Protection Solutions help safeguard metal surfaces against corrosion, environmental exposure, and handling-related contamination. Developed to maintain surface integrity after cleaning, finishing, or welding operations, these products provide a protective barrier that supports product quality, extends service life, and reduces maintenance requirements. Ideal for components requiring storage, transportation, or extended operational durability. Our surface protectors provide a durable, temporary barrier against corrosion, moisture, and mechanical damage during storage, transport, and inter-process handling. Available in film-forming and oil-based variants for different protection requirements and removal preferences.",
+};
+
+function titleFromSlug(slug) {
+  return slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+}
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+
+  const parentCategory = CATEGORY_SLUG_MAP[slug];
+  if (parentCategory) {
+    const title = titleFromSlug(slug);
+    return {
+      title: `${title} | Regent Biochem`,
+      description: CATEGORY_DESCRIPTIONS[slug] || `${title} products from Regent Biochem`,
+    };
+  }
+
+  try {
+    const res = await fetch(`${API}/products/slug/${slug}`, { cache: "no-store" });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.product) {
+        const p = data.product;
+        return {
+          title: p.meta_title || `${p.title} | Regent Biochem`,
+          description: p.meta_description || p.description || "",
+          keywords: p.meta_keywords || "",
+        };
+      }
+    }
+  } catch {}
+
+  return {
+    title: "Product | Regent Biochem",
+  };
 }
 
 export default async function ProductDetailPage({ params }) {
   const { slug } = await params;
-  const product = products.find((p) => p.slug === slug);
 
+  // 1) Check virtual category slugs FIRST (e.g. general-cleaners) so they
+  //    always take precedence over a DB product with the same slug.
+  const parentCategory = CATEGORY_SLUG_MAP[slug];
+  if (parentCategory) {
+    const allItems = (await fetchAllProducts()).map(mapApiProduct);
+    const subProducts = allItems.filter(p => p.subcategory === slug);
+    const categoryTitle = titleFromSlug(slug);
+
+    return (
+      <main className="flex flex-col min-h-screen bg-white">
+        <section className="relative pt-10 pb-12 lg:pt-12 lg:pb-14 overflow-hidden bg-brand-bg3">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white -z-10"></div>
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-green-50/20 blur-[120px] -z-10"></div>
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="w-full">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-4 leading-tight">
+                {categoryTitle}
+              </h1>
+              <p className="text-sm sm:text-base text-brand-body leading-relaxed pl-0 w-full text-justify">
+                {CATEGORY_DESCRIPTIONS[slug] || `Browse our range of ${parentCategory.toLowerCase()} products.`}
+              </p>
+            </div>
+          </div>
+        </section>
+        {subProducts.length > 0 && (
+          <CategoryTabs products={subProducts} category={categoryTitle} />
+        )}
+        <CTA />
+      </main>
+    );
+  }
+
+  // 2) Try to fetch product by slug from API
+  const res = await fetch(`${API}/products/slug/${slug}`, { cache: "no-store" });
+  let product = null;
+  if (res.ok) {
+    const data = await res.json();
+    if (data.product) product = mapApiProduct(data.product);
+  }
+
+  // 3) Product not found at all
   if (!product) {
     notFound();
   }
 
-  // ─── CATEGORY PAGE (if product has `products` array, it's a category overview) ───
-  if (product.products) {
+  const allItems = (await fetchAllProducts()).map(mapApiProduct);
+
+  // ─── CATEGORY PAGE (only for system-grouping products that have sub-products in DB) ───
+  const isLiquidCategory = product.category === "Cleaners" || product.category === "Safeweld";
+  if (!isLiquidCategory && product.products && product.products.length > 0) {
     const subProducts = product.products
-      .map((id) => products.find((p) => p.id === id))
+      .map((id) => allItems.find((p) => p.id === id || String(p.id) === String(id)))
       .filter(Boolean);
 
-    return (
+    if (subProducts.length > 0) {
+      return (
       <main className="flex flex-col min-h-screen bg-white">
 
         {/* ─── CATEGORY HERO ─── */}
@@ -57,6 +183,7 @@ export default async function ProductDetailPage({ params }) {
         <CTA />
       </main>
     );
+    }
   }
 
   return (
@@ -95,6 +222,15 @@ export default async function ProductDetailPage({ params }) {
                 {product.desc}
               </p>
 
+              {/* Badge Images */}
+              {product.badgeImages && product.badgeImages.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2 mb-4 mt-4">
+                  {product.badgeImages.map((src, i) => (
+                    <img key={i} src={src} alt={`Badge ${i + 1}`} className="h-12 sm:h-14 w-auto object-contain rounded-lg border border-brand-border bg-white" />
+                  ))}
+                </div>
+              )}
+
               {/* Available Models */}
               {product.availableModels && product.availableModels.length > 0 && (
                 <div className="mt-6 mb-4">
@@ -118,50 +254,6 @@ export default async function ProductDetailPage({ params }) {
                     </li>
                   ))}
                 </ul>
-              )}
-
-              {/* Available Pack Sizes */}
-              {![
-                "Cleaning Systems",
-                "Paint Removal Systems",
-                "Descaling Systems",
-              ].includes(product.category) && (
-                <div className="mt-6 mb-6">
-                  <p className="text-xs font-bold text-green uppercase tracking-wider mb-3">
-                    Available Pack Sizes
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {[
-                      {
-                        name: `${product.title} - PET (recycled) bottle 500ml with sprayer`,
-                        img: "500ml",
-                      },
-                      {
-                        name: `${product.title} - PET (recycled) bottle 1L with sprayer`,
-                        img: "1L",
-                      },
-                      { name: `${product.title} - Jerry Can 1L`, img: "JC1L" },
-                      { name: `${product.title} - Jerry Can 5L`, img: "JC5L" },
-                      { name: `${product.title} - Jerry Can 25L`, img: "JC25L" },
-                    ].map((item, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-3 border border-brand-border rounded-lg p-3"
-                      >
-                        <div className="w-14 h-14 rounded-lg bg-brand-bg3 border border-brand-border shrink-0 flex items-center justify-center overflow-hidden">
-                          <img
-                            src={`https://placehold.co/80x80/e2e8f0/3D8A4B?text=${item.img}`}
-                            alt={item.name}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <span className="text-xs font-semibold text-brand-black leading-snug">
-                          {item.name}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               )}
 
               {product.labels && product.labels.length > 0 && (
@@ -215,34 +307,69 @@ export default async function ProductDetailPage({ params }) {
                 </div>
               )}
 
-              {/* Specification Table */}
-              {product.availableModels && product.specificationFields && product.availableModels.length > 0 && (
-                <div>
-                  <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
-                  <div className="overflow-x-auto rounded-2xl border border-brand-border">
-                    <table className="w-full text-xs sm:text-sm">
-                      <thead>
-                        <tr className="bg-gradient-to-r from-green to-emerald-600">
-                          <th className="text-left px-4 py-3 font-bold text-white whitespace-nowrap">Parameter</th>
-                          {product.availableModels.map((m, i) => (
-                            <th key={i} className="px-4 py-3 font-bold text-white whitespace-nowrap text-center">{m.model}</th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {product.specificationFields.map((field, i) => (
-                          <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-brand-bg2"}>
-                            <td className="px-4 py-2.5 font-semibold text-brand-black whitespace-nowrap border-r border-brand-border">{field.label}</td>
-                            {product.availableModels.map((m, j) => (
-                              <td key={j} className="px-4 py-2.5 text-brand-body text-center border-r border-brand-border last:border-r-0">{m[field.key]}</td>
+              {/* Specification Table (system categories only) */}
+              {["Cleaning Systems", "Paint Removal Systems", "Descaling Systems"].includes(product.category) && (() => {
+                const sd = product.specData;
+                if (sd && sd.headers && sd.headers.length > 0 && sd.rows && sd.rows.length > 0) {
+                  return (
+                    <div>
+                      <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
+                      <div className="overflow-hidden rounded-2xl border border-brand-border">
+                        <table className="w-full text-xs sm:text-sm table-fixed">
+                          <thead>
+                            <tr className="bg-gradient-to-r from-green to-emerald-600">
+                              <th className="text-left px-4 py-3 font-bold text-white w-2/5">Parameter</th>
+                              {sd.headers.map((h, i) => (
+                                <th key={i} className="px-4 py-3 font-bold text-white text-center">{h}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {sd.rows.map((row, i) => (
+                              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-brand-bg2"}>
+                                <td className="px-4 py-2.5 font-semibold text-brand-black border-r border-brand-border break-words">{row.label}</td>
+                                {row.values.map((v, j) => (
+                                  <td key={j} className="px-4 py-2.5 text-brand-body text-center border-r border-brand-border last:border-r-0">{v}</td>
+                                ))}
+                              </tr>
                             ))}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              )}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  );
+                }
+                if (product.availableModels && product.specificationFields && product.availableModels.length > 0) {
+                  return (
+                    <div>
+                      <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
+                      <div className="overflow-hidden rounded-2xl border border-brand-border">
+                        <table className="w-full text-xs sm:text-sm table-fixed">
+                          <thead>
+                            <tr className="bg-gradient-to-r from-green to-emerald-600">
+                              <th className="text-left px-4 py-3 font-bold text-white w-2/5">Parameter</th>
+                              {product.availableModels.map((m, i) => (
+                                <th key={i} className="px-4 py-3 font-bold text-white text-center">{m.model}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {product.specificationFields.map((field, i) => (
+                              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-brand-bg2"}>
+                                <td className="px-4 py-2.5 font-semibold text-brand-black border-r border-brand-border break-words">{field.label}</td>
+                                {product.availableModels.map((m, j) => (
+                                  <td key={j} className="px-4 py-2.5 text-brand-body text-center border-r border-brand-border last:border-r-0">{m[field.key]}</td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  );
+                }
+                return null;
+              })()}
 
               {/* Why Choose */}
               {product.whyChoose && (
@@ -288,14 +415,17 @@ export default async function ProductDetailPage({ params }) {
               )}
 
               {/* Similar Products */}
-              {product.similarProducts && product.similarProducts.length > 0 && (
+               {product.similarProducts && product.similarProducts.length > 0 && (
                 <div>
-                  <div className="mb-4">
+                  <div className="flex items-center justify-between mb-4">
                     <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Similar Products</p>
+                    <Link href="/products" className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-green px-4 py-2 rounded-lg hover:bg-green-dark transition-colors">
+                      View All Products <i className="fas fa-arrow-right text-[10px]"></i>
+                    </Link>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {product.similarProducts.map((ref, i) => {
-                      const similarProd = products.find(p => p.title === ref || p.slug === ref || p.id === ref);
+                      const similarProd = allItems.find(p => p.title === ref || p.slug === ref || p.id === ref);
                       if (!similarProd) return null;
                       return (
                         <Link key={i} href={`/products/${similarProd.slug}`} className="group block border border-brand-border rounded-xl overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 bg-white">
@@ -354,7 +484,6 @@ export default async function ProductDetailPage({ params }) {
                   <div className="bg-gradient-to-br from-green to-emerald-600 rounded-2xl p-6 sm:p-7 text-white overflow-hidden relative">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
                     <div className="relative z-10">
-                     
                       <h3 className="text-base sm:text-lg font-bold mb-5">Technical Specifications</h3>
                       <div className="space-y-3.5">
                         {product.technicalSpecs.map((spec, i) => (
@@ -375,26 +504,36 @@ export default async function ProductDetailPage({ params }) {
                 )}
 
                 {/* Recommended Cleaner */}
-                {product.recommendedCleaner && (
-                  <div className="bg-white rounded-2xl p-5 sm:p-6 border border-brand-border shadow-sm">
-                    <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                      <i className="fas fa-flask text-green text-xs"></i>
-                      <span className="text-xs sm:text-sm font-bold text-green uppercase tracking-wider">Recommended Cleaner</span>
-                    </div>
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-green-light to-white flex items-center justify-center shrink-0 border border-green/20">
-                        <i className={`fas ${products.find(p => p.slug === product.recommendedCleaner.slug)?.icon || "fa-flask"} text-lg sm:text-xl text-green`}></i>
+                {(() => {
+                  const rcs = product.recommendedCleaner
+                    ? (Array.isArray(product.recommendedCleaner) ? product.recommendedCleaner : [product.recommendedCleaner])
+                    : [];
+                  if (rcs.length === 0) return null;
+                  return (
+                    <div className="bg-white rounded-2xl p-5 sm:p-6 border border-brand-border shadow-sm">
+                      <div className="flex items-center gap-2 mb-4">
+                        <i className="fas fa-flask text-green text-xs"></i>
+                        <span className="text-xs sm:text-sm font-bold text-green uppercase tracking-wider">Recommended Cleaner</span>
                       </div>
-                      <div className="min-w-0">
-                        <h5 className="text-sm font-bold text-brand-black mb-1">{product.recommendedCleaner.name}</h5>
-                        <p className="text-xs text-brand-body leading-relaxed mb-3">{product.recommendedCleaner.desc}</p>
-                        <Link href={`/products/${product.recommendedCleaner.slug}`} className="inline-flex items-center gap-1.5 text-xs font-bold text-green hover:text-green-dark transition-colors">
-                          View Product <i className="fas fa-arrow-right text-[10px]"></i>
-                        </Link>
+                      <div className="space-y-4">
+                        {rcs.map((rc, idx) => (
+                          <div key={idx} className="flex items-start gap-3 sm:gap-4">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-green-light to-white flex items-center justify-center shrink-0 border border-green/20">
+                              <i className={`fas ${allItems.find(p => p.slug === rc.slug)?.icon || "fa-flask"} text-lg sm:text-xl text-green`}></i>
+                            </div>
+                            <div className="min-w-0">
+                              <h5 className="text-sm font-bold text-brand-black mb-1">{rc.name}</h5>
+                              <p className="text-xs text-brand-body leading-relaxed mb-3">{rc.desc}</p>
+                              <Link href={`/products/${rc.slug}`} className="inline-flex items-center gap-1.5 text-xs font-bold text-green hover:text-green-dark transition-colors">
+                                View Product <i className="fas fa-arrow-right text-[10px]"></i>
+                              </Link>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                  </div>
-                )}
+                  );
+                })()}
 
                 {/* Recommended With */}
                 {product.recommendedWith && (

@@ -1,6 +1,7 @@
 
 import { timeline, values } from "@/data/about";
 import Link from "next/link";
+import aboutus from "@/assets/aboutus.png";
 
 export const dynamic = "force-static";
 export const revalidate = false;
@@ -50,7 +51,7 @@ export default function About() {
           {/* Image block */}
           <div className="reveal relative">
             <div className="rounded-3xl h-72 sm:h-96 border border-green-100 overflow-hidden shadow-card">
-              <img src="https://i.pinimg.com/736x/2d/76/fd/2d76fd55699341142a0ab75391688c86.jpg" alt="Company Overview" className="w-full h-full object-cover" />
+              <img src={aboutus.src} alt="Company Overview" className="w-full h-full object-cover" />
             </div>
           </div>
 

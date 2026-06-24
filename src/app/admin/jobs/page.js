@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { API } from "@/lib/api";
 
 export default function AdminJobs() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetchJobs();
@@ -14,7 +16,7 @@ export default function AdminJobs() {
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/api/jobs");
+      const response = await fetch(`${API}/jobs`);
       const data = await response.json();
       setJobs(data.jobs || []);
     } catch (err) {
@@ -27,7 +29,7 @@ export default function AdminJobs() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this job? This action cannot be undone.")) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/jobs/${id}`, { method: "DELETE" });
+      const response = await fetch(`${API}/jobs/${id}`, { method: "DELETE" });
       if (response.ok) {
         fetchJobs();
       } else {
@@ -52,6 +54,12 @@ export default function AdminJobs() {
           <i className="fas fa-plus text-xs"></i>
           Add New Job
         </Link>
+      </div>
+
+      <div className="relative w-72">
+        <i className="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+        <input type="text" placeholder="Search jobs..." value={search} onChange={e => setSearch(e.target.value)}
+          className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all" />
       </div>
 
       <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
@@ -91,7 +99,7 @@ export default function AdminJobs() {
                   </td>
                 </tr>
               ) : (
-                jobs.map((job, index) => (
+                jobs.filter(j => !search || j.title?.toLowerCase().includes(search.toLowerCase()) || j.department?.toLowerCase().includes(search.toLowerCase()) || j.location?.toLowerCase().includes(search.toLowerCase()) || j.type?.toLowerCase().includes(search.toLowerCase())).map((job, index) => (
                   <tr key={job.id} className="hover:bg-slate-50/50 transition-colors group">
                     <td className="px-6 py-4 text-xs font-bold text-slate-400">
                       {String(index + 1).padStart(2, '0')}

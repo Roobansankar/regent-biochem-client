@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { API } from "@/lib/api";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -29,7 +30,7 @@ export default function Contact() {
     setStatus({ type: "", message: "" });
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch(`${API}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

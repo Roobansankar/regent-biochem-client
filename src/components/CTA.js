@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { API } from "@/lib/api";
 
 export default function CTA() {
   const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ export default function CTA() {
     setStatus("loading");
     setMessage("");
     try {
-      const res = await fetch("http://localhost:5000/api/cta", {
+      const res = await fetch(`${API}/cta`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email.trim() }),

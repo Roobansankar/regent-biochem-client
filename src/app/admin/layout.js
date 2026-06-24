@@ -11,11 +11,9 @@ const sidebarLinks = [
   { label: "Jobs", href: "/admin/jobs", icon: "fa-briefcase" },
   { label: "Case Studies", href: "/admin/case-studies", icon: "fa-book-open" },
   { label: "CTA", href: "/admin/cta", icon: "fa-bullhorn" },
-  { label: "Products", href: "/admin/products", icon: "fa-box" },
-  { label: "Services", href: "/admin/services", icon: "fa-concierge-bell" },
-  { label: "Orders", href: "/admin/orders", icon: "fa-shopping-cart" },
-  { label: "Users", href: "/admin/users", icon: "fa-users" },
-  { label: "Settings", href: "/admin/settings", icon: "fa-gear" },
+  { label: "Products (Machines)", href: "/admin/products", icon: "fa-box" },
+  { label: "Products (Liquids)", href: "/admin/liquid-products", icon: "fa-flask" },
+  { label: "Product Filters", href: "/admin/product-filters", icon: "fa-filter" },
 ];
 
 export default function AdminLayout({ children }) {
@@ -135,6 +133,7 @@ export default function AdminLayout({ children }) {
             <button
               onClick={() => {
                 localStorage.removeItem("admin_user");
+                localStorage.removeItem("admin_token");
                 router.push("/admin/login");
               }}
               className="flex items-center gap-2 text-sm text-brand-muted hover:text-red-500 transition-colors"

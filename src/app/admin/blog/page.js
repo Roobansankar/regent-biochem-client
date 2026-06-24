@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { API } from "@/lib/api";
 
 export default function AdminBlogs() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetchBlogs();
@@ -14,7 +16,7 @@ export default function AdminBlogs() {
   const fetchBlogs = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/api/blogs");
+      const response = await fetch(`${API}/blogs`);
       const data = await response.json();
       setBlogs(data.blogs || []);
     } catch (err) {
@@ -27,7 +29,7 @@ export default function AdminBlogs() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this blog post? This action cannot be undone.")) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/blogs/${id}`, { method: "DELETE" });
+      const response = await fetch(`${API}/blogs/${id}`, { method: "DELETE" });
       if (response.ok) {
         fetchBlogs();
       } else {
@@ -52,6 +54,12 @@ export default function AdminBlogs() {
           <i className="fas fa-plus text-xs"></i>
           Add New Blog
         </Link>
+      </div>
+
+      <div className="relative w-72">
+        <i className="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+        <input type="text" placeholder="Search blogs..." value={search} onChange={e => setSearch(e.target.value)}
+          className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all" />
       </div>
 
       <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
@@ -88,7 +96,7 @@ export default function AdminBlogs() {
                   </td>
                 </tr>
               ) : (
-                blogs.map((blog, index) => (
+                blogs.filter(b => !search || b.title?.toLowerCase().includes(search.toLowerCase()) || b.category?.toLowerCase().includes(search.toLowerCase()) || b.author?.toLowerCase().includes(search.toLowerCase())).map((blog, index) => (
                   <tr key={blog.id} className="hover:bg-slate-50/50 transition-colors group">
                     <td className="px-6 py-4 text-xs font-bold text-slate-400">
                       {String(index + 1).padStart(2, '0')}

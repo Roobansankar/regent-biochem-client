@@ -3,31 +3,48 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { API } from "@/lib/api";
 
 const navData = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   {
     name: "Industries",
-    href: "/industries",
+    href: "#",
     mega: true,
     columns: [
       {
-        label: "Manufacturing Industries",
-        items: [
-          { name: "Automotive", href: "/industries/automotive" },
-          { name: "CNC", href: "/industries/cnc-machining" },
-          { name: "Fabrications", href: "/industries/fabrications" },
-        ],
+        label: "Mobility & Transport",
+          items: [
+            { name: "Automotive", href: "/industries/automotive" },
+            { name: "Aerospace & Defense", href: "/industries/aerospace-defense" },
+            { name: "Railways", href: "/industries/railways" },
+            { name: "Shipbuilding & Shipyards", href: "/industries/shipbuilding-shipyards" },
+          ],
       },
       {
-        label: "Process Industries",
-        items: [
-          { name: "Maintenance Repair & Operations", href: "/industries/mro-maintenance" },
-          { name: "Oil", href: "/industries/oil-gas" },
-          { name: "Food", href: "/industries/food-beverage" },
-          { name: "Textile", href: "/industries/textile-industry" },
-        ],
+        label: "Industrial Engineering",
+          items: [
+            { name: "Engineering & Fabrication", href: "/industries/engineering-fabrication" },
+            { name: "Machining", href: "/industries/machining" },
+            { name: "Metal Working", href: "/industries/metal-working" },
+          ],
+      },
+      {
+        label: "Process & Utilities",
+          items: [
+            { name: "Electronics", href: "/industries/electronics" },
+            { name: "Oil & Gas", href: "/industries/oil-gas" },
+            { name: "Food & Beverages", href: "/industries/food-beverage" },
+            { name: "Rubber & Plastics", href: "/industries/rubber-plastics" },
+            { name: "Printing & Packaging", href: "/industries/printing-packaging" },
+          ],
+      },
+      {
+        label: "Support Services",
+          items: [
+            { name: "MRO (Maintenance, Repair, and Operations)", href: "/industries/mro-maintenance" },
+          ],
       },
     ],
   },
@@ -38,27 +55,15 @@ const navData = [
     columns: [
       {
         label: "Cleaning Systems",
-        items: [
-          { name: "HTW II - BIO", href: "/products/htw-ii-bio" },
-          { name: "HTW II - Max ECO", href: "/products/htw-ii-max-eco" },
-          { name: "HP VIGO", href: "/products/hp-vingo" },
-          { name: "GT MAXI", href: "/products/gt-max" },
-          { name: "GT COMPACT", href: "/products/gt-compact" },
-        ],
+        items: [],
       },
       {
         label: "Paint Removal Systems",
-        items: [
-          { name: "PROLAQ AUTO", href: "/products/prolaq-auto" },
-          { name: "PROLAQ COMPACT", href: "/products/prolaq-compact" },
-        ],
+        items: [],
       },
       {
         label: "Descaling Systems",
-        items: [
-          { name: "RWR-KST", href: "/products/rer-kst" },
-          { name: "RWR", href: "/products/rwr" },
-        ],
+        items: [],
       },
       {
         label: "Cleaners",
@@ -114,8 +119,36 @@ export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [mobileExpanded, setMobileExpanded] = useState({});
   const [isScrolled, setIsScrolled] = useState(false);
+  const [navbarProducts, setNavbarProducts] = useState([]);
   const pathname = usePathname();
   const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch(`${API}/products/all`);
+        const data = await res.json();
+        if (data.products) setNavbarProducts(data.products);
+      } catch (err) {
+        console.error("Failed to fetch navbar products:", err);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  const getColumnItems = (col) => {
+    const dynamicCategories = ["Cleaning Systems", "Paint Removal Systems", "Descaling Systems"];
+    if (dynamicCategories.includes(col.label)) {
+      const filtered = navbarProducts.filter(p => p.category === col.label);
+      if (filtered.length > 0) {
+        return filtered.map(p => ({
+          name: p.title,
+          href: `/products/${p.slug}`,
+        }));
+      }
+    }
+    return col.items;
+  };
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => {
@@ -233,7 +266,7 @@ export default function Navbar() {
                         isScrolled ? "top-[64px]" : "top-[131px]"
                       }`}>
                         <div className={`max-w-[1600px] mx-auto grid gap-8 p-10 ${
-                          link.name === "Products" ? "grid-cols-5" : link.name === "Industries" ? "grid-cols-[1fr_1fr_1.5fr]" : "grid-cols-[1fr_1.5fr]"
+                          link.name === "Products" ? "grid-cols-5" : link.name === "Industries" ? "grid-cols-4" : "grid-cols-[1fr_1.5fr]"
                         }`}>
                           {link.columns.map((col) => (
                             <div key={col.label}>
@@ -241,7 +274,7 @@ export default function Navbar() {
                                 {col.label}
                               </h4>
                               <div className="flex flex-col gap-3">
-                                {col.items.map((item) => (
+                                {getColumnItems(col).map((item) => (
                                   <Link
                                     key={item.name}
                                     href={item.href}
@@ -254,14 +287,6 @@ export default function Navbar() {
                               </div>
                             </div>
                           ))}
-                          {link.name !== "Products" && (
-                            <div className="col-span-1 bg-brand-bg2 rounded-2xl p-6 flex flex-col justify-center border border-brand-border">
-                              <span className="text-[10px] font-bold uppercase tracking-widest text-green mb-2">Featured Solution</span>
-                              <h5 className="text-lg font-bold text-brand-black mb-3">Eco-Friendly Cleaning Systems</h5>
-                              <p className="text-xs text-brand-body leading-relaxed mb-4">Discover our range of bio-active part washers designed for sustainability.</p>
-                              <Link href="#" onClick={closeMenu} className="text-xs font-bold text-green underline decoration-2 underline-offset-4">Explore Products</Link>
-                            </div>
-                          )}
                         </div>
                       </div>
                     )}
@@ -343,7 +368,7 @@ export default function Navbar() {
                                   <div key={col.label}>
                                     <div className="text-[10px] font-black uppercase tracking-widest text-green mb-3 px-4">{col.label}</div>
                                     <div className="flex flex-col gap-1">
-                                      {col.items.map((item) => (
+                                      {getColumnItems(col).map((item) => (
                                         <Link
                                           key={item.name}
                                           href={item.href}

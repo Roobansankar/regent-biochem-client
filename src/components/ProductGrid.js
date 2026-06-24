@@ -1,7 +1,22 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { products } from "@/data/products";
+import { API } from "@/lib/api";
 
 export default function ProductGrid() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch(`${API}/products/all`)
+      .then(r => r.json())
+      .then(d => {
+        const mapped = (d.products || []).map(p => ({ ...p, desc: p.description || p.desc || "" }));
+        setProducts(mapped);
+      })
+      .catch(() => {});
+  }, []);
+
   const displayProducts = products.slice(0, 7);
 
   return (

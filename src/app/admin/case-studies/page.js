@@ -2,17 +2,19 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { API } from "@/lib/api";
 
 export default function AdminCaseStudies() {
   const [caseStudies, setCaseStudies] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
 
   useEffect(() => { fetchCaseStudies(); }, []);
 
   const fetchCaseStudies = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/case-studies");
+      const res = await fetch(`${API}/case-studies`);
       const data = await res.json();
       setCaseStudies(data.caseStudies || []);
     } catch (err) {
@@ -25,7 +27,7 @@ export default function AdminCaseStudies() {
   const handleDelete = async (slug) => {
     if (!window.confirm("Delete this case study? This cannot be undone.")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/case-studies/${slug}`, { method: "DELETE" });
+      const res = await fetch(`${API}/case-studies/${slug}`, { method: "DELETE" });
       if (res.ok) fetchCaseStudies();
       else alert("Failed to delete");
     } catch (err) {
@@ -45,6 +47,12 @@ export default function AdminCaseStudies() {
         >
           <i className="fas fa-plus text-xs"></i> Add New
         </Link>
+      </div>
+
+      <div className="relative w-72">
+        <i className="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+        <input type="text" placeholder="Search case studies..." value={search} onChange={e => setSearch(e.target.value)}
+          className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all" />
       </div>
 
       <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
@@ -78,7 +86,7 @@ export default function AdminCaseStudies() {
                   </div>
                 </td></tr>
               ) : (
-                caseStudies.map((cs, i) => (
+                caseStudies.filter(cs => !search || cs.title?.toLowerCase().includes(search.toLowerCase()) || cs.category?.toLowerCase().includes(search.toLowerCase()) || cs.product?.toLowerCase().includes(search.toLowerCase()) || cs.slug?.toLowerCase().includes(search.toLowerCase())).map((cs, i) => (
                   <tr key={cs.id} className="hover:bg-slate-50/50 transition-colors group">
                     <td className="px-6 py-4 text-xs font-bold text-slate-400">{String(i + 1).padStart(2, '0')}</td>
                     <td className="px-6 py-4"><span className="text-sm font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">{cs.title}</span></td>

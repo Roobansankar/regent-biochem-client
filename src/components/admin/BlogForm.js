@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { API } from "@/lib/api";
 import "react-quill-new/dist/quill.snow.css";
 
 // Dynamic import for ReactQuill to avoid SSR issues
@@ -21,7 +22,10 @@ export default function BlogForm({ initialData = null, isEditing = false }) {
     category: initialData?.category || "",
     author: initialData?.author || "Admin",
     read_time: initialData?.read_time || "5 min read",
-    tags: initialData?.tags || ""
+    tags: initialData?.tags || "",
+    meta_title: initialData?.meta_title || "",
+    meta_description: initialData?.meta_description || "",
+    meta_keywords: initialData?.meta_keywords || ""
   });
 
   // Sync formData with initialData when it changes
@@ -35,7 +39,10 @@ export default function BlogForm({ initialData = null, isEditing = false }) {
         category: initialData.category || "",
         author: initialData.author || "Admin",
         read_time: initialData.read_time || "5 min read",
-        tags: initialData.tags || ""
+        tags: initialData.tags || "",
+        meta_title: initialData.meta_title || "",
+        meta_description: initialData.meta_description || "",
+        meta_keywords: initialData.meta_keywords || ""
       });
       setImagePreview(initialData.image || null);
     }
@@ -68,7 +75,7 @@ export default function BlogForm({ initialData = null, isEditing = false }) {
     e.preventDefault();
     setLoading(true);
     const method = isEditing ? "PUT" : "POST";
-    const url = isEditing ? `http://localhost:5000/api/blogs/${initialData.id}` : "http://localhost:5000/api/blogs";
+    const url = isEditing ? `${API}/blogs/${initialData.id}` : `${API}/blogs`;
 
     const data = new FormData();
     Object.keys(formData).forEach(key => data.append(key, formData[key]));
@@ -266,6 +273,33 @@ export default function BlogForm({ initialData = null, isEditing = false }) {
               border: none !important;
             }
           `}</style>
+        </div>
+
+        {/* ── SEO ── */}
+        <div className="bg-white rounded-xl border border-slate-200 shadow-sm">
+          <div className="px-4 py-3 bg-slate-50 border-b border-slate-200">
+            <h4 className="text-[11px] font-black uppercase tracking-widest text-slate-600">SEO</h4>
+          </div>
+          <div className="p-4 space-y-3">
+            <div>
+              <label className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5 block">Meta Title</label>
+              <input name="meta_title" value={formData.meta_title} onChange={handleInputChange}
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 focus:bg-white transition-all outline-none"
+                placeholder="SEO title for search results" />
+            </div>
+            <div>
+              <label className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5 block">Meta Description</label>
+              <textarea name="meta_description" value={formData.meta_description} onChange={handleInputChange} rows="3"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 focus:bg-white transition-all outline-none resize-none"
+                placeholder="Brief description for search results" />
+            </div>
+            <div>
+              <label className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5 block">Meta Keywords</label>
+              <input name="meta_keywords" value={formData.meta_keywords} onChange={handleInputChange}
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 focus:bg-white transition-all outline-none"
+                placeholder="keyword1, keyword2, keyword3" />
+            </div>
+          </div>
         </div>
 
         <div className="pt-4 flex items-center gap-4">

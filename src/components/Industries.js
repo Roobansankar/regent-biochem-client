@@ -1,7 +1,7 @@
 const industries = [
-  "Automotive", "CNC Machining", "Railways", "Manufacturing",
-  "Aerospace", "Forging", "Oil & Gas", "Food & Beverage",
-  "Textile Industry", "Energy & Power"
+  "Automotive", "Railways", "Manufacturing",
+  "Aerospace & Defense", "Forging", "Oil & Gas", "Food & Beverage",
+  "Energy & Power"
 ];
 
 export default function Industries() {

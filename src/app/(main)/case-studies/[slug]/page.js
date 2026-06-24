@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 import CTA from "@/components/CTA";
+import { API } from "@/lib/api";
 
 const fallbackImg = (w, h) => `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect fill="#e2e8f0" width="${w}" height="${h}"/><text fill="#64748b" font-family="Arial" font-size="${Math.min(w,h)/8}" font-weight="bold" x="${w/2}" y="${h/2}" text-anchor="middle" dominant-baseline="middle">No Image</text></svg>`)}`;
 
@@ -16,7 +17,7 @@ export default function CaseStudyDetail() {
     if (!slug) return;
     const fetchCaseStudy = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/case-studies/${slug}`);
+        const res = await fetch(`${API}/case-studies/${slug}`);
         const data = await res.json();
         if (data.caseStudy) {
           setStudy(data.caseStudy);
@@ -32,6 +33,25 @@ export default function CaseStudyDetail() {
     fetchCaseStudy();
   }, [slug]);
 
+  useEffect(() => {
+    if (!study) return;
+    document.title = study.meta_title || `${study.title} | Regent Biochem`;
+    let desc = document.querySelector('meta[name="description"]');
+    if (!desc) {
+      desc = document.createElement('meta');
+      desc.name = 'description';
+      document.head.appendChild(desc);
+    }
+    desc.content = study.meta_description || study.industry || "";
+    let kw = document.querySelector('meta[name="keywords"]');
+    if (!kw) {
+      kw = document.createElement('meta');
+      kw.name = 'keywords';
+      document.head.appendChild(kw);
+    }
+    kw.content = study.meta_keywords || "";
+  }, [study]);
+
   if (loading) {
     return (
       <main className="flex flex-col min-h-screen bg-white items-center justify-center">
@@ -46,23 +66,24 @@ export default function CaseStudyDetail() {
     <main className="flex flex-col min-h-screen bg-white">
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden">
-        <div className="flex items-center min-h-[280px] bg-white">
-          <div className="flex-1 px-8 lg:px-12 py-8 relative z-10">
-            <Link
-              href="/case-studies"
-              className="inline-flex items-center gap-2 text-sm text-green/60 hover:text-green transition-colors mb-4"
-            >
-              <i className="fas fa-arrow-left text-xs" />
-              Back to Case Studies
-            </Link>
-            <h1 className="text-3xl lg:text-4xl font-bold text-green leading-tight max-w-3xl">
-              {study.title}
-            </h1>
-          </div>
-          <div className="w-[250px] lg:w-[320px] flex justify-center items-center pr-6">
-            <img src={study.image || fallbackImg(400, 300)} alt={study.title} className="w-full h-auto object-contain" onError={(e) => { e.target.src = fallbackImg(400, 300); }} />
-          </div>
+      <section className="relative overflow-hidden min-h-[264px] md:min-h-[304px] lg:min-h-[364px] flex items-start pt-14 lg:pt-[72px]" style={{
+        backgroundImage: study.hero_image ? `url('${study.hero_image}')` : 'none',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}>
+        {study.hero_image && <div className="hero-overlay absolute inset-0 z-10"></div>}
+        <div className="flex-1 px-8 lg:px-12 py-8 relative z-20">
+          <Link
+            href="/case-studies"
+            className="inline-flex items-center gap-2 text-sm text-green/60 hover:text-green transition-colors mb-4"
+          >
+            <i className="fas fa-arrow-left text-xs" />
+            Back to Case Studies
+          </Link>
+          <h1 className="text-3xl lg:text-4xl font-bold text-brand-black leading-tight max-w-3xl">
+            {study.title}
+          </h1>
         </div>
       </section>
 

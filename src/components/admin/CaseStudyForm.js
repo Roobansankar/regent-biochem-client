@@ -2,12 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { API } from "@/lib/api";
 
 export default function CaseStudyForm({ initialData = null, isEditing = false }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(initialData?.image || null);
+  const [heroFile, setHeroFile] = useState(null);
+  const [heroPreview, setHeroPreview] = useState(initialData?.hero_image || null);
 
   const [formData, setFormData] = useState({
     slug: initialData?.slug || "",
@@ -20,6 +23,7 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
     product: initialData?.product || "",
     solution: initialData?.solution || "",
     image: initialData?.image || "",
+    hero_image: initialData?.hero_image || "",
     customerBackground: initialData?.customerBackground || "",
     customerBackgroundPoints: initialData?.customerBackgroundPoints?.join("\n") || "",
     businessChallengesDescription: initialData?.businessChallengesDescription || "",
@@ -30,12 +34,16 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
     takeawaysDescription: initialData?.takeawaysDescription || "",
     takeaways: initialData?.takeaways?.join("\n") || "",
     idealUseCases: initialData?.idealUseCases?.join("\n") || "",
-    outcome: initialData?.outcome || ""
+    outcome: initialData?.outcome || "",
+    meta_title: initialData?.meta_title || "",
+    meta_description: initialData?.meta_description || "",
+    meta_keywords: initialData?.meta_keywords || ""
   });
 
   useEffect(() => {
     if (initialData) {
       setImagePreview(initialData.image || null);
+      setHeroPreview(initialData.hero_image || null);
       setFormData({
         slug: initialData.slug || "",
         ref: initialData.ref || "",
@@ -47,6 +55,7 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
         product: initialData.product || "",
         solution: initialData.solution || "",
         image: initialData.image || "",
+        hero_image: initialData.hero_image || "",
         customerBackground: initialData.customerBackground || "",
         customerBackgroundPoints: Array.isArray(initialData.customerBackgroundPoints) ? initialData.customerBackgroundPoints.join("\n") : "",
         businessChallengesDescription: initialData.businessChallengesDescription || "",
@@ -57,7 +66,10 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
         takeawaysDescription: initialData.takeawaysDescription || "",
         takeaways: Array.isArray(initialData.takeaways) ? initialData.takeaways.join("\n") : "",
         idealUseCases: Array.isArray(initialData.idealUseCases) ? initialData.idealUseCases.join("\n") : "",
-        outcome: initialData.outcome || ""
+        outcome: initialData.outcome || "",
+        meta_title: initialData.meta_title || "",
+        meta_description: initialData.meta_description || "",
+        meta_keywords: initialData.meta_keywords || ""
       });
     }
   }, [initialData]);
@@ -107,6 +119,14 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
     }
   };
 
+  const handleHeroFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setHeroFile(file);
+      setHeroPreview(URL.createObjectURL(file));
+    }
+  };
+
   const parseLines = (val) => val.split("\n").map(s => s.trim()).filter(Boolean);
   const parseSnapshotLines = (val) => parseLines(val).map(line => {
     const sep = line.indexOf("|");
@@ -120,8 +140,8 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
 
     const method = isEditing ? "PUT" : "POST";
     const url = isEditing
-      ? `http://localhost:5000/api/case-studies/${initialData.slug}`
-      : "http://localhost:5000/api/case-studies";
+      ? `${API}/case-studies/${initialData.slug}`
+      : `${API}/case-studies`;
 
     const jsonFields = ['customerBackgroundPoints', 'businessChallenges', 'operationalSnapshot', 'costSnapshot', 'takeaways', 'idealUseCases'];
     const data = new FormData();
@@ -133,6 +153,7 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
     data.set('takeaways', JSON.stringify(parseLines(formData.takeaways)));
     data.set('idealUseCases', JSON.stringify(parseLines(formData.idealUseCases)));
     if (imageFile) data.append('image', imageFile);
+    if (heroFile) data.append('hero_image', heroFile);
 
     try {
       const response = await fetch(url, {
@@ -243,6 +264,24 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
         </div>
 
         <div className={sectionClass}>
+          <label className={labelClass}>Hero Image <span className="text-slate-300 normal-case">(optional — shown as hero background)</span></label>
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6 p-6 bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl transition-colors hover:border-indigo-300">
+            {heroPreview && (
+              <div className="relative group">
+                <img src={heroPreview} className="w-40 h-24 object-cover rounded-xl shadow-md border border-white" alt="Hero Preview" />
+              </div>
+            )}
+            <div className="flex-1">
+              <input type="file" accept="image/*" onChange={handleHeroFileChange} className="hidden" id="cs-hero" />
+              <label htmlFor="cs-hero" className="cursor-pointer inline-flex items-center gap-2 bg-indigo-600 px-6 py-2.5 rounded-xl text-xs font-bold text-white hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-600/20">
+                <i className="fas fa-upload"></i> {heroPreview ? "Change Hero Image" : "Upload Hero Image"}
+              </label>
+              <p className="text-[11px] text-slate-400 mt-3 font-medium">Recommended size: 1920 × 600 px. Shown as full-width hero background.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className={sectionClass}>
           <label className={labelClass}>Customer Background</label>
           <textarea name="customerBackground" value={formData.customerBackground} onChange={handleChange} rows={3} className={inputClass + " resize-none"} />
         </div>
@@ -296,6 +335,30 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
         <div className={sectionClass}>
           <label className={labelClass}>Outcome</label>
           <textarea name="outcome" value={formData.outcome} onChange={handleChange} rows={4} className={inputClass + " resize-none"} />
+        </div>
+
+        {/* ── SEO ── */}
+        <div className="bg-white rounded-xl border border-slate-200 shadow-sm">
+          <div className="px-4 py-3 bg-slate-50 border-b border-slate-200">
+            <h4 className="text-[11px] font-black uppercase tracking-widest text-slate-600">SEO</h4>
+          </div>
+          <div className="p-4 space-y-3">
+            <div className={sectionClass}>
+              <label className={labelClass}>Meta Title</label>
+              <input name="meta_title" value={formData.meta_title} onChange={handleChange}
+                className={inputClass} placeholder="SEO title for search results" />
+            </div>
+            <div className={sectionClass}>
+              <label className={labelClass}>Meta Description</label>
+              <textarea name="meta_description" value={formData.meta_description} onChange={handleChange} rows={3}
+                className={inputClass + " resize-none"} placeholder="Brief description for search results" />
+            </div>
+            <div className={sectionClass}>
+              <label className={labelClass}>Meta Keywords</label>
+              <input name="meta_keywords" value={formData.meta_keywords} onChange={handleChange}
+                className={inputClass} placeholder="keyword1, keyword2, keyword3" />
+            </div>
+          </div>
         </div>
 
         <div className="pt-4 flex items-center gap-4">

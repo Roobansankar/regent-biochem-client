@@ -1,9 +1,9 @@
 "use client";
 
-
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import { API } from "@/lib/api";
 
 const fallbackImg = (w, h) => `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect fill="#e2e8f0" width="${w}" height="${h}"/><text fill="#64748b" font-family="Arial" font-size="${Math.min(w,h)/8}" font-weight="bold" x="${w/2}" y="${h/2}" text-anchor="middle" dominant-baseline="middle">No Image</text></svg>`)}`;
 
@@ -18,7 +18,7 @@ export default function BlogPost() {
     
     const fetchPost = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/blogs/${slug}`);
+        const response = await fetch(`${API}/blogs/${slug}`);
         const data = await response.json();
         setPost(data.blog);
         setRelated(data.related || []);
@@ -30,6 +30,25 @@ export default function BlogPost() {
     };
     fetchPost();
   }, [slug]);
+
+  useEffect(() => {
+    if (!post) return;
+    document.title = post.meta_title || `${post.title} | Regent Biochem`;
+    let desc = document.querySelector('meta[name="description"]');
+    if (!desc) {
+      desc = document.createElement('meta');
+      desc.name = 'description';
+      document.head.appendChild(desc);
+    }
+    desc.content = post.meta_description || post.excerpt || "";
+    let kw = document.querySelector('meta[name="keywords"]');
+    if (!kw) {
+      kw = document.createElement('meta');
+      kw.name = 'keywords';
+      document.head.appendChild(kw);
+    }
+    kw.content = post.meta_keywords || "";
+  }, [post]);
 
   if (loading) {
     return (

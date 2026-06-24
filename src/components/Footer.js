@@ -271,82 +271,37 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Industries */}
+          {/* Resources */}
           <div>
             <h4 className="text-xs font-bold tracking-widest uppercase text-brand-black mb-5">
-              Industries
+              Resources
             </h4>
 
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/industries/automotive"
+                  href="/blog"
                   className="text-sm text-brand-muted hover:text-green transition-colors"
                 >
-                  Automotive
+                  Blog
                 </Link>
               </li>
 
               <li>
                 <Link
-                  href="/industries/cnc-machining"
+                  href="/faq"
                   className="text-sm text-brand-muted hover:text-green transition-colors"
                 >
-                  CNC Machining
+                  FAQ
                 </Link>
               </li>
 
               <li>
                 <Link
-                  href="/industries/foundry"
+                  href="/case-studies"
                   className="text-sm text-brand-muted hover:text-green transition-colors"
                 >
-                  Foundry
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/industries/forging"
-                  className="text-sm text-brand-muted hover:text-green transition-colors"
-                >
-                  Forging
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/industries/mro-maintenance"
-                  className="text-sm text-brand-muted hover:text-green transition-colors"
-                >
-                  MRO & Maintenance
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/industries/oil-gas"
-                  className="text-sm text-brand-muted hover:text-green transition-colors"
-                >
-                  Oil & Gas
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/industries/food-beverage"
-                  className="text-sm text-brand-muted hover:text-green transition-colors"
-                >
-                  Food & Beverage
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/industries/textile-industry"
-                  className="text-sm text-brand-muted hover:text-green transition-colors"
-                >
-                  Textile Industry
+                  Case Studies
                 </Link>
               </li>
             </ul>

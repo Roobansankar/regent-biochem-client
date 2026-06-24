@@ -1,12 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { API } from "@/lib/api";
 
 export default function AdminCTA() {
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
+  const [search, setSearch] = useState("");
   const limit = 10;
 
   useEffect(() => {
@@ -16,7 +18,7 @@ export default function AdminCTA() {
   const fetchSubmissions = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/cta?page=${page}&limit=${limit}`);
+      const res = await fetch(`${API}/cta?page=${page}&limit=${limit}`);
       const data = await res.json();
       setSubmissions(data.submissions || []);
       setTotal(data.total || 0);
@@ -30,7 +32,7 @@ export default function AdminCTA() {
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this submission?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/cta/${id}`, { method: "DELETE" });
+      const res = await fetch(`${API}/cta/${id}`, { method: "DELETE" });
       if (res.ok) fetchSubmissions();
     } catch {}
   };
@@ -56,12 +58,23 @@ export default function AdminCTA() {
         <div className="flex items-center justify-center h-64 bg-white rounded-xl border border-slate-200">
           <div className="animate-spin w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full"></div>
         </div>
-      ) : submissions.length === 0 ? (
-        <div className="flex flex-col items-center justify-center h-64 bg-white rounded-xl border border-slate-200 text-slate-400">
-          <i className="fas fa-inbox text-4xl mb-3 opacity-20"></i>
-          <p>No submissions yet.</p>
-        </div>
       ) : (
+        <>
+          <div className="relative w-72">
+            <i className="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+            <input type="text" placeholder="Search by email..." value={search} onChange={e => setSearch(e.target.value)}
+              className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all" />
+          </div>
+
+          {(() => {
+            const filtered = submissions.filter(s => !search || s.email?.toLowerCase().includes(search.toLowerCase()));
+            if (filtered.length === 0) return (
+              <div className="flex flex-col items-center justify-center h-64 bg-white rounded-xl border border-slate-200 text-slate-400">
+                <i className="fas fa-inbox text-4xl mb-3 opacity-20"></i>
+                <p>{submissions.length === 0 ? "No submissions yet." : "No submissions match your search."}</p>
+              </div>
+            );
+            return (
         <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
           <table className="w-full text-left border-collapse">
             <thead>
@@ -73,7 +86,7 @@ export default function AdminCTA() {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
-              {submissions.map((s, i) => (
+              {filtered.map((s, i) => (
                 <tr key={s.id} className="hover:bg-slate-50/50 transition-colors">
                   <td className="px-4 py-4 text-center text-xs font-medium text-slate-400">
                     {(page - 1) * limit + i + 1}
@@ -99,6 +112,9 @@ export default function AdminCTA() {
             </tbody>
           </table>
         </div>
+            );
+          })()}
+        </>
       )}
 
       {totalPages > 1 && (

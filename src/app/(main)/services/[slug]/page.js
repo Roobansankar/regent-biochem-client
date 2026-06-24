@@ -34,8 +34,8 @@ export default async function ServicePage({ params }) {
               </div>
               <div className="shrink-0">
                 <img
-                  src="/logo.png"
-                  alt="Regent Biochem Logo"
+                  src="/freeflo.png"
+                  alt="Free Flo"
                   className="h-12 sm:h-16 w-auto object-contain"
                 />
               </div>
@@ -219,34 +219,30 @@ export default async function ServicePage({ params }) {
             <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Industries We Serve</h2>
           </div>
           <div className="flex flex-wrap justify-center gap-3">
-            {service.industries.map((industry, index) => (
-              <div key={index} className="px-6 py-3 rounded-2xl bg-green-light border border-green-mid/50 hover:bg-white hover:border-green/30 transition-all duration-300 group shadow-sm">
-                <span className="text-xs sm:text-sm font-bold text-green group-hover:text-green-dark">{industry}</span>
-              </div>
+            {[
+              { name: "Automotive", href: "/industries/automotive" },
+              { name: "Aerospace & Defense", href: "/industries/aerospace-defense" },
+              { name: "Railways", href: "/industries/railways" },
+              { name: "Shipbuilding & Shipyards", href: "/industries/shipbuilding-shipyards" },
+              { name: "Engineering & Fabrication", href: "/industries/engineering-fabrication" },
+              { name: "Machining", href: "/industries/machining" },
+              { name: "Metal Working", href: "/industries/metal-working" },
+              { name: "Electronics", href: "/industries/electronics" },
+              { name: "Oil & Gas", href: "/industries/oil-gas" },
+              { name: "Food & Beverages", href: "/industries/food-beverage" },
+              { name: "Rubber & Plastics", href: "/industries/rubber-plastics" },
+              { name: "Printing & Packaging", href: "/industries/printing-packaging" },
+              { name: "MRO", href: "/industries/mro-maintenance" },
+            ].map((item, index) => (
+              <Link key={index} href={item.href}>
+                <div className="px-6 py-3 rounded-2xl bg-green-light border border-green-mid/50 hover:bg-white hover:border-green/30 transition-all duration-300 group shadow-sm cursor-pointer">
+                  <span className="text-xs sm:text-sm font-bold text-green group-hover:text-green-dark">{item.name}</span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Recommended Cleaners */}
-      {service.recommendedCleaners && (
-        <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
-          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Recommended Cleaners</h2>
-              <p className="text-brand-text text-base sm:text-lg">Optimized chemistry for maximum cleaning performance.</p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              {service.recommendedCleaners.map((cleaner, index) => (
-                <div key={index} className="px-6 py-4 rounded-2xl bg-green-light border border-green-mid/50 shadow-sm flex items-center gap-3">
-                  <i className="fas fa-vial text-green text-sm"></i>
-                  <span className="font-bold text-sm text-green-dark">{cleaner}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Service Approach */}
       <section id="details" className="py-6 sm:py-8 bg-brand-bg2/50 border-b border-brand-border">
@@ -269,7 +265,7 @@ export default async function ServicePage({ params }) {
               ].map((step, i, arr) => (
                 <div key={i} className="relative group">
                   {i < arr.length - 1 && (
-                    <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-px bg-green/20 group-hover:bg-green/40 transition-colors -z-0"></div>
+                    <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-green group-hover:bg-green-dark transition-colors -z-0"></div>
                   )}
                   <div className="bg-white border border-brand-border rounded-lg p-4 xl:p-5 text-center hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 relative z-10 h-full flex flex-col">
                     <div className="w-9 h-9 xl:w-10 xl:h-10 bg-green rounded-lg flex items-center justify-center mx-auto mb-3 shadow-md shadow-green/20 shrink-0">
