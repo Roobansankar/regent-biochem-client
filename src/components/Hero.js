@@ -231,7 +231,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import hero2 from "@/assets/hero2.png";
 import hero3 from "@/assets/hero3.png";
@@ -277,28 +277,78 @@ const slides = [
   },
 ];
 
+const extendedSlides = [slides[slides.length - 1], ...slides, slides[0]];
+
 export default function Hero() {
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(1);
+  const [transition, setTransition] = useState(true);
+  const timerRef = useRef(null);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => prev + 1);
     }, 4000);
-
-    return () => clearInterval(id);
+    return () => clearInterval(timerRef.current);
   }, []);
 
-  const goTo = (index) => setCurrent(index);
+  useEffect(() => {
+    if (!transition) return;
+    if (current === 0) {
+      setTimeout(() => {
+        setTransition(false);
+        setCurrent(slides.length);
+      }, 500);
+    } else if (current === extendedSlides.length - 1) {
+      setTimeout(() => {
+        setTransition(false);
+        setCurrent(1);
+      }, 500);
+    }
+  }, [current, transition]);
+
+  useEffect(() => {
+    if (transition) return;
+    const id = requestAnimationFrame(() => setTransition(true));
+    return () => cancelAnimationFrame(id);
+  }, [current, transition]);
+
+  const goTo = (index) => {
+    setCurrent(index + 1);
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => prev + 1);
+    }, 4000);
+  };
+
+  const prev = () => {
+    setCurrent((prev) => prev - 1);
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => prev + 1);
+    }, 4000);
+  };
+
+  const next = () => {
+    setCurrent((prev) => prev + 1);
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => prev + 1);
+    }, 4000);
+  };
+
+  const realIndex = current === 0 ? slides.length - 1 : current === extendedSlides.length - 1 ? 0 : current - 1;
 
   return (
     <section className="relative overflow-hidden">
-      <div className="relative h-[300px] md:h-[380px] lg:h-[450px]">
-        {/* Slides track */}
+      <div className="relative h-[360px] md:h-[440px] lg:h-[450px]">
         <div
-          className="flex h-full transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${current * 100}%)` }}
+          className="flex h-full"
+          style={{
+            transform: `translateX(-${current * 100}%)`,
+            transition: transition ? 'transform 500ms ease-in-out' : 'none',
+          }}
         >
-          {slides.map((slide, i) => (
+          {extendedSlides.map((slide, i) => (
             <div
               key={i}
               className="relative w-full h-full shrink-0 flex items-center"
@@ -341,7 +391,7 @@ export default function Hero() {
 
         {/* Left Arrow */}
         <button
-          onClick={() => setCurrent((prev) => (prev - 1 + slides.length) % slides.length)}
+          onClick={prev}
           className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
         >
           <i className="fas fa-chevron-left text-xs"></i>
@@ -349,7 +399,7 @@ export default function Hero() {
 
         {/* Right Arrow */}
         <button
-          onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
+          onClick={next}
           className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
         >
           <i className="fas fa-chevron-right text-xs"></i>  
@@ -362,7 +412,7 @@ export default function Hero() {
               key={i}
               onClick={() => goTo(i)}
               className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                i === current ? "bg-green w-6" : "bg-white/60 hover:bg-white"
+                i === realIndex ? "bg-green w-6" : "bg-white/60 hover:bg-white"
               }`}
             />
           ))}
