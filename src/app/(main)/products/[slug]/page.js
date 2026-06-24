@@ -5,7 +5,7 @@ import ProductFAQ from "@/components/ProductFAQ";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { API, imageUrl } from "@/lib/api";
-i
+
 async function fetchAllProducts() {
   try {
     const res = await fetch(`${API}/products/all`, { cache: "no-store" });
