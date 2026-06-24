@@ -1,4 +1,4 @@
-const raw = process.env.NEXT_PUBLIC_API_URL;
+const raw = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 const BASE = raw.replace(/\/+$/, "");
 const API_BASE = `${BASE}/api`;
 
