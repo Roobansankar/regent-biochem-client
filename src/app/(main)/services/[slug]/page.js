@@ -30,13 +30,13 @@ export default async function ServicePage({ params }) {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
               <div>
                 <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Services</p>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brand-black">Free Flo</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brand-black">Fre Flo</h2>
               </div>
               <div className="shrink-0">
                 <img
                   src="/freeflo.png"
-                  alt="Free Flo"
-                  className="h-12 sm:h-16 w-auto object-contain"
+                  alt="Fre Flo"
+                  className="h-20 sm:h-32 w-auto object-contain"
                 />
               </div>
             </div>

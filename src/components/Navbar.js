@@ -90,7 +90,7 @@ const navData = [
     mega: true,
     columns: [
       {
-        label: "Free Flo",
+        label: "Fre Flo",
         items: [
           { name: "Pipeline Cleaning Solutions", href: "/services/pipeline" },
           { name: "Cooling Tower Cleaning", href: "/services/cooling-tower" },
@@ -98,6 +98,14 @@ const navData = [
           { name: "Heat Exchanger Cleaning", href: "/services/heat-exchanger" },
           { name: "Operational Impact Assessment", href: "/services/impact-assessment" },
         ],
+      },
+      {
+        type: "explore-card",
+        to: "/products",
+        image: "/freeflo.png",
+        heading: "Explore Our Products",
+        subheading: "Advanced cleaning & surface technology solutions tailored for your industry.",
+        button: "View All Products",
       },
     ],
   },
@@ -269,23 +277,42 @@ export default function Navbar() {
                           link.name === "Products" ? "grid-cols-5" : link.name === "Industries" ? "grid-cols-4" : "grid-cols-[1fr_1.5fr]"
                         }`}>
                           {link.columns.map((col) => (
-                            <div key={col.label}>
-                              <h4 className="text-xs font-black uppercase tracking-widest text-green mb-5 pb-2 border-b border-green-light">
-                                {col.label}
-                              </h4>
-                              <div className="flex flex-col gap-3">
-                                {getColumnItems(col).map((item) => (
-                                  <Link
-                                    key={item.name}
-                                    href={item.href}
-                                    onClick={closeMenu}
-                                    className="text-sm font-medium text-brand-muted hover:text-green hover:translate-x-1 transition-all"
-                                  >
-                                    {item.name}
-                                  </Link>
-                                ))}
+                            col.type === "explore-card" ? (
+                              <Link
+                                key="explore-card"
+                                href={col.to}
+                                onClick={closeMenu}
+                                className="block bg-gradient-to-br from-green/5 to-green/10 rounded-xl border border-green/20 overflow-hidden hover:shadow-lg hover:border-green/40 transition-all duration-300 group"
+                              >
+                                <div className="flex items-center gap-5 p-5">
+                                  <div className="flex-1 min-w-0">
+                                    <h4 className="text-sm font-extrabold text-brand-black mb-1">{col.heading}</h4>
+                                    <p className="text-xs text-brand-muted leading-relaxed mb-3">{col.subheading}</p>
+                                    <span className="inline-block text-xs font-bold text-green bg-green/10 px-4 py-1.5 rounded-full group-hover:bg-green group-hover:text-white transition-colors">
+                                      {col.button} →
+                                    </span>
+                                  </div>
+                                </div>
+                              </Link>
+                            ) : (
+                              <div key={col.label}>
+                                <h4 className="text-xs font-black uppercase tracking-widest text-green mb-5 pb-2 border-b border-green-light">
+                                  {col.label}
+                                </h4>
+                                <div className="flex flex-col gap-3">
+                                  {getColumnItems(col).map((item) => (
+                                    <Link
+                                      key={item.name}
+                                      href={item.href}
+                                      onClick={closeMenu}
+                                      className="text-sm font-medium text-brand-muted hover:text-green hover:translate-x-1 transition-all"
+                                    >
+                                      {item.name}
+                                    </Link>
+                                  ))}
+                                </div>
                               </div>
-                            </div>
+                            )
                           ))}
                         </div>
                       </div>
@@ -365,6 +392,7 @@ export default function Navbar() {
                             ) : (
                               <div className="flex flex-col gap-6 pl-4">
                                 {link.columns.map((col) => (
+                                  col.type === "explore-card" ? null : (
                                   <div key={col.label}>
                                     <div className="text-[10px] font-black uppercase tracking-widest text-green mb-3 px-4">{col.label}</div>
                                     <div className="flex flex-col gap-1">
@@ -380,7 +408,7 @@ export default function Navbar() {
                                       ))}
                                     </div>
                                   </div>
-                                ))}
+                                  )))}
                               </div>
                             )}
                           </div>
