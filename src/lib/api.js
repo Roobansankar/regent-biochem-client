@@ -1,4 +1,6 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+const raw = process.env.NEXT_PUBLIC_API_URL;
+const BASE = raw.replace(/\/+$/, "");
+const API_BASE = `${BASE}/api`;
 
 export const API = API_BASE;
 
@@ -9,8 +11,7 @@ export function apiUrl(path) {
 export function imageUrl(path) {
   if (!path) return null;
   if (path.startsWith("http://") || path.startsWith("https://") || path.startsWith("blob:")) return path;
-  const base = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-  return `${base}${path}`;
+  return `${BASE}${path}`;
 }
 
 export async function apiFetch(path, options = {}) {
