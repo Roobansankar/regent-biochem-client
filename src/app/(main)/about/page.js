@@ -2,6 +2,7 @@
 import { timeline, values } from "@/data/about";
 import Link from "next/link";
 import aboutus from "@/assets/aboutus.png";
+import frefloLogo from "@/assets/freeflo.png";
 
 export const dynamic = "force-static";
 export const revalidate = false;
@@ -23,7 +24,7 @@ export default function About() {
     {
       title: "Freflo",
       desc: "Specialized chemical technologies for industrial pipeline cleaning and flow restoration.",
-      icon: "text:Freflo",
+      icon: frefloLogo,
       link: "/products?search=Freflo"
     }
   ];
@@ -117,17 +118,17 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {productCategories.map((cat, i) => (
               <div key={i} className="reveal bg-brand-bg2 border border-brand-border rounded-[2rem] p-8 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                <div className="w-14 h-14 bg-green-light rounded-2xl flex items-center justify-center text-green text-2xl mb-6 shadow-sm">
+                <div className="flex items-center justify-center mb-6">
                   {typeof cat.icon === "string" ? (
                     cat.icon.startsWith("text:") ? (
-                      <span className="text-[10px] font-black uppercase tracking-[0.12em] text-center leading-tight">
+                      <span className="w-14 h-14 bg-green-light rounded-2xl flex items-center justify-center text-green text-2xl shadow-sm text-[10px] font-black uppercase tracking-[0.12em] text-center leading-tight">
                         {cat.icon.replace("text:", "")}
                       </span>
                     ) : (
-                      <i className={`fas ${cat.icon}`}></i>
+                      <i className={`w-14 h-14 bg-green-light rounded-2xl flex items-center justify-center text-green text-2xl shadow-sm fas ${cat.icon}`}></i>
                     )
                   ) : (
-                    <img src={cat.icon.src} alt={cat.title} className="h-8 w-auto object-contain" />
+                    <img src={cat.icon.src} alt={cat.title} className="h-16 w-auto object-contain" />
                   )}
                 </div>
                 <h3 className="text-xl font-extrabold text-brand-black mb-3">{cat.title}</h3>
