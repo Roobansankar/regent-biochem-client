@@ -6,7 +6,7 @@ const industries = [
 
 export default function Industries() {
   return (
-    <section className="bg-bg-[#f7f7f5] py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#f7f7f5] py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1200px] mx-auto">
 
         <div className="text-center mb-10 sm:mb-12">
@@ -18,7 +18,7 @@ export default function Industries() {
 
         <div className="flex flex-wrap justify-center gap-4">
           {industries.map((industry, index) => (
-            <div key={index} className="px-8 py-4 rounded-2xl bg-green-light border border-green-mid/50 hover:bg-white hover:border-green/30 transition-all duration-300 group shadow-sm">
+            <div key={index} className="w-full sm:w-auto min-w-[140px] max-w-[220px] px-5 py-3 sm:px-7 sm:py-4 rounded-2xl bg-green-light border border-green-mid/50 hover:bg-white hover:border-green/30 transition-all duration-300 group shadow-sm text-center">
               <span className="text-sm font-bold text-green group-hover:text-green-dark">{industry}</span>
             </div>
           ))}

@@ -283,6 +283,9 @@ export default function Hero() {
   const [current, setCurrent] = useState(1);
   const [transition, setTransition] = useState(true);
   const timerRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const isDragging = useRef(false);
 
   useEffect(() => {
     timerRef.current = setInterval(() => {
@@ -336,6 +339,45 @@ export default function Hero() {
     }, 4000);
   };
 
+    // ── Touch swipe handlers for mobile ──
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    isDragging.current = true;
+    clearInterval(timerRef.current);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging.current) return;
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+
+    const diff = touchStartX.current - touchEndX.current;
+    const threshold = 50;
+
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        // Swipe left → next
+        next();
+      } else {
+        // Swipe right → prev
+        prev();
+      }
+    } else {
+      // Restart timer if no significant swipe
+      clearInterval(timerRef.current);
+      timerRef.current = setInterval(() => {
+        setCurrent((prev) => prev + 1);
+      }, 4000);
+    }
+
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
+
   const realIndex = current === 0 ? slides.length - 1 : current === extendedSlides.length - 1 ? 0 : current - 1;
 
   return (
@@ -343,6 +385,9 @@ export default function Hero() {
       <div className="relative h-[360px] md:h-[440px] lg:h-[450px]">
         <div
           className="flex h-full"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
           style={{
             transform: `translateX(-${current * 100}%)`,
             transition: transition ? 'transform 500ms ease-in-out' : 'none',
@@ -389,18 +434,18 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Left Arrow */}
+        {/* Left Arrow - hidden on mobile */}
         <button
           onClick={prev}
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
+          className="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
         >
           <i className="fas fa-chevron-left text-xs"></i>
         </button>
 
-        {/* Right Arrow */}
+        {/* Right Arrow - hidden on mobile */}
         <button
           onClick={next}
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
+          className="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
         >
           <i className="fas fa-chevron-right text-xs"></i>  
         </button>

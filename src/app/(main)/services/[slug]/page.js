@@ -36,7 +36,7 @@ export default async function ServicePage({ params }) {
                 <img
                   src="/freeflo.png"
                   alt="Fre Flo"
-                  className="h-20 sm:h-32 w-auto object-contain"
+                  className="h-12 sm:h-20 w-auto object-contain"
                 />
               </div>
             </div>
