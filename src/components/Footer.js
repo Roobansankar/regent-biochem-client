@@ -204,21 +204,36 @@ export default function Footer() {
 
             <div className="flex gap-3 mt-5">
               <Link
-                href="#"
+                href="https://www.linkedin.com/company/regent-biochem/"
+                target="_blank"
+                rel="noreferrer"
                 className="w-10 h-10 rounded-lg border border-brand-border flex items-center justify-center text-brand-muted hover:text-green hover:border-green transition-colors"
               >
                 <i className="fab fa-linkedin-in"></i>
               </Link>
 
               <Link
-                href="#"
+                href="https://youtube.com/@regentbio-chem?si=yOEOWQuYKA7JCwUa"
+                target="_blank"
+                rel="noreferrer"
                 className="w-10 h-10 rounded-lg border border-brand-border flex items-center justify-center text-brand-muted hover:text-green hover:border-green transition-colors"
               >
-                <i className="fab fa-twitter"></i>
+                <i className="fab fa-youtube"></i>
               </Link>
 
               <Link
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61591484781451"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-lg border border-brand-border flex items-center justify-center text-brand-muted hover:text-green hover:border-green transition-colors"
+              >
+                <i className="fab fa-facebook-f"></i>
+              </Link>
+
+              <Link
+                href="https://www.instagram.com/regent_biochem/"
+                target="_blank"
+                rel="noreferrer"
                 className="w-10 h-10 rounded-lg border border-brand-border flex items-center justify-center text-brand-muted hover:text-green hover:border-green transition-colors"
               >
                 <i className="fab fa-instagram"></i>
@@ -381,12 +396,16 @@ export default function Footer() {
 
               <li className="flex items-center gap-3 text-sm text-brand-muted">
                 <i className="fas fa-phone text-green flex-shrink-0"></i>
-                <span>0422 231 0396</span>
+                <span>9843406642</span>
               </li>
 
               <li className="flex items-center gap-3 text-sm text-brand-muted">
                 <i className="fas fa-envelope text-green flex-shrink-0"></i>
-                <span>info@regentbiochem.com</span>
+                <span>info@bio-chem.in</span>
+              </li>
+              <li className="flex items-center gap-3 text-sm text-brand-muted">
+                <i className="fas fa-envelope text-green flex-shrink-0"></i>
+                <span>bizdev@bio-chem.in</span>
               </li>
             </ul>
           </div>
@@ -395,29 +414,22 @@ export default function Footer() {
         {/* Bottom */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-brand-muted">
-            © 2026 Bio-Chem Surface Technology. All Rights Reserved.
+            © 2026 Regent Bio-Chem India Pvt. Ltd.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              href="#"
+              href="/privacy"
               className="text-xs text-brand-muted hover:text-green transition-colors"
             >
               Privacy Policy
             </Link>
 
             <Link
-              href="#"
+              href="/terms"
               className="text-xs text-brand-muted hover:text-green transition-colors"
             >
               Terms of Service
-            </Link>
-
-            <Link
-              href="#"
-              className="text-xs text-brand-muted hover:text-green transition-colors"
-            >
-              Cookie Policy
             </Link>
           </div>
         </div>

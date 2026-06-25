@@ -6,7 +6,7 @@ export default function Offerings() {
     <section id="offerings" className="bg-white py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto">
         <div className="text-center mb-8">
-          <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">GREEN WAY TO GROWTH</p>
+          <p className="text-sm sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">GREEN WAY TO GROWTH</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-brand-black mb-3">
             Precision Offerings
           </h2>
@@ -20,15 +20,19 @@ export default function Offerings() {
               key={index}
               className="group bg-white rounded-xl border border-brand-border/40 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden"
             >
-              <div className="aspect-[4/3] bg-brand-bg3 flex items-center justify-center">
-                <i className={`fas ${service.icon} text-3xl sm:text-4xl text-green/40`}></i>
+              <div className="aspect-[4/3] bg-brand-bg3 flex items-center justify-center overflow-hidden">
+                <img
+                  src={service.heroImage?.src ?? service.heroImage}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="flex flex-col items-start text-left px-4 pt-4 pb-5 flex-1">
-                <h3 className="text-sm font-bold text-brand-black leading-snug mb-2">{service.title}</h3>
-                <p className="text-xs text-brand-body leading-relaxed mb-4 flex-1 line-clamp-2">{service.shortDescription}</p>
+                <h3 className="text-base lg:text-sm font-bold text-brand-black leading-snug mb-2">{service.title}</h3>
+                <p className="text-sm lg:text-xs text-brand-body leading-relaxed mb-4 flex-1 line-clamp-2">{service.shortDescription}</p>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="inline-flex items-center gap-2 text-xs font-bold text-white bg-green px-5 py-2.5 rounded-lg hover:bg-green-dark transition-all hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 text-sm lg:text-xs font-bold text-white bg-green px-5 py-2.5 rounded-lg hover:bg-green-dark transition-all hover:-translate-y-0.5"
                 >
                   View Detail
                   <i className="fas fa-arrow-right text-[10px]"></i>

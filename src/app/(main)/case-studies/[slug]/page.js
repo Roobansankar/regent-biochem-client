@@ -66,7 +66,7 @@ export default function CaseStudyDetail() {
     <main className="flex flex-col min-h-screen bg-white">
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden min-h-[264px] md:min-h-[304px] lg:min-h-[364px] flex items-start pt-14 lg:pt-[72px]" style={{
+      <section className="relative overflow-hidden min-h-[240px] md:min-h-[304px] lg:min-h-[364px] flex items-start pt-3 sm:pt-6 lg:pt-[72px]" style={{
         backgroundImage: study.hero_image ? `url('${study.hero_image}')` : 'none',
         backgroundSize: 'cover',
         backgroundPosition: 'center',

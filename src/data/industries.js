@@ -2,6 +2,7 @@ export const industries = [
   {
     slug: "automotive",
     title: "Automotive Industry",
+    category: "Mobility & Transport",
     description: "The automotive industry relies on precision manufacturing, large-scale production, and advanced engineering processes for vehicles, EVs, and automotive components. During machining, welding, assembly, and maintenance operations, components are exposed to oils, grease, coolants, carbon deposits, and industrial contamination, making effective cleaning and maintenance essential for product quality and operational efficiency.\n\n<b>Industrial Parts Cleaning</b>\nRemoves oils, grease, machining residues, and contaminants from automotive components, tools, fixtures, and production equipment.\n\n<b>Welding & Surface Preparation</b>\nSupports cleaner welding, better coating adhesion, and improved surface quality for automotive manufacturing processes",
     icon: "fa-car",
     heroImage: "/automotive.png",
@@ -106,7 +107,7 @@ export const industries = [
   {
     slug: "mro-maintenance",
     title: "MRO (Maintenance, Repair, and Operations)",
-    category: "Process Industries",
+    category: "Support Services",
     description: "The Maintenance, Repair, and Operations (MRO) sector is the lifeblood of industrial productivity, but round-the-clock operating schedules and demanding environments take a heavy toll. From heavy manufacturing lines to critical facility utilities, equipment is constantly bombarded by a brutal mix of stubborn synthetic greases, baked-on carbon deposits, localized rust, and aggressive mineral scale.\n\n<b>Heavy Equipment & Machinery Degreasing:</b> Our Heavy-Duty Industrial Degreasers safely remove stubborn oils, hardened grease, carbon deposits, synthetic lubricants, and heavy industrial contaminants from rotating machinery, heavy equipment, and mechanical components—preparing surfaces for immediate preventative maintenance, structural weld repair, or non-destructive testing (NDT) without leaving harmful residues.\n\n<b>Facility Utility & Thermal System Descaling:</b> Our Specialized Descaling Solutions aggressively dissolve hard water scale, mineral fouling, and rust from centralized chillers, heat exchangers, and complex cooling networks—instantly restoring optimal thermal transfer efficiency and preventing catastrophic system failures without the need for extensive equipment dismantling.",
     icon: "fa-tools",
     heroImage: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1600",
@@ -216,7 +217,7 @@ export const industries = [
   {
     slug: "oil-gas",
     title: "Oil & Gas Industry",
-    category: "Process Industries",
+    category: "Process & Utilities",
     description: "The Oil & Gas Industry encompasses complex, high-stakes operations from upstream drilling to midstream transportation and downstream refining. Continuous operations expose critical infrastructure to severe contamination, including heavy hydrocarbons, crude sludge, paraffin wax, mineral scaling, and carbonized deposits.\n\nEffective maintenance is vital not only for operational efficiency but for strict Health, Safety, and Environmental (HSE) compliance. By addressing severe fouling and mechanical wear—especially during critical Turnarounds (TAR) and scheduled shutdowns—our specialized solutions shift facility upkeep from a reactive hazard to a proactive driver of asset integrity.\n\n<b>Rig, Compressor & Valve Degreasing:</b> Our heavy-duty cleaning agents effectively strip stubborn crude oil sludge, hardened paraffin wax, and carbonized grease from high-pressure compressors, wellhead pump jacks, and heavy offshore deck equipment—minimizing hazardous manual scraping and preparing vital assets for critical maintenance.\n\n<b>Heat Exchanger & Separator Descaling:</b> Our specialized circulation chemistry efficiently dissolves hard mineral scale, calcium deposits, and severe process fouling from critical shell-and-tube heat exchangers, cooling towers, and oil-water separators—restoring vital thermal efficiency and flow rates during scheduled plant shutdowns without requiring extensive equipment dismantling.\n\n<b>Pipeline Fabrication & Asset Integrity:</b> Our premium surface preparation solutions support the structural repair of critical piping networks, storage tanks, and offshore platforms—delivering precise weld seam pickling, heavy-duty anti-spatter protection, and long-term corrosion prevention to maintain structural integrity in highly corrosive refinery environments.",
     icon: "fa-oil-can",
     heroImage: "/oil.png",
@@ -277,6 +278,7 @@ export const industries = [
   {
     slug: "food-beverage",
     title: "Food & Beverage Industry",
+    category: "Process & Utilities",
     description: "The food industry is all about delivering safe, hygienic, and high-quality food products to consumers. From food processing units and commercial kitchens to packaging and storage facilities, maintaining cleanliness is an essential part of everyday operations.\n\n<b>Heavy-Duty Organic Degreasing:</b> Advanced, rinse-easy formulations designed to effortlessly break down thick animal fats, vegetable oils, and sticky starches from processing machinery and slicing equipment.\n\n<b>Residue-Free Conveyor & Packaging Cleaners:</b> High-performance, fast-acting solutions that lift light residues and dust from packaging systems and bottling lines without leaving any chemical film behind.\n\n<b>Stainless Steel Passivation & Shines:</b> Specialized electrolyte and surface treatments that deep-clean scale and food stains from large tanks, blending vats, and pipelines while restoring the metal's natural corrosion resistance.",
     icon: "fa-utensils",
     heroImage: "/food.png",
@@ -503,6 +505,7 @@ export const industries = [
   {
     slug: "engineering-fabrication",
     title: "Engineering & Fabrication",
+    category: "Industrial Engineering",
     description: "The engineering and fabrication sector is the backbone of industrial infrastructure, but heavy-duty cutting, forming, and welding cycles take a massive toll. From structural steel yards to precision sheet metal facilities, critical machinery and raw metals are constantly bombarded by a brutal mix of mill scale, anti-spatter residues, drawing compounds, and shop dust.\n\n<b>Thermal Process & Laser Bed Maintenance:</b> We deploy engineered maintenance cleaners that swiftly dissolve carbonized slag, dense soot, and fused residues from your automated laser and plasma cutting beds. Our specialized approach completely restores cutting precision and mechanical alignment without requiring tedious, labor-intensive equipment teardowns.\n\n<b>Multi-Metal & Structural Prep:</b> We provide non-reactive, zero-residue chemistries meticulously formulated to condition your raw structural steel, aluminum frameworks, and sensitive alloys. Our processing guarantees a clinically clean surface, leaving components perfectly primed for immediate non-destructive testing, industrial coatings, or permanent paint adhesion.",
     icon: "fa-industry",
     heroImage: "/Engineering.png",
@@ -558,6 +561,7 @@ export const industries = [
   {
     slug: "machining",
     title: "Machining",
+    category: "Industrial Engineering",
     description: "The machining industry is a precision-driven sector where manufacturing efficiency, exact component quality, and flawless surface finishes are paramount. Continuous operations across CNC machining, turning, milling, and grinding generate severe process contamination. Accumulations of cutting oils, metal fines, coolant residues, and rust compromise equipment reliability and degrade machining precision. By targeting these critical residues, our specialized solutions shift machine maintenance from a reactive task to a proactive driver of manufacturing excellence.\n\n<b>CNC & Component Degreasing:</b> Our heavy-duty solutions effectively remove stubborn cutting oils, heavy machining lubricants, and baked-on carbon from critical components and machine surfaces—ensuring optimal cleanliness and uninterrupted production.\n\n<b>Machine Tool & System Maintenance:</b> Our specialized cleaning agents safely strip operational residues from CNC machines, tooling setups, coolant systems, and hydraulic power units—maintaining peak equipment performance without damaging sensitive parts.\n\n<b>Surface Prep & Rust Prevention:</b> Our premium surface treatments maintain precise finishes and prevent corrosion on finished parts—extending equipment life and improving overall component quality across the shop floor.",
     icon: "fa-cogs",
     heroImage: "/machining.png",
@@ -618,6 +622,7 @@ export const industries = [
   {
     slug: "metal-working",
     title: "Metal Working",
+    category: "Industrial Engineering",
     description: "The metalworking sector represents the core foundation of heavy engineering and precision manufacturing, but continuous machining, casting, and fabrication cycles take a heavy toll. From low-tolerance CNC mills to massive primary steel plants and foundries, critical equipment is constantly bombarded by a brutal mix of metal chips, burnt cutting oils, cooling emulsions, slag, and abrasive dust.\n\n<b>Cooling Sump & Machine System Cleaning:</b> With our specialized fluid-circulation technology, we rapidly flush out stubborn varnish, microbial slime, scale, and metallic grit from your reservoirs, delivery lines, and equipment housings. This targeted intervention maximizes coolant flow, extends tool longevity, and avoids the headache of manual teardowns.\n\n<b>Multi-Metal & Component Care:</b> We formulate non-reactive, zero-residue chemical solutions engineered to treat precision-machined parts, delicate alloys, and cast components. Our process guarantees clinically clean surfaces, leaving them perfectly primed for immediate downstream coatings, final assembly, or rigorous quality control checks.",
     icon: "fa-wrench",
     heroImage: "/metalworking.png",
@@ -675,6 +680,7 @@ export const industries = [
   {
     slug: "electronics",
     title: "Electronics",
+    category: "Process & Utilities",
     description: "The electronics and semiconductor sector drives modern technology, but high-speed automated assembly, soldering, and molding cycles take a silent, destructive toll. From cleanrooms to PCB assembly plants, sensitive components are constantly threatened by a microscopic mix of baked-on rosin flux, solder pastes, silicone oils, adhesive residues, and electrostatic dust.\n\n<b>Precision PCB & Solder Paste Removal:</b> We deliver highly engineered chemical solutions that deeply penetrate and dissolve stubborn flux deposits and un-reflowed solder pastes from your densest circuit layouts. Our process successfully restores absolute surface insulation resistance (SIR) and stops dendritic growth, protecting your delicate micro-components from failure.\n\n<b>Sensitive Substrate & Multi-Metal Care:</b> We specialize in chemically inert, zero-residue formulas designed to safely clean your gold platings, copper pads, silicon wafers, and polycarbonate housings. Our advanced treatment guarantees a flawless, spot-free surface that is instantly ready for automated optical inspection (AOI), conformal coating, or high-precision wire bonding.",
     icon: "fa-microchip",
     heroImage: "/Electronics.png",
@@ -732,6 +738,7 @@ export const industries = [
   {
     slug: "rubber-plastics",
     title: "Rubber & Plastics",
+    category: "Process & Utilities",
     description: "The Rubber & Plastics Industry operates on high-volume, continuous production cycles where precision and thermal management are paramount. Processes like injection molding, extrusion, and vulcanization rely heavily on strict temperature control and immaculate tooling. Over time, production equipment becomes heavily fouled with baked-on polymers, stubborn mold release agents, carbonized off-gassing, and hydraulic oils. Simultaneously, critical cooling channels within molds and heat exchangers suffer from hard water scaling. This contamination drastically insulates the tooling, increases cycle times, and leads to severe product defects. By targeting these specific operational bottlenecks, our specialized solutions help manufacturers protect expensive tooling and restore peak production efficiency.\n\n<b>Injection Mold & Extrusion Tooling Degreasing:</b> Safely dissolve hardened polymers, carbonized rubber, and synthetic release agents from precision molds, extruder screws, and heated platens—without damaging highly polished tool steel or delicate aluminum surfaces.\n\n<b>Cooling Channel & TCU Descaling:</b> Aggressively remove hard mineral scale and rust from narrow conformal cooling channels, process chillers, and heat exchangers to instantly restore vital heat transfer rates and optimize production cycles.\n\n<b>Precision Mold Repair & Tooling Maintenance:</b> Support delicate mold and die repairs with premium anti-spatter protection for highly polished cavities, targeted pickling for repaired cooling lines, and pristine pre-weld cleaning for precision TIG or laser welding.",
     icon: "fa-recycle",
     heroImage: "/rubber.png",
@@ -792,6 +799,7 @@ export const industries = [
   {
     slug: "printing-packaging",
     title: "Printing & Packaging",
+    category: "Process & Utilities",
     description: "The printing and packaging sector is the high-speed engine of global commerce, but relentless production runs and continuous converting operations take a heavy toll. From commercial lithographic presses to automated corrugated packaging lines, machinery is constantly bombarded by a brutal mix of abrasive paper dust, heavy lubricating greases, adhesive overspray, and rapid mineral scaling.\n\n<b>Press Gear & Conveyor Degreasing:</b> Heavy-duty, residue-free cleaning agents thoroughly strip stubborn industrial greases, accumulated mechanical grime, and heavy lubricating oils from high-speed press gears, drive motors, and intricate conveyor chains—preparing packaging machinery for immediate maintenance or continuous production.\n\n<b>Process Cooling & Chiller Descaling:</b> Specialized circulation chemistry effectively dissolves hard mineral scale, calcium deposits, and process fouling from centralized chillers, heat exchangers, and cooling towers—instantly restoring crucial temperature control for delicate laminating and printing processes without extensive equipment dismantling.\n\n<b>Stainless Steel Fabrication & Weld Maintenance:</b> Premium surface prep solutions support the structural repair of stainless steel packaging assets—delivering precise weld seam pickling, anti-spatter protection, and long-term corrosion prevention to maintain the structural integrity of critical high-speed equipment.",
     icon: "fa-print",
     heroImage: "/printing.png",

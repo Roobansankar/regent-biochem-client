@@ -488,8 +488,8 @@ export default function ProductForm({ initialData = null, isEditing = false, typ
             )}
           </MetaBox>
 
-          {/* ── TECHNICAL SPECIFICATIONS ── */}
-          <MetaBox title="Technical Specifications">
+          {/* ── HIGHLIGHTS ── */}
+          <MetaBox title="Highlights">
             {technicalSpecs.map((s, i) => (
               <div key={i} className="flex gap-2 items-start">
                 <div className="flex-1 space-y-1">

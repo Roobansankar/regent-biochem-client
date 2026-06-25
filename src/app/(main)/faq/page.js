@@ -138,7 +138,7 @@ export default function FAQPage() {
   return (
     <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-6 pb-5 lg:pt-10 lg:pb-8 bg-green overflow-hidden">
+      <section className="relative pt-3 sm:pt-4 pb-5 lg:pt-10 lg:pb-8 bg-green overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-10"></div>
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
@@ -206,7 +206,7 @@ export default function FAQPage() {
                             <span className={`text-base font-bold transition-colors ${isOpen ? "text-green" : "text-brand-black"}`}>
                               {faq.question}
                             </span>
-                            <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${isOpen ? "bg-green text-white rotate-180" : "bg-brand-bg2 text-brand-muted"}`}>
+                            <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${isOpen ? "sm:bg-green sm:text-white rotate-180" : "sm:bg-brand-bg2 sm:text-brand-muted bg-transparent text-green"}`}>
                               <i className="fas fa-chevron-down text-[10px]"></i>
                             </div>
                           </button>

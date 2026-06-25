@@ -1,7 +1,6 @@
-
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import hero2 from "@/assets/hero2.png";
 import hero3 from "@/assets/hero3.png";
@@ -47,34 +46,62 @@ const slides = [
   },
 ];
 
-const extendedSlides = [slides[slides.length - 1], ...slides, slides[0]];
+const totalSlides = slides.length;
+const extendedSlides = [slides[totalSlides - 1], ...slides, slides[0]];
+const lastIndex = extendedSlides.length - 1;
 
 export default function Hero() {
   const [current, setCurrent] = useState(1);
   const [transition, setTransition] = useState(true);
   const timerRef = useRef(null);
+  const snapTimeoutRef = useRef(null);
+
+  const clearTimers = useCallback(() => {
+    clearInterval(timerRef.current);
+    if (snapTimeoutRef.current) {
+      clearTimeout(snapTimeoutRef.current);
+      snapTimeoutRef.current = null;
+    }
+  }, []);
+
+  const startAutoPlay = useCallback(() => {
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => {
+        const next = prev + 1;
+        return next > lastIndex ? lastIndex : next;
+      });
+    }, 4000);
+  }, []);
 
   useEffect(() => {
-    timerRef.current = setInterval(() => {
-      setCurrent((prev) => prev + 1);
-    }, 4000);
-    return () => clearInterval(timerRef.current);
-  }, []);
+    startAutoPlay();
+    return () => {
+      clearInterval(timerRef.current);
+      clearTimeout(snapTimeoutRef.current);
+    };
+  }, [startAutoPlay]);
 
   useEffect(() => {
     if (!transition) return;
     if (current === 0) {
-      setTimeout(() => {
+      snapTimeoutRef.current = setTimeout(() => {
         setTransition(false);
-        setCurrent(slides.length);
+        setCurrent(totalSlides);
       }, 500);
-    } else if (current === extendedSlides.length - 1) {
-      setTimeout(() => {
+    } else if (current === lastIndex) {
+      snapTimeoutRef.current = setTimeout(() => {
         setTransition(false);
         setCurrent(1);
       }, 500);
     }
-  }, [current, transition]);
+    return () => {
+      if (snapTimeoutRef.current) {
+        clearTimeout(snapTimeoutRef.current);
+        snapTimeoutRef.current = null;
+      }
+    };
+  }, [current, transition, totalSlides]);
 
   useEffect(() => {
     if (transition) return;
@@ -82,31 +109,30 @@ export default function Hero() {
     return () => cancelAnimationFrame(id);
   }, [current, transition]);
 
-  const goTo = (index) => {
+  const goTo = useCallback((index) => {
+    clearTimers();
     setCurrent(index + 1);
-    clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => {
-      setCurrent((prev) => prev + 1);
-    }, 4000);
-  };
+    startAutoPlay();
+  }, [clearTimers, startAutoPlay]);
 
-  const prev = () => {
-    setCurrent((prev) => prev - 1);
-    clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => {
-      setCurrent((prev) => prev + 1);
-    }, 4000);
-  };
+  const prev = useCallback(() => {
+    clearTimers();
+    setCurrent((p) => Math.max(p - 1, 0));
+    startAutoPlay();
+  }, [clearTimers, startAutoPlay]);
 
-  const next = () => {
-    setCurrent((prev) => prev + 1);
-    clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => {
-      setCurrent((prev) => prev + 1);
-    }, 4000);
-  };
+  const next = useCallback(() => {
+    clearTimers();
+    if (current >= lastIndex) {
+      setTransition(false);
+      setCurrent(1);
+    } else {
+      setCurrent((p) => p + 1);
+    }
+    startAutoPlay();
+  }, [clearTimers, startAutoPlay, current, lastIndex]);
 
-  const realIndex = current === 0 ? slides.length - 1 : current === extendedSlides.length - 1 ? 0 : current - 1;
+  const realIndex = current === 0 ? totalSlides - 1 : current === lastIndex ? 0 : current - 1;
 
   return (
     <section className="relative overflow-hidden bg-brand-bg3">
@@ -133,7 +159,7 @@ export default function Hero() {
 
               <div className="relative z-20 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pl-10 lg:pl-16">
                 <div className="max-w-2xl">
-                  <div className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">
+                  <div className="text-sm sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">
                     {slide.label}
                   </div>
 
@@ -190,4 +216,4 @@ export default function Hero() {
       </div>
     </section>
   );
-} 
+}

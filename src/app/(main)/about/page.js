@@ -21,10 +21,10 @@ export default function About() {
       link: "/products?search=SafeWeld"
     },
     {
-      title: "Freeflow",
+      title: "Freflo",
       desc: "Specialized chemical technologies for industrial pipeline cleaning and flow restoration.",
-      icon: "fa-water",
-      link: "/products?search=Freeflow"
+      icon: "text:Freflo",
+      link: "/products?search=Freflo"
     }
   ];
 
@@ -61,7 +61,7 @@ export default function About() {
               <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Our Story
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
-              Driving Efficiency.<br/><span className="text-green-600">The Green Way to Growth.</span>
+              Driving Efficiency.<br/><span className="text-green-600">Green Way to Growth</span>
             </h2>
             <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-4">Regent BioChem is an industrial solutions company focused on helping manufacturers improve operational efficiency, reliability, and process performance. Through a combination of advanced cleaning technologies, specialty chemical formulations, and application expertise, we support industries in maintaining cleaner, safer, and more productive operations.</p>
             <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-8">Our approach goes beyond supplying products. We work closely with customers to understand their challenges, recommend the right solutions, and provide ongoing technical support to ensure long-term value.</p>
@@ -118,7 +118,17 @@ export default function About() {
             {productCategories.map((cat, i) => (
               <div key={i} className="reveal bg-brand-bg2 border border-brand-border rounded-[2rem] p-8 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
                 <div className="w-14 h-14 bg-green-light rounded-2xl flex items-center justify-center text-green text-2xl mb-6 shadow-sm">
-                  <i className={`fas ${cat.icon}`}></i>
+                  {typeof cat.icon === "string" ? (
+                    cat.icon.startsWith("text:") ? (
+                      <span className="text-[10px] font-black uppercase tracking-[0.12em] text-center leading-tight">
+                        {cat.icon.replace("text:", "")}
+                      </span>
+                    ) : (
+                      <i className={`fas ${cat.icon}`}></i>
+                    )
+                  ) : (
+                    <img src={cat.icon.src} alt={cat.title} className="h-8 w-auto object-contain" />
+                  )}
                 </div>
                 <h3 className="text-xl font-extrabold text-brand-black mb-3">{cat.title}</h3>
                 <p className="text-sm text-brand-body leading-relaxed mb-8 flex-grow">

@@ -38,7 +38,7 @@ export default function CTA() {
     <section className="bg-green py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div>
-          <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-white/70 mb-4">
+          <div className="inline-flex items-center gap-2 text-sm sm:text-sm font-black uppercase tracking-[0.3em] text-white/70 mb-4">
             <span className="w-8 h-px bg-white/30"></span> GREEN WAY TO GROWTH
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-3">
@@ -69,7 +69,7 @@ export default function CTA() {
             {status === "loading" ? "Submitting..." : "Request Consultation"}
           </button>
           {message && (
-            <p className={`text-xs font-medium mt-1 sm:mt-0 sm:absolute sm:bottom-0 sm:translate-y-full ${status === "success" ? "text-green-200" : "text-red-200"}`}>
+            <p className={`text-sm sm:text-xs font-medium mt-1 sm:mt-0 sm:absolute sm:bottom-0 sm:translate-y-full ${status === "success" ? "text-green-200" : "text-red-200"}`}>
               {message}
             </p>
           )}

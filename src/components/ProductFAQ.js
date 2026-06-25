@@ -17,10 +17,14 @@ export default function ProductFAQ({ faq }) {
           <div key={i} className="border border-brand-border rounded-xl overflow-hidden">
             <button
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              className="flex items-center justify-between w-full p-4 sm:p-5 bg-white hover:bg-brand-bg2 transition-colors text-left"
+              className="flex items-start sm:items-center justify-between w-full p-4 sm:p-5 bg-white hover:bg-brand-bg2 transition-colors text-left"
             >
-              <span className="text-sm font-bold text-brand-black pr-4">{item.q}</span>
-              <i className={`fas fa-chevron-down text-xs text-green transition-transform duration-300 shrink-0 ${openIndex === i ? "rotate-180" : ""}`}></i>
+              <span className="text-sm font-bold text-brand-black pr-4 flex-1 min-w-0">
+                {item.q}
+              </span>
+              <span className="flex items-center justify-center w-9 h-9 text-green text-[11px] sm:text-xs shrink-0 transition-all duration-300">
+                <i className={`fas fa-chevron-down transition-transform duration-300 ${openIndex === i ? "rotate-180" : ""}`}></i>
+              </span>
             </button>
             {openIndex === i && (
               <div className="px-4 sm:px-5 pb-4 sm:pb-5 border-t border-brand-border pt-3">

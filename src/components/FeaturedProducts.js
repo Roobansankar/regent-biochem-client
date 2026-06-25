@@ -34,7 +34,7 @@ export default function FeaturedProducts() {
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-6 sm:pb-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
           <div>
-            <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">GREEN WAY TO GROWTH</p>
+            <p className="text-sm sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">GREEN WAY TO GROWTH</p>
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-black">
               Flagship products, <span className="text-green">field-proven globally.</span>
             </h2>
@@ -43,7 +43,7 @@ export default function FeaturedProducts() {
             href="/products"
             className="inline-flex cursor-pointer items-center gap-2 text-sm font-bold text-green border border-green rounded px-5 py-2.5 hover:bg-green hover:text-white transition-colors whitespace-nowrap self-start sm:self-auto"
           >
-            View All Products <i className="fas fa-arrow-right text-xs"></i>
+            View All Products <i className="fas fa-arrow-right text-sm lg:text-xs"></i>
           </Link>
         </div>
 
@@ -52,7 +52,7 @@ export default function FeaturedProducts() {
             {products.map(p => (
               <button
                 key={p.slug}
-                className={`px-5 py-2.5 text-xs cursor-pointer sm:text-sm font-semibold whitespace-nowrap border-r border-brand-border last:border-r-0 transition-colors ${
+                className={`px-5 py-2.5 text-sm lg:text-xs cursor-pointer font-semibold whitespace-nowrap border-r border-brand-border last:border-r-0 transition-colors ${
                   activeTab === p.slug ? "bg-green text-white" : "text-brand-muted hover:text-green"
                 }`}
                 onClick={() => setActiveTab(p.slug)}

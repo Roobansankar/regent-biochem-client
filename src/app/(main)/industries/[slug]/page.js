@@ -31,7 +31,7 @@ export default async function IndustryPage({ params }) {
             <div className="lg:col-span-6"> 
               <div className="flex items-center gap-3 mb-4">
                  <p className="text-sm font-black tracking-[0.4em] uppercase text-green">
-                    {industry.category || "Mobility & Transport"} / {industry.slug}
+                    {industry.category || "Industry"}
                  </p>
               </div>
               
@@ -53,7 +53,7 @@ export default async function IndustryPage({ params }) {
                 <img
                   src={industry.heroImage}
                   alt={industry.title}
-                  className="w-full h-auto max-h-[600px] object-contain"
+                  className="w-full h-auto max-h-[700px] object-contain"
                 />
               </div>
               

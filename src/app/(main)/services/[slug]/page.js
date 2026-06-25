@@ -30,7 +30,7 @@ export default async function ServicePage({ params }) {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
               <div>
                 <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Services</p>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brand-black">Fre Flo</h2>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black">Fre Flo</h2>
               </div>
               <div className="shrink-0">
                 <img
@@ -40,7 +40,7 @@ export default async function ServicePage({ params }) {
                 />
               </div>
             </div>
-            <p className="text-sm sm:text-base text-brand-body leading-relaxed max-w-none">
+            <p className="text-sm sm:text-base text-brand-body leading-relaxed w-full">
            Our specialized FreFlo pipeline cleaning service completely clears industrial lines to restore optimal pressure and fluid velocity, preventing costly clogs without damaging your infrastructure.
             </p>
           </div>
@@ -55,7 +55,7 @@ export default async function ServicePage({ params }) {
               <div className="absolute -inset-4 bg-green/10 rounded-[2.5rem] blur-2xl group-hover:bg-green/20 transition-all duration-500"></div>
               <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
                 <img
-                  src={service.heroImage}
+                  src={service.heroImage?.src ?? service.heroImage}
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />
@@ -66,7 +66,7 @@ export default async function ServicePage({ params }) {
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-4 leading-[1.1]">
                 {service.title}
               </h1>
-              <p className="text-sm sm:text-base text-brand-body leading-relaxed">
+              <p className="text-base sm:text-lg text-brand-body leading-relaxed max-w-3xl">
                 {service.description}
               </p>
             </div>
@@ -81,11 +81,11 @@ export default async function ServicePage({ params }) {
 
     {/* Heading */}
     <div className="text-center max-w-3xl mx-auto mb-12">
-      <h2 className="text-3xl sm:text-4xl font-bold text-brand-black mb-4">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-black mb-4">
    Critical Problems We Resolve
       </h2>
 
-      <p className="text-brand-text text-base sm:text-lg">
+      <p className="text-sm sm:text-base text-brand-text">
       Solving critical pipeline performance issues.
       </p>
     </div>
@@ -107,12 +107,12 @@ export default async function ServicePage({ params }) {
             </div>
 
             {/* Title */}
-            <h3 className="text-xl font-bold text-brand-black mb-4">
+            <h3 className="text-lg sm:text-xl font-bold text-brand-black mb-4">
               {item.title}
             </h3>
 
             {/* Description */}
-            <p className="text-brand-text leading-relaxed">
+            <p className="text-sm sm:text-base text-brand-text leading-relaxed">
               {item.description}
             </p>
           </div>
@@ -129,29 +129,26 @@ export default async function ServicePage({ params }) {
 
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-brand-black mb-3">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-black mb-3">
           Contaminants Removed
         </h2>
 
-        <p className="text-brand-text text-base sm:text-lg">
+        <p className="text-sm sm:text-base text-brand-text">
           Comprehensive cleaning across all industrial residue types.
         </p>
       </div>
 
-      {/* Items */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
         {service.contaminantsRemoved.map((item, index) => (
           <div
             key={index}
-            className="flex items-center gap-3 bg-white border border-brand-border
-            rounded-2xl px-5 py-4 hover:border-green-mid hover:bg-green-light/20
-            transition-all duration-300"
+            className="flex items-start gap-3 bg-white border border-brand-border rounded-2xl px-5 py-4 hover:border-green-mid hover:bg-green-light/20 transition-all duration-300"
           >
-            <div className="flex-shrink-0 text-green">
+            <div className="flex-shrink-0 text-green mt-1">
               <i className="fas fa-circle-check text-base"></i>
             </div>
 
-            <span className="font-semibold text-sm text-brand-black">
+            <span className="font-semibold text-sm sm:text-base text-brand-black">
               {item}
             </span>
           </div>
@@ -161,56 +158,6 @@ export default async function ServicePage({ params }) {
     </div>
   </section>
 )}
-
-      {/* How We Do It Section */}
-      {/* <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div>
-            <div className="text-center mb-8">
-              <h2 className="text-3xl sm:text-4xl font-bold text-brand-black mb-3">
-                How <span className="text-green">We Do It</span>
-              </h2>
-            </div>
-
-            <div className="bg-brand-bg2 rounded-[2rem] border border-brand-border overflow-hidden">
-              <div className="flex flex-col lg:flex-row">
-                <div className="lg:w-96 h-64 lg:h-auto flex-shrink-0">
-                  <img 
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3-qykdqq-UvLJBnT4rPxUc6-uzwMM1lcFaA&s" 
-                    alt="How We Do It" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-8 lg:p-10 flex-1 flex flex-col justify-center">
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-green-light rounded-xl flex items-center justify-center text-green text-xl mx-auto mb-3">
-                        <i className="fas fa-industry"></i>
-                      </div>
-                      <h4 className="font-bold text-brand-black text-sm mb-2">Machine</h4>
-                      <p className="text-xs text-brand-body leading-relaxed">Advanced precision equipment for consistent cleaning results.</p>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-green-light rounded-xl flex items-center justify-center text-green text-xl mx-auto mb-3">
-                        <i className="fas fa-flask"></i>
-                      </div>
-                      <h4 className="font-bold text-brand-black text-sm mb-2">Chemistry</h4>
-                      <p className="text-xs text-brand-body leading-relaxed">Eco-friendly bio-active agents for effective contaminant removal.</p>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-green-light rounded-xl flex items-center justify-center text-green text-xl mx-auto mb-3">
-                        <i className="fas fa-chart-line"></i>
-                      </div>
-                      <h4 className="font-bold text-brand-black text-sm mb-2">Output</h4>
-                      <p className="text-xs text-brand-body leading-relaxed">Zero-residue results with restored operational efficiency.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Industries We Serve Section */}
       <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
@@ -275,11 +222,11 @@ export default async function ServicePage({ params }) {
                     {/* <h3 className="text-[13px] xl:text-[14px] font-bold text-brand-black leading-snug tracking-tight mb-2 min-h-[2.5rem] flex items-center justify-center" style={{ textWrap: "balance" }} dangerouslySetInnerHTML={{ __html: step.title }}></h3> */}
                     {/* <p className="text-[12px] xl:text-[14px] text-brand-body leading-relaxed flex-1">{step.desc}</p> */}
                     <h3
-  className="text-[13px] xl:text-[14px] font-bold text-brand-black leading-snug tracking-tight mb-3 h-[56px] flex items-center justify-center"
+  className="text-sm sm:text-base font-bold text-brand-black leading-snug tracking-tight mb-3 h-[56px] flex items-center justify-center"
   dangerouslySetInnerHTML={{ __html: step.title }}
 ></h3>
 
-<p className="text-[12px] xl:text-[14px] text-brand-body leading-relaxed flex-1">
+<p className="text-sm sm:text-base text-brand-body leading-relaxed flex-1">
   {step.desc}
 </p>
                   </div>

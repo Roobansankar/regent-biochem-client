@@ -7,32 +7,32 @@ export default function Stats() {
         <div className="bg-white border border-brand-border rounded-2xl p-8 sm:p-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 text-center">  
           <div>
             <span className="block text-3xl sm:text-4xl font-bold text-green tracking-tight leading-none"><CountUp end={20} suffix="+" /></span>
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">
+            <span className="block text-sm lg:text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">
               Years of Experience
             </span>
           </div>
           <div>
             <span className="block text-3xl sm:text-4xl font-bold text-green tracking-tight leading-none"><CountUp end={400} suffix="+" /></span>
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">
+            <span className="block text-sm lg:text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">
               Installations
             </span>
           </div>
           <div>
             <span className="block text-3xl sm:text-4xl font-bold text-green tracking-tight leading-none"><CountUp end={6} /></span>
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">
+            <span className="block text-sm lg:text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">
               Certifications
             </span>
           </div>
           <div>
             <span className="block text-3xl sm:text-4xl font-bold text-green tracking-tight leading-none"><CountUp end={300} suffix="+" /></span>
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">
+            <span className="block text-sm lg:text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">
               Process Validation Trials
             </span>
           </div>
           <div>
             <span className="block text-3xl sm:text-4xl font-bold text-green tracking-tight leading-none"><CountUp end={50} suffix="%" /></span>
             <span className="block text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">
-              Reduce in Cleaning Time
+              Reduction in Cleaning Time
             </span>
           </div>
         </div>

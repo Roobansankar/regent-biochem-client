@@ -65,7 +65,7 @@ export default function EsteemedCustomers() {
     <section className="bg-brand-bg2 py-12 sm:py-16 overflow-hidden border-t border-brand-border">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Trusted by</p>
+          <p className="text-sm sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Trusted by</p>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-black">
             Our Esteemed <span className="text-green">Customers</span>
           </h2>
@@ -85,8 +85,14 @@ export default function EsteemedCustomers() {
             <Image
               src={c.logo}
               alt={c.name}
-              height={40}
-              className={`${c.name === "Daimler Industrial" ? "h-4 sm:h-6" : "h-7 sm:h-9"} w-auto object-contain`}
+              height={48}
+              className={`w-auto object-contain ${
+                ["Indian Railways", "JCB", "NSK", "VE Commercial", "Toyota", "Knorr Bremse", "Royal Enfield", "Wheels India"].includes(c.name)
+                  ? "h-10 sm:h-12"
+                  : c.name === "Daimler Industrial"
+                  ? "h-4 sm:h-6"
+                  : "h-7 sm:h-9"
+              }`}
             />
           </div>
         ))}

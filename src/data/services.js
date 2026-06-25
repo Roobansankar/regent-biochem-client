@@ -1,3 +1,9 @@
+import pipelineImg from "@/assets/services/pipeline.webp";
+import coolingImg from "@/assets/services/cooling.webp";
+import injectionImg from "@/assets/services/injection.webp";
+import heatImg from "@/assets/services/heat.webp";
+import operationalImg from "@/assets/services/operational.webp";
+
 export const services = [
   {
     slug: "pipeline",
@@ -40,7 +46,7 @@ export const services = [
       "Material composition of the pipes (e.g., steel, copper, PVC)",
       "Type of fluid normally carried"
     ],
-    heroImage: "https://images.squarespace-cdn.com/content/v1/6495ace4409a2a506cc4b8a8/dcc34794-6990-4caf-b018-0a6cd1bdb4d2/pipeline%2Bcleaning%2Bservices.jpg",
+    heroImage: pipelineImg,
     
     process: [
       { step: "01", title: "Consultation", description: "Initial discussion to understand the system and issues." },
@@ -65,7 +71,7 @@ export const services = [
     shortDescription: "Restore heat transfer & ensure compliance.",
     description: "Cooling towers are highly prone to scaling and biological fouling, which destroys heat transfer efficiency and spikes energy bills. Our RWR system hooks directly into the tower's circulation loop, flushing out hidden buildup within the internal matrices and internal plumbing. It improves thermal efficiency instantly while helping you maintain strict hygiene standards.",
     icon: "fa-wind",
-    heroImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600",
+    heroImage: coolingImg,
     commonProblems: [
   {
     title: "Spiking Energy Consumption",
@@ -112,7 +118,7 @@ export const services = [
     shortDescription: "Non-abrasive removal of plastic residues.",
     description: "Narrow cooling channels in plastic injection moulds are notorious for trapping deposits, leading to uneven cooling, warped parts, and long cycle times. Optimized for the RWR KST system, this service uses automated pulse-flushing, flow-reversal, and compressed-air line clearing. We completely purge the intricate channels of your expensive tooling, ensuring uniform heat dissipation and protecting moulds from structural corrosion.",
     icon: "fa-industry",
-    heroImage: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1600",
+    heroImage: injectionImg,
     commonProblems: [
   {
     title: "Uneven Part Cooling and Warping",
@@ -162,7 +168,7 @@ export const services = [
     shortDescription: "Descaling & cleaning for all heat exchanger types.",
     description: "Even a millimeter of scale inside a heat exchanger acts as an insulator, forcing your system to work twice as hard to achieve the same results. Our RWR service provides a fast, non-destructive flush that clears out plate or shell-and-tube exchangers. By completely restoring optimal thermal conductivity, we lower your energy overheads and prolong the operational life of your assets.",
     icon: "fa-temperature-high",
-    heroImage: "https://images.unsplash.com/photo-1532187875605-2fe358a3d46a?auto=format&fit=crop&q=80&w=1600",
+    heroImage: heatImg,
     commonProblems: [
   {
     title: "Drastic Drops in Heat Transfer Efficiency",
@@ -212,7 +218,7 @@ export const services = [
     shortDescription: "Data-driven analysis for cost & energy savings.",
     description: "Don't wait for a system failure to take action. Before we clean, our team uses the diagnostic capabilities of the RWR system to run a data-driven health check on your loops. After cleaning, we run a comparative assessment to quantify your exact improvements in flow rate, thermal efficiency, and pressure stability, giving you a transparent view of your return on investment (ROI).",
     icon: "fa-chart-pie",
-    heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600",
+    heroImage: operationalImg,
     commonProblems: [
   {
     title: "Unexplained Efficiency Drops",

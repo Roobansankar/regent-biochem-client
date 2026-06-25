@@ -32,7 +32,7 @@ export default function CareersPage() {
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
               Build More Than a Career — <span className="text-green-mid">Build Impact</span>
             </h1>
-            <p className="text-sm sm:text-base text-white/90 leading-relaxed">
+            <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-3xl mx-auto">
 Grow your career by solving real-world industrial challenges and delivering high-performance technical solutions.
             </p>
           </div>
@@ -45,7 +45,7 @@ Grow your career by solving real-world industrial challenges and delivering high
           <div className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">Why Bio chem?</h2>
             <div className="w-16 h-1 bg-green rounded-full mb-6"></div>
-            <p className="text-brand-body leading-relaxed text-lg">
+            <p className="text-base sm:text-lg text-brand-body leading-relaxed max-w-none">
               At Regent BioChem, we believe innovation starts with people. We offer opportunities to work on real-world industrial challenges, gain hands-on industry exposure, and contribute to sustainable technologies that improve manufacturing processes. Whether you&apos;re a student, intern, or experienced professional, you&apos;ll find an environment that encourages learning, collaboration, and continuous growth.
             </p>
           </div>
@@ -67,7 +67,7 @@ Grow your career by solving real-world industrial challenges and delivering high
                   "Career growth through challenging projects",
                   "Opportunity to contribute to sustainable industrial solutions"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-brand-body">
+                  <li key={i} className="flex items-start gap-3 text-brand-body text-sm sm:text-base">
                     <i className="fas fa-check-circle text-green mt-1"></i>
                     <span>{item}</span>
                   </li>
@@ -82,7 +82,7 @@ Grow your career by solving real-world industrial challenges and delivering high
                 </span>
                 What we look for?
               </h3>
-              <p className="text-sm font-semibold text-brand-muted mb-4 uppercase tracking-wider">Ideal Candidate Demonstrate:</p>
+              <p className="text-sm sm:text-base font-semibold text-brand-muted mb-4 uppercase tracking-wider">Ideal Candidate Demonstrate:</p>
               <ul className="space-y-4 inline-block text-left">
                 {[
                   "A strong willingness to learn",
@@ -157,13 +157,13 @@ Grow your career by solving real-world industrial challenges and delivering high
             {jobRoles.map((job, index) => (
               <div key={index} className="group bg-white border border-brand-border hover:border-green p-6 md:p-8 rounded-2xl transition-all hover:shadow-md flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-xl font-bold text-brand-black group-hover:text-green transition-colors">{job.title}</h3>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-brand-black group-hover:text-green transition-colors">{job.title}</h3>
                     <span className="px-2.5 py-0.5 rounded-full bg-green-light text-green text-[10px] font-bold uppercase tracking-wider border border-green-mid">
                       {job.type}
                     </span>
                   </div>
-                  <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-brand-muted mb-4">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-brand-muted mb-4">
                     <span className="flex items-center gap-2">
                       <i className="fas fa-briefcase text-green"></i> {job.department}
                     </span>
@@ -174,7 +174,7 @@ Grow your career by solving real-world industrial challenges and delivering high
                       <i className="fas fa-history text-green"></i> Exp: {job.experience}
                     </span>
                   </div>
-                  <p className="text-brand-body text-sm max-w-2xl">
+                  <p className="text-sm sm:text-base text-brand-body max-w-2xl leading-relaxed">
                     {job.description}
                   </p>
                   <button
@@ -185,9 +185,12 @@ Grow your career by solving real-world industrial challenges and delivering high
                   </button>
                 </div>
                 <div>
-                  <button className="w-full md:w-auto px-8 py-3 bg-brand-black text-white font-bold rounded-xl hover:bg-green transition-colors shadow-lg shadow-black/5">
+                  <a
+                    href="mailto:bizdev@bio-chem.in"
+                    className="w-full md:w-auto inline-flex items-center justify-center px-8 py-3 bg-brand-black text-white font-bold rounded-xl hover:bg-green transition-colors shadow-lg shadow-black/5"
+                  >
                     Apply Now
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
@@ -202,8 +205,8 @@ Grow your career by solving real-world industrial challenges and delivering high
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedJob(null)}></div>
           <div className="relative bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl">
             <div className="p-6 pb-4 border-b border-brand-border">
-              <h3 className="text-xl font-bold text-brand-black">{selectedJob.title}</h3>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-brand-muted mt-1">
+              <h3 className="text-lg sm:text-xl font-bold text-brand-black">{selectedJob.title}</h3>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-brand-muted mt-1">
                 <span><i className="fas fa-briefcase text-green mr-1"></i> {selectedJob.department}</span>
                 <span><i className="fas fa-map-marker-alt text-green mr-1"></i> {selectedJob.location}</span>
                 <span><i className="fas fa-history text-green mr-1"></i> Exp: {selectedJob.experience}</span>
@@ -211,27 +214,27 @@ Grow your career by solving real-world industrial challenges and delivering high
             </div>
                 <div className="p-6 overflow-y-auto flex-1 space-y-6">
               <div>
-                <h4 className="text-sm font-bold text-brand-black mb-2">Overview</h4>
-                <p className="text-sm text-brand-body leading-relaxed">{selectedJob.overview}</p>
+                <h4 className="text-sm sm:text-base font-bold text-brand-black mb-2">Overview</h4>
+                <p className="text-sm sm:text-base text-brand-body leading-relaxed">{selectedJob.overview}</p>
               </div>
               <div>
-                <h4 className="text-sm font-bold text-brand-black mb-2">Key Responsibilities</h4>
-                <ul className="list-disc list-inside text-sm text-brand-body space-y-1">
+                <h4 className="text-sm sm:text-base font-bold text-brand-black mb-2">Key Responsibilities</h4>
+                <ul className="list-disc list-inside text-sm sm:text-base text-brand-body space-y-1">
                   {(selectedJob.responsibilities || []).map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h4 className="text-sm font-bold text-brand-black mb-2">Qualification</h4>
-                <p className="text-sm text-brand-body">{selectedJob.qualification}</p>
+                <h4 className="text-sm sm:text-base font-bold text-brand-black mb-2">Qualification</h4>
+                <p className="text-sm sm:text-base text-brand-body">{selectedJob.qualification}</p>
               </div>
               <div>
-                <h4 className="text-sm font-bold text-brand-black mb-2">Experience Required</h4>
-                <p className="text-sm text-brand-body">{selectedJob.experience_detail}</p>
+                <h4 className="text-sm sm:text-base font-bold text-brand-black mb-2">Experience Required</h4>
+                <p className="text-sm sm:text-base text-brand-body">{selectedJob.experience_detail}</p>
               </div>
               <div>
-                <h4 className="text-sm font-bold text-brand-black mb-2">Key Skills Required</h4>
+                <h4 className="text-sm sm:text-base font-bold text-brand-black mb-2">Key Skills Required</h4>
                 <div className="flex flex-wrap gap-2">
                   {(selectedJob.skills || []).map((skill, i) => (
                     <span key={i} className="px-3 py-1.5 bg-green-light text-green text-xs font-semibold rounded-lg border border-green-mid">
@@ -242,9 +245,12 @@ Grow your career by solving real-world industrial challenges and delivering high
               </div>
             </div>
             <div className="p-6 pt-4 border-t border-brand-border">
-              <button className="w-full px-8 py-3 bg-green text-white font-bold rounded-xl hover:bg-green-dark transition-colors shadow-lg shadow-green/30">
+              <a
+                href="mailto:bizdev@bio-chem.in"
+                className="w-full inline-flex justify-center px-8 py-3 bg-green text-white font-bold rounded-xl hover:bg-green-dark transition-colors shadow-lg shadow-green/30"
+              >
                 Apply Now <i className="fas fa-arrow-right text-xs ml-2"></i>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -259,13 +265,13 @@ Grow your career by solving real-world industrial challenges and delivering high
             
             <div className="relative z-10 flex-1">
               <h2 className="text-2xl font-bold text-brand-black mb-4">Don&apos;t see a perfect match?</h2>
-              <p className="text-sm sm:text-base text-brand-body max-w-2xl">
+              <p className="text-base sm:text-lg text-brand-body max-w-2xl">
                 We&apos;re always looking for talented individuals who are passionate about Engineering and Sustainability. Send us your CV and we&apos;ll keep you in mind for future openings.
               </p>
             </div>
             <div className="relative z-10 flex-shrink-0">
               <a 
-                href="mailto:careers@regentbiochem.com" 
+                href="mailto:bizdev@bio-chem.in" 
                 className="inline-flex items-center gap-3 px-8 py-4 bg-green text-white font-bold rounded-xl hover:bg-green-dark transition-all shadow-lg"
               >
                 <i className="fas fa-paper-plane"></i>

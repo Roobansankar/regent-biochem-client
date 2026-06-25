@@ -478,12 +478,12 @@ export default async function ProductDetailPage({ params }) {
             <div className="lg:col-span-4">
               <div className="sticky top-24 space-y-5">
 
-                {/* Technical Specifications */}
+                {/* Highlights */}
                 {product.technicalSpecs && (
                   <div className="bg-gradient-to-br from-green to-emerald-600 rounded-2xl p-6 sm:p-7 text-white overflow-hidden relative">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
                     <div className="relative z-10">
-                      <h3 className="text-base sm:text-lg font-bold mb-5">Technical Specifications</h3>
+                      <h3 className="text-base sm:text-lg font-bold mb-5">Highlights</h3>
                       <div className="space-y-3.5">
                         {product.technicalSpecs.map((spec, i) => (
                           <div key={i} className="flex justify-between items-end border-b border-white/15 pb-3">

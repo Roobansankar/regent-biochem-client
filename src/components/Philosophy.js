@@ -11,7 +11,7 @@ export default function Philosophy() {
       
       {/* Mobile Header (hidden on lg) */}
       <div className="lg:hidden px-6 pt-8 pb-2">
-        <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">About Regent Biochem</p>
+        <p className="text-sm sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">About Regent Biochem</p>
         <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-black leading-tight uppercase">
           <span className="text-green">GREEN</span> WAY
           <br />
@@ -47,7 +47,7 @@ export default function Philosophy() {
             href="/about"
             className="inline-flex items-center gap-2 text-sm font-bold text-green hover:text-green-dark transition-colors"
           >
-            About Regent Biochem <i className="fas fa-arrow-right text-xs"></i>
+            About Regent Biochem <i className="fas fa-arrow-right text-sm lg:text-xs"></i>
           </Link>
         </div>
       </div>

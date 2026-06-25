@@ -90,12 +90,17 @@ const navData = [
     mega: true,
     columns: [
       {
-        label: "Fre Flo",
+        label: "Freflo",
+        labelImage: "/freeflo.png",
         items: [
           { name: "Pipeline Cleaning Solutions", href: "/services/pipeline" },
-          { name: "Cooling Tower Cleaning", href: "/services/cooling-tower" },
-          { name: "Injection Mould Cleaning", href: "/services/mould-injection" },
           { name: "Heat Exchanger Cleaning", href: "/services/heat-exchanger" },
+          { name: "Cooling Tower Cleaning", href: "/services/cooling-tower" },
+        ],
+      },
+      {
+        items: [
+          { name: "Injection Mould Cleaning", href: "/services/mould-injection" },
           { name: "Operational Impact Assessment", href: "/services/impact-assessment" },
         ],
       },
@@ -274,7 +279,7 @@ export default function Navbar() {
                         isScrolled ? "top-[64px]" : "top-[131px]"
                       }`}>
                         <div className={`max-w-[1600px] mx-auto grid gap-8 p-10 ${
-                          link.name === "Products" ? "grid-cols-5" : link.name === "Industries" ? "grid-cols-4" : "grid-cols-[1fr_1.5fr]"
+                          link.name === "Products" ? "grid-cols-5" : link.name === "Industries" ? "grid-cols-4" : link.name === "Services" ? "grid-cols-3" : "grid-cols-[1fr_1.5fr]"
                         }`}>
                           {link.columns.map((col) => (
                             col.type === "explore-card" ? (
@@ -295,11 +300,17 @@ export default function Navbar() {
                                 </div>
                               </Link>
                             ) : (
-                              <div key={col.label}>
-                                <h4 className="text-xs font-black uppercase tracking-widest text-green mb-5 pb-2 border-b border-green-light">
-                                  {col.label}
-                                </h4>
-                                <div className="flex flex-col gap-3">
+                              <div key={col.label || col.items?.[0]?.name}>
+                                {col.labelImage ? (
+                                  <div className="mb-5 pb-2 border-b border-green-light flex items-start justify-start">
+                                    <img src={col.labelImage} alt={col.label} className="h-10 w-auto" />
+                                  </div>
+                                ) : col.label ? (
+                                  <h4 className="text-xs font-black uppercase tracking-widest text-green mb-5 pb-2 border-b border-green-light">
+                                    {col.label}
+                                  </h4>
+                                ) : null}
+                                <div className={`flex flex-col gap-3 ${col.label || col.labelImage ? '' : 'pt-14'}`}>
                                   {getColumnItems(col).map((item) => (
                                     <Link
                                       key={item.name}
@@ -393,8 +404,8 @@ export default function Navbar() {
                               <div className="flex flex-col gap-6 pl-4">
                                 {link.columns.map((col) => (
                                   col.type === "explore-card" ? null : (
-                                  <div key={col.label}>
-                                    <div className="text-[10px] font-black uppercase tracking-widest text-green mb-3 px-4">{col.label}</div>
+                                  <div key={col.label || col.items?.[0]?.name}>
+                                    {col.label ? <div className="text-[10px] font-black uppercase tracking-widest text-green mb-3 px-4">{col.label}</div> : null}
                                     <div className="flex flex-col gap-1">
                                       {getColumnItems(col).map((item) => (
                                         <Link
