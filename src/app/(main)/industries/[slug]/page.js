@@ -3,6 +3,35 @@ import CTA from "@/components/CTA";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import WorkflowProcess from "@/components/WorkflowProcess";
+import autoImg from "@/assets/autmotive.png";
+import mroImg from "@/assets/mro.png";
+import oilImg from "@/assets/oil.png";
+import foodImg from "@/assets/food.png";
+import aeroImg from "@/assets/aero.png";
+import railwaysImg from "@/assets/railways.png";
+import shipyardImg from "@/assets/Shipyard.png";
+import fabricationImg from "@/assets/fabrication.png";
+import machiningImg from "@/assets/machining.png";
+import metalworkingImg from "@/assets/Metalworking.png";
+import electronicsImg from "@/assets/Electronics.png";
+import rubberImg from "@/assets/rubber.png";
+import printingImg from "@/assets/printing.png";
+
+const industryImages = {
+  "automotive": autoImg,
+  "mro-maintenance": mroImg,
+  "oil-gas": oilImg,
+  "food-beverage": foodImg,
+  "aerospace-defense": aeroImg,
+  "railways": railwaysImg,
+  "shipbuilding-shipyards": shipyardImg,
+  "engineering-fabrication": fabricationImg,
+  "machining": machiningImg,
+  "metal-working": metalworkingImg,
+  "electronics": electronicsImg,
+  "rubber-plastics": rubberImg,
+  "printing-packaging": printingImg,
+};
 
 export async function generateStaticParams() {
   return industries.map((industry) => ({
@@ -17,6 +46,8 @@ export default async function IndustryPage({ params }) {
   if (!industry) {
     notFound();
   }
+
+  const heroSrc = industryImages[slug]?.src || industry.heroImage;
 
   return (
     <main className="flex flex-col min-h-screen bg-white">
@@ -51,9 +82,9 @@ export default async function IndustryPage({ params }) {
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-[12px] border-white bg-white">
                 <img
-                  src={industry.heroImage}
+                  src={heroSrc}
                   alt={industry.title}
-                  className="w-full h-auto max-h-[700px] object-contain"
+                  className="w-full h-[300px] md:h-[400px] object-cover"
                 />
               </div>
               

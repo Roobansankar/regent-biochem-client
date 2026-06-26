@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { API, imageUrl } from "@/lib/api";
 
@@ -8,21 +8,56 @@ export default function AdminProducts() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [reordering, setReordering] = useState(false);
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     setLoading(true);
     try {
       const response = await fetch(`${API}/products?limit=100`);
       const data = await response.json();
-      setProducts((data.products || []).filter(p => ["Cleaning Systems", "Paint Removal Systems", "Descaling Systems"].includes(p.category)));
+      const filtered = (data.products || []).filter(p =>
+        ["Cleaning Systems", "Paint Removal Systems", "Descaling Systems"].includes(p.category)
+      );
+      filtered.sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0));
+      setProducts(filtered);
     } catch (err) {
       console.error(err);
     } finally {
       setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
+
+  const moveItem = (index, direction) => {
+    const targetIndex = index + direction;
+    if (targetIndex < 0 || targetIndex >= products.length) return;
+    const list = [...products];
+    [list[index], list[targetIndex]] = [list[targetIndex], list[index]];
+    setProducts(list);
+  };
+
+  const saveOrder = async () => {
+    setReordering(true);
+    try {
+      const orders = products.map((p, i) => ({ id: p.id, sort_order: i }));
+      const res = await fetch(`${API}/products/reorder`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orders }),
+      });
+      if (res.ok) {
+        fetchProducts();
+      } else {
+        alert('Failed to save order');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Error saving order');
+    } finally {
+      setReordering(false);
     }
   };
 
@@ -40,6 +75,8 @@ export default function AdminProducts() {
     }
   };
 
+  const hasUnsavedChanges = products.some((p, i) => (p.sort_order ?? 0) !== i);
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -47,13 +84,36 @@ export default function AdminProducts() {
           <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Manage Products</h1>
           <p className="text-sm text-slate-500 mt-1">Add, edit, and manage products displayed in the navbar.</p>
         </div>
-        <Link
-          href="/admin/products/new"
-          className="bg-indigo-600 text-white px-5 py-2.5 rounded-xl text-sm font-black uppercase tracking-widest hover:bg-indigo-700 transition-all flex items-center gap-2 shadow-lg shadow-indigo-600/20 active:scale-[0.98]"
-        >
-          <i className="fas fa-plus text-xs"></i>
-          Add New Product
-        </Link>
+        <div className="flex items-center gap-3">
+          {hasUnsavedChanges && (
+            <button
+              onClick={saveOrder}
+              disabled={reordering}
+              className="bg-emerald-600 text-white px-5 py-2.5 rounded-xl text-sm font-black uppercase tracking-widest hover:bg-emerald-700 transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/20 active:scale-[0.98] disabled:opacity-50"
+            >
+              {reordering ? (
+                <i className="fas fa-spinner fa-spin text-xs"></i>
+              ) : (
+                <i className="fas fa-save text-xs"></i>
+              )}
+              Save Order
+            </button>
+          )}
+          <Link
+            href="/admin/products/new"
+            className="bg-indigo-600 text-white px-5 py-2.5 rounded-xl text-sm font-black uppercase tracking-widest hover:bg-indigo-700 transition-all flex items-center gap-2 shadow-lg shadow-indigo-600/20 active:scale-[0.98]"
+          >
+            <i className="fas fa-plus text-xs"></i>
+            Add New Product
+          </Link>
+        </div>
+      </div>
+
+      <div className="bg-amber-50 border border-amber-200 rounded-xl px-5 py-3 flex items-center gap-3">
+        <i className="fas fa-arrows-alt-v text-amber-600 text-sm"></i>
+        <p className="text-xs font-bold text-amber-700 uppercase tracking-wider">
+          Drag or use arrow buttons to reorder products, then click <span className="text-emerald-600">Save Order</span>.
+        </p>
       </div>
 
       <div className="relative w-72">
@@ -67,7 +127,7 @@ export default function AdminProducts() {
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200">
-                <th className="px-6 py-4 text-[11px] font-black uppercase tracking-widest text-slate-500 w-20">S.No</th>
+                <th className="px-6 py-4 text-[11px] font-black uppercase tracking-widest text-slate-500 w-20">Order</th>
                 <th className="px-6 py-4 text-[11px] font-black uppercase tracking-widest text-slate-500">Product</th>
                 <th className="px-6 py-4 text-[11px] font-black uppercase tracking-widest text-slate-500">Category</th>
                 <th className="px-6 py-4 text-[11px] font-black uppercase tracking-widest text-slate-500 text-right">Actions</th>
@@ -98,8 +158,28 @@ export default function AdminProducts() {
               ) : (
                 products.filter(p => !search || p.title.toLowerCase().includes(search.toLowerCase()) || p.category.toLowerCase().includes(search.toLowerCase()) || p.slug.toLowerCase().includes(search.toLowerCase())).map((product, index) => (
                   <tr key={product.id} className="hover:bg-slate-50/50 transition-colors group">
-                    <td className="px-6 py-4 text-xs font-bold text-slate-400">
-                      {String(index + 1).padStart(2, '0')}
+                    <td className="px-6 py-4">
+                      <div className="flex items-center gap-1">
+                        <button
+                          onClick={() => moveItem(index, -1)}
+                          disabled={index === 0}
+                          className="w-7 h-7 rounded-lg bg-slate-100 text-slate-500 flex items-center justify-center hover:bg-slate-200 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                          title="Move up"
+                        >
+                          <i className="fas fa-chevron-up text-[10px]"></i>
+                        </button>
+                        <span className="w-8 text-center text-xs font-bold text-slate-400">
+                          {index + 1}
+                        </span>
+                        <button
+                          onClick={() => moveItem(index, 1)}
+                          disabled={index === products.length - 1}
+                          className="w-7 h-7 rounded-lg bg-slate-100 text-slate-500 flex items-center justify-center hover:bg-slate-200 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                          title="Move down"
+                        >
+                          <i className="fas fa-chevron-down text-[10px]"></i>
+                        </button>
+                      </div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-4">

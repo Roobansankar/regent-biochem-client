@@ -62,10 +62,11 @@ export default function About() {
               <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Our Story
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
-              Driving Efficiency.<br/><span className="text-green-600">Green Way to Growth</span>
+              Driving Efficiency<br/><span className="text-green-600">Green Way to Growth</span>
             </h2>
-            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-4">Regent BioChem is an industrial solutions company focused on helping manufacturers improve operational efficiency, reliability, and process performance. Through a combination of advanced cleaning technologies, specialty chemical formulations, and application expertise, we support industries in maintaining cleaner, safer, and more productive operations.</p>
-            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-8">Our approach goes beyond supplying products. We work closely with customers to understand their challenges, recommend the right solutions, and provide ongoing technical support to ensure long-term value.</p>
+            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-4">Regent BioChem is a CleanTech and Surface Technology company focused on providing innovative industrial cleaning, surface technology, and maintenance solutions to a wide range of manufacturing industries across India and South Asia.</p>
+            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-4">Driven by a commitment to operational excellence, we help manufacturers enhance productivity, improve asset reliability, and sustain process performance through advanced cleaning technologies, specialty chemical formulations, and deep application knowledge. Our solutions are designed to support cleaner, safer, and more efficient operations while addressing evolving industrial challenges.</p>
+            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-8">With a customer-centric approach, we work closely with businesses to understand their unique requirements, deliver practical and effective solutions, and provide ongoing technical support that enables long-term efficiency, reliability, and sustainable growth.</p>
           </div>
         </div>
       </section>

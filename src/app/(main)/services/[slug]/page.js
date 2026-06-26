@@ -41,7 +41,7 @@ export default async function ServicePage({ params }) {
               </div>
             </div>
             <p className="text-sm sm:text-base text-brand-body leading-relaxed w-full">
-           Our specialized FreFlo pipeline cleaning service completely clears industrial lines to restore optimal pressure and fluid velocity, preventing costly clogs without damaging your infrastructure.
+FreFlo is our comprehensive industrial cleaning service that helps industries unlock the full potential of their equipment and processes. Combining advanced cleaning chemistry with expert application, FreFlo service eliminates performance-robbing contaminants and restores critical systems to optimal operating conditions. Whether supporting routine preventive maintenance or resolving complex fouling challenges, FreFlo service improves equipment reliability, enhances process throughput, reduces energy consumption, and minimizes costly downtime. With a focus on operational efficiency, asset longevity, and sustainability, FreFlo service enables manufacturers to maintain peak performance while reducing the total cost of maintenance.
             </p>
           </div>
         </div>

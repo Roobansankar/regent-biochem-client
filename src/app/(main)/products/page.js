@@ -106,7 +106,12 @@ function ProductsContent() {
   }, []);
 
   useEffect(() => {
-    setSearchQuery(searchParams.get("search") || "");
+    const search = searchParams.get("search") || "";
+    const brand = searchParams.get("brand") || "";
+    setSearchQuery(search);
+    if (brand) {
+      setActiveFilters({ "Product Brand": [brand] });
+    }
   }, [searchParams]);
 
   function toggleFilter(groupTitle, option) {

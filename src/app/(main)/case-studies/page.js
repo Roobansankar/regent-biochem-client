@@ -33,10 +33,10 @@ export default function CaseStudiesPage() {
         <div className="absolute inset-0 hero-pattern opacity-10"></div>
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight reveal">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
               Industrial <span className="text-green-mid">Success Stories</span>
             </h1>
-            <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed">
               See how we help manufacturing plants solve tough maintenance challenges, cut down on downtime, and improve floor safety.
             </p>
           </div>
@@ -57,7 +57,7 @@ export default function CaseStudiesPage() {
             {caseStudies.map((study, index) => (
               <article
                 key={index}
-                className="group reveal bg-white border border-brand-border rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                className="group bg-white border border-brand-border rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
               >
                 <div className="aspect-[16/10] overflow-hidden relative">
                   <img

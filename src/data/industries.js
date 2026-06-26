@@ -110,7 +110,7 @@ export const industries = [
     category: "Support Services",
     description: "The Maintenance, Repair, and Operations (MRO) sector is the lifeblood of industrial productivity, but round-the-clock operating schedules and demanding environments take a heavy toll. From heavy manufacturing lines to critical facility utilities, equipment is constantly bombarded by a brutal mix of stubborn synthetic greases, baked-on carbon deposits, localized rust, and aggressive mineral scale.\n\n<b>Heavy Equipment & Machinery Degreasing:</b> Our Heavy-Duty Industrial Degreasers safely remove stubborn oils, hardened grease, carbon deposits, synthetic lubricants, and heavy industrial contaminants from rotating machinery, heavy equipment, and mechanical components—preparing surfaces for immediate preventative maintenance, structural weld repair, or non-destructive testing (NDT) without leaving harmful residues.\n\n<b>Facility Utility & Thermal System Descaling:</b> Our Specialized Descaling Solutions aggressively dissolve hard water scale, mineral fouling, and rust from centralized chillers, heat exchangers, and complex cooling networks—instantly restoring optimal thermal transfer efficiency and preventing catastrophic system failures without the need for extensive equipment dismantling.",
     icon: "fa-tools",
-    heroImage: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1600",
+    heroImage: "/mro.png",
     handles: [
       "Industrial machinery and equipment",
       "Pumps, motors, and gearboxes",
@@ -334,7 +334,7 @@ export const industries = [
     title: "Aerospace & Defense",
     description: "The aerospace and defense sector is the backbone of global security, but relentless flight cycles and harsh deployment conditions take a heavy toll. From precision aircraft components to tactical ground assets, equipment is constantly bombarded by a brutal mix of runway debris, severe carbon deposits, hydraulic residues, and micro-corrosion.\n\n<b>Thermal Circuit & Heat Exchanger Cleaning:</b> Utilizing our specialized circulation systems, we effectively remove oil-cracking residues, corrosion, scale, and contaminants from your cooling circuits, heat exchangers, and associated piping. Our advanced process restores peak heat transfer efficiency and maintains system reliability—completely eliminating the need for extensive dismantling.\n\n<b>Multi-Metal & Component Care:</b> We provide material-safe, residue-free cleaning chemistry specifically engineered to prep your delicate alloys, avionics housings, and landing gear. Our solutions ensure surfaces are pristine and ready for immediate non-destructive testing (NDT), seamless assembly, or final coating application.",
     icon: "fa-rocket",
-    heroImage: "/aero.jpeg",
+    heroImage: "/aero.png",
     handles: [
       "Aircraft structural components",
       "Turbine engines and compressor blades",
@@ -392,7 +392,7 @@ export const industries = [
     title: "Railways",
     description: "The railway sector is the backbone of global transit and freight logistics, but continuous operations under harsh conditions take a heavy toll. From locomotives and passenger coaches to heavy freight wagons, railway equipment is constantly bombarded by a brutal mix of track dirt, heavy grease, carbon stains, brake dust, and rust.\n\n<b>Internal Pipe & Cooling System Descaling:</b> Advanced circulation and flushing systems that dissolve scale and rust from locomotive radiators, pipelines, and temperature control units—restoring efficiency with zero component dismantling.\n\n<b>Precision Mechanical Component Care:</b> High-performance, fast-drying, and residue-free cleaners to prep bearings, engines, and electrical components for immediate inspection, rebuilding, or assembly.",
     icon: "fa-train",
-    heroImage: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&q=80&w=1600",
+    heroImage: "/railways.png",
     handles: [
       "Railway coaches",
       "Locomotives and engines",
@@ -508,7 +508,7 @@ export const industries = [
     category: "Industrial Engineering",
     description: "The engineering and fabrication sector is the backbone of industrial infrastructure, but heavy-duty cutting, forming, and welding cycles take a massive toll. From structural steel yards to precision sheet metal facilities, critical machinery and raw metals are constantly bombarded by a brutal mix of mill scale, anti-spatter residues, drawing compounds, and shop dust.\n\n<b>Thermal Process & Laser Bed Maintenance:</b> We deploy engineered maintenance cleaners that swiftly dissolve carbonized slag, dense soot, and fused residues from your automated laser and plasma cutting beds. Our specialized approach completely restores cutting precision and mechanical alignment without requiring tedious, labor-intensive equipment teardowns.\n\n<b>Multi-Metal & Structural Prep:</b> We provide non-reactive, zero-residue chemistries meticulously formulated to condition your raw structural steel, aluminum frameworks, and sensitive alloys. Our processing guarantees a clinically clean surface, leaving components perfectly primed for immediate non-destructive testing, industrial coatings, or permanent paint adhesion.",
     icon: "fa-industry",
-    heroImage: "/Engineering.png",
+    heroImage: "/fabrication.png",
     handles: [
       "Structural steel beams and architectural frameworks",
       "Heavy machinery chassis and industrial cranes",

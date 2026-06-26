@@ -18,9 +18,9 @@ export default function Stats() {
             </span>
           </div>
           <div>
-            <span className="block text-3xl sm:text-4xl font-bold text-green tracking-tight leading-none"><CountUp end={6} /></span>
+            <span className="block text-3xl sm:text-4xl font-bold text-green tracking-tight leading-none"><CountUp end={20} suffix="+" /></span>
             <span className="block text-sm lg:text-[10px] font-bold uppercase tracking-wider text-brand-muted mt-2">
-              Certifications
+              Industries
             </span>
           </div>
           <div>
