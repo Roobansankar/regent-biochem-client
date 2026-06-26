@@ -111,30 +111,15 @@ export default function CategoryTabs({ products, category }) {
               )}
 
               {/* Available Pack Sizes */}
-              {![
-                "Cleaning Systems",
-                "Paint Removal Systems",
-                "Descaling Systems",
-              ].includes(active.category) && (
+              {active.availableModels && active.availableModels.length > 0 && (
                 <div className="mt-6 mb-8">
                   <p className="text-xs font-bold text-green uppercase tracking-wider mb-4">
                     Available Pack Sizes
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {(active.id === "uno-s" ? [
-                      { name: "Box-10" },
-                      { name: "Jerry Can-100" },
-                      { name: "Jerry Can-30" },
-                      { name: "Jerry Can-50" },
-                    ] : [
-                      { name: `${active.title} - PET (recycled) bottle 500ml with sprayer` },
-                      { name: `${active.title} - PET (recycled) bottle 1L with sprayer` },
-                      { name: `${active.title} - Jerry Can 1L` },
-                      { name: `${active.title} - Jerry Can 5L` },
-                      { name: `${active.title} - Jerry Can 25L` },
-                    ]).map((item, i) => (
+                    {active.availableModels.map((m, i) => (
                       <span key={i} className="text-center px-4 py-2 rounded-full border border-green/30 text-sm font-semibold text-brand-black">
-                        {item.name}
+                        {m.model || m.name}
                       </span>
                     ))}
                   </div>

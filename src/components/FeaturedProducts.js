@@ -30,7 +30,7 @@ export default function FeaturedProducts() {
   const imgSrc = imageUrl(product.images?.[0]);
 
   return (
-    <section className="bg-[#f7f7f5]">
+    <section className="bg-white">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-6 sm:pb-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
           <div>
@@ -63,20 +63,24 @@ export default function FeaturedProducts() {
           </div>
         )}
 
-        <div className="bg-white border border-brand-border rounded-2xl p-6 sm:p-8 lg:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+        <div className="bg-brand-bg3 rounded-2xl p-6 sm:p-8 lg:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-14 items-center">
+            <div className="lg:col-span-2">
             <Link
               href={`/products/${product.slug}`}
-              className="dot-bg bg-brand-bg3 rounded-xl aspect-[4/3] flex items-center justify-center relative overflow-hidden p-6 group/img"
+              className="bg-white rounded-2xl border border-brand-border overflow-hidden relative group shadow-sm group/img aspect-square"
             >
               {imgSrc ? (
-                <img src={imgSrc} alt={product.title} className="w-full h-full object-contain relative z-10 transition-all duration-500 group-hover/img:scale-105" />
+                <img src={imgSrc} alt={product.title} className="w-full h-full object-cover transition-all duration-500 group-hover/img:scale-105" />
               ) : (
-                <i className={`fas ${product.icon || "fa-box"} text-5xl sm:text-6xl text-green/40 relative z-10 transition-all duration-500 group-hover/img:scale-105`}></i>
+                <div className="w-full h-full flex items-center justify-center">
+                  <i className={`fas ${product.icon || "fa-box"} text-5xl sm:text-6xl text-green/40 transition-all duration-500 group-hover/img:scale-105`}></i>
+                </div>
               )}
             </Link>
+            </div>
 
-            <div>
+            <div className="lg:col-span-3">
               <Link href={`/products/${product.slug}`} className="block group/title">
                 <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-brand-black mb-4 leading-tight group-hover/title:text-green transition-colors">
                   {product.title}

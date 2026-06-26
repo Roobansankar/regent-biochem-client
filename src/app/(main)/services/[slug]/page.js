@@ -1,7 +1,6 @@
 import { services } from "@/data/services";
 import CTA from "@/components/CTA";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import CTA2 from "@/components/CTA2";
 
 export async function generateStaticParams() {
@@ -159,37 +158,22 @@ FreFlo is our comprehensive industrial cleaning service that helps industries un
   </section>
 )}
 
-      {/* Industries We Serve Section */}
-      <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Industries We Serve</h2>
-          </div>
-          <div className="flex flex-wrap justify-center gap-3">
-            {[
-              { name: "Automotive", href: "/industries/automotive" },
-              { name: "Aerospace & Defense", href: "/industries/aerospace-defense" },
-              { name: "Railways", href: "/industries/railways" },
-              { name: "Shipbuilding & Shipyards", href: "/industries/shipbuilding-shipyards" },
-              { name: "Engineering & Fabrication", href: "/industries/engineering-fabrication" },
-              { name: "Machining", href: "/industries/machining" },
-              { name: "Metal Working", href: "/industries/metal-working" },
-              { name: "Electronics", href: "/industries/electronics" },
-              { name: "Oil & Gas", href: "/industries/oil-gas" },
-              { name: "Food & Beverages", href: "/industries/food-beverage" },
-              { name: "Rubber & Plastics", href: "/industries/rubber-plastics" },
-              { name: "Printing & Packaging", href: "/industries/printing-packaging" },
-              { name: "MRO", href: "/industries/mro-maintenance" },
-            ].map((item, index) => (
-              <Link key={index} href={item.href}>
-                <div className="px-6 py-3 rounded-2xl bg-green-light border border-green-mid/50 hover:bg-white hover:border-green/30 transition-all duration-300 group shadow-sm cursor-pointer">
-                  <span className="text-xs sm:text-sm font-bold text-green group-hover:text-green-dark">{item.name}</span>
+      {service.industries?.length > 0 && (
+        <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Industries We Serve</h2>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {service.industries.map((item, index) => (
+                <div key={index} className="px-6 py-3 rounded-2xl bg-green-light border border-green-mid/50 transition-all duration-300 group shadow-sm">
+                  <span className="text-xs sm:text-sm font-bold text-green">{item}</span>
                 </div>
-              </Link>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Service Approach */}
       <section id="details" className="py-6 sm:py-8 bg-brand-bg2/50 border-b border-brand-border">

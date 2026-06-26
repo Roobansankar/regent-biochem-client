@@ -40,7 +40,7 @@ export default function Philosophy() {
             </h2>
           </div>
           <p className="text-base text-brand-body leading-relaxed mb-6 text-justify">
-            At Regent BioChem, we deliver industrial cleaning systems, specialty chemicals, and surface technology solutions for manufacturing industries across India through our <b>CleanTech, SafeWeld, and FreeFlow solutions. </b>
+            At Regent BioChem, we deliver industrial cleaning systems, specialty chemicals, and surface technology solutions for manufacturing industries across India through our <b>CleanTech, SafeWeld, and FreFlo solutions. </b>
             In strategic partnership with Bio-Circle Surface Technology GmbH, Germany, we combine proven German engineering with application-focused expertise to provide performance-driven solutions that enhance efficiency, reliability, and operational productivity.
           </p>
           <Link
