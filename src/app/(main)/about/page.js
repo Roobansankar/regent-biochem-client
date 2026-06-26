@@ -112,7 +112,7 @@ export default function About() {
               <span className="w-6 h-0.5 bg-green-500 rounded-sm"></span> Our Expertise
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
-              Product <span className="text-green-600">Categories</span>
+              Core <span className="text-green-600">Solution Offerings</span>
             </h2>
           </div>
 

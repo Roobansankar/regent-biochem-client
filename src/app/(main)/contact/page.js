@@ -108,7 +108,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">Phone Number</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">0422 231 0396</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">9843406642</p>
                   </div>
                 </div>
 
@@ -118,7 +118,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">Email Address</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">info@regentbiochem.com<br/>support@regentbiochem.com</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">info@bio-chem.in<br/>bizdev@bio-chem.in</p>
                   </div>
                 </div>
 
@@ -126,9 +126,10 @@ export default function Contact() {
                 <div>
                   <h4 className="font-bold text-gray-900 mb-4">Follow Us</h4>
                   <div className="flex gap-3">
-                    <Link href="#" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-linkedin-in"></i></Link>
-                    <Link href="#" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-twitter"></i></Link>
-                    <Link href="#" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-facebook-f"></i></Link>
+                    <Link href="https://www.linkedin.com/company/regent-biochem/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-linkedin-in"></i></Link>
+                    <Link href="https://youtube.com/@regentbio-chem?si=yOEOWQuYKA7JCwUa" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-youtube"></i></Link>
+                    <Link href="https://www.facebook.com/profile.php?id=61591484781451" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-facebook-f"></i></Link>
+                    <Link href="https://www.instagram.com/regent_biochem/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-green-600 hover:border-green-600 transition-all"><i className="fab fa-instagram"></i></Link>
                   </div>
                 </div>
               </div>
