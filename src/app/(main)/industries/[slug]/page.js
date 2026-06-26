@@ -58,7 +58,7 @@ export default async function IndustryPage({ params }) {
         <div className="absolute top-0 right-0 w-1/3 h-full bg-green-50/30 blur-3xl -z-10"></div>
         
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
             <div className="lg:col-span-6"> 
               <div className="flex items-center gap-3 mb-4">
                  <p className="text-sm font-black tracking-[0.4em] uppercase text-green">
