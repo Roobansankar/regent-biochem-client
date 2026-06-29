@@ -167,7 +167,7 @@ export default function Hero() {
                     {slide.title}
                   </h1>
 
-                  <p className="text-sm sm:text-base text-brand-body leading-relaxed max-w-xl mb-5">
+                  <p className="text-sm text-brand-body leading-relaxed max-w-xl mb-5">
                     {slide.desc}
                   </p>
 

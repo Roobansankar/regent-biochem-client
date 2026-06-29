@@ -46,7 +46,7 @@ export default function CTA() {
             <br />
             Your Process?
           </h2>
-          <p className="text-white/85 text-base leading-relaxed">
+          <p className="text-white/85 text-sm leading-relaxed">
             Consult with our application engineers to find the ideal cleaning or surface protection configuration for
             your facility.
           </p>
