@@ -118,7 +118,7 @@ export default async function ProductDetailPage({ params }) {
                   {categoryTitle}
                 </h1>
                 {parentCategory === "Safeweld" && (
-                  <img src={safeweldLogo.src} alt="SafeWeld" className="h-14 sm:h-20 w-auto object-contain mb-4" />
+                  <img src={safeweldLogo.src} alt="SafeWeld" className="h-12 sm:h-16 w-auto object-contain mb-4" />
                 )}
               </div>
               <p className="text-sm text-brand-body leading-relaxed pl-0 w-full text-justify">

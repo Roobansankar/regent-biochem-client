@@ -26,7 +26,7 @@ import heat4 from "@/assets/service/Heat Exchangers/Heat Exchanger4.png";
 import heat5 from "@/assets/service/Heat Exchangers/Heat Exchanger5.png";
 import op1 from "@/assets/service/Operation Impact assessment/operational1.png";
 import op2 from "@/assets/service/Operation Impact assessment/operational2.png";
-import op3 from "@/assets/service/Operation Impact assessment/operational3.png";
+import op3 from "@/assets/service/Operation Impact assessment/operational3.webp";
 import op4 from "@/assets/service/Operation Impact assessment/operational4.png";
 import op5 from "@/assets/service/Operation Impact assessment/operational5.png";
 

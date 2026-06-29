@@ -43,7 +43,7 @@ Grow your career by solving real-world industrial challenges and delivering high
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">Why Bio chem?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">Why Regent BioChem?</h2>
             <div className="w-16 h-1 bg-green rounded-full mb-6"></div>
             <p className="text-sm text-brand-body leading-relaxed max-w-none">
               At Regent BioChem, we believe innovation starts with people. We offer opportunities to work on real-world industrial challenges, gain hands-on industry exposure, and contribute to sustainable technologies that improve manufacturing processes. Whether you&apos;re a student, intern, or experienced professional, you&apos;ll find an environment that encourages learning, collaboration, and continuous growth.
@@ -94,7 +94,7 @@ Grow your career by solving real-world industrial challenges and delivering high
                   "Customer-focused thinking",
                   "Passion for continuous improvement"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-brand-body">
+                  <li key={i} className="flex items-start gap-3 text-sm text-brand-body">
                     <i className="fas fa-user-check text-green mt-1"></i>
                     <span>{item}</span>
                   </li>
@@ -115,11 +115,11 @@ Grow your career by solving real-world industrial challenges and delivering high
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
-              { title: "Application Submission", icon: "fa-file-alt" },
-              { title: "Resume Screening", icon: "fa-id-badge" },
-              { title: "Technical/ Role-based Interview", icon: "fa-comments" },
-              { title: "Final Interview", icon: "fa-users" },
-              { title: "Offer & Onboarding", icon: "fa-check-double" }
+              { title: "Application<br/>Submission", icon: "fa-file-alt" },
+              { title: "Resume<br/>Screening", icon: "fa-id-badge" },
+              { title: "Technical/<br/>Role-based Interview", icon: "fa-comments" },
+              { title: "Final<br/>Interview", icon: "fa-users" },
+              { title: "Offer &<br/>Onboarding", icon: "fa-check-double" }
             ].map((step, i, arr) => (
               <div key={i} className="relative group">
                 {i < arr.length - 1 && (
@@ -130,7 +130,7 @@ Grow your career by solving real-world industrial challenges and delivering high
                   <i className={`fas ${step.icon} text-xl`}></i>
                 </div>
                 <div className="text-xs font-bold text-green uppercase tracking-widest mb-2">Step 0{i+1}</div>
-                  <h4 className="text-sm font-bold text-brand-black leading-tight">{step.title}</h4>
+                  <h4 className="text-sm font-bold text-brand-black leading-tight" dangerouslySetInnerHTML={{ __html: step.title }}></h4>
                 </div>
               </div>
             ))}
