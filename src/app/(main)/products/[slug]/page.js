@@ -121,7 +121,7 @@ export default async function ProductDetailPage({ params }) {
                   <img src={safeweldLogo.src} alt="SafeWeld" className="h-14 sm:h-20 w-auto object-contain mb-4" />
                 )}
               </div>
-              <p className="text-sm sm:text-base text-brand-body leading-relaxed pl-0 w-full text-justify">
+              <p className="text-sm text-brand-body leading-relaxed pl-0 w-full text-justify">
                 {CATEGORY_DESCRIPTIONS[slug] || `Browse our range of ${parentCategory.toLowerCase()} products.`}
               </p>
             </div>
@@ -174,7 +174,7 @@ export default async function ProductDetailPage({ params }) {
                 {product.title}
               </h1>
 
-              <p className="text-sm sm:text-base text-brand-body leading-relaxed pl-0 w-full text-justify">
+              <p className="text-sm text-brand-body leading-relaxed pl-0 w-full text-justify">
                 {product.desc} {product.extraDesc}
               </p>
             </div>
@@ -224,7 +224,7 @@ export default async function ProductDetailPage({ params }) {
                 </p>
               )}
 
-              <p className="text-sm sm:text-base text-brand-body  pl-0 sm:pl-0 max-w-2xl">
+              <p className="text-sm text-brand-body  pl-0 sm:pl-0 max-w-2xl">
                 {product.desc}
               </p>
 
@@ -240,7 +240,7 @@ export default async function ProductDetailPage({ params }) {
               {/* Available Models */}
               {product.availableModels && product.availableModels.length > 0 && (
                 <div className="mt-6 mb-4">
-                  <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Available Models</p>
+                  <p className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Available Models</p>
                   <div className="grid grid-cols-2 gap-3">
                     {product.availableModels.map((m, i) => (
                       <span key={i} className="text-center px-4 py-2 rounded-full border border-green/30 text-sm font-semibold text-brand-black">
@@ -296,7 +296,7 @@ export default async function ProductDetailPage({ params }) {
               {/* Is This Product Right for You? */}
               {product.isThisRightFor && (
                 <div>
-                  <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Is This Product Right for You?</h3>
+                  <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Is This Product Right for You?</h3>
                    <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
                   <p className="text-sm text-brand-body leading-relaxed" style={{ whiteSpace: "pre-line" }}>{product.isThisRightFor}</p>
                   </div>
@@ -306,9 +306,9 @@ export default async function ProductDetailPage({ params }) {
               {/* Application */}
               {product.application && (
                 <div>
-                  <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Application</h3>
+                  <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Application</h3>
                   <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
-                    <p className="text-sm sm:text-base text-brand-body leading-relaxed" style={{ whiteSpace: "pre-line" }}>{product.application}</p>
+                    <p className="text-sm text-brand-body leading-relaxed" style={{ whiteSpace: "pre-line" }}>{product.application}</p>
                   </div>
                 </div>
               )}
@@ -319,9 +319,9 @@ export default async function ProductDetailPage({ params }) {
                 if (sd && sd.headers && sd.headers.length > 0 && sd.rows && sd.rows.length > 0) {
                   return (
                     <div>
-                      <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
+                      <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
                       <div className="overflow-hidden rounded-2xl border border-brand-border">
-                        <table className="w-full text-xs sm:text-sm table-fixed">
+                        <table className="w-full text-sm table-fixed">
                           <thead>
                             <tr className="bg-gradient-to-r from-green to-emerald-600">
                               <th className="text-left px-4 py-3 font-bold text-white w-2/5">Parameter</th>
@@ -348,9 +348,9 @@ export default async function ProductDetailPage({ params }) {
                 if (product.availableModels && product.specificationFields && product.availableModels.length > 0) {
                   return (
                     <div>
-                      <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
+                      <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
                       <div className="overflow-hidden rounded-2xl border border-brand-border">
-                        <table className="w-full text-xs sm:text-sm table-fixed">
+                        <table className="w-full text-sm table-fixed">
                           <thead>
                             <tr className="bg-gradient-to-r from-green to-emerald-600">
                               <th className="text-left px-4 py-3 font-bold text-white w-2/5">Parameter</th>
@@ -491,16 +491,16 @@ export default async function ProductDetailPage({ params }) {
                   <div className="bg-gradient-to-br from-green to-emerald-600 rounded-2xl p-6 sm:p-7 text-white overflow-hidden relative">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
                     <div className="relative z-10">
-                      <h3 className="text-base sm:text-lg font-bold mb-5">Highlights</h3>
+                      <h3 className="text-sm font-bold mb-5">Highlights</h3>
                       <div className="space-y-3.5">
                         {product.technicalSpecs.map((spec, i) => (
                           <div key={i} className="flex justify-between items-end border-b border-white/15 pb-3">
                             <div>
-                              <p className="text-xs sm:text-sm font-bold text-white/60 mb-0.5">{spec.label}</p>
+                              <p className="text-sm font-bold text-white/60 mb-0.5">{spec.label}</p>
                               {spec.value.toLowerCase() === "voc-free" || spec.value.toLowerCase() === "voc free" ? (
                                 <img src="https://c8.alamy.com/comp/2JBE5TW/voc-free-volatile-organic-compounds-free-abstract-vector-stock-illustration-2JBE5TW.jpg" alt="VOC Free" className="h-10 sm:h-12 w-auto object-contain bg-white rounded p-0.5 mt-1" />
                               ) : (
-                                <p className="text-xs sm:text-sm font-bold text-white">{spec.value}</p>
+                                <p className="text-sm font-bold text-white">{spec.value}</p>
                               )}
                             </div>
                           </div>
@@ -520,7 +520,7 @@ export default async function ProductDetailPage({ params }) {
                     <div className="bg-white rounded-2xl p-5 sm:p-6 border border-brand-border shadow-sm">
                       <div className="flex items-center gap-2 mb-4">
                         <i className="fas fa-flask text-green text-xs"></i>
-                        <span className="text-xs sm:text-sm font-bold text-green uppercase tracking-wider">Recommended Cleaner</span>
+                        <span className="text-sm font-bold text-green uppercase tracking-wider">Recommended Cleaner</span>
                       </div>
                       <div className="space-y-4">
                         {rcs.map((slug, idx) => {
@@ -537,8 +537,7 @@ export default async function ProductDetailPage({ params }) {
                               </div>
                               <div className="min-w-0">
                                 <h5 className="text-sm font-bold text-brand-black mb-1">{match.title}</h5>
-                                <p className="text-xs text-brand-body leading-relaxed mb-3">{match.desc}</p>
-                                <Link href={`/products/${slug}`} className="inline-flex items-center gap-1.5 text-xs font-bold text-green hover:text-green-dark transition-colors">
+                                <Link href={`/products/${slug}`} className="inline-flex items-center gap-1.5 text-sm font-bold text-green hover:text-green-dark transition-colors">
                                   View Product <i className="fas fa-arrow-right text-[10px]"></i>
                                 </Link>
                               </div>
