@@ -55,7 +55,7 @@ export default function WhyChooseUs() {
                 <i className={`fas ${adv.icon} group-hover:text-white transition-colors`}></i>
               </div>
               <h3 className="text-xl lg:text-lg font-bold text-brand-black mb-3">{adv.title}</h3>
-              <p className="text-base lg:text-sm text-brand-body leading-relaxed">{adv.desc}</p>
+              <p className="text-sm sm:text-base text-brand-body leading-relaxed">{adv.desc}</p>
             </div>
           ))}
         </div>

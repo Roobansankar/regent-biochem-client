@@ -429,10 +429,12 @@ export default async function ProductDetailPage({ params }) {
                       .filter(Boolean)
                       .map((similarProd, i) => (
                         <Link key={i} href={`/products/${similarProd.slug}`} className="group block border border-brand-border rounded-xl overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 bg-white">
-                          <div className="bg-gradient-to-br from-brand-bg3 to-white aspect-[4/3] flex items-center justify-center p-6">
-                            <div className="w-full h-full flex items-center justify-center text-green/60 group-hover:text-green group-hover:scale-110 transition-all duration-500">
-                              <i className={`fas ${similarProd.icon || "fa-box"} text-4xl sm:text-5xl`}></i>
-                            </div>
+                          <div className="aspect-[4/3] overflow-hidden bg-brand-bg3">
+                            <img
+                              src={similarProd.img || similarProd.images?.[0] || "/placeholder.png"}
+                              alt={similarProd.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
                           </div>
                           <div className="p-4 sm:p-5">
                             <span className="text-xs font-bold text-green">{similarProd.category}</span>
@@ -515,20 +517,28 @@ export default async function ProductDetailPage({ params }) {
                         <span className="text-xs sm:text-sm font-bold text-green uppercase tracking-wider">Recommended Cleaner</span>
                       </div>
                       <div className="space-y-4">
-                        {rcs.map((rc, idx) => (
-                          <div key={idx} className="flex items-start gap-3 sm:gap-4">
-                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-green-light to-white flex items-center justify-center shrink-0 border border-green/20">
-                              <i className={`fas ${allItems.find(p => p.slug === rc.slug)?.icon || "fa-flask"} text-lg sm:text-xl text-green`}></i>
+                        {rcs.map((slug, idx) => {
+                          const match = allItems.find(p => p.slug === slug);
+                          if (!match) return null;
+                          return (
+                            <div key={idx} className="flex items-start gap-3 sm:gap-4">
+                              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden shrink-0 border border-green/20 bg-brand-bg3">
+                                <img
+                                  src={match.img || "/placeholder.png"}
+                                  alt={match.title}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                              <div className="min-w-0">
+                                <h5 className="text-sm font-bold text-brand-black mb-1">{match.title}</h5>
+                                <p className="text-xs text-brand-body leading-relaxed mb-3">{match.desc}</p>
+                                <Link href={`/products/${slug}`} className="inline-flex items-center gap-1.5 text-xs font-bold text-green hover:text-green-dark transition-colors">
+                                  View Product <i className="fas fa-arrow-right text-[10px]"></i>
+                                </Link>
+                              </div>
                             </div>
-                            <div className="min-w-0">
-                              <h5 className="text-sm font-bold text-brand-black mb-1">{rc.name}</h5>
-                              <p className="text-xs text-brand-body leading-relaxed mb-3">{rc.desc}</p>
-                              <Link href={`/products/${rc.slug}`} className="inline-flex items-center gap-1.5 text-xs font-bold text-green hover:text-green-dark transition-colors">
-                                View Product <i className="fas fa-arrow-right text-[10px]"></i>
-                              </Link>
-                            </div>
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
                     </div>
                   );

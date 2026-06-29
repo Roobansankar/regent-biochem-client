@@ -20,12 +20,13 @@ export default function Offerings() {
               key={index}
               className="group bg-white rounded-xl border border-brand-border/40 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden"
             >
-              <div className="aspect-[4/3] bg-brand-bg3 flex items-center justify-center overflow-hidden">
+              <div className="aspect-[4/3] bg-brand-bg3 flex items-center justify-center overflow-hidden relative">
                 <img
                   src={service.heroImage?.src ?? service.heroImage}
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-green/10 mix-blend-multiply"></div>
               </div>
               <div className="flex flex-col items-start text-left px-4 pt-4 pb-5 flex-1">
                 <h3 className="text-base lg:text-sm font-bold text-brand-black leading-snug mb-2">{service.title}</h3>

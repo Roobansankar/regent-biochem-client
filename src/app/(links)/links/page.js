@@ -209,9 +209,7 @@ export default function Links() {
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto">
               <img src="/logo.png" alt="Bio-Chem Logo" className="h-16 w-auto brightness-0 invert mx-auto mb-6" />
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
-                Regent Biochem
-              </h1>
+
               <p className="text-sm sm:text-base text-white/90 leading-relaxed font-medium">
                 Green Way to Growth
               </p>

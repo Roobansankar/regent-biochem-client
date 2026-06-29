@@ -509,29 +509,13 @@ export default function ProductForm({ initialData = null, isEditing = false, typ
           {/* ── RECOMMENDED CLEANERS ── */}
           <MetaBox title="Recommended Cleaners">
             {recommendedCleaners.map((rc, i) => (
-              <div key={i} className="space-y-2 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-400">#{i + 1}</span>
-                  <RemoveBtn onClick={() => setRecommendedCleaners(p => p.filter((_, j) => j !== i))} />
-                </div>
-                <div>
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 block">Name</label>
-                  <input value={rc.name} onChange={e => setRecommendedCleaners(p => { const u = [...p]; u[i] = { ...u[i], name: e.target.value }; return u; })}
-                    className={fieldClass} placeholder="Bio Circle L Liquid" />
-                </div>
-                <div>
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 block">Slug</label>
-                  <input value={rc.slug} onChange={e => setRecommendedCleaners(p => { const u = [...p]; u[i] = { ...u[i], slug: e.target.value }; return u; })}
-                    className={fieldClass} placeholder="biochem-bio-circle-l" />
-                </div>
-                <div>
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 block">Short Description</label>
-                  <input value={rc.desc} onChange={e => setRecommendedCleaners(p => { const u = [...p]; u[i] = { ...u[i], desc: e.target.value }; return u; })}
-                    className={fieldClass} placeholder="Short description" />
-                </div>
+              <div key={i} className="flex gap-2">
+                <input value={rc} onChange={e => { const u = [...recommendedCleaners]; u[i] = e.target.value; setRecommendedCleaners(u); }}
+                  className={fieldClass} placeholder="Product slug (e.g. biochem-bio-circle-l)" />
+                <RemoveBtn onClick={() => setRecommendedCleaners(p => p.filter((_, j) => j !== i))} />
               </div>
             ))}
-            <AddBtn onClick={() => setRecommendedCleaners(p => [...p, { name: "", slug: "", desc: "" }])} label="Add Recommended Cleaner" />
+            <AddBtn onClick={() => setRecommendedCleaners(p => [...p, ""])} label="Add Recommended Cleaner" />
           </MetaBox>
 
           {isLiquid && (

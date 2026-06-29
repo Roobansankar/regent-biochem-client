@@ -86,7 +86,7 @@ export default function FeaturedProducts() {
                   {product.title}
                 </h3>
               </Link>
-              <p className="text-base text-brand-body leading-relaxed mb-6">{product.description || product.desc}</p>
+              <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-6">{product.description || product.desc}</p>
               {product.features && product.features.length > 0 && (
                 <ul className="flex flex-col gap-2.5 mb-8">
                   {product.features.map((feature, i) => (

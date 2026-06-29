@@ -3,6 +3,7 @@ import { timeline, values } from "@/data/about";
 import Link from "next/link";
 import aboutus from "@/assets/aboutus.png";
 import frefloLogo from "@/assets/freeflo.png";
+import safeweldLogo from "@/assets/safeweld.png";
 
 export const dynamic = "force-static";
 export const revalidate = false;
@@ -18,7 +19,7 @@ export default function About() {
     {
       title: "SafeWeld",
       desc: "High-performance, eco-friendly anti-spatter and surface protection solutions for welding operations.",
-      icon: "fa-shield-halved",
+      icon: safeweldLogo,
       link: "/products?search=SafeWeld"
     },
     {
