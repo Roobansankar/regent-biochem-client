@@ -145,7 +145,7 @@ export default function FAQPage() {
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
               Frequently Asked <span className="text-green-mid">Questions</span>
             </h1>
-            <p className="text-sm sm:text-base text-white/90 leading-relaxed">
+            <p className="text-sm text-white/90 leading-relaxed">
             Find quick answers to common questions about our chemical solutions, pipeline cleaning, and ordering.
             </p>
           </div>
@@ -161,7 +161,7 @@ export default function FAQPage() {
               <div className="sticky top-24">
                 <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">Knowledge Base</h2>
                 <div className="w-16 h-1 bg-green rounded-full mb-6"></div>
-                <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-6">
+                <p className="text-sm text-brand-body leading-relaxed mb-6">
                   Browse our categorized help articles to find answers quickly. If you can&apos;t find what you&apos;re looking for, our technical team is ready to assist.
                 </p>
                 <div className="hidden lg:flex flex-col gap-3">
@@ -170,7 +170,7 @@ export default function FAQPage() {
                       key={i}
                       href={`#faq-${i}`}
                       onClick={(e) => { e.preventDefault(); document.getElementById(`faq-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}
-                      className="flex items-center gap-3 text-brand-muted hover:text-green cursor-pointer transition-colors font-semibold"
+                      className="flex items-center gap-3 text-sm text-brand-muted hover:text-green cursor-pointer transition-colors font-semibold"
                     >
                       <div className="w-1.5 h-1.5 rounded-full bg-green"></div>
                       {cat.category}
@@ -203,7 +203,7 @@ export default function FAQPage() {
                             onClick={() => toggleFAQ(currentIndex)}
                             className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
                           >
-                            <span className={`text-base font-bold transition-colors ${isOpen ? "text-green" : "text-brand-black"}`}>
+                            <span className={`text-sm font-bold transition-colors ${isOpen ? "text-green" : "text-brand-black"}`}>
                               {faq.question}
                             </span>
                             <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${isOpen ? "sm:bg-green sm:text-white rotate-180" : "sm:bg-brand-bg2 sm:text-brand-muted bg-transparent text-green"}`}>
@@ -233,7 +233,7 @@ export default function FAQPage() {
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-green/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
               
               <h2 className="text-2xl font-bold text-brand-black mb-4 relative z-10">Still have questions?</h2>
-              <p className="text-sm sm:text-base text-brand-body mb-6 relative z-10">
+              <p className="text-sm text-brand-body mb-6 relative z-10">
                 Can&apos;t find the answer you&apos;re looking for? Please chat to our friendly team for personalized assistance.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">

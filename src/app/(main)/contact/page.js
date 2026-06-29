@@ -66,7 +66,7 @@ export default function Contact() {
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight reveal">
               Get in <span className="text-green-mid">Touch</span>
             </h1>
-            <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
+            <p className="text-sm text-white/90 leading-relaxed reveal">
              Reach out to our technical team today for product specifications, custom quotes, or maintenance support.
             </p>
           </div>
@@ -86,7 +86,7 @@ export default function Contact() {
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight tracking-tight mb-6">
                   How can we <span className="text-green-600">help you?</span>
                 </h2>
-                <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-8">
+                <p className="text-sm text-gray-500 leading-relaxed mb-8">
                   Whether you&apos;re looking for a specific cleaning system, chemical formulation or need technical support, we&apos;re here to provide the expertise.
                 </p>
               </div>

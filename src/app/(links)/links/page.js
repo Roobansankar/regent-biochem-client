@@ -40,6 +40,7 @@ const products = [
       </svg>
     ),
     title: "FreFlo",
+    href: "/services/pipeline",
   },
 ];
 
@@ -76,6 +77,7 @@ const resources = [
     ),
     title: "Blogs",
     href: "/blog",
+    className: "px-3",
   },
 ];
 
@@ -160,9 +162,9 @@ function SectionDivider({ title }) {
   );
 }
 
-function MiniCard({ icon, title, href }) {
+function MiniCard({ icon, title, href, className = "" }) {
   const content = (
-    <div className="flex flex-col items-center gap-1.5 bg-white rounded-2xl py-3 px-1 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer text-center" style={{ color: GREEN_DARK }}>
+    <div className={`flex flex-col items-center gap-1.5 bg-white rounded-2xl py-3 px-1 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer text-center ${className}`} style={{ color: GREEN_DARK }}>
       <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: GREEN_DARK }}>
         {icon}
       </div>
@@ -226,9 +228,9 @@ export default function Links() {
 
           {/* Resources */}
           <SectionDivider title="Resources" />
-          <div className="grid grid-cols-3 gap-2">
+          <div className="flex justify-center flex-wrap sm:grid sm:grid-cols-3 gap-2">
             {resources.map((r) => (
-              <MiniCard key={r.title} icon={r.icon} title={r.title} href={r.href} />
+              <MiniCard key={r.title} icon={r.icon} title={r.title} href={r.href} className={r.className} />
             ))}
           </div>
 

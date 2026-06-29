@@ -14,19 +14,19 @@ export default function About() {
       title: "CleanTech",
       desc: "Advanced aqueous cleaning systems and bio-active fluids for precision industrial parts washing.",
       icon: { src: "/logo.png" },
-      link: "/products?search=CleanTech"
+      link: "/products?brand=CleanTech"
     },
     {
       title: "SafeWeld",
       desc: "High-performance, eco-friendly anti-spatter and surface protection solutions for welding operations.",
       icon: safeweldLogo,
-      link: "/products?search=SafeWeld"
+      link: "/products?brand=SafeWeld"
     },
     {
       title: "FreFlo",
       desc: "Specialized chemical technologies for industrial pipeline cleaning and flow restoration.",
       icon: frefloLogo,
-      link: "/products?search=Freflo"
+      link: "/services/pipeline"
     }
   ];
 
@@ -119,7 +119,7 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {productCategories.map((cat, i) => (
-              <div key={i} className="reveal bg-brand-bg2 border border-brand-border rounded-[2rem] p-8 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+              <Link key={i} href={cat.link} className="reveal bg-brand-bg2 border border-brand-border rounded-[2rem] p-8 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group">
                 <div className="flex items-center justify-center mb-6">
                   {typeof cat.icon === "string" ? (
                     cat.icon.startsWith("text:") ? (
@@ -133,17 +133,14 @@ export default function About() {
                     <img src={cat.icon.src} alt={cat.title} className="h-14 w-auto object-contain" />
                   )}
                 </div>
-                <h3 className="text-xl font-extrabold text-brand-black mb-3">{cat.title}</h3>
+                <h3 className="text-xl font-extrabold text-brand-black mb-3 group-hover:text-green transition-colors">{cat.title}</h3>
                 <p className="text-sm text-brand-body leading-relaxed mb-8 flex-grow">
                   {cat.desc}
                 </p>
-                <Link 
-                  href={cat.link}
-                  className="inline-flex items-center justify-center w-full bg-green text-white text-xs font-extrabold uppercase tracking-widest py-3.5 rounded-xl hover:bg-green-dark transition-all shadow-md shadow-green/20"
-                >
+                <div className="inline-flex items-center justify-center w-full bg-green text-white text-xs font-extrabold uppercase tracking-widest py-3.5 rounded-xl group-hover:bg-green-dark transition-all shadow-md shadow-green/20">
                   View More
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
