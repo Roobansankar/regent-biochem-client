@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import CTA from "@/components/CTA";
 import Link from "next/link";
-import { API } from "@/lib/api";
+import { API, imageUrl } from "@/lib/api";
 
 const sortOptions = ["Featured", "Newest", "Name (A-Z)"];
 
@@ -91,7 +91,7 @@ function ProductsContent() {
     fetch(`${API}/products/all`)
       .then(r => r.json())
       .then(d => {
-        const mapped = (d.products || []).map(p => ({ ...p, desc: p.description || p.desc || "" }));
+        const mapped = (d.products || []).map(p => ({ ...p, desc: p.description || p.desc || "", img: imageUrl(p.images?.[0] || p.img) }));
         setProducts(mapped);
         setLoading(false);
       })
@@ -262,10 +262,14 @@ function ProductsContent() {
                   key={product.id}
                   className="group border border-brand-border rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white flex flex-col"
                 >
-                  <div className="dot-bg bg-brand-bg3 aspect-[4/3] flex items-center justify-center p-8 relative">
-                    <div className="w-20 h-20 bg-green-light group-hover:bg-green transition-colors rounded-2xl flex items-center justify-center">
-                      <i className={`fas ${product.icon} text-green group-hover:text-white transition-colors text-2xl`}></i>
-                    </div>
+                  <div className="dot-bg bg-brand-bg3 aspect-[4/3] flex items-center justify-center p-4 relative overflow-hidden">
+                    {product.img ? (
+                      <img src={product.img} alt={product.title} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-20 h-20 bg-green-light group-hover:bg-green transition-colors rounded-2xl flex items-center justify-center">
+                        <i className={`fas ${product.icon} text-green group-hover:text-white transition-colors text-2xl`}></i>
+                      </div>
+                    )}
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
                     <div className="mb-4">
