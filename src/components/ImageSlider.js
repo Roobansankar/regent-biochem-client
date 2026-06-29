@@ -12,7 +12,7 @@ export default function ImageSlider({ images }) {
 
   return (
     <div className="relative w-full max-w-4xl mx-auto">
-      <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-xl border border-brand-border bg-brand-bg3">
+      <div className="aspect-[16/7] rounded-2xl overflow-hidden shadow-xl border border-brand-border bg-brand-bg3">
         <img
           src={images[current].src || images[current]}
           alt={`Slide ${current + 1}`}
