@@ -32,7 +32,7 @@ export default function CareersPage() {
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
               Build More Than a Career — <span className="text-green-mid">Build Impact</span>
             </h1>
-            <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-3xl mx-auto">
 Grow your career by solving real-world industrial challenges and delivering high-performance technical solutions.
             </p>
           </div>
@@ -45,7 +45,7 @@ Grow your career by solving real-world industrial challenges and delivering high
           <div className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">Why Bio chem?</h2>
             <div className="w-16 h-1 bg-green rounded-full mb-6"></div>
-            <p className="text-base sm:text-lg text-brand-body leading-relaxed max-w-none">
+            <p className="text-sm sm:text-base text-brand-body leading-relaxed max-w-none">
               At Regent BioChem, we believe innovation starts with people. We offer opportunities to work on real-world industrial challenges, gain hands-on industry exposure, and contribute to sustainable technologies that improve manufacturing processes. Whether you&apos;re a student, intern, or experienced professional, you&apos;ll find an environment that encourages learning, collaboration, and continuous growth.
             </p>
           </div>
@@ -110,7 +110,7 @@ Grow your career by solving real-world industrial challenges and delivering high
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">Interview Process</h2>
-            <p className="text-brand-body">Our structured approach to finding the right fit.</p>
+            <p className="text-sm sm:text-base text-brand-body">Our structured approach to finding the right fit.</p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -265,7 +265,7 @@ Grow your career by solving real-world industrial challenges and delivering high
             
             <div className="relative z-10 flex-1">
               <h2 className="text-2xl font-bold text-brand-black mb-4">Don&apos;t see a perfect match?</h2>
-              <p className="text-base sm:text-lg text-brand-body max-w-2xl">
+              <p className="text-sm sm:text-base text-brand-body max-w-2xl">
                 We&apos;re always looking for talented individuals who are passionate about Engineering and Sustainability. Send us your CV and we&apos;ll keep you in mind for future openings.
               </p>
             </div>

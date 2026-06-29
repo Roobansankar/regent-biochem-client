@@ -65,7 +65,7 @@ FreFlo is our comprehensive industrial cleaning service that helps industries un
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-4 leading-[1.1]">
                 {service.title}
               </h1>
-              <p className="text-base sm:text-lg text-brand-body leading-relaxed max-w-3xl">
+              <p className="text-sm sm:text-base text-brand-body leading-relaxed max-w-3xl">
                 {service.description}
               </p>
             </div>
@@ -205,12 +205,12 @@ FreFlo is our comprehensive industrial cleaning service that helps industries un
                     <div className="text-[13px] font-black text-green/40 mb-1 leading-none">{step.num}</div>
                     {/* <h3 className="text-[13px] xl:text-[14px] font-bold text-brand-black leading-snug tracking-tight mb-2 min-h-[2.5rem] flex items-center justify-center" style={{ textWrap: "balance" }} dangerouslySetInnerHTML={{ __html: step.title }}></h3> */}
                     {/* <p className="text-[12px] xl:text-[14px] text-brand-body leading-relaxed flex-1">{step.desc}</p> */}
-                    <h3
-  className="text-sm sm:text-base font-bold text-brand-black leading-snug tracking-tight mb-3 h-[56px] flex items-center justify-center"
+                     <h3
+  className="text-sm lg:text-[13px] xl:text-[14px] font-bold text-brand-black leading-snug tracking-tight mb-3 h-[56px] flex items-center justify-center"
   dangerouslySetInnerHTML={{ __html: step.title }}
 ></h3>
 
-<p className="text-sm sm:text-base text-brand-body leading-relaxed flex-1">
+<p className="text-sm lg:text-[12px] xl:text-[14px] text-brand-body leading-relaxed flex-1">
   {step.desc}
 </p>
                   </div>
