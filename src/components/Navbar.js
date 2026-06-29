@@ -228,7 +228,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 lg:h-[64px]">
             {/* Mobile Logo */}
             <Link href="/" onClick={() => window.scrollTo(0, 0)} className="lg:hidden flex-shrink-0">
-              <img src="/logo.png" alt="Bio-Chem Logo" className="h-10 w-auto brightness-0 invert" />
+              <img src="/logo.png" alt="Bio-Chem Logo" className="h-16 w-auto brightness-0 invert" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -362,7 +362,7 @@ export default function Navbar() {
             }`}
           >
             <div className="flex items-center justify-between p-6 border-b border-brand-border">
-              <img src="/logo.png" alt="Bio-Chem" className="h-10 w-auto" />
+              <img src="/logo.png" alt="Bio-Chem" className="h-16 w-auto" />
               <button onClick={closeMenu} className="text-brand-muted hover:text-brand-black">
                 <i className="fas fa-times text-2xl"></i>
               </button>

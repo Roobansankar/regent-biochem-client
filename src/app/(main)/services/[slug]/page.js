@@ -74,7 +74,7 @@ export default async function ServicePage({ params }) {
               </div>
             </div>
             <p className="text-sm sm:text-base text-brand-body leading-relaxed w-full">
-FreFlo is our comprehensive industrial cleaning service that helps industries unlock the full potential of their equipment and processes. Combining advanced cleaning chemistry with expert application, FreFlo service eliminates performance-robbing contaminants and restores critical systems to optimal operating conditions. Whether supporting routine preventive maintenance or resolving complex fouling challenges, FreFlo service improves equipment reliability, enhances process throughput, reduces energy consumption, and minimizes costly downtime. With a focus on operational efficiency, asset longevity, and sustainability, FreFlo service enables manufacturers to maintain peak performance while reducing the total cost of maintenance.
+FreFlo is an RWR-based industrial cleaning service delivered through a Machine-as-a-Service (MaaS) model, integrating advanced cleaning equipment, specialized cleaning chemistry, proven cleaning methodologies, and expert application support. Designed for planned preventive and on-demand maintenance, FreFlo removes process contaminants that impact equipment performance and operational efficiency. Our service restores critical systems to optimal operating conditions, improving reliability, reducing energy consumption and downtime, while extending asset life and lowering maintenance costs.
             </p>
           </div>
         </div>
