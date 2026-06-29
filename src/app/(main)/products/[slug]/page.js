@@ -5,6 +5,7 @@ import ProductFAQ from "@/components/ProductFAQ";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { API, imageUrl } from "@/lib/api";
+import safeweldLogo from "@/assets/safeweld.png";
 
 async function fetchAllProducts() {
   try {
@@ -112,9 +113,14 @@ export default async function ProductDetailPage({ params }) {
           <div className="absolute top-0 right-0 w-1/2 h-full bg-green-50/20 blur-[120px] -z-10"></div>
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="w-full">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-4 leading-tight">
-                {categoryTitle}
-              </h1>
+              <div className="flex items-center justify-between gap-4">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-4 leading-tight">
+                  {categoryTitle}
+                </h1>
+                {parentCategory === "Safeweld" && (
+                  <img src={safeweldLogo.src} alt="SafeWeld" className="h-14 sm:h-20 w-auto object-contain mb-4" />
+                )}
+              </div>
               <p className="text-sm sm:text-base text-brand-body leading-relaxed pl-0 w-full text-justify">
                 {CATEGORY_DESCRIPTIONS[slug] || `Browse our range of ${parentCategory.toLowerCase()} products.`}
               </p>

@@ -8,8 +8,34 @@ import pipe2 from "@/assets/service/Pipeline/pipeline2.png";
 import pipe3 from "@/assets/service/Pipeline/pipeline3.png";
 import pipe4 from "@/assets/service/Pipeline/pipeline4.png";
 import pipe5 from "@/assets/service/Pipeline/pipeline5.png";
+import cool1 from "@/assets/service/Cooling tower/Cooling Tower1.png";
+import cool2 from "@/assets/service/Cooling tower/Cooling Tower2.png";
+import cool3 from "@/assets/service/Cooling tower/colling3.png";
+import cool4 from "@/assets/service/Cooling tower/cooling4.png";
+import cool5 from "@/assets/service/Cooling tower/cooling5.png";
+import mould1 from "@/assets/service/Plasting moulding/mould1.png";
+import mould2 from "@/assets/service/Plasting moulding/moulding2.png";
+import mould3 from "@/assets/service/Plasting moulding/moulding3.png";
+import mould4 from "@/assets/service/Plasting moulding/moulding4.png";
+import mould5 from "@/assets/service/Plasting moulding/moulding5.png";
+import heat1 from "@/assets/service/Heat Exchangers/Heat Exchanger1.png";
+import heat2 from "@/assets/service/Heat Exchangers/Heat Exchanger2.png";
+import heat3 from "@/assets/service/Heat Exchangers/Heat Exchanger3.png";
+import heat4 from "@/assets/service/Heat Exchangers/Heat Exchanger4.png";
+import heat5 from "@/assets/service/Heat Exchangers/Heat Exchanger5.png";
+import op1 from "@/assets/service/Operation Impact assessment/operational1.png";
+import op2 from "@/assets/service/Operation Impact assessment/operational2.png";
+import op3 from "@/assets/service/Operation Impact assessment/operational3.png";
+import op4 from "@/assets/service/Operation Impact assessment/operational4.png";
+import op5 from "@/assets/service/Operation Impact assessment/operational5.png";
 
-const pipelineImages = [pipe1, pipe2, pipe3, pipe4, pipe5];
+const serviceImages = {
+  pipeline: [pipe1, pipe2, pipe3, pipe4, pipe5],
+  "cooling-tower": [cool1, cool2, cool3, cool4, cool5],
+  "mould-injection": [mould1, mould2, mould3, mould4, mould5],
+  "heat-exchanger": [heat1, heat2, heat3, heat4, heat5],
+  "impact-assessment": [op1, op2, op3, op4, op5],
+};
 
 export async function generateStaticParams() {
   return services.map((service) => ({
@@ -129,11 +155,11 @@ FreFlo is our comprehensive industrial cleaning service that helps industries un
   </div>
 </section>
 
-      {/* Pipeline Image Slider */}
-      {slug === "pipeline" && (
+      {/* Service Image Slider */}
+      {serviceImages[slug] && (
         <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-            <ImageSlider images={pipelineImages} />
+            <ImageSlider images={serviceImages[slug]} />
           </div>
         </section>
       )}

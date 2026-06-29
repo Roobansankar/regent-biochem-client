@@ -13,7 +13,7 @@ export default function About() {
     {
       title: "CleanTech",
       desc: "Advanced aqueous cleaning systems and bio-active fluids for precision industrial parts washing.",
-      icon: "fa-broom",
+      icon: { src: "/logo.png" },
       link: "/products?search=CleanTech"
     },
     {
@@ -91,7 +91,7 @@ export default function About() {
                 <i className="fas fa-eye"></i>
               </div>
               <h3 className="text-xl font-extrabold text-gray-900 mb-3">Our Vision</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">To be a trusted leader in sustainable cleaning technology and eco-friendly specialty chemicals, enabling industries to achieve superior performance and responsible growth—the green way to growth.</p>
+              <p className="text-sm sm:text-base text-gray-500 leading-relaxed">To be a trusted leader in sustainable cleaning technology and eco-friendly specialty chemicals, enabling industries to achieve superior performance and responsible growth—the green way to growth.</p>
             </div>
             {/* Mission */}
             <div className="vision-bar relative bg-white border border-gray-100 rounded-2xl p-8 sm:p-10 hover:-translate-y-1 hover:shadow-card transition-all duration-300 reveal">
@@ -99,7 +99,7 @@ export default function About() {
                 <i className="fas fa-bullseye"></i>
               </div>
               <h3 className="text-xl font-extrabold text-gray-900 mb-3">Our Mission</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">To design and deliver innovative cleaning machines and environmentally responsible specialty chemicals that improve industrial efficiency, protect surfaces and components, reduce environmental impact, and create lasting value for customers and stakeholders.</p>
+              <p className="text-sm sm:text-base text-gray-500 leading-relaxed">To design and deliver innovative cleaning machines and environmentally responsible specialty chemicals that improve industrial efficiency, protect surfaces and components, reduce environmental impact, and create lasting value for customers and stakeholders.</p>
             </div>
           </div>
         </div>
@@ -130,11 +130,11 @@ export default function About() {
                       <i className={`w-14 h-14 bg-green-light rounded-2xl flex items-center justify-center text-green text-2xl shadow-sm fas ${cat.icon}`}></i>
                     )
                   ) : (
-                    <img src={cat.icon.src} alt={cat.title} className="h-16 w-auto object-contain" />
+                    <img src={cat.icon.src} alt={cat.title} className="h-20 w-auto object-contain" />
                   )}
                 </div>
                 <h3 className="text-xl font-extrabold text-brand-black mb-3">{cat.title}</h3>
-                <p className="text-sm text-brand-body leading-relaxed mb-8 flex-grow">
+                <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-8 flex-grow">
                   {cat.desc}
                 </p>
                 <Link 
