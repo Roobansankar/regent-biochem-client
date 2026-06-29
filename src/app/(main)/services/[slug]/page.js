@@ -2,6 +2,14 @@ import { services } from "@/data/services";
 import CTA from "@/components/CTA";
 import { notFound } from "next/navigation";
 import CTA2 from "@/components/CTA2";
+import ImageSlider from "@/components/ImageSlider";
+import pipe1 from "@/assets/service/Pipeline/pipeline1.png";
+import pipe2 from "@/assets/service/Pipeline/pipeline2.png";
+import pipe3 from "@/assets/service/Pipeline/pipeline3.png";
+import pipe4 from "@/assets/service/Pipeline/pipeline4.png";
+import pipe5 from "@/assets/service/Pipeline/pipeline5.png";
+
+const pipelineImages = [pipe1, pipe2, pipe3, pipe4, pipe5];
 
 export async function generateStaticParams() {
   return services.map((service) => ({
@@ -120,6 +128,15 @@ FreFlo is our comprehensive industrial cleaning service that helps industries un
     )}
   </div>
 </section>
+
+      {/* Pipeline Image Slider */}
+      {slug === "pipeline" && (
+        <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <ImageSlider images={pipelineImages} />
+          </div>
+        </section>
+      )}
 
       {/* Contaminants Removed Section */}
      {service.contaminantsRemoved && (
