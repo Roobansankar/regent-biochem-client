@@ -5,7 +5,7 @@ import Link from "next/link";
 import ProductGallery from "./ProductGallery";
 import ProductFAQ from "./ProductFAQ";
 
-export default function CategoryTabs({ products, category }) {
+export default function CategoryTabs({ products, category, allProducts = [] }) {
   const [activeTab, setActiveTab] = useState(products[0]?.id || null);
   const active = products.find((p) => p.id === activeTab);
 
@@ -55,7 +55,7 @@ export default function CategoryTabs({ products, category }) {
                 </p>
               )}
 
-              <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-6 max-w-2xl">
+              <p className="text-sm text-brand-body leading-relaxed mb-6 max-w-2xl">
                 {active.desc}
               </p>
 
@@ -113,7 +113,7 @@ export default function CategoryTabs({ products, category }) {
               {/* Available Pack Sizes */}
               {active.availableModels && active.availableModels.length > 0 && (
                 <div className="mt-6 mb-8">
-                  <p className="text-xs font-bold text-green uppercase tracking-wider mb-4">
+                  <p className="text-sm font-bold text-green uppercase tracking-wider mb-4">
                     Available Pack Sizes
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -137,7 +137,7 @@ export default function CategoryTabs({ products, category }) {
             <div className="lg:col-span-8 space-y-10">
               {active.isThisRightFor && (
                 <div>
-                  <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Is This Product Right for You?</h3>
+                  <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Is This Product Right for You?</h3>
                   <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
                     <p className="text-sm text-brand-body leading-relaxed whitespace-pre-line">{active.isThisRightFor}</p>
                   </div>
@@ -146,7 +146,7 @@ export default function CategoryTabs({ products, category }) {
 
               {active.application && (
                 <div>
-                  <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Application</h3>
+                  <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Application</h3>
                   <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
                     <p className="text-sm text-brand-body leading-relaxed whitespace-pre-line">{active.application}</p>
                   </div>
@@ -156,7 +156,7 @@ export default function CategoryTabs({ products, category }) {
               {active.whyChoose && (
                 <div>
                   <div className="mb-4">
-                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Why Choose the {active.title}?</p>
+                    <p className="text-sm font-black uppercase tracking-[0.3em] text-green">Why Choose the {active.title}?</p>
                   </div>
                   <div className="space-y-2.5">
                     {active.whyChoose.split("\n").map((point, i) => (
@@ -183,8 +183,8 @@ export default function CategoryTabs({ products, category }) {
                   <div className="space-y-6">
                     {active.technicalSpecs.map((spec, i) => (
                       <div key={i} className="border-b border-white/20 pb-4">
-                        <p className="text-xs font-black uppercase tracking-widest text-white/60 mb-1">{spec.label}</p>
-                        <p className="text-sm sm:text-base font-bold text-white">{spec.value}</p>
+                        <p className="text-sm font-black uppercase tracking-widest text-white/60 mb-1">{spec.label}</p>
+                        <p className="text-sm font-bold text-white">{spec.value}</p>
                       </div>
                     ))}
                   </div>
@@ -200,18 +200,41 @@ export default function CategoryTabs({ products, category }) {
                   <div className="p-6 sm:p-8 rounded-[2rem] bg-white border border-brand-border shadow-sm">
                     <div className="flex items-center gap-2 mb-6">
                       <i className="fas fa-flask text-green text-xs"></i>
-                      <span className="text-xs sm:text-sm font-bold text-green uppercase tracking-wider">Recommended Cleaner</span>
+                      <span className="text-sm font-bold text-green uppercase tracking-wider">Recommended Cleaner</span>
                     </div>
                     <div className="space-y-6">
-                      {rcs.map((rc, idx) => (
-                        <div key={idx} className="flex flex-col gap-4">
-                          <h5 className="text-base font-bold text-brand-black">{rc.name}</h5>
-                          <p className="text-xs sm:text-sm text-brand-body leading-relaxed">{rc.desc}</p>
-                          <Link href={`/products/${rc.slug}`} className="text-sm font-bold text-green hover:underline">
-                            View Product →
-                          </Link>
-                        </div>
-                      ))}
+                      {rcs.map((rc, idx) => {
+                        const match = allProducts.find(p => p.slug === rc);
+                        if (!match) {
+                          const oldFormat = typeof rc === 'object' ? rc : null;
+                          return oldFormat ? (
+                            <div key={idx} className="flex items-start gap-3 sm:gap-4">
+                              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden shrink-0 border border-green/20 bg-brand-bg3">
+                                <img src="/placeholder.png" alt={oldFormat.name} className="w-full h-full object-cover" />
+                              </div>
+                              <div className="min-w-0">
+                                <h5 className="text-sm font-bold text-brand-black mb-1">{oldFormat.name}</h5>
+                                <Link href={`/products/${oldFormat.slug}`} className="text-sm font-bold text-green hover:underline">
+                                  View Product →
+                                </Link>
+                              </div>
+                            </div>
+                          ) : null;
+                        }
+                        return (
+                          <div key={idx} className="flex items-start gap-3 sm:gap-4">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden shrink-0 border border-green/20 bg-brand-bg3">
+                              <img src={match.img || "/placeholder.png"} alt={match.title} className="w-full h-full object-cover" />
+                            </div>
+                            <div className="min-w-0">
+                              <h5 className="text-sm font-bold text-brand-black mb-1">{match.title}</h5>
+                              <Link href={`/products/${match.slug}`} className="text-sm font-bold text-green hover:underline">
+                                View Product →
+                              </Link>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 );

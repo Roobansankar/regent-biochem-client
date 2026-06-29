@@ -128,7 +128,7 @@ export default async function ProductDetailPage({ params }) {
           </div>
         </section>
         {subProducts.length > 0 && (
-          <CategoryTabs products={subProducts} category={categoryTitle} />
+          <CategoryTabs products={subProducts} category={categoryTitle} allProducts={allItems} />
         )}
         <CTA />
       </main>
@@ -183,7 +183,7 @@ export default async function ProductDetailPage({ params }) {
 
         {/* ─── TABBED PRODUCT SHOWCASE ─── */}
         {subProducts.length > 0 && (
-          <CategoryTabs products={subProducts} category={product.title} />
+          <CategoryTabs products={subProducts} category={product.title} allProducts={allItems} />
         )}
 
         <CTA />

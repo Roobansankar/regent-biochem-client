@@ -2,6 +2,7 @@ import { services } from "@/data/services";
 import CTA from "@/components/CTA";
 import { notFound } from "next/navigation";
 import CTA2 from "@/components/CTA2";
+import Industries from "@/components/Industries";
 import ImageSlider from "@/components/ImageSlider";
 import pipe1 from "@/assets/service/Pipeline/pipeline1.png";
 import pipe2 from "@/assets/service/Pipeline/pipeline2.png";
@@ -155,15 +156,6 @@ FreFlo is an RWR-based industrial cleaning service delivered through a Machine-a
   </div>
 </section>
 
-      {/* Service Image Slider */}
-      {serviceImages[slug] && (
-        <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
-          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-            <ImageSlider images={serviceImages[slug]} />
-          </div>
-        </section>
-      )}
-
       {/* Contaminants Removed Section */}
      {service.contaminantsRemoved && (
   <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
@@ -201,22 +193,16 @@ FreFlo is an RWR-based industrial cleaning service delivered through a Machine-a
   </section>
 )}
 
-      {service.industries?.length > 0 && (
+      {/* Service Image Slider */}
+      {serviceImages[slug] && (
         <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">Industries We Serve</h2>
-            </div>
-            <div className="flex flex-wrap justify-center gap-3">
-              {service.industries.map((item, index) => (
-                <div key={index} className="px-6 py-3 rounded-2xl bg-green-light border border-green-mid/50 transition-all duration-300 group shadow-sm">
-                  <span className="text-xs sm:text-sm font-bold text-green">{item}</span>
-                </div>
-              ))}
-            </div>
+            <ImageSlider images={serviceImages[slug]} />
           </div>
         </section>
       )}
+
+      <Industries />
 
       {/* Service Approach */}
       <section id="details" className="py-6 sm:py-8 bg-brand-bg2/50 border-b border-brand-border">
