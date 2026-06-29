@@ -15,7 +15,7 @@ export default function CategoryTabs({ products, category, allProducts = [] }) {
     <section className="bg-white">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Tabs - Restored Original Style */}
-        <div className="flex tabs-scroll overflow-x-auto border border-brand-border rounded-lg bg-white w-fit mb-10 max-w-full shadow-sm">
+        <div className="flex tabs-scroll overflow-x-auto border border-brand-border rounded-lg bg-white w-fit mb-6 max-w-full shadow-sm">
           {products.map((p, i) => (
             <button
               key={p.id}
@@ -39,7 +39,7 @@ export default function CategoryTabs({ products, category, allProducts = [] }) {
         <section className="relative pb-12 sm:pb-16 overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
             {/* Gallery Side */}
-            <div className="lg:col-span-6 lg:sticky lg:top-24 w-full pl-2 sm:pl-4">
+            <div className="lg:col-span-6 lg:sticky lg:top-24 w-full pl-2 sm:pl-4 pt-4 sm:pt-6">
               <ProductGallery product={active} />
             </div>
 
