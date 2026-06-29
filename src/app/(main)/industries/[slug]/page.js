@@ -72,7 +72,7 @@ export default async function IndustryPage({ params }) {
               
                <div className="max-w-2xl space-y-3 mb-8">
                 {industry.description.split('\n\n').map((para, i) => (
-                  <p key={i} className="text-sm sm:text-base text-brand-body leading-relaxed text-justify" dangerouslySetInnerHTML={{ __html: para }} style={{ fontWeight: 400 }} />
+                  <p key={i} className="text-sm text-brand-body leading-relaxed text-justify" dangerouslySetInnerHTML={{ __html: para }} style={{ fontWeight: 400 }} />
                 ))}
               </div>
               
@@ -169,10 +169,10 @@ export default async function IndustryPage({ params }) {
                     <div key={index} className="p-4 sm:p-5 bg-brand-bg2 rounded-2xl border border-brand-border hover:bg-white hover:shadow-xl transition-all duration-500 group">
                       <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                          <span className="text-lg sm:text-xl lg:text-2xl font-black text-brand-muted group-hover:text-green transition-colors">0{index + 1}</span>
-                          <h4 className="text-sm sm:text-base font-bold text-brand-black">{title}</h4>
-                       </div>
-                       {description && (
-                          <p className="text-sm sm:text-base text-brand-body leading-relaxed text-justify line-clamp-4 group-hover:line-clamp-none transition-all">
+                           <h4 className="text-sm font-bold text-brand-black">{title}</h4>
+                        </div>
+                        {description && (
+                           <p className="text-sm text-brand-body leading-relaxed text-justify line-clamp-4 group-hover:line-clamp-none transition-all">
                           {description}
                         </p>
                       )}
