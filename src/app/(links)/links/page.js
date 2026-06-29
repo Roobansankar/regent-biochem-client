@@ -144,12 +144,12 @@ const socials = [
 
 function SectionDivider({ title }) {
   return (
-    <div className="flex items-center gap-3 my-6 md:my-8">
+    <div className="flex items-center gap-3 my-3 md:my-4">
       <div className="flex-1 flex items-center gap-1">
         <div className="w-1.5 h-1.5 rounded-full" style={{ background: GREEN_MID }} />
         <div className="flex-1 h-px" style={{ background: GREEN_MID }} />
       </div>
-      <h2 className="text-base md:text-lg font-bold whitespace-nowrap" style={{ color: GREEN_DARK }}>
+      <h2 className="text-xs md:text-lg font-bold whitespace-nowrap" style={{ color: GREEN_DARK }}>
         {title}
       </h2>
       <div className="flex-1 flex items-center gap-1">
@@ -158,6 +158,19 @@ function SectionDivider({ title }) {
       </div>
     </div>
   );
+}
+
+function MiniCard({ icon, title, href }) {
+  const content = (
+    <div className="flex flex-col items-center gap-1.5 bg-white rounded-2xl py-3 px-1 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer text-center" style={{ color: GREEN_DARK }}>
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: GREEN_DARK }}>
+        {icon}
+      </div>
+      <span className="text-xs font-medium text-gray-700">{title}</span>
+    </div>
+  );
+  if (href) return <Link href={href}>{content}</Link>;
+  return content;
 }
 
 function RowCard({ icon, title, desc, href }) {
@@ -189,11 +202,11 @@ export default function Links() {
       <div className="w-full flex flex-col">
 
         {/* ─── PAGE HERO ─── */}
-        <section className="relative pt-10 pb-8 lg:pt-16 lg:pb-12 bg-green overflow-hidden">
+        <section className="relative pt-4 pb-4 lg:pt-16 lg:pb-12 bg-green overflow-hidden">
           <div className="absolute inset-0 hero-pattern opacity-10"></div>
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto">
-              <img src="/logo.png" alt="Bio-Chem Logo" className="h-16 w-auto brightness-0 invert mx-auto mb-6" />
+              <img src="/logo.png" alt="Bio-Chem Logo" className="h-10 w-auto brightness-0 invert mx-auto mb-2" />
 
               <p className="text-sm sm:text-base text-white/90 leading-relaxed font-medium">
                 Green Way to Growth
@@ -202,26 +215,26 @@ export default function Links() {
           </div>
         </section>
 
-        <div className="px-4 md:px-6 lg:px-8 mt-6">
+        <div className="px-3 md:px-6 lg:px-8 mt-1">
           {/* Our Solutions */}
           <SectionDivider title="Our Solutions" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+          <div className="grid grid-cols-3 gap-2">
             {products.map((p) => (
-              <RowCard key={p.title} icon={p.icon} title={p.title} desc={p.desc} href={p.href} />
+              <MiniCard key={p.title} icon={p.icon} title={p.title} href={p.href} />
             ))}
           </div>
 
           {/* Resources */}
           <SectionDivider title="Resources" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+          <div className="grid grid-cols-3 gap-2">
             {resources.map((r) => (
-              <RowCard key={r.title} icon={r.icon} title={r.title} desc={r.desc} href={r.href} />
+              <MiniCard key={r.title} icon={r.icon} title={r.title} href={r.href} />
             ))}
           </div>
 
           {/* Stay Connected */}
           <SectionDivider title="Stay Connected" />
-          <div className="grid grid-cols-3 md:grid-cols-7 gap-2 md:gap-3 mb-6">
+          <div className="grid grid-cols-3 md:grid-cols-7 gap-1.5 md:gap-3 mb-2">
             {socials.map((s) => (
               <a
                 key={s.label}
