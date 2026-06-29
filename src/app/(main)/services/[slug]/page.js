@@ -73,7 +73,7 @@ export default async function ServicePage({ params }) {
                 />
               </div>
             </div>
-            <p className="text-sm sm:text-base text-brand-body leading-relaxed w-full">
+            <p className="text-sm text-brand-body leading-relaxed w-full">
 FreFlo is an RWR-based industrial cleaning service delivered through a Machine-as-a-Service (MaaS) model, integrating advanced cleaning equipment, specialized cleaning chemistry, proven cleaning methodologies, and expert application support. Designed for planned preventive and on-demand maintenance, FreFlo removes process contaminants that impact equipment performance and operational efficiency. Our service restores critical systems to optimal operating conditions, improving reliability, reducing energy consumption and downtime, while extending asset life and lowering maintenance costs.
             </p>
           </div>
@@ -99,7 +99,7 @@ FreFlo is an RWR-based industrial cleaning service delivered through a Machine-a
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-black mb-4 leading-[1.1]">
                 {service.title}
               </h1>
-              <p className="text-sm sm:text-base text-brand-body leading-relaxed max-w-3xl">
+              <p className="text-sm text-brand-body leading-relaxed max-w-3xl">
                 {service.description}
               </p>
             </div>
@@ -118,7 +118,7 @@ FreFlo is an RWR-based industrial cleaning service delivered through a Machine-a
    Critical Problems We Resolve
       </h2>
 
-      <p className="text-sm sm:text-base text-brand-text">
+      <p className="text-sm text-brand-text">
       Solving critical pipeline performance issues.
       </p>
     </div>
@@ -145,7 +145,7 @@ FreFlo is an RWR-based industrial cleaning service delivered through a Machine-a
             </h3>
 
             {/* Description */}
-            <p className="text-sm sm:text-base text-brand-text leading-relaxed">
+            <p className="text-sm text-brand-text leading-relaxed">
               {item.description}
             </p>
           </div>
@@ -175,7 +175,7 @@ FreFlo is an RWR-based industrial cleaning service delivered through a Machine-a
           Contaminants Removed
         </h2>
 
-        <p className="text-sm sm:text-base text-brand-text">
+        <p className="text-sm text-brand-text">
           Comprehensive cleaning across all industrial residue types.
         </p>
       </div>
@@ -190,7 +190,7 @@ FreFlo is an RWR-based industrial cleaning service delivered through a Machine-a
               <i className="fas fa-circle-check text-base"></i>
             </div>
 
-            <span className="font-semibold text-sm sm:text-base text-brand-black">
+            <span className="font-semibold text-sm text-brand-black">
               {item}
             </span>
           </div>
@@ -272,7 +272,7 @@ FreFlo is an RWR-based industrial cleaning service delivered through a Machine-a
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
              <div className="text-center mb-10">
                  <h2 className="text-2xl sm:text-3xl font-bold text-brand-black">Proven Results</h2>
-                 <p className="text-sm sm:text-base text-brand-body mt-2">Visual evidence of our cleaning effectiveness</p>
+                 <p className="text-sm text-brand-body mt-2">Visual evidence of our cleaning effectiveness</p>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                 <div className="relative rounded-2xl overflow-hidden shadow-xl border border-brand-border">

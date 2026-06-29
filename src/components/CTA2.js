@@ -127,7 +127,7 @@ export default function CTA2({ variant = "pipeline" }) {
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start relative z-10">
         <div>
           <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-3 tracking-tight">What we need from you</h2>
-          <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-6">
+          <p className="text-sm text-brand-body leading-relaxed mb-6">
             To provide an accurate assessment and quote, please have the following
             technical details ready for our engineers:
           </p>
@@ -169,7 +169,7 @@ export default function CTA2({ variant = "pipeline" }) {
               <i className="fas fa-rocket text-green text-lg"></i>
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-brand-black mb-3 tracking-tight">Ready to Optimize Your Flow?</h3>
-            <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-6">
+            <p className="text-sm text-brand-body leading-relaxed mb-6">
               Our specialists are ready to discuss your specific infrastructure
                needs and provide a customized cleaning solution.
             </p>

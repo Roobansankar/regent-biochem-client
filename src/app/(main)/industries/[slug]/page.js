@@ -52,7 +52,7 @@ export default async function IndustryPage({ params }) {
   return (
     <main className="flex flex-col min-h-screen bg-white">
       {/* Elegant Light Hero Section */}
-      <section className="relative pt-6 pb-6 lg:pt-10 lg:pb-10 overflow-hidden">
+      <section className="relative py-6 sm:py-8 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-b from-green-50/50 via-white to-white -z-10"></div>
         <div className="absolute top-0 right-0 w-1/3 h-full bg-green-50/30 blur-3xl -z-10"></div>
@@ -94,7 +94,7 @@ export default async function IndustryPage({ params }) {
       </section>
 
       {/* What This Industry Produces / Handles */}
-      <section className="pt-0 pb-10 sm:pb-12 bg-white">
+      <section className="py-6 sm:py-8 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-10 h-px bg-green/30"></span>
@@ -112,13 +112,13 @@ export default async function IndustryPage({ params }) {
       </section>
 
       {/* Narrative Technical Content */}
-      <section className="pt-0 pb-14 sm:pb-16 bg-white">
+      <section className="py-6 sm:py-8 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Top Row: Challenges & Applications */}
-            <div className="mb-12">
+            <div className="mb-4">
               {/* Challenges Section */}
-              <div className="mb-12">
+            <div className="mb-4">
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-10 h-px bg-green/30"></span>
                   <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Where We Add Value</span>
@@ -152,10 +152,10 @@ export default async function IndustryPage({ params }) {
             </div>
 
             {/* Applications Section */}
-            <div className="mb-12">
+            <div className="mb-4">
               <div className="flex items-center gap-3 mb-4">
-                <span className="w-10 h-px bg-green/30"></span>
-                 <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Process Excellence</span>
+                <span className="w-10 h-px bg-green/30 mt-10"></span>
+                  <span className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green mt-10">Process Excellence</span>
               </div>
               <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-brand-black mb-6 tracking-tight">Key Areas of Impact</h2>
 
@@ -166,13 +166,13 @@ export default async function IndustryPage({ params }) {
                   const description = isObject ? app.description : null;
 
                   return (
-                    <div key={index} className="p-4 sm:p-5 bg-brand-bg2 rounded-2xl border border-brand-border hover:bg-white hover:shadow-xl transition-all duration-500 group">
+                    <div key={index} className="p-4 sm:p-5 bg-brand-bg2 rounded-2xl border border-brand-border hover:bg-white hover:shadow-xl transition-all duration-500 group h-full">
                       <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                          <span className="text-lg sm:text-xl lg:text-2xl font-black text-brand-muted group-hover:text-green transition-colors">0{index + 1}</span>
                            <h4 className="text-sm font-bold text-brand-black">{title}</h4>
                         </div>
                         {description && (
-                           <p className="text-sm text-brand-body leading-relaxed text-justify line-clamp-4 group-hover:line-clamp-none transition-all">
+                           <p className="text-sm text-brand-body leading-relaxed text-justify">
                           {description}
                         </p>
                       )}
@@ -183,11 +183,12 @@ export default async function IndustryPage({ params }) {
             </div>
           </div>
 
-          {/* Workflow Process */}
-         
-              <WorkflowProcess bg="white"/>
         </div>
       </section>
+
+      <div className="-mt-6 sm:-mt-8 -mb-6 sm:-mb-8">
+        <WorkflowProcess bg="bg-white" />
+      </div>
 
       <CTA />
     </main>
