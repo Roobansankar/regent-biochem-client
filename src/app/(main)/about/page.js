@@ -40,7 +40,7 @@ export default function About() {
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight reveal">
               About <span className="text-green-mid">Regent Biochem</span>
             </h1>
-            <p className="text-sm sm:text-base text-white/90 leading-relaxed reveal">
+            <p className="text-sm text-white/90 leading-relaxed reveal">
               Empowering industrial efficiency through sustainable surface technology and precision engineering.Optimizing industrial maintenance through specialized chemical engineering and high-efficiency cleaning solutions.
             </p>
           </div>
@@ -65,9 +65,9 @@ export default function About() {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
               Driving Efficiency<br/><span className="text-green-600">Green Way to Growth</span>
             </h2>
-            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-4">Regent BioChem is a CleanTech and Surface Technology company focused on providing innovative industrial cleaning, surface technology, and maintenance solutions to a wide range of manufacturing industries across India and South Asia.</p>
-            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-4">Driven by a commitment to operational excellence, we help manufacturers enhance productivity, improve asset reliability, and sustain process performance through advanced cleaning technologies, specialty chemical formulations, and deep application knowledge. Our solutions are designed to support cleaner, safer, and more efficient operations while addressing evolving industrial challenges.</p>
-            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-8">With a customer-centric approach, we work closely with businesses to understand their unique requirements, deliver practical and effective solutions, and provide ongoing technical support that enables long-term efficiency, reliability, and sustainable growth.</p>
+            <p className="text-sm text-gray-500 leading-relaxed mb-4">Regent BioChem is a CleanTech and Surface Technology company focused on providing innovative industrial cleaning, surface technology, and maintenance solutions to a wide range of manufacturing industries across India and South Asia.</p>
+            <p className="text-sm text-gray-500 leading-relaxed mb-4">Driven by a commitment to operational excellence, we help manufacturers enhance productivity, improve asset reliability, and sustain process performance through advanced cleaning technologies, specialty chemical formulations, and deep application knowledge. Our solutions are designed to support cleaner, safer, and more efficient operations while addressing evolving industrial challenges.</p>
+            <p className="text-sm text-gray-500 leading-relaxed mb-8">With a customer-centric approach, we work closely with businesses to understand their unique requirements, deliver practical and effective solutions, and provide ongoing technical support that enables long-term efficiency, reliability, and sustainable growth.</p>
           </div>
         </div>
       </section>
@@ -91,7 +91,7 @@ export default function About() {
                 <i className="fas fa-eye"></i>
               </div>
               <h3 className="text-xl font-extrabold text-gray-900 mb-3">Our Vision</h3>
-              <p className="text-sm sm:text-base text-gray-500 leading-relaxed">To be a trusted leader in sustainable cleaning technology and eco-friendly specialty chemicals, enabling industries to achieve superior performance and responsible growth—the green way to growth.</p>
+              <p className="text-sm text-gray-500 leading-relaxed">To be a trusted leader in sustainable cleaning technology and eco-friendly specialty chemicals, enabling industries to achieve superior performance and responsible growth—the green way to growth.</p>
             </div>
             {/* Mission */}
             <div className="vision-bar relative bg-white border border-gray-100 rounded-2xl p-8 sm:p-10 hover:-translate-y-1 hover:shadow-card transition-all duration-300 reveal">
@@ -99,7 +99,7 @@ export default function About() {
                 <i className="fas fa-bullseye"></i>
               </div>
               <h3 className="text-xl font-extrabold text-gray-900 mb-3">Our Mission</h3>
-              <p className="text-sm sm:text-base text-gray-500 leading-relaxed">To design and deliver innovative cleaning machines and environmentally responsible specialty chemicals that improve industrial efficiency, protect surfaces and components, reduce environmental impact, and create lasting value for customers and stakeholders.</p>
+              <p className="text-sm text-gray-500 leading-relaxed">To design and deliver innovative cleaning machines and environmentally responsible specialty chemicals that improve industrial efficiency, protect surfaces and components, reduce environmental impact, and create lasting value for customers and stakeholders.</p>
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@ export default function About() {
                   )}
                 </div>
                 <h3 className="text-xl font-extrabold text-brand-black mb-3">{cat.title}</h3>
-                <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-8 flex-grow">
+                <p className="text-sm text-brand-body leading-relaxed mb-8 flex-grow">
                   {cat.desc}
                 </p>
                 <Link 
