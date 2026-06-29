@@ -144,4 +144,6 @@ body {
 }
 .why-card:hover::after { transform: scaleX(1); }
 
-
+.greenscale {
+  filter: sepia(0.4) saturate(1.3) hue-rotate(40deg);
+}
