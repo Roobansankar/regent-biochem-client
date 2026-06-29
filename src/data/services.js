@@ -209,7 +209,7 @@ export const services = [
     infoNeeded: [
       "Heat exchanger type", "Exchanger size/capacity", "Material of construction", "Fouling type", "Flow rate data"
     ],
-    industries: []
+    industries: ["Oil & Gas", "Food & Beverages", "Rubber & Plastics", "Engineering & Fabrication", "Automotive", "Shipbuilding & Shipyards"]
   },
   {
     slug: "impact-assessment",

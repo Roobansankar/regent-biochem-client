@@ -202,7 +202,25 @@ FreFlo is an RWR-based industrial cleaning service delivered through a Machine-a
         </section>
       )}
 
-      <Industries />
+      {service.industries?.length > 0 ? (
+        <section className="py-6 sm:py-8 bg-white border-b border-brand-border">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+              <p className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Our Expertise</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">Industries We Serve</h2>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {service.industries.map((item, index) => (
+                <div key={index} className="px-6 py-3 rounded-2xl bg-green-light border border-green-mid/50 transition-all duration-300 group shadow-sm">
+                  <span className="text-sm font-bold text-green">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : (
+        <Industries />
+      )}
 
       {/* Service Approach */}
       <section id="details" className="py-6 sm:py-8 bg-brand-bg2/50 border-b border-brand-border">
