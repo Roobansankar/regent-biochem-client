@@ -18,7 +18,6 @@ const products = [
       </svg>
     ),
     title: "CleanTech",
-    desc: "Advanced aqueous cleaning systems and bio-active fluids for precision industrial parts washing.",
     href: "/products?brand=CleanTech",
   },
   {
@@ -30,7 +29,6 @@ const products = [
       </svg>
     ),
     title: "SafeWeld",
-    desc: "High-performance, eco-friendly anti-spatter and surface protection solutions for welding operations.",
     href: "/products?brand=SafeWeld",
   },
   {
@@ -42,7 +40,6 @@ const products = [
       </svg>
     ),
     title: "FreFlo",
-    desc: "Specialised chemical technologies for industrial pipeline cleaning and flow restoration.",
   },
 ];
 
@@ -66,7 +63,6 @@ const resources = [
       </svg>
     ),
     title: "Case Studies",
-    desc: "Real-world customer applications and success stories.",
     href: "/case-studies",
   },
   {
@@ -80,7 +76,6 @@ const resources = [
     ),
     title: "Blogs",
     href: "/blog",
-    desc: "Industrial cleaning insights, best practices, and sustainability updates.",
   },
 ];
 

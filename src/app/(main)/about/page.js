@@ -23,7 +23,7 @@ export default function About() {
       link: "/products?search=SafeWeld"
     },
     {
-      title: "Freflo",
+      title: "FreFlo",
       desc: "Specialized chemical technologies for industrial pipeline cleaning and flow restoration.",
       icon: frefloLogo,
       link: "/products?search=Freflo"
@@ -130,7 +130,7 @@ export default function About() {
                       <i className={`w-14 h-14 bg-green-light rounded-2xl flex items-center justify-center text-green text-2xl shadow-sm fas ${cat.icon}`}></i>
                     )
                   ) : (
-                    <img src={cat.icon.src} alt={cat.title} className="h-20 w-auto object-contain" />
+                    <img src={cat.icon.src} alt={cat.title} className={`${cat.title === "FreFlo" ? "h-10" : "h-14"} w-auto object-contain`} />
                   )}
                 </div>
                 <h3 className="text-xl font-extrabold text-brand-black mb-3">{cat.title}</h3>

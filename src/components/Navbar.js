@@ -303,7 +303,7 @@ export default function Navbar() {
                               <div key={col.label || col.items?.[0]?.name}>
                                 {col.labelImage ? (
                                   <div className="mb-5 pb-2 border-b border-green-light flex items-start justify-start">
-                                    <img src={col.labelImage} alt={col.label} className="h-10 w-auto" />
+                                    <img src={col.labelImage} alt={col.label} className="h-12 w-auto" />
                                   </div>
                                 ) : col.label ? (
                                   <h4 className="text-xs font-black uppercase tracking-widest text-green mb-5 pb-2 border-b border-green-light">
