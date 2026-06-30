@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import safeweldLogo from "@/assets/safeweld.png";
+import logoImg from "@/assets/logo.png";
+import frefloLogo from "@/assets/freeflo.png";
 
 const GREEN_DARK = "#1a4d2e";
 const GREEN_MID = "#2d7a4f";
@@ -10,37 +13,31 @@ const GREEN_LIGHT = "#e8f5ee";
 const products = [
   {
     icon: (
-      <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="18" width="24" height="14" rx="2" stroke="white" strokeWidth="2"/>
-        <path d="M14 18V14a6 6 0 0112 0v4" stroke="white" strokeWidth="2"/>
-        <circle cx="20" cy="25" r="3" stroke="white" strokeWidth="2"/>
-        <path d="M20 28v4" stroke="white" strokeWidth="2"/>
-      </svg>
+      <img src={logoImg.src} alt="CleanTech" className="w-full h-full object-contain p-2" />
     ),
     title: "CleanTech",
     href: "/products?brand=CleanTech",
+    noIconBg: true,
+    iconHeight: "h-10",
   },
   {
     icon: (
-      <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 30L20 10l10 20" stroke="white" strokeWidth="2" strokeLinejoin="round"/>
-        <path d="M14 22h12" stroke="white" strokeWidth="2"/>
-        <circle cx="20" cy="10" r="2" fill="white"/>
-      </svg>
+      <img src={safeweldLogo.src} alt="SafeWeld" className="w-full h-full object-contain p-2" />
     ),
     title: "SafeWeld",
     href: "/products?brand=SafeWeld",
+    noIconBg: true,
   },
+];
+
+const services = [
   {
     icon: (
-      <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 20h24M8 14h8M24 14h8M8 26h8M24 26h8" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-        <circle cx="16" cy="14" r="2" fill="white"/>
-        <circle cx="24" cy="26" r="2" fill="white"/>
-      </svg>
+      <img src={frefloLogo.src} alt="FreFlo" className="w-full h-full object-contain p-2" />
     ),
     title: "FreFlo",
     href: "/services/pipeline",
+    noIconBg: true,
   },
 ];
 
@@ -162,12 +159,18 @@ function SectionDivider({ title }) {
   );
 }
 
-function MiniCard({ icon, title, href, className = "" }) {
+function MiniCard({ icon, title, href, className = "", noIconBg = false, iconHeight = "h-10" }) {
   const content = (
-    <div className={`flex flex-col items-center gap-1.5 bg-white rounded-2xl py-3 px-1 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer text-center ${className}`} style={{ color: GREEN_DARK }}>
-      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: GREEN_DARK }}>
-        {icon}
-      </div>
+    <div className={`flex flex-col items-center gap-1.5 bg-white rounded-2xl py-2 px-1 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer text-center ${className}`} style={{ color: GREEN_DARK }}>
+      {noIconBg ? (
+        <div className={`flex items-center justify-center w-full ${iconHeight}`}>
+          {icon}
+        </div>
+      ) : (
+        <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: GREEN_DARK }}>
+          {icon}
+        </div>
+      )}
       <span className="text-xs font-medium text-gray-700">{title}</span>
     </div>
   );
@@ -204,26 +207,34 @@ export default function Links() {
       <div className="w-full flex flex-col">
 
         {/* ─── PAGE HERO ─── */}
-        <section className="relative pt-4 pb-4 lg:pt-16 lg:pb-12 bg-green overflow-hidden">
+        <section className="relative pt-3 pb-3 lg:pt-5 lg:pb-4 bg-green overflow-hidden">
           <div className="absolute inset-0 hero-pattern opacity-10"></div>
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto">
               <img src="/logo.png" alt="Bio-Chem Logo" className="h-10 w-auto brightness-0 invert mx-auto mb-2" />
 
-              <p className="text-sm sm:text-base text-white/90 leading-relaxed font-medium">
-                Green Way to Growth
-              </p>
+              
             </div>
           </div>
         </section>
 
         <div className="px-3 md:px-6 lg:px-8 mt-1">
-          {/* Our Solutions */}
-          <SectionDivider title="Our Solutions" />
-          <div className="grid grid-cols-3 gap-2">
+          {/* Our Products */}
+          <SectionDivider title="Our Products" />
+          <div className="flex justify-center flex-wrap gap-2">
             {products.map((p) => (
-              <MiniCard key={p.title} icon={p.icon} title={p.title} href={p.href} />
+              <MiniCard key={p.title} icon={p.icon} title={p.title} href={p.href} noIconBg={p.noIconBg} iconHeight={p.iconHeight} />
             ))}
+          </div>
+
+          {/* Our Services */}
+          <SectionDivider title="Our Services" />
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 gap-2 w-full max-w-[140px]">
+              {services.map((s) => (
+                <MiniCard key={s.title} icon={s.icon} title={s.title} href={s.href} noIconBg={s.noIconBg} />
+              ))}
+            </div>
           </div>
 
           {/* Resources */}
@@ -253,6 +264,14 @@ export default function Links() {
           </div>
         </div>
 
+        {/* ─── FOOTER TAGLINE ─── */}
+        <section className="bg-green py-6 mt-4">
+          <div className="text-center">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed font-medium">
+              Green Way to Growth
+            </p>
+          </div>
+        </section>
 
       </div>
     </div>

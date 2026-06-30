@@ -27,7 +27,6 @@ function FilterDropdown({
   }, []);
 
   const activeCount = selectedOptions.length;
-  const selectedValue = selectedOptions[0];
 
   return (
     <div ref={ref} className="relative">
@@ -39,7 +38,7 @@ function FilterDropdown({
             : "border-brand-border bg-white text-brand-black hover:border-green hover:text-green"
           }`}
       >
-        {activeCount > 0 ? selectedValue : group.title}
+        {activeCount > 0 ? `${group.title} (${activeCount})` : group.title}
         <i className={`fas fa-chevron-down text-xs transition-transform ${isOpen ? "rotate-180" : ""}`}></i>
       </button>
 
@@ -55,11 +54,13 @@ function FilterDropdown({
                 <label
                   key={idx}
                   className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg cursor-pointer hover:bg-green/5 group transition-colors"
-                  onClick={() => {
-                    onChange(option);
-                    setIsOpen(false);
-                  }}
                 >
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => onChange(option)}
+                    className="w-4 h-4 rounded border-brand-border text-green focus:ring-green accent-green"
+                  />
                   <span
                     className={`text-sm transition-colors ${
                       checked ? "text-green font-bold" : "text-brand-body group-hover:text-green"
@@ -117,7 +118,9 @@ function ProductsContent() {
   function toggleFilter(groupTitle, option) {
     setActiveFilters((prev) => {
       const current = prev[groupTitle] || [];
-      const updated = [option];
+      const updated = current.includes(option)
+        ? current.filter((o) => o !== option)
+        : [...current, option];
       return { ...prev, [groupTitle]: updated };
     });
   }
@@ -262,9 +265,9 @@ function ProductsContent() {
                   key={product.id}
                   className="group border border-brand-border rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white flex flex-col"
                 >
-                  <div className="dot-bg bg-brand-bg3 aspect-[4/3] flex items-center justify-center p-4 relative overflow-hidden">
+                  <div className="dot-bg bg-brand-bg3 aspect-[1/1] flex items-center justify-center p-6 relative overflow-hidden">
                     {product.img ? (
-                      <img src={product.img} alt={product.title} className="w-full h-full object-cover" />
+                      <img src={product.img} alt={product.title} className="w-full h-full object-contain" />
                     ) : (
                       <div className="w-20 h-20 bg-green-light group-hover:bg-green transition-colors rounded-2xl flex items-center justify-center">
                         <i className={`fas ${product.icon} text-green group-hover:text-white transition-colors text-2xl`}></i>

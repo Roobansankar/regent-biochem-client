@@ -399,30 +399,6 @@ export default function BlogPost() {
               </form>
             </div>
 
-            {/* Related Posts */}
-            <div>
-              <h3 className="text-xl font-bold text-brand-black mb-8">Related Insights</h3>
-              <div className="flex flex-col gap-8">
-                {related.map((item, i) => (
-                  <Link key={i} href={`/blog/${item.slug}`} className="group flex gap-4">
-                    <div className="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-slate-100">
-                      <img 
-                        src={imageUrl(item.image) || fallbackImg(80, 80)} 
-                        alt="" 
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                        onError={(e) => { e.target.src = fallbackImg(80, 80); }} 
-                      />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-brand-black leading-tight mb-2 group-hover:text-green transition-colors line-clamp-2">{item.title}</h4>
-                      <div className="text-[10px] font-bold text-brand-muted uppercase tracking-widest">{new Date(item.created_at).toLocaleDateString()}</div>
-                    </div>
-                  </Link>
-                ))}
-                {related.length === 0 && <p className="text-xs text-brand-muted">No related posts found.</p>}
-              </div>
-            </div>
-
             {/* Consultation Card */}
             <div className="bg-green rounded-[2rem] p-8 text-white">
               <i className="fas fa-headset text-3xl mb-6"></i>
