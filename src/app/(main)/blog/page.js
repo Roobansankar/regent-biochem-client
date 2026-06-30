@@ -218,7 +218,7 @@ export default function BlogPage() {
                 >
                   {/* Image Block */}
                   <div className="aspect-[16/10] overflow-hidden relative bg-slate-100">
-                    <img 
+                    {/* <img 
                       src={imageUrl(post.image) || fallbackImg(800, 500)} 
                       alt={post.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
@@ -228,7 +228,18 @@ export default function BlogPage() {
                       <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-green text-[10px] font-bold uppercase tracking-wider rounded-lg border border-green/20">
                         {post.category || "Technical"}
                       </span>
-                    </div>
+                    </div> */}
+                    <img 
+  src={imageUrl(post.image) || fallbackImg(800, 500)} 
+  alt={post.title} 
+  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+  onError={(e) => { e.target.src = fallbackImg(800, 500); }}
+/>
+<div className="absolute top-4 left-4">
+  <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-green text-[10px] font-bold uppercase tracking-wider rounded-lg border border-green/20">
+    {post.category || "Technical"}
+  </span>
+</div>
                   </div>
 
                   {/* Content Block */}
