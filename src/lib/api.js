@@ -1,4 +1,4 @@
-const raw = process.env.NEXT_PUBLIC_API_URL || "http://bio-chem.in";
+const raw = process.env.NEXT_PUBLIC_API_URL || "https://bio-chem.in";
 
 // 1. Clean BASE so it NEVER ends with /api or a trailing slash /
 const BASE = raw.replace(/\/api\/?$/, "").replace(/\/+$/, "");
