@@ -211,7 +211,7 @@ export default function Links() {
           <div className="absolute inset-0 hero-pattern opacity-10"></div>
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto">
-              <img src="/logo.png" alt="Bio-Chem Logo" className="h-10 w-auto brightness-0 invert mx-auto mb-2" />
+              <img src="/logo.png" alt="Bio-Chem Logo" className="w-48 brightness-0 invert mx-auto mb-2" />
 
               
             </div>
