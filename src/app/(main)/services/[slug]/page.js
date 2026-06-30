@@ -44,6 +44,17 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
+  if (!service) return {};
+  return {
+    title: service.meta_title || `${service.title} | Regent Biochem`,
+    description: service.meta_description || service.shortDescription,
+    keywords: service.meta_keywords || "",
+  };
+}
+
 export default async function ServicePage({ params }) {
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
