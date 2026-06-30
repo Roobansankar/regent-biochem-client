@@ -39,6 +39,17 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const industry = industries.find((i) => i.slug === slug);
+  if (!industry) return {};
+  return {
+    title: industry.meta_title || `${industry.title} | Regent Biochem`,
+    description: industry.meta_description || `${industry.title} solutions from Regent Biochem`,
+    keywords: industry.meta_keywords || "",
+  };
+}
+
 export default async function IndustryPage({ params }) {
   const { slug } = await params;
   const industry = industries.find((i) => i.slug === slug);
