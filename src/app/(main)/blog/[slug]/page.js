@@ -349,19 +349,38 @@ export default function BlogPost() {
                 margin-bottom: 0 !important;
               }
               .blog-content ul {
-                list-style-type: disc !important;
-                padding-left: 1.5rem !important;
+                list-style: none !important;
+                padding: 0 !important;
                 margin-bottom: 1.5rem !important;
+              }
+              .blog-content ul li {
+                padding-left: 1.5rem !important;
+                position: relative !important;
+                margin-bottom: 0.5rem !important;
+              }
+              .blog-content ul li::before {
+                content: "•" !important;
+                position: absolute !important;
+                left: 0 !important;
                 color: #4b5563 !important;
               }
               .blog-content ol {
-                list-style-type: decimal !important;
-                padding-left: 1.5rem !important;
+                list-style: none !important;
+                padding: 0 !important;
+                counter-reset: blog-counter !important;
                 margin-bottom: 1.5rem !important;
-                color: #4b5563 !important;
               }
-              .blog-content li {
+              .blog-content ol li {
+                padding-left: 1.5rem !important;
+                position: relative !important;
                 margin-bottom: 0.5rem !important;
+              }
+              .blog-content ol li::before {
+                content: counter(blog-counter) "." !important;
+                counter-increment: blog-counter !important;
+                position: absolute !important;
+                left: 0 !important;
+                color: #4b5563 !important;
               }
               .blog-content blockquote {
                 border-left-width: 4px !important;
