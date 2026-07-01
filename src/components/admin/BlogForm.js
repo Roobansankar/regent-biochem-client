@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { API } from "@/lib/api";
+import { API, imageUrl } from "@/lib/api";
 import "react-quill-new/dist/quill.snow.css";
 
 // Dynamic import for ReactQuill to avoid SSR issues
@@ -12,7 +12,7 @@ export default function BlogForm({ initialData = null, isEditing = false }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [imageFile, setImageFile] = useState(null);
-  const [imagePreview, setImagePreview] = useState(initialData?.image || null);
+  const [imagePreview, setImagePreview] = useState(imageUrl(initialData?.image) || null);
   
   const [formData, setFormData] = useState({
     title: initialData?.title || "",
@@ -44,7 +44,7 @@ export default function BlogForm({ initialData = null, isEditing = false }) {
         meta_description: initialData.meta_description || "",
         meta_keywords: initialData.meta_keywords || ""
       });
-      setImagePreview(initialData.image || null);
+      setImagePreview(imageUrl(initialData.image) || null);
     }
   }, [initialData]);
 
