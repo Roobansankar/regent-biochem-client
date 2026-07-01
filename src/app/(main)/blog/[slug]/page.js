@@ -336,7 +336,7 @@ export default function BlogPost() {
             </div>
 
             <article 
-              className="prose prose-lg max-w-none prose-headings:text-brand-black prose-p:text-brand-body prose-p:mb-6 prose-p:leading-relaxed prose-blockquote:border-green break-words overflow-hidden blog-content"
+              className="prose prose-lg max-w-none prose-headings:text-brand-black prose-p:text-brand-body prose-p:mb-6 prose-p:leading-relaxed prose-blockquote:border-green blog-content"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
             <style jsx global>{`
@@ -344,8 +344,6 @@ export default function BlogPost() {
                 margin-bottom: 1rem !important;
                 line-height: 1.6 !important;
                 color: #4b5563 !important;
-                word-wrap: break-word;
-                overflow-wrap: break-word;
               }
               .blog-content p:last-child {
                 margin-bottom: 0 !important;
