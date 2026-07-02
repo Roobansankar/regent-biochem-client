@@ -386,11 +386,11 @@ export default function Footer() {
             <li className="flex items-start gap-3 text-sm text-brand-muted">
   <i className="fas fa-map-marker-alt text-green mt-1 flex-shrink-0"></i>
 
-  <address className="not-italic leading-8">
-    <div>24, Sungam Bypass Road,</div>
-    <div>Paari Nagar,</div>
-    <div>Coimbatore,</div>
-    <div>Tamil Nadu - 641045</div>
+            <address className="not-italic leading-7">
+    <div>24, Paari Nagar,</div>
+    <div>Sungam Bypass Road,</div>
+    <div>Coimbatore - 641045</div>
+    <div>Tamil Nadu</div>
   </address>
 </li>
 
@@ -413,9 +413,14 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-brand-muted">
-            © 2026 Regent Bio-Chem India Pvt. Ltd.
-          </p>
+          <div className="flex flex-col items-center sm:items-start">
+            <p className="text-xs text-brand-muted">
+              © 2026 Regent Bio-Chem India Pvt. Ltd.
+            </p>
+            <p className="text-xs text-brand-muted mt-1">
+              Developed by <a href="https://infronex.com/" target="_blank" rel="noreferrer" className="text-brand-muted hover:text-green">Infronex IT Products and Services</a>
+            </p>
+          </div>
 
           <div className="flex flex-wrap justify-center gap-4">
             <Link

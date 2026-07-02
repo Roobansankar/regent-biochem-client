@@ -98,7 +98,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">Our Location</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">24, Sungam Bypass Road,<br/>Paari Nagar,<br/>Coimbatore,<br/>Tamil Nadu - 641045</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">24, Paari Nagar,<br/>Sungam Bypass Road,<br/>Coimbatore - 641045<br/>Tamil Nadu</p>
                   </div>
                 </div>
 
