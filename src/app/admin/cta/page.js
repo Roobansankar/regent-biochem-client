@@ -81,6 +81,7 @@ export default function AdminCTA() {
               <tr className="bg-slate-50 border-b border-slate-200">
                 <th className="px-4 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500 w-16 text-center">S.No</th>
                 <th className="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500">Email</th>
+                <th className="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500">Page</th>
                 <th className="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500">Date</th>
                 <th className="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500 text-right">Actions</th>
               </tr>
@@ -94,9 +95,19 @@ export default function AdminCTA() {
                   <td className="px-6 py-4">
                     <span className="font-semibold text-slate-800 text-sm">{s.email}</span>
                   </td>
+                  <td className="px-6 py-4">
+                    {s.page_source ? (
+                      <span className="inline-flex items-center gap-1 text-xs bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full font-medium">
+                        <i className="fas fa-link text-[9px] text-slate-400"></i>
+                        {s.page_source === "/" ? "Home" : s.page_source}
+                      </span>
+                    ) : (
+                      <span className="text-xs text-slate-400">—</span>
+                    )}
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <p className="text-[11px] text-slate-500 font-medium">
-                      {new Date(s.created_at).toLocaleDateString()} {new Date(s.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                      {new Date(s.created_at).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
                     </p>
                   </td>
                   <td className="px-6 py-4 text-right">

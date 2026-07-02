@@ -235,6 +235,7 @@ export default function BlogPost() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [nlStatus, setNlStatus] = useState("idle");
   const [nlMessage, setNlMessage] = useState("");
+  const [showNlAlert, setShowNlAlert] = useState(false);
 
   useEffect(() => {
     if (!slug) return;
@@ -253,6 +254,13 @@ export default function BlogPost() {
     };
     fetchPost();
   }, [slug]);
+
+  useEffect(() => {
+    if (showNlAlert) {
+      const timer = setTimeout(() => setShowNlAlert(false), 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [showNlAlert]);
 
   useEffect(() => {
     if (!post) return;
@@ -292,6 +300,22 @@ export default function BlogPost() {
 
   return (
     <main className="flex flex-col min-h-screen bg-white">
+      {showNlAlert && (
+        <div className="fixed top-6 right-6 z-50 animate-slide-down">
+          <div className="bg-white rounded-2xl shadow-2xl border border-green/20 p-5 flex items-center gap-4 min-w-[320px]">
+            <div className="w-10 h-10 rounded-full bg-green-light flex items-center justify-center flex-shrink-0">
+              <i className="fas fa-check-circle text-green text-lg"></i>
+            </div>
+            <div>
+              <p className="font-bold text-brand-black text-sm">Successfully Subscribed!</p>
+              <p className="text-xs text-brand-muted mt-0.5">Thank you! You&apos;re subscribed.</p>
+            </div>
+            <button onClick={() => setShowNlAlert(false)} className="ml-auto text-slate-400 hover:text-slate-600">
+              <i className="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+      )}
       {/* ─── ARTICLE HERO ─── */}
       <div className="px-4 sm:px-6 lg:px-6 pt-6 pb-4">
         <section className="relative h-[300px] md:h-[400px] lg:h-[480px] overflow-hidden rounded-[2rem] shadow-lg">
@@ -416,12 +440,18 @@ export default function BlogPost() {
                   const res = await fetch(`${API}/cta`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ email: newsletterEmail.trim() }),
+                    body: JSON.stringify({
+                      email: newsletterEmail.trim(),
+                      page_source: window.location.pathname,
+                      blog_id: post?.id || null,
+                      blog_slug: slug || null,
+                    }),
                   });
                   if (res.ok) {
                     setNlStatus("success");
                     setNlMessage("Thank you! You're subscribed.");
                     setNewsletterEmail("");
+                    setShowNlAlert(true);
                   } else {
                     const data = await res.json();
                     setNlStatus("error");
