@@ -218,10 +218,10 @@ export default function Links() {
           </div>
         </section>
 
-        <div className="px-3 md:px-6 lg:px-8 mt-0 flex-1">
+        <div className="px-3 mt-5 md:px-6 lg:px-8 mt-0 flex-1">
           {/* Our Products */}
           <SectionDivider title="Our Products" />
-          <div className="flex justify-center flex-wrap gap-1.5">
+          <div className="flex justify-center flex-wrap gap-1.5 mt-2 mb-2">
             {products.map((p) => (
               <MiniCard key={p.title} icon={p.icon} title={p.title} href={p.href} noIconBg={p.noIconBg} iconHeight={p.iconHeight} hideTitle className="w-[90px] sm:w-[110px]" />
             ))}
@@ -229,7 +229,7 @@ export default function Links() {
 
           {/* Our Services */}
           <SectionDivider title="Our Services" />
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center mt-2 mb-2">
             <div className="w-fit mx-auto">
               {services.map((s) => (
                 <MiniCard key={s.title} icon={s.icon} title={s.title} href={s.href} noIconBg={s.noIconBg} hideTitle className="w-[90px] mx-auto" />
@@ -239,7 +239,7 @@ export default function Links() {
 
           {/* Resources */}
           <SectionDivider title="Resources" />
-          <div className="grid grid-cols-2 gap-1.5 md:gap-2 mb-2 max-w-[200px] sm:max-w-[220px] mx-auto">
+          <div className="grid grid-cols-2 gap-1.5 md:gap-2 max-w-[200px] sm:max-w-[220px] mx-auto mt-2 mb-2">
             {resources.map((r) => (
               <Link key={r.title} href={r.href} className="flex flex-col items-center gap-1.5 bg-white rounded-2xl py-2 px-2 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer" style={{ color: GREEN_DARK }}>
                 {r.icon}
@@ -250,7 +250,7 @@ export default function Links() {
 
           {/* Stay Connected */}
           <SectionDivider title="Stay Connected" />
-          <div className="grid grid-cols-3 sm:grid-cols-4 gap-1 md:gap-2 mb-2 max-w-[300px] sm:max-w-[320px] mx-auto">
+          <div className="grid grid-cols-3 sm:grid-cols-4 gap-1 md:gap-2 mt-2 max-w-[300px] sm:max-w-[320px] mx-auto">
             {socials.map((s) => (
               <a
                 key={s.label}
