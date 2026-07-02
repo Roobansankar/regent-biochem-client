@@ -179,6 +179,7 @@
 
 
 import Link from "next/link";
+import Script from "next/script";
 
 export default function Footer() {
   return (
@@ -422,6 +423,13 @@ export default function Footer() {
             </p>
           </div>
 
+          {/* DUNS Seal */}
+          <div
+            id="Iframe1"
+            className="flex justify-center"
+            style={{ minWidth: "114px", minHeight: "97px" }}
+          />
+
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/privacy"
@@ -438,6 +446,11 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+
+        <Script
+          src="https://dunsregistered.dnb.com/mini.js"
+          strategy="afterInteractive"
+        />
       </div>
     </footer>
   );
