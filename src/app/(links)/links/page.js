@@ -53,11 +53,12 @@ const whyReasons = [
 const resources = [
   {
     icon: (
-      <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="6" width="18" height="24" rx="2" stroke="white" strokeWidth="2"/>
-        <path d="M14 12h8M14 17h8M14 22h5" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-        <circle cx="28" cy="28" r="5" stroke="white" strokeWidth="2"/>
-        <path d="M32 32l3 3" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+      <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="2" width="13" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
+        <path d="M3 8h13" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M8 13h8M8 17h5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="19" cy="19" r="4" stroke="currentColor" strokeWidth="2"/>
+        <path d="M22 22l2 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
       </svg>
     ),
     title: "Case Studies",
@@ -65,16 +66,15 @@ const resources = [
   },
   {
     icon: (
-      <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
-        <rect x="6" y="6" width="13" height="14" rx="1" stroke="white" strokeWidth="2"/>
-        <rect x="21" y="6" width="13" height="14" rx="1" stroke="white" strokeWidth="2"/>
-        <rect x="6" y="24" width="13" height="10" rx="1" stroke="white" strokeWidth="2"/>
-        <rect x="21" y="24" width="13" height="10" rx="1" stroke="white" strokeWidth="2"/>
+      <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="2"/>
+        <rect x="13" y="3" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="2"/>
+        <rect x="3" y="13" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="2"/>
+        <rect x="13" y="13" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="2"/>
       </svg>
     ),
     title: "Blogs",
     href: "/blog",
-    className: "px-3",
   },
 ];
 
@@ -143,12 +143,12 @@ const socials = [
 
 function SectionDivider({ title }) {
   return (
-    <div className="flex items-center gap-3 my-3 md:my-4">
+    <div className="flex items-center gap-2 my-2 md:my-4">
       <div className="flex-1 flex items-center gap-1">
         <div className="w-1.5 h-1.5 rounded-full" style={{ background: GREEN_MID }} />
         <div className="flex-1 h-px" style={{ background: GREEN_MID }} />
       </div>
-      <h2 className="text-xs md:text-lg font-bold whitespace-nowrap" style={{ color: GREEN_DARK }}>
+      <h2 className="text-[10px] sm:text-xs md:text-lg font-bold whitespace-nowrap" style={{ color: GREEN_DARK }}>
         {title}
       </h2>
       <div className="flex-1 flex items-center gap-1">
@@ -159,9 +159,9 @@ function SectionDivider({ title }) {
   );
 }
 
-function MiniCard({ icon, title, href, className = "", noIconBg = false, iconHeight = "h-10" }) {
+function MiniCard({ icon, title, href, className = "", noIconBg = false, iconHeight = "h-10", hideTitle = false }) {
   const content = (
-    <div className={`flex flex-col items-center gap-1.5 bg-white rounded-2xl py-2 px-1 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer text-center ${className}`} style={{ color: GREEN_DARK }}>
+    <div className={`flex flex-col items-center gap-1.5 bg-white rounded-2xl py-2 px-2 sm:px-1 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer text-center ${className}`} style={{ color: GREEN_DARK }}>
       {noIconBg ? (
         <div className={`flex items-center justify-center w-full ${iconHeight}`}>
           {icon}
@@ -171,7 +171,7 @@ function MiniCard({ icon, title, href, className = "", noIconBg = false, iconHei
           {icon}
         </div>
       )}
-      <span className="text-xs font-medium text-gray-700">{title}</span>
+      {!hideTitle && <span className="text-[11px] sm:text-xs font-medium text-gray-700">{title}</span>}
     </div>
   );
   if (href) return <Link href={href}>{content}</Link>;
@@ -203,69 +203,72 @@ function RowCard({ icon, title, desc, href }) {
 
 export default function Links() {
   return (
-    <div className="min-h-screen flex flex-col items-center" style={{ background: "#f6f8f6" }}>
-      <div className="w-full flex flex-col">
+    <div className="min-h-screen flex flex-col items-center w-full overflow-hidden" style={{ background: "#f6f8f6" }}>
+      <div className="w-full flex flex-col max-w-[780px] mx-auto flex-1 justify-between">
 
         {/* ─── PAGE HERO ─── */}
         <section className="relative pt-3 pb-3 lg:pt-5 lg:pb-4 bg-green overflow-hidden">
           <div className="absolute inset-0 hero-pattern opacity-10"></div>
-          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto">
-              <img src="/logo.png" alt="Bio-Chem Logo" className="w-48 brightness-0 invert mx-auto mb-2" />
+          <div className="w-full mx-auto px-3 sm:px-4 relative z-10">
+            <div className="text-center mx-auto">
+              <img src="/logo.png" alt="Bio-Chem Logo" className="w-24 sm:w-28 brightness-0 invert mx-auto mb-2" />
 
               
             </div>
           </div>
         </section>
 
-        <div className="px-3 md:px-6 lg:px-8 mt-1">
+        <div className="px-3 md:px-6 lg:px-8 mt-0 flex-1">
           {/* Our Products */}
           <SectionDivider title="Our Products" />
-          <div className="flex justify-center flex-wrap gap-2">
+          <div className="flex justify-center flex-wrap gap-1.5">
             {products.map((p) => (
-              <MiniCard key={p.title} icon={p.icon} title={p.title} href={p.href} noIconBg={p.noIconBg} iconHeight={p.iconHeight} />
+              <MiniCard key={p.title} icon={p.icon} title={p.title} href={p.href} noIconBg={p.noIconBg} iconHeight={p.iconHeight} hideTitle className="w-[90px] sm:w-[110px]" />
             ))}
           </div>
 
           {/* Our Services */}
           <SectionDivider title="Our Services" />
-          <div className="flex justify-center">
-            <div className="grid grid-cols-1 gap-2 w-full max-w-[140px]">
+          <div className="flex justify-center items-center">
+            <div className="w-fit mx-auto">
               {services.map((s) => (
-                <MiniCard key={s.title} icon={s.icon} title={s.title} href={s.href} noIconBg={s.noIconBg} />
+                <MiniCard key={s.title} icon={s.icon} title={s.title} href={s.href} noIconBg={s.noIconBg} hideTitle className="w-[90px] mx-auto" />
               ))}
             </div>
           </div>
 
           {/* Resources */}
           <SectionDivider title="Resources" />
-          <div className="flex justify-center flex-wrap sm:grid sm:grid-cols-3 gap-2">
+          <div className="grid grid-cols-2 gap-1.5 md:gap-2 mb-2 max-w-[200px] sm:max-w-[220px] mx-auto">
             {resources.map((r) => (
-              <MiniCard key={r.title} icon={r.icon} title={r.title} href={r.href} className={r.className} />
+              <Link key={r.title} href={r.href} className="flex flex-col items-center gap-1.5 bg-white rounded-2xl py-2 px-2 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer" style={{ color: GREEN_DARK }}>
+                {r.icon}
+                <span className="text-[10px] sm:text-[11px] font-medium text-gray-700">{r.title}</span>
+              </Link>
             ))}
           </div>
 
           {/* Stay Connected */}
           <SectionDivider title="Stay Connected" />
-          <div className="grid grid-cols-3 md:grid-cols-7 gap-1.5 md:gap-3 mb-2">
+          <div className="grid grid-cols-3 sm:grid-cols-4 gap-1 md:gap-2 mb-2 max-w-[300px] sm:max-w-[320px] mx-auto">
             {socials.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex flex-col items-center gap-1.5 bg-white rounded-2xl py-3 md:py-4 px-1 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer"
+                className="flex flex-col items-center gap-1.5 bg-white rounded-2xl py-2 px-1 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer"
                 style={{ color: GREEN_DARK }}
               >
                 {s.icon}
-                <span className="text-xs font-medium text-gray-700">{s.label}</span>
+                <span className="text-[10px] sm:text-[11px] font-medium text-gray-700">{s.label}</span>
               </a>
             ))}
           </div>
         </div>
 
         {/* ─── FOOTER TAGLINE ─── */}
-        <section className="bg-green py-6 mt-4">
+        <section className="bg-green py-4">
           <div className="text-center">
             <p className="text-sm sm:text-base text-white/90 leading-relaxed font-medium">
               Green Way to Growth

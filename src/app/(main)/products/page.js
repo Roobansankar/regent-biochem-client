@@ -151,6 +151,7 @@ function ProductsContent() {
     )
     .filter((product) => {
       for (const [groupTitle, options] of Object.entries(activeFilters)) {
+        if (options.length === 0) continue;
         const field = fieldMap[groupTitle];
         if (!field) continue;
         const productVal = product[field];
