@@ -220,7 +220,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams } from "next/navigation";
 // Import the secure URL helper function
 import { API, imageUrl } from "@/lib/api";
@@ -232,6 +232,9 @@ export default function BlogPost() {
   const [post, setPost] = useState(null);
   const [related, setRelated] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [nlStatus, setNlStatus] = useState("idle");
+  const [nlMessage, setNlMessage] = useState("");
 
   useEffect(() => {
     if (!slug) return;
@@ -404,15 +407,46 @@ export default function BlogPost() {
             <div className="bg-brand-bg2 rounded-[2rem] p-8 border border-brand-border">
               <h3 className="text-xl font-bold text-brand-black mb-4">Stay in the Loop</h3>
               <p className="text-sm text-brand-body leading-relaxed mb-6">Get the latest technical insights and project updates delivered to your inbox.</p>
-              <form className="flex flex-col gap-3">
+              <form onSubmit={async (e) => {
+                e.preventDefault();
+                if (!newsletterEmail.trim()) return;
+                setNlStatus("loading");
+                setNlMessage("");
+                try {
+                  const res = await fetch(`${API}/cta`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email: newsletterEmail.trim() }),
+                  });
+                  if (res.ok) {
+                    setNlStatus("success");
+                    setNlMessage("Thank you! You're subscribed.");
+                    setNewsletterEmail("");
+                  } else {
+                    const data = await res.json();
+                    setNlStatus("error");
+                    setNlMessage(data.error || "Something went wrong.");
+                  }
+                } catch {
+                  setNlStatus("error");
+                  setNlMessage("Network error. Please try again.");
+                }
+              }} className="flex flex-col gap-3">
                 <input 
                   type="email" 
                   placeholder="Email Address" 
-                  className="w-full px-5 py-3 rounded-xl border border-brand-border focus:border-green outline-none text-sm transition-all"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  required
+                  disabled={nlStatus === "loading"}
+                  className="w-full px-5 py-3 rounded-xl border border-brand-border focus:border-green outline-none text-sm transition-all disabled:opacity-50"
                 />
-                <button type="button" className="w-full bg-green text-white font-bold py-3 rounded-xl hover:bg-green-dark transition-all shadow-lg shadow-green/20">
-                  Subscribe
+                <button type="submit" disabled={nlStatus === "loading"} className="w-full bg-green text-white font-bold py-3 rounded-xl hover:bg-green-dark transition-all shadow-lg shadow-green/20 disabled:opacity-50">
+                  {nlStatus === "loading" ? "Submitting..." : "Subscribe"}
                 </button>
+                {nlMessage && (
+                  <p className={`text-xs font-medium ${nlStatus === "success" ? "text-green-600" : "text-red-500"}`}>{nlMessage}</p>
+                )}
               </form>
             </div>
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import safeweldLogo from "@/assets/safeweld.png";
 import logoImg from "@/assets/logo.png";
 import frefloLogo from "@/assets/freeflo.png";
+import { API } from "@/lib/api";
 
 const GREEN_DARK = "#1a4d2e";
 const GREEN_MID = "#2d7a4f";
