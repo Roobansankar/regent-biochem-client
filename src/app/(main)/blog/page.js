@@ -149,6 +149,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 // Import imageUrl helper along with API
 import { API, imageUrl } from "@/lib/api";
+import NewsletterForm from "@/components/NewsletterForm";
 
 const fallbackImg = (w, h) => `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect fill="#e2e8f0" width="${w}" height="${h}"/><text fill="#64748b" font-family="Arial" font-size="${Math.min(w,h)/8}" font-weight="bold" x="${w/2}" y="${h/2}" text-anchor="middle" dominant-baseline="middle">No Image</text></svg>`)}`;
 
@@ -278,17 +279,7 @@ export default function BlogPage() {
           <p className="text-sm sm:text-base text-brand-body leading-relaxed mb-6 max-w-xl mx-auto">
             Get the latest technical insights and industry news delivered directly to your inbox. No spam, just pure engineering value.
           </p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Email Address" 
-              className="form-input flex-1"
-              required
-            />
-            <button type="submit" className="bg-green text-white font-bold px-8 py-3 rounded-xl hover:bg-green-dark transition-all shadow-lg shadow-green/20">
-              Subscribe
-            </button>
-          </form>
+          <NewsletterForm />
         </div>
       </section>
 
