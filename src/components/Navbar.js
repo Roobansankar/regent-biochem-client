@@ -181,10 +181,12 @@ export default function Navbar() {
   };
 
   const toggleMobileSubmenu = (name) => {
-    setMobileExpanded((prev) => ({
-      ...prev,
-      [name]: !prev[name],
-    }));
+    setMobileExpanded((prev) => {
+      const isOpen = !!prev[name];
+      const next = {};
+      if (!isOpen) next[name] = true;
+      return next;
+    });
   };
 
   useEffect(() => {
@@ -402,6 +404,18 @@ export default function Navbar() {
                               </div>
                             ) : (
                               <div className="flex flex-col gap-6 pl-4">
+                                {link.name === "Products" && (
+                                  <Link
+                                    href={link.href}
+                                    onClick={closeMenu}
+                                    className="py-2.5 px-4 text-sm font-bold text-green hover:text-green-dark hover:bg-green-light rounded-lg transition-all"
+                                  >
+                                    <span className="flex items-center gap-2">
+                                      All Products
+                                      <i className="fas fa-arrow-right text-[10px]"></i>
+                                    </span>
+                                  </Link>
+                                )}
                                 {link.columns.map((col) => (
                                   col.type === "explore-card" ? null : (
                                   <div key={col.label || col.items?.[0]?.name}>

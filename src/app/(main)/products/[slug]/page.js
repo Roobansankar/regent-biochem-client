@@ -31,7 +31,7 @@ function mapApiProduct(p) {
     ...p,
     desc: p.description || p.desc || "",
     img: toAbs(p.images?.[0] || p.img) || null,
-    images: (p.images || []).map(toAbs),
+    images: p.images?.length > 0 ? p.images.map(toAbs) : (p.img ? [toAbs(p.img)] : []),
     badgeImages: (p.badgeImages || []).map(toAbs),
   };
 }
@@ -306,201 +306,9 @@ export default async function ProductDetailPage({ params }) {
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
-            {/* ─── LEFT COLUMN ─── */}
-            <div className="lg:col-span-8 space-y-10 sm:space-y-12">
-
-              {/* Is This Product Right for You? */}
-              {product.isThisRightFor && (
-                <div>
-                  <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Is This Product Right for You?</h3>
-                   <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
-                  <p className="text-sm text-brand-body leading-relaxed" style={{ whiteSpace: "pre-line" }}>{product.isThisRightFor}</p>
-                  </div>
-                </div>
-              )}
-
-              {/* Application */}
-              {product.application && (
-                <div>
-                  <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Application</h3>
-                  <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
-                    <p className="text-sm text-brand-body leading-relaxed" style={{ whiteSpace: "pre-line" }}>{product.application}</p>
-                  </div>
-                </div>
-              )}
-
-              {/* Specification Table (system categories only) */}
-              {["Cleaning Systems", "Paint Removal Systems", "Descaling Systems"].includes(product.category) && (() => {
-                const sd = product.specData;
-                if (sd && sd.headers && sd.headers.length > 0 && sd.rows && sd.rows.length > 0) {
-                  return (
-                    <div>
-                      <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
-                      <div className="overflow-hidden rounded-2xl border border-brand-border">
-                        <table className="w-full text-sm table-fixed">
-                          <thead>
-                            <tr className="bg-gradient-to-r from-green to-emerald-600">
-                              <th className="text-left px-4 py-3 font-bold text-white w-2/5">Parameter</th>
-                              {sd.headers.map((h, i) => (
-                                <th key={i} className="px-4 py-3 font-bold text-white text-center">{h}</th>
-                              ))}
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {sd.rows.map((row, i) => (
-                              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-brand-bg2"}>
-                                <td className="px-4 py-2.5 font-semibold text-brand-black border-r border-brand-border break-words">{row.label}</td>
-                                {row.values.map((v, j) => (
-                                  <td key={j} className="px-4 py-2.5 text-brand-body text-center border-r border-brand-border last:border-r-0">{v}</td>
-                                ))}
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  );
-                }
-                if (product.availableModels && product.specificationFields && product.availableModels.length > 0) {
-                  return (
-                    <div>
-                      <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
-                      <div className="overflow-hidden rounded-2xl border border-brand-border">
-                        <table className="w-full text-sm table-fixed">
-                          <thead>
-                            <tr className="bg-gradient-to-r from-green to-emerald-600">
-                              <th className="text-left px-4 py-3 font-bold text-white w-2/5">Parameter</th>
-                              {product.availableModels.map((m, i) => (
-                                <th key={i} className="px-4 py-3 font-bold text-white text-center">{m.model}</th>
-                              ))}
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {product.specificationFields.map((field, i) => (
-                              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-brand-bg2"}>
-                                <td className="px-4 py-2.5 font-semibold text-brand-black border-r border-brand-border break-words">{field.label}</td>
-                                {product.availableModels.map((m, j) => (
-                                  <td key={j} className="px-4 py-2.5 text-brand-body text-center border-r border-brand-border last:border-r-0">{m[field.key]}</td>
-                                ))}
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  );
-                }
-                return null;
-              })()}
-
-              {/* Why Choose */}
-              {product.whyChoose && (
-                <div>
-                  <div className="mb-4">
-                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Why Choose the {product.title}?</p>
-                  </div>
-                  <div className="space-y-2.5">
-                    {product.whyChoose.split("\n").map((point, i) => (
-                      <div key={i} className="flex gap-3 p-4 sm:p-5 bg-white rounded-xl border border-brand-border">
-                        <div className="w-2 h-2 rounded-full bg-green shrink-0 mt-2"></div>
-                        <p className="text-sm text-brand-body leading-relaxed">{point}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Full Description */}
-              {product.fullDescription && (
-                <div>
-                  <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-xs sm:text-sm font-bold text-green">Description</span>
-                  </div>
-                  <div
-                    className="prose prose-sm sm:prose-base max-w-none prose-headings:text-brand-black prose-p:text-brand-body prose-strong:text-green prose-headings:font-bold"
-                    dangerouslySetInnerHTML={{ __html: product.fullDescription }}
-                  />
-                </div>
-              )}
-
-              {/* Packaging Details */}
-              {product.packaging && (
-                <div>
-                  <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-xs sm:text-sm font-bold text-green">Packaging Details</span>
-                  </div>
-                  <div
-                    className="prose prose-sm sm:prose-base max-w-none prose-headings:text-brand-black prose-p:text-brand-body prose-strong:text-green prose-headings:font-bold"
-                    dangerouslySetInnerHTML={{ __html: product.packaging }}
-                  />
-                </div>
-              )}
-
-              {/* Similar Products */}
-              {product.similarProducts && product.similarProducts.length > 0 && (
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Similar Products</p>
-                    <Link href="/products" className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-green px-4 py-2 rounded-lg hover:bg-green-dark transition-colors">
-                      View All Products <i className="fas fa-arrow-right text-[10px]"></i>
-                    </Link>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {product.similarProducts
-                      .map((ref) => allItems.find((p) => p.title === ref || p.slug === ref || p.id === ref))
-                      .filter(Boolean)
-                      .map((similarProd, i) => (
-                        <Link key={i} href={`/products/${similarProd.slug}`} className="group block border border-brand-border rounded-xl overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 bg-white">
-                          <div className="aspect-[4/3] overflow-hidden bg-brand-bg3">
-                            <img
-                              src={similarProd.img || similarProd.images?.[0] || "/placeholder.png"}
-                              alt={similarProd.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                          </div>
-                          <div className="p-4 sm:p-5">
-                            <span className="text-xs font-bold text-green">{similarProd.category}</span>
-                            <h4 className="text-sm font-bold text-brand-black mt-1 mb-1 leading-snug">{similarProd.title}</h4>
-                            <p className="text-xs text-brand-body leading-relaxed line-clamp-2">{similarProd.desc}</p>
-                          </div>
-                        </Link>
-                      ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Case Studies */}
-              {product.caseStudies && product.caseStudies.length > 0 && (
-                <div>
-                  <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-xs sm:text-sm font-bold text-green">Case Studies</span>
-                  </div>
-                  <div className="space-y-3">
-                    {product.caseStudies.map((cs, i) => (
-                      <Link key={i} href={cs.href} className="flex items-center justify-between p-4 sm:p-5 bg-white rounded-xl border border-brand-border hover:border-green/30 hover:shadow-sm transition-all group">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-green-light flex items-center justify-center text-green shrink-0">
-                            <i className="fas fa-file-alt text-xs"></i>
-                          </div>
-                          <span className="text-sm font-bold text-brand-black group-hover:text-green transition-colors">{cs.title}</span>
-                        </div>
-                        <i className="fas fa-arrow-right text-green text-xs opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"></i>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* FAQ */}
-              {product.faq && product.faq.length > 0 && (
-                <ProductFAQ faq={product.faq} />
-              )}
-
-            </div>
-
-            {/* ─── RIGHT SIDEBAR ─── */}
-            <div className="lg:col-span-4">
-              <div className="sticky top-24 space-y-5">
+            {/* ─── RIGHT SIDEBAR (rendered first so it appears on top on mobile) ─── */}
+            <div className="lg:col-span-4 lg:order-2">
+              <div className="lg:sticky lg:top-24 space-y-5">
 
                 {/* Highlights */}
                 {product.technicalSpecs && (
@@ -513,11 +321,7 @@ export default async function ProductDetailPage({ params }) {
                           <div key={i} className="flex justify-between items-end border-b border-white/15 pb-3">
                             <div>
                               <p className="text-sm font-bold text-white/60 mb-0.5">{spec.label}</p>
-                              {spec.value.toLowerCase() === "voc-free" || spec.value.toLowerCase() === "voc free" ? (
-                                <img src="https://c8.alamy.com/comp/2JBE5TW/voc-free-volatile-organic-compounds-free-abstract-vector-stock-illustration-2JBE5TW.jpg" alt="VOC Free" className="h-10 sm:h-12 w-auto object-contain bg-white rounded p-0.5 mt-1" />
-                              ) : (
-                                <p className="text-sm font-bold text-white">{spec.value}</p>
-                              )}
+                              <p className="text-sm font-bold text-white">{spec.value}</p>
                             </div>
                           </div>
                         ))}
@@ -526,7 +330,8 @@ export default async function ProductDetailPage({ params }) {
                   </div>
                 )}
 
-                {/* Recommended Cleaner */}
+                {/* Recommended Cleaner (desktop only - shown inline on mobile) */}
+                <div className="hidden lg:block">
                 {(() => {
                   const rcs = product.recommendedCleaner
                     ? (Array.isArray(product.recommendedCleaner) ? product.recommendedCleaner : [product.recommendedCleaner])
@@ -564,6 +369,7 @@ export default async function ProductDetailPage({ params }) {
                     </div>
                   );
                 })()}
+                </div>
 
                 {/* Recommended With */}
                 {product.recommendedWith && (
@@ -582,6 +388,285 @@ export default async function ProductDetailPage({ params }) {
                 )}
 
               </div>
+            </div>
+
+            {/* ─── LEFT COLUMN ─── */}
+            <div className="lg:col-span-8 lg:order-1 space-y-10 sm:space-y-12">
+
+              {/* Is This Product Right for You? */}
+              {product.isThisRightFor && (
+                <div>
+                  <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Is This Product Right for You?</h3>
+                   <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
+                  <p className="text-sm text-brand-body leading-relaxed" style={{ whiteSpace: "pre-line" }}>{product.isThisRightFor}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Application */}
+              {product.application && (
+                <div>
+                  <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Application</h3>
+                  <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
+                    <p className="text-sm text-brand-body leading-relaxed" style={{ whiteSpace: "pre-line" }}>{product.application}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Specification Table (system categories only) */}
+              {["Cleaning Systems", "Paint Removal Systems", "Descaling Systems"].includes(product.category) && (() => {
+                const sd = product.specData;
+                if (sd && sd.headers && sd.headers.length > 0 && sd.rows && sd.rows.length > 0) {
+                  return (
+                    <div>
+                      <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
+                      <div className="overflow-x-auto rounded-2xl border border-brand-border">
+                        <table className="text-sm">
+                          <thead>
+                            <tr className="bg-gradient-to-r from-green to-emerald-600">
+                              <th className="text-left px-2 sm:px-4 py-3 font-bold text-white whitespace-nowrap min-w-[160px]">Parameter</th>
+                              {sd.headers.map((h, i) => (
+                                <th key={i} className="px-2 sm:px-4 py-3 font-bold text-white text-center whitespace-nowrap min-w-[120px]">{h}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {sd.rows.map((row, i) => (
+                              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-brand-bg2"}>
+                                <td className="px-2 sm:px-4 py-2.5 font-semibold text-brand-black border-r border-brand-border whitespace-nowrap">{row.label}</td>
+                                {row.values.map((v, j) => (
+                                  <td key={j} className="px-2 sm:px-4 py-2.5 text-brand-body text-center border-r border-brand-border last:border-r-0 whitespace-nowrap">{v}</td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  );
+                }
+                if (product.availableModels && product.specificationFields && product.availableModels.length > 0) {
+                  return (
+                    <div>
+                      <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
+                      <div className="overflow-x-auto rounded-2xl border border-brand-border">
+                        <table className="text-sm">
+                          <thead>
+                            <tr className="bg-gradient-to-r from-green to-emerald-600">
+                              <th className="text-left px-2 sm:px-4 py-3 font-bold text-white whitespace-nowrap min-w-[160px]">Parameter</th>
+                              {product.availableModels.map((m, i) => (
+                                <th key={i} className="px-2 sm:px-4 py-3 font-bold text-white text-center whitespace-nowrap min-w-[120px]">{m.model}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {product.specificationFields.map((field, i) => (
+                              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-brand-bg2"}>
+                                <td className="px-2 sm:px-4 py-2.5 font-semibold text-brand-black border-r border-brand-border whitespace-nowrap">{field.label}</td>
+                                {product.availableModels.map((m, j) => (
+                                  <td key={j} className="px-2 sm:px-4 py-2.5 text-brand-body text-center border-r border-brand-border last:border-r-0 whitespace-nowrap">{m[field.key]}</td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  );
+                }
+                return null;
+              })()}
+
+              {/* Why Choose */}
+              {product.whyChoose && (
+                <div>
+                  <div className="mb-4">
+                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Why Choose the {product.title}?</p>
+                  </div>
+                  <div className="space-y-2.5">
+                    {product.whyChoose.split("\n").map((point, i) => (
+                      <div key={i} className="flex gap-3 p-4 sm:p-5 bg-white rounded-xl border border-brand-border">
+                        <div className="w-2 h-2 rounded-full bg-green shrink-0 mt-2"></div>
+                        <p className="text-sm text-brand-body leading-relaxed">{point}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Mobile: Recommended Cleaner (after Why Choose) */}
+              <div className="lg:hidden">
+                {(() => {
+                  const rcs = product.recommendedCleaner
+                    ? (Array.isArray(product.recommendedCleaner) ? product.recommendedCleaner : [product.recommendedCleaner])
+                    : [];
+                  if (rcs.length === 0) return null;
+                  return (
+                    <div className="bg-white rounded-2xl p-5 sm:p-6 border border-brand-border shadow-sm">
+                      <div className="flex items-center gap-2 mb-4">
+                        <i className="fas fa-flask text-green text-xs"></i>
+                        <span className="text-sm font-bold text-green uppercase tracking-wider">Recommended Cleaner</span>
+                      </div>
+                      <div className="space-y-4">
+                        {rcs.map((slug, idx) => {
+                          const match = allItems.find(p => p.slug === slug);
+                          if (!match) return null;
+                          return (
+                            <div key={idx} className="flex items-start gap-3 sm:gap-4">
+                              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden shrink-0 border border-green/20 bg-brand-bg3">
+                                <img
+                                  src={match.img || "/placeholder.png"}
+                                  alt={match.title}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                              <div className="min-w-0">
+                                <h5 className="text-sm font-bold text-brand-black mb-1">{match.title}</h5>
+                                <Link href={`/products/${slug}`} className="inline-flex items-center gap-1.5 text-sm font-bold text-green hover:text-green-dark transition-colors">
+                                  View Product <i className="fas fa-arrow-right text-[10px]"></i>
+                                </Link>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })()}
+              </div>
+
+              {/* Mobile: FAQ (after Recommended Cleaner) */}
+              <div className="lg:hidden">
+                {product.faq && product.faq.length > 0 && (
+                  <ProductFAQ faq={product.faq} />
+                )}
+              </div>
+
+              {/* Mobile: Similar Products (after FAQ) */}
+              <div className="lg:hidden">
+                {product.similarProducts && product.similarProducts.length > 0 && (
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Similar Products</p>
+                      <Link href="/products" className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-green px-4 py-2 rounded-lg hover:bg-green-dark transition-colors">
+                        View All Products <i className="fas fa-arrow-right text-[10px]"></i>
+                      </Link>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {product.similarProducts
+                        .map((ref) => allItems.find((p) => p.title === ref || p.slug === ref || p.id === ref))
+                        .filter(Boolean)
+                        .map((similarProd, i) => (
+                          <Link key={i} href={`/products/${similarProd.slug}`} className="group block border border-brand-border rounded-xl overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 bg-white">
+                            <div className="aspect-[4/3] overflow-hidden bg-brand-bg3">
+                              <img
+                                src={similarProd.img || similarProd.images?.[0] || "/placeholder.png"}
+                                alt={similarProd.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              />
+                            </div>
+                            <div className="p-4 sm:p-5">
+                              <span className="text-xs font-bold text-green">{similarProd.category}</span>
+                              <h4 className="text-sm font-bold text-brand-black mt-1 mb-1 leading-snug">{similarProd.title}</h4>
+                              <p className="text-xs text-brand-body leading-relaxed line-clamp-2">{similarProd.desc}</p>
+                            </div>
+                          </Link>
+                        ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Full Description */}
+              {product.fullDescription && (
+                <div>
+                  <div className="mb-4">
+                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-xs sm:text-sm font-bold text-green">Description</span>
+                  </div>
+                  <div
+                    className="prose prose-sm sm:prose-base max-w-none prose-headings:text-brand-black prose-p:text-brand-body prose-strong:text-green prose-headings:font-bold"
+                    dangerouslySetInnerHTML={{ __html: product.fullDescription }}
+                  />
+                </div>
+              )}
+
+              {/* Packaging Details */}
+              {product.packaging && (
+                <div>
+                  <div className="mb-4">
+                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-xs sm:text-sm font-bold text-green">Packaging Details</span>
+                  </div>
+                  <div
+                    className="prose prose-sm sm:prose-base max-w-none prose-headings:text-brand-black prose-p:text-brand-body prose-strong:text-green prose-headings:font-bold"
+                    dangerouslySetInnerHTML={{ __html: product.packaging }}
+                  />
+                </div>
+              )}
+
+              {/* Similar Products (desktop only) */}
+              <div className="hidden lg:block">
+              {product.similarProducts && product.similarProducts.length > 0 && (
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Similar Products</p>
+                    <Link href="/products" className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-green px-4 py-2 rounded-lg hover:bg-green-dark transition-colors">
+                      View All Products <i className="fas fa-arrow-right text-[10px]"></i>
+                    </Link>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {product.similarProducts
+                      .map((ref) => allItems.find((p) => p.title === ref || p.slug === ref || p.id === ref))
+                      .filter(Boolean)
+                      .map((similarProd, i) => (
+                        <Link key={i} href={`/products/${similarProd.slug}`} className="group block border border-brand-border rounded-xl overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 bg-white">
+                          <div className="aspect-[4/3] overflow-hidden bg-brand-bg3">
+                            <img
+                              src={similarProd.img || similarProd.images?.[0] || "/placeholder.png"}
+                              alt={similarProd.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </div>
+                          <div className="p-4 sm:p-5">
+                            <span className="text-xs font-bold text-green">{similarProd.category}</span>
+                            <h4 className="text-sm font-bold text-brand-black mt-1 mb-1 leading-snug">{similarProd.title}</h4>
+                            <p className="text-xs text-brand-body leading-relaxed line-clamp-2">{similarProd.desc}</p>
+                          </div>
+                        </Link>
+                      ))}
+                  </div>
+                </div>
+              )}
+              </div>
+
+              {/* Case Studies */}
+              {product.caseStudies && product.caseStudies.length > 0 && (
+                <div>
+                  <div className="mb-4">
+                    <span className="inline-block px-3 py-1 rounded-full bg-green-light border border-green/20 text-xs sm:text-sm font-bold text-green">Case Studies</span>
+                  </div>
+                  <div className="space-y-3">
+                    {product.caseStudies.map((cs, i) => (
+                      <Link key={i} href={cs.href} className="flex items-center justify-between p-4 sm:p-5 bg-white rounded-xl border border-brand-border hover:border-green/30 hover:shadow-sm transition-all group">
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-green-light flex items-center justify-center text-green shrink-0">
+                            <i className="fas fa-file-alt text-xs"></i>
+                          </div>
+                          <span className="text-sm font-bold text-brand-black group-hover:text-green transition-colors">{cs.title}</span>
+                        </div>
+                        <i className="fas fa-arrow-right text-green text-xs opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"></i>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* FAQ (desktop only) */}
+              <div className="hidden lg:block">
+              {product.faq && product.faq.length > 0 && (
+                <ProductFAQ faq={product.faq} />
+              )}
+              </div>
+
             </div>
 
           </div>

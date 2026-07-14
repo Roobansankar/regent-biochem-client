@@ -135,6 +135,23 @@ export default function CategoryTabs({ products, category, allProducts = [] }) {
             
             {/* Left Column */}
             <div className="lg:col-span-8 space-y-10">
+
+              {/* Mobile: Technical Specifications (before Is This Right) */}
+              {!["Cleaning Systems", "Paint Removal Systems", "Descaling Systems"].includes(active.category) && active.technicalSpecs && (
+                <div className="lg:hidden bg-green rounded-[2rem] p-8 sm:p-10 text-white relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-8 uppercase tracking-tight">Technical Specifications</h3>
+                  <div className="space-y-6">
+                    {active.technicalSpecs.map((spec, i) => (
+                      <div key={i} className="border-b border-white/20 pb-4">
+                        <p className="text-sm font-black uppercase tracking-widest text-white/60 mb-1">{spec.label}</p>
+                        <p className="text-sm font-bold text-white">{spec.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {active.isThisRightFor && (
                 <div>
                   <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Is This Product Right for You?</h3>
@@ -172,10 +189,44 @@ export default function CategoryTabs({ products, category, allProducts = [] }) {
               {active.faq && active.faq.length > 0 && (
                 <ProductFAQ faq={active.faq} />
               )}
+
+              {/* Similar Products */}
+              {active.similarProducts && active.similarProducts.length > 0 && (
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <p className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-green">Similar Products</p>
+                    <Link href="/products" className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-green px-4 py-2 rounded-lg hover:bg-green-dark transition-colors">
+                      View All Products <i className="fas fa-arrow-right text-[10px]"></i>
+                    </Link>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {active.similarProducts
+                      .map((ref) => allProducts.find((p) => p.title === ref || p.slug === ref || p.id === ref))
+                      .filter(Boolean)
+                      .map((similarProd, i) => (
+                        <Link key={i} href={`/products/${similarProd.slug}`} className="group block border border-brand-border rounded-xl overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 bg-white">
+                          <div className="aspect-[4/3] overflow-hidden bg-brand-bg3">
+                            <img
+                              src={similarProd.img || similarProd.images?.[0] || "/placeholder.png"}
+                              alt={similarProd.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </div>
+                          <div className="p-4 sm:p-5">
+                            <span className="text-xs font-bold text-green">{similarProd.category}</span>
+                            <h4 className="text-sm font-bold text-brand-black mt-1 mb-1 leading-snug">{similarProd.title}</h4>
+                            <p className="text-xs text-brand-body leading-relaxed line-clamp-2">{similarProd.desc}</p>
+                          </div>
+                        </Link>
+                      ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Right Column / Sidebar */}
             <div className="lg:col-span-4 space-y-8">
+              <div className="hidden lg:block">
               {!["Cleaning Systems", "Paint Removal Systems", "Descaling Systems"].includes(active.category) && active.technicalSpecs && (
                 <div className="bg-green rounded-[2rem] p-8 sm:p-10 text-white relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
@@ -190,6 +241,7 @@ export default function CategoryTabs({ products, category, allProducts = [] }) {
                   </div>
                 </div>
               )}
+              </div>
 
               {(() => {
                 const rcs = active.recommendedCleaner

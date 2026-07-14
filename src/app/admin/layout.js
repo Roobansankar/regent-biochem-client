@@ -125,10 +125,6 @@ export default function AdminLayout({ children }) {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <button className="w-9 h-9 rounded-lg bg-brand-bg2 flex items-center justify-center text-brand-muted hover:bg-green-light hover:text-green transition-all relative">
-              <i className="fas fa-bell text-sm"></i>
-              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-red-500 text-white text-[9px] font-bold rounded-full flex items-center justify-center ring-2 ring-white">3</span>
-            </button>
             <div className="h-8 w-px bg-brand-border"></div>
             <button
               onClick={() => {
