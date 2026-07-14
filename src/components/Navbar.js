@@ -386,7 +386,7 @@ export default function Navbar() {
                             <i className={`fas fa-chevron-down text-xs transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}></i>
                           </button>
                           
-                          <div className={`overflow-hidden transition-all duration-300 ${expanded ? 'max-h-[800px] mt-2 pb-4' : 'max-h-0'}`}>
+                          <div className={`overflow-hidden transition-all duration-300 ${expanded ? 'max-h-[3000px] mt-2 pb-4' : 'max-h-0'}`}>
                             {link.children ? (
                               <div className="flex flex-col gap-1 pl-4">
                                 {link.children.map((child) => (

@@ -2,6 +2,7 @@
 import { timeline, values } from "@/data/about";
 import Link from "next/link";
 import aboutus from "@/assets/aboutus.png";
+import cleanTecLogo from "@/assets/CleanTec.png";
 import frefloLogo from "@/assets/freeflo.png";
 import safeweldLogo from "@/assets/safeweld.png";
 
@@ -11,10 +12,10 @@ export const revalidate = false;
 export default function About() {
   const productCategories = [
     {
-      title: "CleanTech",
+      title: "CleanTec",
       desc: "Advanced aqueous cleaning systems and bio-active fluids for precision industrial parts washing.",
-      icon: { src: "/logo.png" },
-      link: "/products?brand=CleanTech"
+      icon: cleanTecLogo,
+      link: "/products?brand=CleanTec"
     },
     {
       title: "SafeWeld",
@@ -65,7 +66,7 @@ export default function About() {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
               Driving Efficiency<br/><span className="text-green-600">Green Way to Growth</span>
             </h2>
-            <p className="text-sm text-gray-500 leading-relaxed mb-4">Regent BioChem is a CleanTech and Surface Technology company focused on providing innovative industrial cleaning, surface technology, and maintenance solutions to a wide range of manufacturing industries across India and South Asia.</p>
+            <p className="text-sm text-gray-500 leading-relaxed mb-4">Regent BioChem is a CleanTec and Surface Technology company focused on providing innovative industrial cleaning, surface technology, and maintenance solutions to a wide range of manufacturing industries across India and South Asia.</p>
             <p className="text-sm text-gray-500 leading-relaxed mb-4">Driven by a commitment to operational excellence, we help manufacturers enhance productivity, improve asset reliability, and sustain process performance through advanced cleaning technologies, specialty chemical formulations, and deep application knowledge. Our solutions are designed to support cleaner, safer, and more efficient operations while addressing evolving industrial challenges.</p>
             <p className="text-sm text-gray-500 leading-relaxed mb-8">With a customer-centric approach, we work closely with businesses to understand their unique requirements, deliver practical and effective solutions, and provide ongoing technical support that enables long-term efficiency, reliability, and sustainable growth.</p>
           </div>

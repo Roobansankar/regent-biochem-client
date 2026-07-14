@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { API, imageUrl } from "@/lib/api";
 import safeweldLogo from "@/assets/safeweld.png";
+import { products as localProducts } from "@/data/products";
 
 async function fetchAllProducts() {
   try {
@@ -103,7 +104,22 @@ export default async function ProductDetailPage({ params }) {
   const parentCategory = CATEGORY_SLUG_MAP[slug];
   if (parentCategory) {
     const allItems = (await fetchAllProducts()).map(mapApiProduct);
-    const subProducts = allItems.filter(p => p.subcategory === slug);
+    let subProducts = allItems.filter(p => p.subcategory === slug);
+
+    if (subProducts.length === 0) {
+      const parent = localProducts.find(p => p.slug === slug);
+      if (parent?.products?.length > 0) {
+        subProducts = parent.products
+          .map(id => {
+            const apiItem = allItems.find(p => p.id === id || p.slug === id || String(p.id) === String(id));
+            if (apiItem) return apiItem;
+            const localItem = localProducts.find(p => p.id === id || p.slug === id);
+            return localItem ? mapApiProduct(localItem) : null;
+          })
+          .filter(Boolean);
+      }
+    }
+
     const categoryTitle = titleFromSlug(slug);
 
     return (

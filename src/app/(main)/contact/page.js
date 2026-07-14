@@ -104,7 +104,7 @@ export default function Contact() {
 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-green-600 flex-shrink-0">
-                    <i className="fas fa-phone-alt text-xl"></i>
+                    <i className="fas fa-phone text-xl"></i>
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">Phone Number</h4>
