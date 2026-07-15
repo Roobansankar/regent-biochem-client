@@ -421,21 +421,21 @@ export default async function ProductDetailPage({ params }) {
                     <div>
                       <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
                       <div className="overflow-x-auto rounded-2xl border border-brand-border">
-                        <table className="text-sm">
+                        <table className="text-sm w-full lg:table-fixed">
                           <thead>
                             <tr className="bg-gradient-to-r from-green to-emerald-600">
-                              <th className="text-left px-2 sm:px-4 py-3 font-bold text-white whitespace-nowrap min-w-[160px]">Parameter</th>
+                              <th className="text-left px-2 sm:px-4 py-3 font-bold text-white whitespace-nowrap min-w-[160px] lg:w-56 lg:min-w-0 lg:whitespace-normal">Parameter</th>
                               {sd.headers.map((h, i) => (
-                                <th key={i} className="px-2 sm:px-4 py-3 font-bold text-white text-center whitespace-nowrap min-w-[120px]">{h}</th>
+                                <th key={i} className="px-2 sm:px-4 py-3 font-bold text-white text-center whitespace-nowrap min-w-[120px] lg:min-w-0 lg:whitespace-normal">{h}</th>
                               ))}
                             </tr>
                           </thead>
                           <tbody>
                             {sd.rows.map((row, i) => (
                               <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-brand-bg2"}>
-                                <td className="px-2 sm:px-4 py-2.5 font-semibold text-brand-black border-r border-brand-border whitespace-nowrap">{row.label}</td>
+                                <td className="px-2 sm:px-4 py-2.5 font-semibold text-brand-black border-r border-brand-border whitespace-nowrap lg:whitespace-normal">{row.label}</td>
                                 {row.values.map((v, j) => (
-                                  <td key={j} className="px-2 sm:px-4 py-2.5 text-brand-body text-center border-r border-brand-border last:border-r-0 whitespace-nowrap">{v}</td>
+                                  <td key={j} className="px-2 sm:px-4 py-2.5 text-brand-body text-center border-r border-brand-border last:border-r-0 whitespace-nowrap lg:whitespace-normal">{v}</td>
                                 ))}
                               </tr>
                             ))}
@@ -450,21 +450,21 @@ export default async function ProductDetailPage({ params }) {
                     <div>
                       <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Specification</h3>
                       <div className="overflow-x-auto rounded-2xl border border-brand-border">
-                        <table className="text-sm">
+                        <table className="text-sm w-full lg:table-fixed">
                           <thead>
                             <tr className="bg-gradient-to-r from-green to-emerald-600">
-                              <th className="text-left px-2 sm:px-4 py-3 font-bold text-white whitespace-nowrap min-w-[160px]">Parameter</th>
+                              <th className="text-left px-2 sm:px-4 py-3 font-bold text-white whitespace-nowrap min-w-[160px] lg:w-56 lg:min-w-0 lg:whitespace-normal">Parameter</th>
                               {product.availableModels.map((m, i) => (
-                                <th key={i} className="px-2 sm:px-4 py-3 font-bold text-white text-center whitespace-nowrap min-w-[120px]">{m.model}</th>
+                                <th key={i} className="px-2 sm:px-4 py-3 font-bold text-white text-center whitespace-nowrap min-w-[120px] lg:min-w-0 lg:whitespace-normal">{m.model}</th>
                               ))}
                             </tr>
                           </thead>
                           <tbody>
                             {product.specificationFields.map((field, i) => (
                               <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-brand-bg2"}>
-                                <td className="px-2 sm:px-4 py-2.5 font-semibold text-brand-black border-r border-brand-border whitespace-nowrap">{field.label}</td>
+                                <td className="px-2 sm:px-4 py-2.5 font-semibold text-brand-black border-r border-brand-border whitespace-nowrap lg:whitespace-normal">{field.label}</td>
                                 {product.availableModels.map((m, j) => (
-                                  <td key={j} className="px-2 sm:px-4 py-2.5 text-brand-body text-center border-r border-brand-border last:border-r-0 whitespace-nowrap">{m[field.key]}</td>
+                                  <td key={j} className="px-2 sm:px-4 py-2.5 text-brand-body text-center border-r border-brand-border last:border-r-0 whitespace-nowrap lg:whitespace-normal">{m[field.key]}</td>
                                 ))}
                               </tr>
                             ))}

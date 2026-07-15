@@ -403,7 +403,7 @@ export default function Navbar() {
                                 ))}
                               </div>
                             ) : (
-                              <div className="flex flex-col gap-6 pl-4">
+                              <div className="flex flex-col pl-4">
                                 {link.name === "Products" && (
                                   <Link
                                     href={link.href}
@@ -416,24 +416,44 @@ export default function Navbar() {
                                     </span>
                                   </Link>
                                 )}
-                                {link.columns.map((col) => (
-                                  col.type === "explore-card" ? null : (
-                                  <div key={col.label || col.items?.[0]?.name}>
-                                    {col.label ? <div className="text-[10px] font-black uppercase tracking-widest text-green mb-3 px-4">{col.label}</div> : null}
-                                    <div className="flex flex-col gap-1">
-                                      {getColumnItems(col).map((item) => (
-                                        <Link
-                                          key={item.name}
-                                          href={item.href}
-                          onClick={() => { closeMenu(); if (link.name === "Home") window.scrollTo(0, 0); }}
-                                          className="py-2 px-4 text-sm font-semibold text-brand-body hover:text-green hover:bg-green-light rounded-lg transition-all"
-                                        >
-                                          {item.name}
-                                        </Link>
-                                      ))}
+                                {link.columns.map((col) => {
+                                  if (col.type === "explore-card") return null;
+                                  if (!col.label) {
+                                    return (
+                                      <div key={col.items?.[0]?.name}>
+                                        <div className="flex flex-col gap-1">
+                                          {getColumnItems(col).map((item) => (
+                                            <Link
+                                              key={item.name}
+                                              href={item.href}
+                            onClick={() => { closeMenu(); if (link.name === "Home") window.scrollTo(0, 0); }}
+                                              className="py-2 px-4 text-sm font-semibold text-brand-body hover:text-green hover:bg-green-light rounded-lg transition-all"
+                                            >
+                                              {item.name}
+                                            </Link>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    );
+                                  }
+                                  return (
+                                    <div key={col.label}>
+                                      <div className="text-[10px] font-black uppercase tracking-widest text-green mb-3 px-4">{col.label}</div>
+                                      <div className="flex flex-col gap-1">
+                                        {getColumnItems(col).map((item) => (
+                                          <Link
+                                            key={item.name}
+                                            href={item.href}
+                            onClick={() => { closeMenu(); if (link.name === "Home") window.scrollTo(0, 0); }}
+                                            className="py-2 px-4 text-sm font-semibold text-brand-body hover:text-green hover:bg-green-light rounded-lg transition-all"
+                                          >
+                                            {item.name}
+                                          </Link>
+                                        ))}
+                                      </div>
                                     </div>
-                                  </div>
-                                  )))}
+                                  );
+                                })}
                               </div>
                             )}
                           </div>
