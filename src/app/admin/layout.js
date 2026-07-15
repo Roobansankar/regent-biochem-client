@@ -11,6 +11,7 @@ const sidebarLinks = [
   { label: "Jobs", href: "/admin/jobs", icon: "fa-briefcase" },
   { label: "Case Studies", href: "/admin/case-studies", icon: "fa-book-open" },
   { label: "CTA", href: "/admin/cta", icon: "fa-bullhorn" },
+  { label: "Subscribers", href: "/admin/subscribers", icon: "fa-users" },
   { label: "Products (Machines)", href: "/admin/products", icon: "fa-box" },
   { label: "Products (Liquids)", href: "/admin/liquid-products", icon: "fa-flask" },
   { label: "Product Filters", href: "/admin/product-filters", icon: "fa-filter" },

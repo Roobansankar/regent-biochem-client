@@ -13,6 +13,7 @@ const cardMeta = [
   { label: "Products (Machines)", key: "products", icon: "fa-box", href: "/admin/products", bg: "bg-indigo-50", color: "text-indigo-600" },
   { label: "Products (Liquids)", key: "liquidProducts", icon: "fa-flask", href: "/admin/liquid-products", bg: "bg-cyan-50", color: "text-cyan-600" },
   { label: "Product Filters", key: "productFilters", icon: "fa-filter", href: "/admin/product-filters", bg: "bg-orange-50", color: "text-orange-600" },
+  { label: "Blog Subscribers", key: "subscribers", icon: "fa-users", href: "/admin/subscribers", bg: "bg-teal-50", color: "text-teal-600" },
 ];
 
 export default function AdminDashboard() {
@@ -29,7 +30,8 @@ export default function AdminDashboard() {
       fetch(`${API}/cta?limit=1`).then(r => r.json()),
       fetch(`${API}/product-filters?raw=1`).then(r => r.json()),
       fetch(`${API}/products/all`).then(r => r.json()),
-    ]).then(([prod, msg, jobs, blog, cs, cta, pf, all]) => {
+      fetch(`${API}/subscribers`).then(r => r.json()),
+    ]).then(([prod, msg, jobs, blog, cs, cta, pf, all, subs]) => {
       const allProducts = all.products || [];
       const liquidCats = ["Cleaners", "Safeweld"];
       const liquidCount = allProducts.filter(p => liquidCats.includes(p.category)).length;
@@ -43,6 +45,7 @@ export default function AdminDashboard() {
         caseStudies: cs.total || 0,
         cta: cta.total || 0,
         productFilters: (pf.options || []).length || 0,
+        subscribers: subs.activeCount || 0,
       });
       setLoading(false);
     }).catch(() => setLoading(false));

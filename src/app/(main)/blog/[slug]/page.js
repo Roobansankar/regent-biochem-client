@@ -437,15 +437,10 @@ export default function BlogPost() {
                 setNlStatus("loading");
                 setNlMessage("");
                 try {
-                  const res = await fetch(`${API}/cta`, {
+                  const res = await fetch(`${API}/subscribers`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                      email: newsletterEmail.trim(),
-                      page_source: window.location.pathname,
-                      blog_id: post?.id || null,
-                      blog_slug: slug || null,
-                    }),
+                    body: JSON.stringify({ email: newsletterEmail.trim() }),
                   });
                   if (res.ok) {
                     setNlStatus("success");

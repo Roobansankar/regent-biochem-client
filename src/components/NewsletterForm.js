@@ -20,13 +20,10 @@ export default function NewsletterForm() {
     if (!email.trim()) return;
     setStatus("loading");
     try {
-      const res = await fetch(`${API}/cta`, {
+      const res = await fetch(`${API}/subscribers`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: email.trim(),
-          page_source: "/blog",
-        }),
+        body: JSON.stringify({ email: email.trim() }),
       });
       if (res.ok) {
         setStatus("success");
