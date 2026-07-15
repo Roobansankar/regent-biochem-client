@@ -58,7 +58,7 @@ export default function AdminLayout({ children }) {
         <div className="h-16 flex items-center justify-center px-4 border-b border-white/10 shrink-0">
           <Link href="/admin">
             <img 
-              src="/logo.png" 
+              src="/logo-header.webp" 
               alt="Bio-Chem Logo" 
               className="h-11 w-auto brightness-0 invert" 
             />

@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import FontAwesomeLoader from "@/components/FontAwesomeLoader";
 import "./globals.css";
 
 const inter = Inter({
@@ -16,10 +17,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
         <link rel="icon" type="image/png" href="/main.png" />
       </head>
       <body className="min-h-full flex flex-col font-sans">
+        <FontAwesomeLoader />
         {children}
       </body>
     </html>

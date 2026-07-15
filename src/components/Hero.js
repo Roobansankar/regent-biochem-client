@@ -2,12 +2,13 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import hero2 from "@/assets/hero2.png";
-import hero3 from "@/assets/hero3.png";
+import Image from "next/image";
+import hero2 from "@/assets/hero2.webp";
+import hero3 from "@/assets/hero3.webp";
 
 const slides = [
   {
-    bg: "/hero.png",
+    bg: "/hero.webp",
     label: "GREEN WAY TO GROWTH",
     title: (
       <>
@@ -148,13 +149,17 @@ export default function Hero() {
             <div
               key={i}
               className="relative w-full h-full shrink-0 flex items-center bg-brand-bg3"
-              style={{
-                backgroundImage: `url('${slide.bg.src || slide.bg}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
             >
+              <Image
+                src={slide.bg}
+                alt=""
+                fill
+                priority={i === 1}
+                fetchPriority={i === 1 ? "high" : "auto"}
+                sizes="100vw"
+                quality={70}
+                className="object-cover"
+              />
               <div className="hero-overlay absolute inset-0 z-10"></div>
 
               <div className="relative z-20 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pl-10 lg:pl-16">

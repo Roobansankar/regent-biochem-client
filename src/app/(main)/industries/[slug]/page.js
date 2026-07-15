@@ -3,19 +3,19 @@ import CTA from "@/components/CTA";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import WorkflowProcess from "@/components/WorkflowProcess";
-import autoImg from "@/assets/autmotive.png";
-import mroImg from "@/assets/mro.png";
-import oilImg from "@/assets/oil.png";
-import foodImg from "@/assets/food.png";
-import aeroImg from "@/assets/aero.png";
-import railwaysImg from "@/assets/railways.png";
-import shipyardImg from "@/assets/Shipyard.png";
-import fabricationImg from "@/assets/fabrication.png";
-import machiningImg from "@/assets/machining.png";
-import metalworkingImg from "@/assets/Metalworking.png";
-import electronicsImg from "@/assets/Electronics.png";
-import rubberImg from "@/assets/rubber.png";
-import printingImg from "@/assets/printing.png";
+import autoImg from "@/assets/autmotive.webp";
+import mroImg from "@/assets/mro.webp";
+import oilImg from "@/assets/oil.webp";
+import foodImg from "@/assets/food.webp";
+import aeroImg from "@/assets/aero.webp";
+import railwaysImg from "@/assets/railways.webp";
+import shipyardImg from "@/assets/Shipyard.webp";
+import fabricationImg from "@/assets/fabrication.webp";
+import machiningImg from "@/assets/machining.webp";
+import metalworkingImg from "@/assets/Metalworking.webp";
+import electronicsImg from "@/assets/Electronics.webp";
+import rubberImg from "@/assets/rubber.webp";
+import printingImg from "@/assets/printing.webp";
 
 const industryImages = {
   "automotive": autoImg,

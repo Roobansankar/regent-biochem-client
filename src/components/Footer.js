@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="flex flex-col">
             <Link href="/">
               <img
-                src="/logo.png"
+                src="/logo-header.webp"
                 alt="Bio-Chem Logo"
                 className="h-14 w-auto mb-4"
               />

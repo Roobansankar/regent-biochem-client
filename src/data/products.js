@@ -178,7 +178,7 @@
     title: "RWR",
     desc: "Pipe and heat exchanger cleaning system designed for efficient removal of scale and industrial deposits.",
     icon: "fa-sync",
-    img: "/rwr.jpg",
+    img: "/rwr.webp",
     slug: "rwr",
   },
   {

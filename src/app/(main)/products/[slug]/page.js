@@ -5,7 +5,7 @@ import ProductFAQ from "@/components/ProductFAQ";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { API, imageUrl } from "@/lib/api";
-import safeweldLogo from "@/assets/safeweld.png";
+import safeweldLogo from "@/assets/safeweld.webp";
 import { products as localProducts } from "@/data/products";
 
 async function fetchAllProducts() {

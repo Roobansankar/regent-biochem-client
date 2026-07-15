@@ -81,8 +81,8 @@ export default function CategoryTabs({ products, category, allProducts = [] }) {
                 ) : active.id === "uno-s" ? (
                   <div className="flex flex-wrap items-center justify-start gap-1 w-full">
                     <img src="/VOCFree.webp" alt="VOC Free" className="h-10 sm:h-12 w-auto object-contain rounded-lg border border-brand-border bg-white" />
-                    <img src="/H20.png" alt="H2O" className="h-12 sm:h-14 w-auto object-contain rounded-lg" />
-                    <img src="/ready.png" alt="Ready" className="h-12 sm:h-14 w-auto object-contain rounded-lg" />
+                    <img src="/H20.webp" alt="H2O" className="h-12 sm:h-14 w-auto object-contain rounded-lg" />
+                    <img src="/ready.webp" alt="Ready" className="h-12 sm:h-14 w-auto object-contain rounded-lg" />
                   </div>
                 ) : (
                   active.labels && active.labels.length > 0 && active.labels.map((label, i) => {

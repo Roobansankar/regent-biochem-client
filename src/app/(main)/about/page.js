@@ -1,10 +1,10 @@
 
 import { timeline, values } from "@/data/about";
 import Link from "next/link";
-import aboutus from "@/assets/aboutus.png";
-import cleanTecLogo from "@/assets/CleanTec.png";
-import frefloLogo from "@/assets/freeflo.png";
-import safeweldLogo from "@/assets/safeweld.png";
+import aboutus from "@/assets/aboutus.webp";
+import cleanTecLogo from "@/assets/CleanTec.webp";
+import frefloLogo from "@/assets/freeflo.webp";
+import safeweldLogo from "@/assets/safeweld.webp";
 
 export const dynamic = "force-static";
 export const revalidate = false;

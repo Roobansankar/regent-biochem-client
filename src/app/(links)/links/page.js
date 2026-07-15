@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import safeweldLogo from "@/assets/safeweld.png";
-import logoImg from "@/assets/logo.png";
-import frefloLogo from "@/assets/freeflo.png";
+import safeweldLogo from "@/assets/safeweld.webp";
+import logoImg from "@/assets/logo-header.webp";
+import frefloLogo from "@/assets/freeflo.webp";
 import { API } from "@/lib/api";
 
 const GREEN_DARK = "#1a4d2e";
@@ -212,7 +212,7 @@ export default function Links() {
           <div className="absolute inset-0 hero-pattern opacity-10"></div>
           <div className="w-full mx-auto px-3 sm:px-4 relative z-10">
             <div className="text-center mx-auto">
-              <img src="/logo.png" alt="Bio-Chem Logo" className="w-24 sm:w-28 brightness-0 invert mx-auto mb-2" />
+              <img src="/logo-header.webp" alt="Bio-Chem Logo" className="w-24 sm:w-28 brightness-0 invert mx-auto mb-2" />
 
               
             </div>

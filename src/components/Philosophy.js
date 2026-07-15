@@ -1,6 +1,6 @@
 import Link from "next/link";
 // import homeabout from "@assets/homeabout.png";
-import homeabout from "@/assets/homeabout.png";
+import homeabout from "@/assets/homeabout.webp";
 // import heroslide3 from "@/assets/heroslide3.webp";
 
 export default function Philosophy() {

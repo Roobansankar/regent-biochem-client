@@ -1,6 +1,6 @@
 import pipelineImg from "@/assets/services/pipeline.webp";
 import coolingImg from "@/assets/services/cooling.webp";
-import injectionImg from "@/assets/services/injection.png";
+import injectionImg from "@/assets/services/injection.webp";
 import heatImg from "@/assets/services/heat.webp";
 import operationalImg from "@/assets/services/operational.webp";
 

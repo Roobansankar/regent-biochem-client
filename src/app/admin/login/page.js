@@ -42,7 +42,7 @@ export default function AdminLogin() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green to-green-dark">
       <div className="w-full max-w-[420px] mx-4 bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
         <div className="text-center mb-8">
-          <img src="/logo.png" alt="Bio-Chem Logo" className="h-14 w-auto mx-auto mb-6" />
+          <img src="/logo-header.webp" alt="Bio-Chem Logo" className="h-14 w-auto mx-auto mb-6" />
           <h2 className="text-2xl font-black text-brand-black tracking-tight">Welcome back</h2>
           <p className="text-sm font-medium text-brand-muted mt-1">
             Sign in to the admin dashboard

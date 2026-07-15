@@ -79,7 +79,7 @@ export default async function ServicePage({ params }) {
               </div>
               <div className="shrink-0 mt-8 sm:mt-0">
                 <img
-                  src="/freeflo.png"
+                  src="/freeflo.webp"
                   alt="Fre Flo"
                   className="h-16 sm:h-28 w-auto object-contain"
                 />
