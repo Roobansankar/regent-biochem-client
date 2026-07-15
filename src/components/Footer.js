@@ -12,7 +12,7 @@ export default function Footer() {
       />
       <div className="max-w-[1600px] mx-auto">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1.2fr_1.2fr_1.5fr] gap-12 mb-12 pb-10 border-b border-brand-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1.2fr_1.2fr_1.5fr] gap-12 mb-6 pb-10 border-b border-brand-border">
 
           {/* Brand */}
           <div className="flex flex-col">
@@ -66,6 +66,25 @@ export default function Footer() {
                 <i className="fab fa-instagram"></i>
               </Link>
             </div>
+
+            <a
+              href="https://dunsregistered.dnb.com/DunsRegisteredProfileAnywhere.aspx?Key1=3203804&PaArea=Email"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-5"
+            >
+              <iframe
+                id="Iframe1"
+                src="https://dunsregistered.dnb.com/SealAuthentication.aspx?Cid=3203804"
+                width="114"
+                height="97"
+                frameBorder="0"
+                scrolling="no"
+                allowtransparency="true"
+                title="D&B Registered Seal"
+                className="pointer-events-none"
+              ></iframe>
+            </a>
           </div>
 
           {/* Company */}
@@ -244,22 +263,6 @@ export default function Footer() {
             <p className="text-xs text-brand-muted">
               © 2026 Regent Bio-Chem India Pvt. Ltd.
             </p>
-            <p className="text-xs text-brand-muted mt-1">
-              Developed by <a href="https://infronex.com/" target="_blank" rel="noreferrer" className="text-brand-muted hover:text-green">Infronex IT Products and Services</a>
-            </p>
-          </div>
-
-          <div className="flex items-center justify-center">
-            <iframe
-              id="Iframe1"
-              src="https://dunsregistered.dnb.com/SealAuthentication.aspx?Cid=3203804"
-              width="114"
-              height="97"
-              frameBorder="0"
-              scrolling="no"
-              allowtransparency="true"
-              title="D&B Registered Seal"
-            ></iframe>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4">
