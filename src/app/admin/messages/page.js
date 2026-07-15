@@ -16,7 +16,7 @@ export default function AdminMessages() {
 
   // Edit state
   const [editingId, setEditingId] = useState(null);
-  const [editForm, setEditForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
+  const [editForm, setEditForm] = useState({ name: "", email: "", country_code: "+91", phone: "", subject: "", message: "" });
 
   useEffect(() => {
     console.log("AdminMessages component mounted");
@@ -132,7 +132,7 @@ export default function AdminMessages() {
           </div>
 
           {(() => {
-            const filtered = messages.filter(m => !search || m.name?.toLowerCase().includes(search.toLowerCase()) || m.email?.toLowerCase().includes(search.toLowerCase()) || m.subject?.toLowerCase().includes(search.toLowerCase()) || m.message?.toLowerCase().includes(search.toLowerCase()));
+            const filtered = messages.filter(m => !search || m.name?.toLowerCase().includes(search.toLowerCase()) || m.email?.toLowerCase().includes(search.toLowerCase()) || (m.country_code || '')?.includes(search) || m.phone?.toLowerCase().includes(search.toLowerCase()) || m.subject?.toLowerCase().includes(search.toLowerCase()) || m.message?.toLowerCase().includes(search.toLowerCase()));
             if (messages.length === 0) return (
               <div className="flex flex-col items-center justify-center h-64 bg-white rounded-xl border border-slate-200 text-slate-400">
                 <i className="fas fa-envelope-open text-4xl mb-3 opacity-20"></i>
@@ -168,7 +168,7 @@ export default function AdminMessages() {
                       <td className="px-6 py-4">
                         <p className="font-semibold text-slate-800 text-sm">{msg.name}</p>
                         <p className="text-[11px] text-slate-500">{msg.email}</p>
-                        <p className="text-[10px] text-slate-400">{msg.phone}</p>
+                        <p className="text-[10px] text-slate-400">{msg.country_code || '+91'} {msg.phone}</p>
                       </td>
                       <td className="px-6 py-4">
                         <span className="inline-flex px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 text-[10px] font-bold uppercase tracking-wider">
@@ -275,7 +275,40 @@ export default function AdminMessages() {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-3 gap-4">
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Country Code</label>
+                  <select 
+                    value={editForm.country_code || '+91'} 
+                    onChange={(e) => setEditForm({ ...editForm, country_code: e.target.value })}
+                    className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+                  >
+                    <option value="+1">+1 (US)</option>
+                    <option value="+44">+44 (UK)</option>
+                    <option value="+91">+91 (IN)</option>
+                    <option value="+61">+61 (AU)</option>
+                    <option value="+65">+65 (SG)</option>
+                    <option value="+971">+971 (UAE)</option>
+                    <option value="+966">+966 (SA)</option>
+                    <option value="+81">+81 (JP)</option>
+                    <option value="+86">+86 (CN)</option>
+                    <option value="+49">+49 (DE)</option>
+                    <option value="+33">+33 (FR)</option>
+                    <option value="+82">+82 (KR)</option>
+                    <option value="+60">+60 (MY)</option>
+                    <option value="+66">+66 (TH)</option>
+                    <option value="+92">+92 (PK)</option>
+                    <option value="+94">+94 (LK)</option>
+                    <option value="+62">+62 (ID)</option>
+                    <option value="+63">+63 (PH)</option>
+                    <option value="+84">+84 (VN)</option>
+                    <option value="+880">+880 (BD)</option>
+                    <option value="+20">+20 (EG)</option>
+                    <option value="+27">+27 (ZA)</option>
+                    <option value="+55">+55 (BR)</option>
+                    <option value="+52">+52 (MX)</option>
+                  </select>
+                </div>
                 <div className="space-y-1">
                   <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Phone</label>
                   <input 

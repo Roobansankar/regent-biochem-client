@@ -134,6 +134,12 @@ body {
   background-size: 20px 20px;
 }
 
+/* Thin scrollbar for select dropdowns */
+.thin-scroll::-webkit-scrollbar { width: 4px; }
+.thin-scroll::-webkit-scrollbar-track { background: transparent; }
+.thin-scroll::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+.thin-scroll { scrollbar-width: thin; }
+
 /* Scrollbar hide for tabs */
 .tabs-scroll::-webkit-scrollbar { display: none; }
 .tabs-scroll { -ms-overflow-style: none; scrollbar-width: none; }

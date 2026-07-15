@@ -9,8 +9,9 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    country_code: "+91",
     phone: "",
-    subject: "",
+    subject: "general",
     message: ""
   });
   const [status, setStatus] = useState({ type: "", message: "" });
@@ -40,7 +41,7 @@ export default function Contact() {
 
       if (response.ok) {
         setStatus({ type: "success", message: "Message sent successfully!" });
-        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+        setFormData({ name: "", email: "", country_code: "+91", phone: "", subject: "general", message: "" });
         
         // Disappear after 4 seconds
         setTimeout(() => {
@@ -153,13 +154,41 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-1.5">
                       <label htmlFor="phone" className="text-[11px] font-bold uppercase tracking-wider text-gray-500 ml-1">Phone Number</label>
-                      <input type="tel" id="phone" value={formData.phone} onChange={handleChange} placeholder="+91 00000 00000" className="form-input py-3" />
+                      <div className="flex gap-2">
+                        <select id="country_code" value={formData.country_code} onChange={handleChange} className="form-input py-3 w-[110px] shrink-0 appearance-none thin-scroll">
+                          <option value="+1">US (+1)</option>
+                          <option value="+44">UK (+44)</option>
+                          <option value="+91">IN (+91)</option>
+                          <option value="+61">AU (+61)</option>
+                          <option value="+65">SG (+65)</option>
+                          <option value="+971">UAE (+971)</option>
+                          <option value="+966">SA (+966)</option>
+                          <option value="+81">JP (+81)</option>
+                          <option value="+86">CN (+86)</option>
+                          <option value="+49">DE (+49)</option>
+                          <option value="+33">FR (+33)</option>
+                          <option value="+82">KR (+82)</option>
+                          <option value="+60">MY (+60)</option>
+                          <option value="+66">TH (+66)</option>
+                          <option value="+92">PK (+92)</option>
+                          <option value="+94">LK (+94)</option>
+                          <option value="+62">ID (+62)</option>
+                          <option value="+63">PH (+63)</option>
+                          <option value="+84">VN (+84)</option>
+                          <option value="+880">BD (+880)</option>
+                          <option value="+20">EG (+20)</option>
+                          <option value="+27">ZA (+27)</option>
+                          <option value="+55">BR (+55)</option>
+                          <option value="+52">MX (+52)</option>
+                        </select>
+                        <input type="tel" id="phone" value={formData.phone} onChange={handleChange} required placeholder="00000 00000" className="form-input py-3 flex-1" />
+                      </div>
                     </div>
                     <div className="space-y-1.5">
                       <label htmlFor="subject" className="text-[11px] font-bold uppercase tracking-wider text-gray-500 ml-1">Subject</label>
                       <div className="relative">
-                        <select id="subject" value={formData.subject} onChange={handleChange} className="form-input appearance-none pr-10 py-3">
-                          <option value="">Select an option</option>
+                        <select id="subject" value={formData.subject} onChange={handleChange} required className="form-input appearance-none pr-10 py-3">
+                          <option value="general">General Inquiry</option>
                           <option value="product">Product Inquiry</option>
                           <option value="technical">Technical Support</option>
                           <option value="consultation">Request Consultation</option>
