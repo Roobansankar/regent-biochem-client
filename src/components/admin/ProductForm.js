@@ -305,7 +305,7 @@ export default function ProductForm({ initialData = null, isEditing = false, typ
             <SectionTitle label="Is This Product Right for You?" />
             <textarea name="isThisRightFor" value={formData.isThisRightFor} onChange={h} rows="5"
               className={textareaClass} placeholder={"One bullet per line:\n\u2022 You need to remove heavy grease\n\u2022 You want a VOC-free solution"} />
-            <p className="text-[11px] text-slate-400 mt-1.5 font-medium">Each line becomes a bullet point</p>
+            <p className="text-[11px] text-slate-400 mt-1.5 font-medium">Each line becomes a bullet point. Use <code className="text-indigo-500 bg-indigo-50 px-1 rounded">&lt;b&gt;word&lt;/b&gt;</code> for bold.</p>
           </div>
 
           {/* ── APPLICATION ── */}
@@ -313,7 +313,7 @@ export default function ProductForm({ initialData = null, isEditing = false, typ
             <SectionTitle label="Application" />
             <textarea name="application" value={formData.application} onChange={h} rows="5"
               className={textareaClass} placeholder={"One bullet per line:\n\u2022 Cleaning machine parts\n\u2022 Degreasing industrial components"} />
-            <p className="text-[11px] text-slate-400 mt-1.5 font-medium">Each line becomes a bullet point</p>
+            <p className="text-[11px] text-slate-400 mt-1.5 font-medium">Each line becomes a bullet point. Use <code className="text-indigo-500 bg-indigo-50 px-1 rounded">&lt;b&gt;word&lt;/b&gt;</code> for bold.</p>
           </div>
 
           {/* ── SPECIFICATION TABLE ── */}

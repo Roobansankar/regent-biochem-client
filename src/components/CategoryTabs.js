@@ -156,7 +156,7 @@ export default function CategoryTabs({ products, category, allProducts = [] }) {
                 <div>
                   <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Is This Product Right for You?</h3>
                   <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
-                    <p className="text-sm text-brand-body leading-relaxed whitespace-pre-line">{active.isThisRightFor}</p>
+                    <p className="text-sm text-brand-body leading-relaxed whitespace-pre-line" dangerouslySetInnerHTML={{ __html: active.isThisRightFor }} />
                   </div>
                 </div>
               )}
@@ -165,7 +165,7 @@ export default function CategoryTabs({ products, category, allProducts = [] }) {
                 <div>
                   <h3 className="text-sm font-black uppercase tracking-[0.3em] text-green mb-4">Application</h3>
                   <div className="p-5 sm:p-6 bg-gradient-to-br from-brand-bg2 to-white rounded-2xl border border-brand-border">
-                    <p className="text-sm text-brand-body leading-relaxed whitespace-pre-line">{active.application}</p>
+                    <p className="text-sm text-brand-body leading-relaxed whitespace-pre-line" dangerouslySetInnerHTML={{ __html: active.application }} />
                   </div>
                 </div>
               )}
