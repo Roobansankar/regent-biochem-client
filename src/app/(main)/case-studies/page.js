@@ -61,7 +61,7 @@ export default function CaseStudiesPage() {
               >
                 <div className="aspect-[16/10] overflow-hidden relative">
                   <img
-                    src={study.image || fallbackImg(600, 400)}
+                    src={study.banner_image || study.image || fallbackImg(600, 400)}
                     alt={study.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => { e.target.src = fallbackImg(600, 400); }}

@@ -11,6 +11,8 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
   const [imagePreview, setImagePreview] = useState(initialData?.image || null);
   const [heroFile, setHeroFile] = useState(null);
   const [heroPreview, setHeroPreview] = useState(initialData?.hero_image || null);
+  const [bannerFile, setBannerFile] = useState(null);
+  const [bannerPreview, setBannerPreview] = useState(initialData?.banner_image || null);
 
   const [formData, setFormData] = useState({
     slug: initialData?.slug || "",
@@ -24,6 +26,7 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
     solution: initialData?.solution || "",
     image: initialData?.image || "",
     hero_image: initialData?.hero_image || "",
+    banner_image: initialData?.banner_image || "",
     customerBackground: initialData?.customerBackground || "",
     customerBackgroundPoints: initialData?.customerBackgroundPoints?.join("\n") || "",
     businessChallengesDescription: initialData?.businessChallengesDescription || "",
@@ -44,6 +47,7 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
     if (initialData) {
       setImagePreview(initialData.image || null);
       setHeroPreview(initialData.hero_image || null);
+      setBannerPreview(initialData.banner_image || null);
       setFormData({
         slug: initialData.slug || "",
         ref: initialData.ref || "",
@@ -56,6 +60,7 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
         solution: initialData.solution || "",
         image: initialData.image || "",
         hero_image: initialData.hero_image || "",
+        banner_image: initialData.banner_image || "",
         customerBackground: initialData.customerBackground || "",
         customerBackgroundPoints: Array.isArray(initialData.customerBackgroundPoints) ? initialData.customerBackgroundPoints.join("\n") : "",
         businessChallengesDescription: initialData.businessChallengesDescription || "",
@@ -127,6 +132,14 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
     }
   };
 
+  const handleBannerFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setBannerFile(file);
+      setBannerPreview(URL.createObjectURL(file));
+    }
+  };
+
   const parseLines = (val) => val.split("\n").map(s => s.trim()).filter(Boolean);
   const parseSnapshotLines = (val) => parseLines(val).map(line => {
     const sep = line.indexOf("|");
@@ -154,6 +167,7 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
     data.set('idealUseCases', JSON.stringify(parseLines(formData.idealUseCases)));
     if (imageFile) data.append('image', imageFile);
     if (heroFile) data.append('hero_image', heroFile);
+    if (bannerFile) data.append('banner_image', bannerFile);
 
     try {
       const response = await fetch(url, {
@@ -259,6 +273,24 @@ export default function CaseStudyForm({ initialData = null, isEditing = false })
                 <i className="fas fa-upload"></i> {imagePreview ? "Change Image" : "Upload Image"}
               </label>
               <p className="text-[11px] text-slate-400 mt-3 font-medium">Upload a case study image. Supports JPG, PNG, WebP.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className={sectionClass}>
+          <label className={labelClass}>Banner Image <span className="text-slate-300 normal-case">(shown on the Case Studies listing page)</span></label>
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6 p-6 bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl transition-colors hover:border-indigo-300">
+            {bannerPreview && (
+              <div className="relative group">
+                <img src={bannerPreview} className="w-40 h-24 object-cover rounded-xl shadow-md border border-white" alt="Banner Preview" />
+              </div>
+            )}
+            <div className="flex-1">
+              <input type="file" accept="image/*" onChange={handleBannerFileChange} className="hidden" id="cs-banner" />
+              <label htmlFor="cs-banner" className="cursor-pointer inline-flex items-center gap-2 bg-indigo-600 px-6 py-2.5 rounded-xl text-xs font-bold text-white hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-600/20">
+                <i className="fas fa-upload"></i> {bannerPreview ? "Change Banner Image" : "Upload Banner Image"}
+              </label>
+              <p className="text-[11px] text-slate-400 mt-3 font-medium">Recommended size: 800 × 500 px. Shown as the card image on the Case Studies listing page.</p>
             </div>
           </div>
         </div>
