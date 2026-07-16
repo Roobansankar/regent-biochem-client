@@ -160,7 +160,6 @@ export default function Hero() {
                 alt=""
                 fill
                 priority={i === 1}
-                loading={i === 1 ? undefined : "eager"}
                 fetchPriority={i === 1 ? "high" : "auto"}
                 sizes="100vw"
                 quality={70}
