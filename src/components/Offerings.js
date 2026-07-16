@@ -1,5 +1,6 @@
 import { services } from "@/data/services";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Offerings() {
   return (
@@ -20,11 +21,13 @@ export default function Offerings() {
               key={index}
               className="group bg-white rounded-xl border border-brand-border/40 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden"
             >
-              <div className="aspect-[4/3] bg-brand-bg3 flex items-center justify-center overflow-hidden">
-                <img
-                  src={service.heroImage?.src ?? service.heroImage}
+              <div className="relative aspect-[4/3] bg-brand-bg3 flex items-center justify-center overflow-hidden">
+                <Image
+                  src={service.heroImage}
                   alt={service.title}
-                  className="w-full h-full object-cover greenscale"
+                  fill
+                  sizes="(min-width: 1280px) 20vw, (min-width: 768px) 33vw, 50vw"
+                  className="object-cover greenscale"
                 />
               </div>
               <div className="flex flex-col items-start text-left px-4 pt-4 pb-5 flex-1">

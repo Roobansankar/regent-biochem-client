@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 // import homeabout from "@assets/homeabout.png";
 import homeabout from "@/assets/homeabout.webp";
 // import heroslide3 from "@/assets/heroslide3.webp";
@@ -21,11 +22,13 @@ export default function Philosophy() {
 
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-3">
         {/* Image */}
-        <div className="order-1 lg:order-1 lg:col-span-1 min-h-48 lg:min-h-0 overflow-hidden flex items-center justify-center p-4 sm:p-6">
-          <img
-            src={homeabout.src}
+        <div className="relative order-1 lg:order-1 lg:col-span-1 min-h-48 max-h-72 lg:min-h-0 lg:max-h-96 overflow-hidden flex items-center justify-center p-4 sm:p-6">
+          <Image
+            src={homeabout}
             alt="Industrial Technology"
-            className="w-full h-full object-cover rounded-2xl shadow-lg max-h-72 lg:max-h-96"
+            fill
+            sizes="(min-width: 1024px) 33vw, 100vw"
+            className="object-cover rounded-2xl shadow-lg"
           />
         </div>
         {/* Text Content */}
