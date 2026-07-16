@@ -230,10 +230,10 @@ export default function BlogPage() {
                         {post.category || "Technical"}
                       </span>
                     </div> */}
-                    <img 
-  src={imageUrl(post.image) || fallbackImg(800, 500)} 
-  alt={post.title} 
-  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    <img
+  src={imageUrl(post.image) || fallbackImg(800, 500)}
+  alt={post.title}
+  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
   onError={(e) => { e.target.src = fallbackImg(800, 500); }}
 />
 <div className="absolute top-4 left-4">

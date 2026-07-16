@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import CTA from "@/components/CTA";
 import Link from "next/link";
+import Image from "next/image";
 import { API, imageUrl } from "@/lib/api";
 
 const sortOptions = ["Featured", "Newest", "Name (A-Z)"];
@@ -268,7 +269,13 @@ function ProductsContent() {
                 >
                   <div className="dot-bg bg-brand-bg3 aspect-[1/1] flex items-center justify-center p-6 relative overflow-hidden">
                     {product.img ? (
-                      <img src={product.img} alt={product.title} className="w-full h-full object-contain" />
+                      <Image
+                        src={product.img}
+                        alt={product.title}
+                        fill
+                        sizes="(min-width: 1536px) 25vw, (min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-contain"
+                      />
                     ) : (
                       <div className="w-20 h-20 bg-green-light group-hover:bg-green transition-colors rounded-2xl flex items-center justify-center">
                         <i className={`fas ${product.icon} text-green group-hover:text-white transition-colors text-2xl`}></i>

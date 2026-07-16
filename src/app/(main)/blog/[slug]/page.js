@@ -319,9 +319,9 @@ export default function BlogPost() {
       {/* ─── ARTICLE HERO ─── */}
       <div className="px-4 sm:px-6 lg:px-6 pt-6 pb-4">
         <section className="relative h-[300px] md:h-[400px] lg:h-[480px] overflow-hidden rounded-[2rem] shadow-lg">
-          <img 
-            src={imageUrl(post.image) || fallbackImg(1600, 480)} 
-            alt={post.title} 
+          <img
+            src={imageUrl(post.image) || fallbackImg(1600, 480)}
+            alt={post.title}
             className="absolute inset-0 w-full h-full object-cover"
             onError={(e) => { e.target.src = fallbackImg(1600, 480); }}
           />

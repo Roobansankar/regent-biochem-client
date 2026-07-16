@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { API, imageUrl } from "@/lib/api";
 
 export default function FeaturedProducts() {
@@ -71,7 +72,13 @@ export default function FeaturedProducts() {
               className="bg-white rounded-2xl border border-brand-border overflow-hidden relative group shadow-sm group/img aspect-square"
             >
               {imgSrc ? (
-                <img src={imgSrc} alt={product.title} className="w-full h-full object-cover transition-all duration-500 group-hover/img:scale-105" />
+                <Image
+                  src={imgSrc}
+                  alt={product.title}
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="object-cover transition-all duration-500 group-hover/img:scale-105"
+                />
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
                   <i className={`fas ${product.icon || "fa-box"} text-5xl sm:text-6xl text-green/40 transition-all duration-500 group-hover/img:scale-105`}></i>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { API } from "@/lib/api";
 
@@ -220,7 +221,7 @@ export default function Navbar() {
       {/* ─── TOP HEADER (desktop only) ─── */}
       <header className="hidden lg:flex justify-center items-center py-1.5 border-b border-brand-border bg-white">
         <Link href="/" onClick={() => window.scrollTo(0, 0)}>
-          <img src="/logo-header.webp" alt="Bio-Chem Logo" className="h-14 w-auto" />
+          <Image src="/logo-header.webp" alt="Bio-Chem Logo" width={400} height={118} priority className="h-14 w-auto" />
         </Link>
       </header>
 
@@ -230,7 +231,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 lg:h-[64px]">
             {/* Mobile Logo */}
             <Link href="/" onClick={() => window.scrollTo(0, 0)} className="lg:hidden flex-shrink-0">
-              <img src="/logo-header.webp" alt="Bio-Chem Logo" className="h-10 w-auto brightness-0 invert" />
+              <Image src="/logo-header.webp" alt="Bio-Chem Logo" width={400} height={118} priority className="h-10 w-auto brightness-0 invert" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -364,7 +365,7 @@ export default function Navbar() {
             }`}
           >
             <div className="flex items-center justify-between p-6 border-b border-brand-border">
-              <img src="/logo-header.webp" alt="Bio-Chem" className="h-10 w-auto" />
+              <Image src="/logo-header.webp" alt="Bio-Chem" width={400} height={118} className="h-10 w-auto" />
               <button onClick={closeMenu} className="text-brand-muted hover:text-brand-black">
                 <i className="fas fa-times text-2xl"></i>
               </button>

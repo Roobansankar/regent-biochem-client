@@ -1,6 +1,7 @@
 
 import { timeline, values } from "@/data/about";
 import Link from "next/link";
+import Image from "next/image";
 import aboutus from "@/assets/aboutus.webp";
 import cleanTecLogo from "@/assets/CleanTec.webp";
 import frefloLogo from "@/assets/freeflo.webp";
@@ -53,8 +54,8 @@ export default function About() {
         <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           {/* Image block */}
           <div className="reveal relative">
-            <div className="rounded-3xl h-72 sm:h-96 border border-green-100 overflow-hidden shadow-card">
-              <img src={aboutus.src} alt="Company Overview" className="w-full h-full object-cover" />
+            <div className="relative rounded-3xl h-72 sm:h-96 border border-green-100 overflow-hidden shadow-card">
+              <Image src={aboutus} alt="Company Overview" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </div>
 
