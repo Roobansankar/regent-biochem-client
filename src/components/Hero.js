@@ -58,27 +58,32 @@ export default function Hero() {
   const snapTimeoutRef = useRef(null);
 
   const clearTimers = useCallback(() => {
-    clearInterval(timerRef.current);
+    clearTimeout(timerRef.current);
     if (snapTimeoutRef.current) {
       clearTimeout(snapTimeoutRef.current);
       snapTimeoutRef.current = null;
     }
   }, []);
 
-  const startAutoPlay = useCallback(() => {
-    clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => {
+  const startAutoPlay = useCallback((initialDelay = 4000) => {
+    clearTimeout(timerRef.current);
+    const tick = () => {
       setCurrent((prev) => {
         const next = prev + 1;
         return next > lastIndex ? lastIndex : next;
       });
-    }, 4000);
+      timerRef.current = setTimeout(tick, 4000);
+    };
+    timerRef.current = setTimeout(tick, initialDelay);
   }, []);
 
   useEffect(() => {
-    startAutoPlay();
+    // Delay the first auto-advance so it lands safely after initial
+    // load/LCP measurement, avoiding a late-arriving slide image
+    // becoming a new (slower) Largest Contentful Paint candidate.
+    startAutoPlay(7000);
     return () => {
-      clearInterval(timerRef.current);
+      clearTimeout(timerRef.current);
       clearTimeout(snapTimeoutRef.current);
     };
   }, [startAutoPlay]);
@@ -155,6 +160,7 @@ export default function Hero() {
                 alt=""
                 fill
                 priority={i === 1}
+                loading={i === 1 ? undefined : "eager"}
                 fetchPriority={i === 1 ? "high" : "auto"}
                 sizes="100vw"
                 quality={70}
