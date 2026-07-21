@@ -140,11 +140,36 @@ export default function Hero() {
 
   const realIndex = current === 0 ? totalSlides - 1 : current === lastIndex ? 0 : current - 1;
 
+  const touchStartX = useRef(0);
+  const touchDeltaX = useRef(0);
+
+  const handleTouchStart = useCallback((e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchDeltaX.current = 0;
+  }, []);
+
+  const handleTouchMove = useCallback((e) => {
+    touchDeltaX.current = e.touches[0].clientX - touchStartX.current;
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    const SWIPE_THRESHOLD = 40;
+    if (touchDeltaX.current > SWIPE_THRESHOLD) {
+      prev();
+    } else if (touchDeltaX.current < -SWIPE_THRESHOLD) {
+      next();
+    }
+    touchDeltaX.current = 0;
+  }, [prev, next]);
+
   return (
     <section className="relative overflow-hidden bg-brand-bg3">
       <div className="relative h-[360px] md:h-[440px] lg:h-[450px]">
         <div
           className="flex h-full"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
           style={{
             transform: `translateX(-${current * 100}%)`,
             transition: transition ? 'transform 500ms ease-in-out' : 'none',
@@ -198,7 +223,7 @@ export default function Hero() {
         {/* Left Arrow */}
         <button
           onClick={prev}
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
+          className="hidden sm:flex absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
         >
           <i className="fas fa-chevron-left text-xs"></i>
         </button>
@@ -206,9 +231,9 @@ export default function Hero() {
         {/* Right Arrow */}
         <button
           onClick={next}
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 flex items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
+          className="hidden sm:flex absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md border border-green/20 items-center justify-center text-green hover:bg-green hover:text-white transition-all duration-300 shadow-lg hover:scale-110"
         >
-          <i className="fas fa-chevron-right text-xs"></i>  
+          <i className="fas fa-chevron-right text-xs"></i>
         </button>
 
         {/* Dots */}
