@@ -29,6 +29,7 @@ export default function Offerings() {
                   sizes="(min-width: 1280px) 20vw, (min-width: 768px) 33vw, 50vw"
                   className="object-cover greenscale"
                 />
+                <div className="absolute inset-0 bg-green/15 mix-blend-multiply pointer-events-none"></div>
               </div>
               <div className="flex flex-col items-start text-left px-4 pt-4 pb-5 flex-1">
                 <h3 className="text-base lg:text-sm font-bold text-brand-black leading-snug mb-2">{service.title}</h3>
