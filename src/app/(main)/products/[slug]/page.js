@@ -256,8 +256,40 @@ export default async function ProductDetailPage({ params }) {
     }
   }
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.title,
+    description: product.desc,
+    image: product.images?.length > 0 ? product.images : (product.img ? [product.img] : undefined),
+    brand: {
+      "@type": "Brand",
+      name: "Regent Bio-Chem India",
+    },
+    category: product.category || undefined,
+    url: `https://bio-chem.in/products/${slug}`,
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://bio-chem.in" },
+      { "@type": "ListItem", position: 2, name: "Products", item: "https://bio-chem.in/products" },
+      { "@type": "ListItem", position: 3, name: product.title, item: `https://bio-chem.in/products/${slug}` },
+    ],
+  };
+
   return (
     <main className="flex flex-col min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       {/* ─── PRODUCT HERO ─── */}
       <section className="relative pt-6 pb-10 lg:pt-10 lg:pb-16 overflow-hidden bg-brand-bg3">

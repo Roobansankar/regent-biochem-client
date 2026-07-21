@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import FontAwesomeLoader from "@/components/FontAwesomeLoader";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/schema";
 import "./globals.css";
 
 const inter = Inter({
@@ -50,6 +51,14 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <head>
         <link rel="icon" type="image/png" href="/main.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
+        />
       </head>
       <body className="min-h-full flex flex-col font-sans">
         <FontAwesomeLoader />

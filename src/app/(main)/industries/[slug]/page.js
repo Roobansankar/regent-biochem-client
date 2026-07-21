@@ -80,8 +80,21 @@ export default async function IndustryPage({ params }) {
 
   const heroSrc = industryImages[slug]?.src || industry.heroImage;
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://bio-chem.in" },
+      { "@type": "ListItem", position: 2, name: industry.title, item: `https://bio-chem.in/industries/${slug}` },
+    ],
+  };
+
   return (
     <main className="flex flex-col min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Elegant Light Hero Section */}
       <section className="relative py-6 sm:py-8 overflow-hidden">
         {/* Background Elements */}
