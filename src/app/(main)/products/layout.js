@@ -1,6 +1,9 @@
 export const metadata = {
   title: "Industrial Products Catalog | Regent Biochem",
   description: "Browse our full range of eco-friendly industrial cleaning systems, chemicals, and automation solutions.",
+  alternates: {
+    canonical: "/products",
+  },
 };
 
 export default function ProductsLayout({ children }) {

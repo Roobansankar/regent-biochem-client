@@ -73,6 +73,9 @@ export async function generateMetadata({ params }) {
     return {
       title: `${title} | Regent Biochem`,
       description: CATEGORY_DESCRIPTIONS[slug] || `${title} products from Regent Biochem`,
+      alternates: {
+        canonical: `/products/${slug}`,
+      },
     };
   }
 
@@ -86,6 +89,9 @@ export async function generateMetadata({ params }) {
           title: p.meta_title || `${p.title} | Regent Biochem`,
           description: p.meta_description || p.description || "",
           keywords: p.meta_keywords || "",
+          alternates: {
+            canonical: `/products/${slug}`,
+          },
         };
       }
     }
@@ -93,6 +99,9 @@ export async function generateMetadata({ params }) {
 
   return {
     title: "Product | Regent Biochem",
+    alternates: {
+      canonical: `/products/${slug}`,
+    },
   };
 }
 

@@ -1,5 +1,13 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Terms of Service | Regent Biochem",
+  description: "Read the terms of service governing use of Regent Bio-Chem India's website and products.",
+  alternates: {
+    canonical: "/terms",
+  },
+};
+
 export default function Terms() {
   return (
     <main className="flex flex-col min-h-screen">

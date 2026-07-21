@@ -47,6 +47,9 @@ export async function generateMetadata({ params }) {
     title: industry.meta_title || `${industry.title} | Regent Biochem`,
     description: industry.meta_description || `${industry.title} solutions from Regent Biochem`,
     keywords: industry.meta_keywords || "",
+    alternates: {
+      canonical: `/industries/${slug}`,
+    },
   };
 }
 

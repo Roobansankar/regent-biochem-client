@@ -1,5 +1,13 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Privacy Policy | Regent Biochem",
+  description: "Read Regent Bio-Chem India's privacy policy on how we collect, use, and protect your data.",
+  alternates: {
+    canonical: "/privacy",
+  },
+};
+
 export default function PrivacyPolicy() {
   return (
     <main className="flex flex-col min-h-screen">

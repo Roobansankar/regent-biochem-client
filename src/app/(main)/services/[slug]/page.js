@@ -52,6 +52,9 @@ export async function generateMetadata({ params }) {
     title: service.meta_title || `${service.title} | Regent Biochem`,
     description: service.meta_description || service.shortDescription,
     keywords: service.meta_keywords || "",
+    alternates: {
+      canonical: `/services/${slug}`,
+    },
   };
 }
 

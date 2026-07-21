@@ -10,6 +10,14 @@ import safeweldLogo from "@/assets/safeweld.webp";
 export const dynamic = "force-static";
 export const revalidate = false;
 
+export const metadata = {
+  title: "About Us | Regent Biochem",
+  description: "Learn about Regent Bio-Chem India's mission, values, and expertise in industrial cleaning and surface technology.",
+  alternates: {
+    canonical: "/about",
+  },
+};
+
 export default function About() {
   const productCategories = [
     {
