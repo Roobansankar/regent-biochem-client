@@ -11,6 +11,9 @@ const inter = Inter({
 export const metadata = {
   title: "Bio-Chem Surface Technology",
   description: "Advanced Industrial Cleaning & Surface Technology",
+  verification: {
+    google: "AAb3a1kVx6yC9vdB5MD3D_7Ro0EWmL6BBwFuP72-Ihs",
+  },
 };
 
 export default function RootLayout({ children }) {
