@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import safeweldLogo from "@/assets/safeweld.webp";
-import logoImg from "@/assets/logo-header.webp";
+import cleanTecLogo from "@/assets/CleanTec.webp";
 import frefloLogo from "@/assets/freeflo.webp";
 import { API } from "@/lib/api";
 
@@ -14,7 +14,7 @@ const GREEN_LIGHT = "#e8f5ee";
 const products = [
   {
     icon: (
-      <img src={logoImg.src} alt="CleanTech" className="w-full h-full object-contain p-2" />
+      <img src={cleanTecLogo.src} alt="CleanTech" className="w-full h-full object-contain p-2" />
     ),
     title: "CleanTech",
     href: "/products?brand=CleanTech",
@@ -233,7 +233,7 @@ export default function Links() {
           <div className="flex justify-center items-center mt-2 mb-2">
             <div className="w-fit mx-auto">
               {services.map((s) => (
-                <MiniCard key={s.title} icon={s.icon} title={s.title} href={s.href} noIconBg={s.noIconBg} hideTitle className="w-[90px] mx-auto" />
+                <MiniCard key={s.title} icon={s.icon} title={s.title} href={s.href} noIconBg={s.noIconBg} hideTitle className="w-[90px] sm:w-[110px] mx-auto" />
               ))}
             </div>
           </div>
