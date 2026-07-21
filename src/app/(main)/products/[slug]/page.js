@@ -69,12 +69,27 @@ export async function generateMetadata({ params }) {
 
   const parentCategory = CATEGORY_SLUG_MAP[slug];
   if (parentCategory) {
-    const title = titleFromSlug(slug);
+    const title = `${titleFromSlug(slug)} | Regent Biochem`;
+    const description = CATEGORY_DESCRIPTIONS[slug] || `${titleFromSlug(slug)} products from Regent Biochem`;
     return {
-      title: `${title} | Regent Biochem`,
-      description: CATEGORY_DESCRIPTIONS[slug] || `${title} products from Regent Biochem`,
+      title,
+      description,
       alternates: {
         canonical: `/products/${slug}`,
+      },
+      openGraph: {
+        type: "website",
+        siteName: "Regent Bio-Chem India",
+        title,
+        description,
+        url: `/products/${slug}`,
+        images: ["/hero.webp"],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: ["/hero.webp"],
       },
     };
   }
@@ -85,12 +100,29 @@ export async function generateMetadata({ params }) {
       const data = await res.json();
       if (data.product) {
         const p = data.product;
+        const title = p.meta_title || `${p.title} | Regent Biochem`;
+        const description = p.meta_description || p.description || "";
+        const image = imageUrl(p.images?.[0]) || "/hero.webp";
         return {
-          title: p.meta_title || `${p.title} | Regent Biochem`,
-          description: p.meta_description || p.description || "",
+          title,
+          description,
           keywords: p.meta_keywords || "",
           alternates: {
             canonical: `/products/${slug}`,
+          },
+          openGraph: {
+            type: "website",
+            siteName: "Regent Bio-Chem India",
+            title,
+            description,
+            url: `/products/${slug}`,
+            images: [image],
+          },
+          twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [image],
           },
         };
       }
@@ -101,6 +133,13 @@ export async function generateMetadata({ params }) {
     title: "Product | Regent Biochem",
     alternates: {
       canonical: `/products/${slug}`,
+    },
+    openGraph: {
+      type: "website",
+      siteName: "Regent Bio-Chem India",
+      title: "Product | Regent Biochem",
+      url: `/products/${slug}`,
+      images: ["/hero.webp"],
     },
   };
 }

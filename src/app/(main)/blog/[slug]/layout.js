@@ -6,14 +6,32 @@ export async function generateMetadata({ params }) {
   try {
     const res = await fetch(`${API}/blogs/${slug}`, { cache: "no-store" });
     if (res.ok) {
-      const post = await res.json();
+      const data = await res.json();
+      const post = data.blog;
       if (post && post.title) {
+        const title = post.meta_title || `${post.title} | Regent Biochem`;
+        const description = post.meta_description || post.excerpt || "";
+        const image = post.image || "/hero.webp";
         return {
-          title: post.meta_title || `${post.title} | Regent Biochem`,
-          description: post.meta_description || post.excerpt || "",
+          title,
+          description,
           keywords: post.meta_keywords || "",
           alternates: {
             canonical: `/blog/${slug}`,
+          },
+          openGraph: {
+            type: "article",
+            siteName: "Regent Bio-Chem India",
+            title,
+            description,
+            url: `/blog/${slug}`,
+            images: [image],
+          },
+          twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [image],
           },
         };
       }
@@ -24,6 +42,13 @@ export async function generateMetadata({ params }) {
     title: "Blog | Regent Biochem",
     alternates: {
       canonical: `/blog/${slug}`,
+    },
+    openGraph: {
+      type: "article",
+      siteName: "Regent Bio-Chem India",
+      title: "Blog | Regent Biochem",
+      url: `/blog/${slug}`,
+      images: ["/hero.webp"],
     },
   };
 }

@@ -48,12 +48,29 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
+  const title = service.meta_title || `${service.title} | Regent Biochem`;
+  const description = service.meta_description || service.shortDescription;
+  const image = serviceImages[slug]?.[0]?.src || "/hero.webp";
   return {
-    title: service.meta_title || `${service.title} | Regent Biochem`,
-    description: service.meta_description || service.shortDescription,
+    title,
+    description,
     keywords: service.meta_keywords || "",
     alternates: {
       canonical: `/services/${slug}`,
+    },
+    openGraph: {
+      type: "website",
+      siteName: "Regent Bio-Chem India",
+      title,
+      description,
+      url: `/services/${slug}`,
+      images: [image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
     },
   };
 }

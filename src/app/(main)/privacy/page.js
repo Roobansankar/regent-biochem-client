@@ -1,10 +1,27 @@
 import Link from "next/link";
 
+const PAGE_TITLE = "Privacy Policy | Regent Biochem";
+const PAGE_DESCRIPTION = "Read Regent Bio-Chem India's privacy policy on how we collect, use, and protect your data.";
+
 export const metadata = {
-  title: "Privacy Policy | Regent Biochem",
-  description: "Read Regent Bio-Chem India's privacy policy on how we collect, use, and protect your data.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: {
     canonical: "/privacy",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Regent Bio-Chem India",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: "/privacy",
+    images: ["/hero.webp"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    images: ["/hero.webp"],
   },
 };
 

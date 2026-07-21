@@ -10,11 +10,28 @@ import safeweldLogo from "@/assets/safeweld.webp";
 export const dynamic = "force-static";
 export const revalidate = false;
 
+const PAGE_TITLE = "About Us | Regent Biochem";
+const PAGE_DESCRIPTION = "Learn about Regent Bio-Chem India's mission, values, and expertise in industrial cleaning and surface technology.";
+
 export const metadata = {
-  title: "About Us | Regent Biochem",
-  description: "Learn about Regent Bio-Chem India's mission, values, and expertise in industrial cleaning and surface technology.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: {
     canonical: "/about",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Regent Bio-Chem India",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: "/about",
+    images: ["/about.webp"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    images: ["/about.webp"],
   },
 };
 

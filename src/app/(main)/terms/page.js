@@ -1,10 +1,27 @@
 import Link from "next/link";
 
+const PAGE_TITLE = "Terms of Service | Regent Biochem";
+const PAGE_DESCRIPTION = "Read the terms of service governing use of Regent Bio-Chem India's website and products.";
+
 export const metadata = {
-  title: "Terms of Service | Regent Biochem",
-  description: "Read the terms of service governing use of Regent Bio-Chem India's website and products.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: {
     canonical: "/terms",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Regent Bio-Chem India",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: "/terms",
+    images: ["/hero.webp"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    images: ["/hero.webp"],
   },
 };
 

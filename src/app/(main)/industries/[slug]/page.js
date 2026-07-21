@@ -43,12 +43,29 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const industry = industries.find((i) => i.slug === slug);
   if (!industry) return {};
+  const title = industry.meta_title || `${industry.title} | Regent Biochem`;
+  const description = industry.meta_description || `${industry.title} solutions from Regent Biochem`;
+  const image = industryImages[slug]?.src || "/hero.webp";
   return {
-    title: industry.meta_title || `${industry.title} | Regent Biochem`,
-    description: industry.meta_description || `${industry.title} solutions from Regent Biochem`,
+    title,
+    description,
     keywords: industry.meta_keywords || "",
     alternates: {
       canonical: `/industries/${slug}`,
+    },
+    openGraph: {
+      type: "website",
+      siteName: "Regent Bio-Chem India",
+      title,
+      description,
+      url: `/industries/${slug}`,
+      images: [image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
     },
   };
 }
