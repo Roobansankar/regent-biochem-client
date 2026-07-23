@@ -302,7 +302,6 @@ import frefloLogo from "@/assets/freeflo.webp";
 import { API } from "@/lib/api";
 
 const GREEN_DARK = "#1a4d2e";
-const GREEN_MID = "#2d7a4f";
 const GREEN_LIGHT = "#e8f5ee";
 
 const products = [
@@ -428,18 +427,10 @@ const socials = [
 
 function SectionDivider({ title }) {
   return (
-    <div className="flex items-center gap-2 my-1">
-      <div className="flex-1 flex items-center gap-1">
-        <div className="w-1.5 h-1.5 rounded-full" style={{ background: GREEN_MID }} />
-        <div className="flex-1 h-px" style={{ background: GREEN_MID }} />
-      </div>
+    <div className="text-center my-1">
       <h2 className="text-sm sm:text-base md:text-lg font-bold whitespace-nowrap" style={{ color: GREEN_DARK }}>
         {title}
       </h2>
-      <div className="flex-1 flex items-center gap-1">
-        <div className="flex-1 h-px" style={{ background: GREEN_MID }} />
-        <div className="w-1.5 h-1.5 rounded-full" style={{ background: GREEN_MID }} />
-      </div>
     </div>
   );
 }
