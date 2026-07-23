@@ -224,7 +224,7 @@
 //           <div className="absolute inset-0 hero-pattern opacity-10"></div>
 //           <div className="w-full mx-auto px-3 sm:px-4 relative z-10">
 //             <div className="text-center mx-auto">
-//               <img src="/logo-header.webp" alt="Bio-Chem Logo" className="w-[clamp(100px,15vh,150px)] brightness-0 invert mx-auto" />
+//               <img src="/logo-header.webp" alt="Bio-Chem Logo" className="w-[clamp(140px,20vh,200px)] brightness-0 invert mx-auto" />
 //             </div>
 //           </div>
 //         </section>
@@ -481,7 +481,7 @@ export default function Links() {
           <div className="absolute inset-0 hero-pattern opacity-10"></div>
           <div className="w-full mx-auto px-3 sm:px-4 relative z-10">
             <div className="text-center mx-auto">
-              <img src="/logo-header.webp" alt="Bio-Chem Logo" className="w-[clamp(100px,15vh,150px)] brightness-0 invert mx-auto" />
+              <img src="/logo-header.webp" alt="Bio-Chem Logo" className="w-[clamp(140px,20vh,200px)] brightness-0 invert mx-auto" />
             </div>
           </div>
         </section>
