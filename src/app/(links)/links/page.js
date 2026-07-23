@@ -307,7 +307,7 @@ const GREEN_LIGHT = "#e8f5ee";
 const products = [
   {
     icon: (
-      <img src={cleanTecLogo.src} alt="CleanTec" className="w-full h-full object-contain p-1.5" />
+      <img src={cleanTecLogo.src} alt="CleanTec" className="w-full h-full object-contain p-0.5" />
     ),
     title: "CleanTec",
     href: "/products?brand=CleanTec",
@@ -315,7 +315,7 @@ const products = [
   },
   {
     icon: (
-      <img src={safeweldLogo.src} alt="SafeWeld" className="w-full h-full object-contain p-1.5" />
+      <img src={safeweldLogo.src} alt="SafeWeld" className="w-full h-full object-contain p-0.5" />
     ),
     title: "SafeWeld",
     href: "/products?brand=SafeWeld",
@@ -326,7 +326,7 @@ const products = [
 const services = [
   {
     icon: (
-      <img src={frefloLogo.src} alt="FreFlo" className="w-full h-full object-contain p-1.5" />
+      <img src={frefloLogo.src} alt="FreFlo" className="w-full h-full object-contain p-0.5" />
     ),
     title: "FreFlo",
     href: "/services/pipeline",
@@ -435,9 +435,9 @@ function SectionDivider({ title }) {
   );
 }
 
-function MiniCard({ icon, title, href, className = "", noIconBg = false, iconHeight = "h-[clamp(36px,6vh,52px)]", hideTitle = false }) {
+function MiniCard({ icon, title, href, className = "", noIconBg = false, iconHeight = "h-[clamp(44px,7.5vh,66px)]", hideTitle = false }) {
   const content = (
-    <div className={`flex flex-col items-center justify-center gap-1 bg-white rounded-2xl py-2 px-2 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer text-center ${className}`} style={{ color: GREEN_DARK }}>
+    <div className={`flex flex-col items-center justify-center gap-1 bg-white rounded-2xl py-1 px-1 cursor-pointer text-center ${className}`} style={{ color: GREEN_DARK }}>
       {noIconBg ? (
         <div className={`flex items-center justify-center w-full ${iconHeight}`}>
           {icon}
