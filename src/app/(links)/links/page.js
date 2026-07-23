@@ -437,7 +437,7 @@ function SectionDivider({ title }) {
 
 function MiniCard({ icon, title, href, className = "", noIconBg = false, iconHeight = "h-[clamp(44px,7.5vh,66px)]", hideTitle = false }) {
   const content = (
-    <div className={`flex flex-col items-center justify-center gap-1 bg-white rounded-2xl py-1 px-1 cursor-pointer text-center ${className}`} style={{ color: GREEN_DARK }}>
+    <div className={`flex flex-col items-center justify-center gap-1 bg-white rounded-2xl py-1 px-1 shadow-sm hover:shadow-md transition-shadow cursor-pointer text-center ${className}`} style={{ color: GREEN_DARK }}>
       {noIconBg ? (
         <div className={`flex items-center justify-center w-full ${iconHeight}`}>
           {icon}
@@ -468,7 +468,7 @@ export default function Links() {
       <div className="w-full flex flex-col max-w-[780px] mx-auto h-full justify-between">
 
         {/* ─── PAGE HERO ─── */}
-        <section className="relative py-[clamp(16px,4vh,32px)] bg-green overflow-hidden flex-shrink-0">
+        <section className="relative py-[clamp(8px,2vh,16px)] bg-green overflow-hidden flex-shrink-0">
           <div className="absolute inset-0 hero-pattern opacity-10"></div>
           <div className="w-full mx-auto px-3 sm:px-4 relative z-10">
             <div className="text-center mx-auto">
@@ -536,7 +536,7 @@ export default function Links() {
         </div>
 
         {/* ─── FOOTER TAGLINE ─── */}
-        <section className="bg-green py-[clamp(14px,3.5vh,28px)] flex-shrink-0">
+        <section className="bg-green py-[clamp(8px,2vh,16px)] flex-shrink-0">
           <div className="text-center">
             <p className="text-base sm:text-lg text-white/90 leading-relaxed font-medium">
               Green Way to Growth
