@@ -40,7 +40,7 @@ export default function CategoryTabs({ products, category, allProducts = [] }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
             {/* Gallery Side */}
             <div className="lg:col-span-6 lg:sticky lg:top-24 w-full pl-2 sm:pl-4 pt-4 sm:pt-6">
-              <ProductGallery product={active} />
+              <ProductGallery key={active.id} product={active} />
             </div>
 
             {/* Text Side */}
