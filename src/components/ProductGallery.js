@@ -7,25 +7,17 @@ export default function ProductGallery({ product }) {
   const count = images.length;
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const [slideKey, setSlideKey] = useState(0);
 
   const goTo = useCallback((i) => {
-    setDirection(i > activeIndex ? 1 : -1);
     setActiveIndex(i);
-    setSlideKey((k) => k + 1);
-  }, [activeIndex]);
+  }, []);
 
   const prev = useCallback(() => {
-    setDirection(-1);
     setActiveIndex((p) => (p === 0 ? count - 1 : p - 1));
-    setSlideKey((k) => k + 1);
   }, [count]);
 
   const next = useCallback(() => {
-    setDirection(1);
     setActiveIndex((p) => (p + 1) % count);
-    setSlideKey((k) => k + 1);
   }, [count]);
 
   const currentImg = images[activeIndex] || null;
@@ -61,41 +53,19 @@ export default function ProductGallery({ product }) {
       {/* Main Image */}
       <div className="flex-1 aspect-square rounded-2xl bg-white border border-brand-border overflow-hidden relative group shadow-sm min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]">
         <div className="w-full h-full overflow-hidden">
-          <div
-            key={slideKey}
-            className="w-full h-full"
-            style={{
-              animation: count > 1 ? `slideIn 0.35s ease-out` : "none",
-              "--slide-from": direction > 0 ? "30px" : "-30px",
-            }}
-          >
-            {currentImg ? (
-              <img
-                src={currentImg}
-                alt={product.title}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full bg-brand-bg2 flex flex-col items-center justify-center gap-2 sm:gap-4 p-6 sm:p-8">
-                <i className={`fas ${product.icon || "fa-box"} text-4xl sm:text-6xl lg:text-7xl text-brand-muted`}></i>
-                <span className="text-[10px] sm:text-xs lg:text-sm font-bold text-brand-muted">Product Image</span>
-              </div>
-            )}
-          </div>
+          {currentImg ? (
+            <img
+              src={currentImg}
+              alt={product.title}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full bg-brand-bg2 flex flex-col items-center justify-center gap-2 sm:gap-4 p-6 sm:p-8">
+              <i className={`fas ${product.icon || "fa-box"} text-4xl sm:text-6xl lg:text-7xl text-brand-muted`}></i>
+              <span className="text-[10px] sm:text-xs lg:text-sm font-bold text-brand-muted">Product Image</span>
+            </div>
+          )}
         </div>
-
-        <style jsx>{`
-          @keyframes slideIn {
-            from {
-              transform: translateX(var(--slide-from, 30px));
-              opacity: 0;
-            }
-            to {
-              transform: translateX(0);
-              opacity: 1;
-            }
-          }
-        `}</style>
 
         {/* Arrow navigation */}
         {count > 1 && (
