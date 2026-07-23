@@ -224,7 +224,7 @@
 //           <div className="absolute inset-0 hero-pattern opacity-10"></div>
 //           <div className="w-full mx-auto px-3 sm:px-4 relative z-10">
 //             <div className="text-center mx-auto">
-//               <img src="/logo-header.webp" alt="Bio-Chem Logo" className="w-20 sm:w-24 brightness-0 invert mx-auto" />
+//               <img src="/logo-header.webp" alt="Bio-Chem Logo" className="w-[clamp(100px,15vh,150px)] brightness-0 invert mx-auto" />
 //             </div>
 //           </div>
 //         </section>
@@ -254,7 +254,7 @@
 //             {resources.map((r) => (
 //               <Link key={r.title} href={r.href} className="flex flex-col items-center gap-1 bg-white rounded-2xl py-1.5 px-2 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer w-[90px] sm:w-[110px]" style={{ color: GREEN_DARK }}>
 //                 {r.icon}
-//                 <span className="text-[10px] sm:text-[11px] font-medium text-gray-700">{r.title}</span>
+//                 <span className="text-xs sm:text-sm font-medium text-gray-700">{r.title}</span>
 //               </Link>
 //             ))}
 //           </div>
@@ -272,7 +272,7 @@
 //                 style={{ color: GREEN_DARK }}
 //               >
 //                 {s.icon}
-//                 <span className="text-[10px] sm:text-[11px] font-medium text-gray-700">{s.label}</span>
+//                 <span className="text-xs sm:text-sm font-medium text-gray-700">{s.label}</span>
 //               </a>
 //             ))}
 //           </div>
@@ -313,7 +313,6 @@ const products = [
     title: "CleanTec",
     href: "/products?brand=CleanTec",
     noIconBg: true,
-    iconHeight: "h-8",
   },
   {
     icon: (
@@ -339,7 +338,7 @@ const services = [
 const resources = [
   {
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none" className="w-[clamp(24px,4vh,34px)] h-[clamp(24px,4vh,34px)]" xmlns="http://www.w3.org/2000/svg">
         <rect x="3" y="2" width="13" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
         <path d="M3 8h13" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
         <path d="M8 13h8M8 17h5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -352,7 +351,7 @@ const resources = [
   },
   {
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none" className="w-[clamp(24px,4vh,34px)] h-[clamp(24px,4vh,34px)]" xmlns="http://www.w3.org/2000/svg">
         <rect x="3" y="3" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="2"/>
         <rect x="13" y="3" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="2"/>
         <rect x="3" y="13" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="2"/>
@@ -369,7 +368,7 @@ const socials = [
     label: "Email",
     href: "mailto:info@bio-chem.in",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-[clamp(24px,4vh,34px)] h-[clamp(24px,4vh,34px)]">
         <rect x="2" y="4" width="20" height="16" rx="2"/>
         <path d="M2 7l10 7 10-7"/>
       </svg>
@@ -379,7 +378,7 @@ const socials = [
     label: "WhatsApp",
     href: "https://wa.me/919843406642",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-[clamp(24px,4vh,34px)] h-[clamp(24px,4vh,34px)]">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
         <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.529 5.856L.057 23.882l6.19-1.624A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.802a9.77 9.77 0 01-4.988-1.366l-.358-.213-3.714.974.992-3.622-.234-.373A9.775 9.775 0 012.198 12C2.198 6.58 6.58 2.198 12 2.198S21.802 6.58 21.802 12 17.42 21.802 12 21.802z"/>
       </svg>
@@ -389,7 +388,7 @@ const socials = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/company/regent-biochem/",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-[clamp(24px,4vh,34px)] h-[clamp(24px,4vh,34px)]">
         <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
         <circle cx="4" cy="4" r="2"/>
       </svg>
@@ -399,7 +398,7 @@ const socials = [
     label: "YouTube",
     href: "https://youtube.com/@regentbio-chem?si=yOEOWQuYKA7JCwUa",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-[clamp(24px,4vh,34px)] h-[clamp(24px,4vh,34px)]">
         <path d="M22.54 6.42A2.78 2.78 0 0020.59 4.5C18.88 4 12 4 12 4s-6.88 0-8.59.5A2.78 2.78 0 001.46 6.42 29.94 29.94 0 001 12a29.94 29.94 0 00.46 5.58A2.78 2.78 0 003.41 19.5C5.12 20 12 20 12 20s6.88 0 8.59-.5a2.78 2.78 0 001.95-1.92A29.94 29.94 0 0023 12a29.94 29.94 0 00-.46-5.58z"/>
         <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/>
       </svg>
@@ -409,7 +408,7 @@ const socials = [
     label: "Instagram",
     href: "https://www.instagram.com/regent_biochem/",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-[clamp(24px,4vh,34px)] h-[clamp(24px,4vh,34px)]">
         <rect x="2" y="2" width="20" height="20" rx="5"/>
         <circle cx="12" cy="12" r="4"/>
         <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
@@ -420,7 +419,7 @@ const socials = [
     label: "Facebook",
     href: "https://www.facebook.com/profile.php?id=61591484781451",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-[clamp(24px,4vh,34px)] h-[clamp(24px,4vh,34px)]">
         <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
       </svg>
     ),
@@ -434,7 +433,7 @@ function SectionDivider({ title }) {
         <div className="w-1.5 h-1.5 rounded-full" style={{ background: GREEN_MID }} />
         <div className="flex-1 h-px" style={{ background: GREEN_MID }} />
       </div>
-      <h2 className="text-[11px] sm:text-xs md:text-sm font-bold whitespace-nowrap" style={{ color: GREEN_DARK }}>
+      <h2 className="text-sm sm:text-base md:text-lg font-bold whitespace-nowrap" style={{ color: GREEN_DARK }}>
         {title}
       </h2>
       <div className="flex-1 flex items-center gap-1">
@@ -445,7 +444,7 @@ function SectionDivider({ title }) {
   );
 }
 
-function MiniCard({ icon, title, href, className = "", noIconBg = false, iconHeight = "h-8", hideTitle = false }) {
+function MiniCard({ icon, title, href, className = "", noIconBg = false, iconHeight = "h-[clamp(36px,6vh,52px)]", hideTitle = false }) {
   const content = (
     <div className={`flex flex-col items-center justify-center gap-1 bg-white rounded-2xl py-2 px-2 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer text-center ${className}`} style={{ color: GREEN_DARK }}>
       {noIconBg ? (
@@ -457,7 +456,7 @@ function MiniCard({ icon, title, href, className = "", noIconBg = false, iconHei
           {icon}
         </div>
       )}
-      {!hideTitle && <span className="text-[10px] sm:text-xs font-medium text-gray-700">{title}</span>}
+      {!hideTitle && <span className="text-xs sm:text-sm font-medium text-gray-700">{title}</span>}
     </div>
   );
   if (href) return <Link href={href}>{content}</Link>;
@@ -478,11 +477,11 @@ export default function Links() {
       <div className="w-full flex flex-col max-w-[780px] mx-auto h-full justify-between">
 
         {/* ─── PAGE HERO ─── */}
-        <section className="relative py-2.5 bg-green overflow-hidden flex-shrink-0">
+        <section className="relative py-[clamp(16px,4vh,32px)] bg-green overflow-hidden flex-shrink-0">
           <div className="absolute inset-0 hero-pattern opacity-10"></div>
           <div className="w-full mx-auto px-3 sm:px-4 relative z-10">
             <div className="text-center mx-auto">
-              <img src="/logo-header.webp" alt="Bio-Chem Logo" className="w-20 sm:w-24 brightness-0 invert mx-auto" />
+              <img src="/logo-header.webp" alt="Bio-Chem Logo" className="w-[clamp(100px,15vh,150px)] brightness-0 invert mx-auto" />
             </div>
           </div>
         </section>
@@ -494,7 +493,7 @@ export default function Links() {
             <SectionDivider title="Our Products" />
             <div className="flex justify-center flex-wrap gap-2 mt-1">
               {products.map((p) => (
-                <MiniCard key={p.title} icon={p.icon} title={p.title} href={p.href} noIconBg={p.noIconBg} iconHeight={p.iconHeight} hideTitle className="w-[100px] sm:w-[120px]" />
+                <MiniCard key={p.title} icon={p.icon} title={p.title} href={p.href} noIconBg={p.noIconBg} iconHeight={p.iconHeight} hideTitle className="w-[clamp(105px,16vh,155px)]" />
               ))}
             </div>
           </div>
@@ -505,7 +504,7 @@ export default function Links() {
             <div className="flex justify-center items-center mt-1">
               <div className="w-fit mx-auto">
                 {services.map((s) => (
-                  <MiniCard key={s.title} icon={s.icon} title={s.title} href={s.href} noIconBg={s.noIconBg} hideTitle className="w-[100px] sm:w-[120px] mx-auto" />
+                  <MiniCard key={s.title} icon={s.icon} title={s.title} href={s.href} noIconBg={s.noIconBg} hideTitle className="w-[clamp(105px,16vh,155px)] mx-auto" />
                 ))}
               </div>
             </div>
@@ -516,9 +515,9 @@ export default function Links() {
             <SectionDivider title="Resources" />
             <div className="flex justify-center flex-wrap gap-2 mt-1">
               {resources.map((r) => (
-                <Link key={r.title} href={r.href} className="flex flex-col items-center justify-center gap-1 bg-white rounded-2xl py-2 px-2 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer w-[100px] sm:w-[120px]" style={{ color: GREEN_DARK }}>
+                <Link key={r.title} href={r.href} className="flex flex-col items-center justify-center gap-1 bg-white rounded-2xl py-2 px-2 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer w-[clamp(105px,16vh,155px)]" style={{ color: GREEN_DARK }}>
                   {r.icon}
-                  <span className="text-[10px] sm:text-[11px] font-medium text-gray-700">{r.title}</span>
+                  <span className="text-xs sm:text-sm font-medium text-gray-700">{r.title}</span>
                 </Link>
               ))}
             </div>
@@ -527,7 +526,7 @@ export default function Links() {
           {/* Stay Connected */}
           <div>
             <SectionDivider title="Stay Connected" />
-            <div className="grid grid-cols-3 gap-2 mt-1 max-w-[360px] mx-auto w-full">
+            <div className="grid grid-cols-3 gap-2 mt-1 max-w-[calc(3*clamp(105px,16vh,155px)+16px)] mx-auto w-full">
               {socials.map((s) => (
                 <a
                   key={s.label}
@@ -538,7 +537,7 @@ export default function Links() {
                   style={{ color: GREEN_DARK }}
                 >
                   {s.icon}
-                  <span className="text-[10px] sm:text-[11px] font-medium text-gray-700">{s.label}</span>
+                  <span className="text-xs sm:text-sm font-medium text-gray-700">{s.label}</span>
                 </a>
               ))}
             </div>
@@ -546,9 +545,9 @@ export default function Links() {
         </div>
 
         {/* ─── FOOTER TAGLINE ─── */}
-        <section className="bg-green py-2 flex-shrink-0">
+        <section className="bg-green py-[clamp(14px,3.5vh,28px)] flex-shrink-0">
           <div className="text-center">
-            <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-white/90 leading-relaxed font-medium">
               Green Way to Growth
             </p>
           </div>
